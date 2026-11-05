@@ -124,9 +124,9 @@ h1.hero-title span { font-weight:600; background:linear-gradient(90deg, #ffd3d5 
 .brief-btn--hero.playing .bb-ic { animation-name:pulse-ring-hero; }
 
 /* ══ WEEKS ══ */
-.marathon { padding:44px 0 6px; scroll-margin-top:70px; }
+.weeks { padding:44px 0 6px; scroll-margin-top:70px; }
 .sec-eyebrow { font-size:11px; font-weight:600; letter-spacing:2px; text-transform:uppercase; color:var(--red); margin-bottom:10px; }
-.marathon h2 { font-size:clamp(24px,3vw,32px); font-weight:700; letter-spacing:-.025em; }
+.weeks h2 { font-size:clamp(24px,3vw,32px); font-weight:700; letter-spacing:-.025em; }
 .lens-note { font-size:13.5px; color:var(--text-2); margin-top:8px; max-width:70ch; }
 .guard { margin-top:18px; border:1px solid var(--line); background:var(--surface); border-radius:var(--r); padding:13px 16px; font-size:13px; color:var(--text-2); display:flex; gap:12px; align-items:flex-start; box-shadow:var(--shadow); }
 .guard b { color:var(--text); }
@@ -182,8 +182,6 @@ h1.hero-title span { font-weight:600; background:linear-gradient(90deg, #ffd3d5 
 .x-spine { position:absolute; inset:0; background:linear-gradient(180deg, #ffffff 0%, #f3f6fb 100%); display:flex; flex-direction:column; align-items:center; justify-content:space-between; padding:18px 12px 16px; text-align:center; transition:opacity .2s; }
 .xcard[data-active="true"] .x-spine { opacity:0; pointer-events:none; }
 .x-spine .x-vert { writing-mode:vertical-rl; transform:rotate(180deg); font-size:13.5px; font-weight:600; letter-spacing:-.01em; line-height:1.25; color:var(--text); max-height:190px; overflow:hidden; margin:12px 0; }
-.x-num { font-size:22px; font-weight:700; letter-spacing:-.03em; line-height:1; font-variant-numeric:tabular-nums; background:linear-gradient(180deg, var(--blue), var(--navy)); -webkit-background-clip:text; background-clip:text; -webkit-text-fill-color:transparent; }
-.xcard.today .x-spine .x-num { background:linear-gradient(180deg, #ff5a60, var(--red-dk)); -webkit-background-clip:text; background-clip:text; }
 .x-spine .x-daynum { font-size:10px; font-weight:600; letter-spacing:1.2px; text-transform:uppercase; color:var(--muted); margin-top:8px; }
 .x-foot { display:flex; flex-direction:column; align-items:center; }
 .x-badge { width:40px; height:40px; border-radius:50%; display:grid; place-items:center; font-size:15px; font-weight:700; letter-spacing:-.02em; color:#fff; background:linear-gradient(135deg, var(--blue-2), var(--navy)); box-shadow:0 6px 14px rgba(31,78,156,.28), inset 0 1px 0 rgba(255,255,255,.25); font-variant-numeric:tabular-nums; }
@@ -208,7 +206,6 @@ h1.hero-title span { font-weight:600; background:linear-gradient(90deg, #ffd3d5 
 .x-top { display:flex; align-items:center; gap:8px; flex-wrap:wrap; margin-bottom:12px; padding-right:190px; }
 .x-time { font-size:11px; font-weight:500; color:var(--muted); margin-left:4px; }
 .x-title-row { display:flex; align-items:center; gap:14px; max-width:78%; margin-bottom:4px; }
-.xcard.today .x-title-row .x-num { background:linear-gradient(180deg, #ff5a60, var(--red-dk)); -webkit-background-clip:text; background-clip:text; }
 .x-title { font-size:clamp(22px,2.3vw,28px); font-weight:700; letter-spacing:-.025em; line-height:1.12; color:var(--text); }
 .x-actions { position:absolute; right:22px; top:20px; display:flex; gap:8px; }
 .xbtn { appearance:none; background:var(--surface); border:1px solid var(--line-2); font-size:11px; font-weight:600; letter-spacing:.6px; text-transform:uppercase; color:var(--text); padding:7px 13px; border-radius:100px; cursor:pointer; transition:all .16s; white-space:nowrap; }
@@ -243,8 +240,6 @@ h1.hero-title span { font-weight:600; background:linear-gradient(90deg, #ffd3d5 
 .sec h4 .n { letter-spacing:.3px; text-transform:none; font-weight:500; font-size:11.5px; }
 .sec h4 .n { color:var(--text-2); }
 .sec p { font-size:13px; color:var(--text-2); line-height:1.6; }
-.sec.tip { background:var(--surface-2); border-left:3px solid var(--red); border-radius:0 var(--r-sm) var(--r-sm) 0; padding:10px 12px; }
-.sec.tip h4 { color:var(--text-2); }
 .clips { display:flex; flex-wrap:wrap; gap:6px; }
 .clip { display:inline-flex; align-items:center; gap:7px; font-size:12px; font-weight:600; color:var(--navy); background:var(--surface); border:1px solid var(--line-2); border-radius:100px; padding:6px 12px; cursor:pointer; transition:all .16s; }
 .clip:hover { border-color:var(--navy); }
@@ -384,7 +379,7 @@ footer b { color:var(--text-2); font-weight:600; }
 <div class="ribbon" aria-hidden="true"></div>
 
 <!-- WEEKLY ACTIVITIES -->
-<section class="marathon" id="weeks">
+<section class="weeks" id="weeks">
   <div class="wrap">
     <div class="sec-eyebrow">The program</div>
     <h2>Weekly activities</h2>
@@ -412,7 +407,6 @@ const WEEKS = [
   "name": "Rethink AI",
   "short": "Rethink AI",
   "dates": "Nov 9–13",
-  "accent": "var(--w1)",
   "check": "Challenge assumptions · Understand the audience · Simplify accurately · Decide under pressure",
   "days": [
    "NOV 9",
@@ -439,7 +433,6 @@ const WEEKS = [
   "name": "Customer and Partner Intelligence",
   "short": "Customer and Partner Intelligence",
   "dates": "Nov 16–20",
-  "accent": "var(--w2)",
   "check": "Research a real account · Challenge the account story · Prepare the agent’s knowledge",
   "days": [
    "NOV 16",
@@ -466,7 +459,6 @@ const WEEKS = [
   "name": "Create Your AI Agent",
   "short": "Create Your AI Agent",
   "dates": "Nov 30–Dec 4",
-  "accent": "var(--w3)",
   "check": "Learn agents · Build on the pack · Test · Refine · Maintain",
   "days": [
    "NOV 30",
@@ -509,7 +501,6 @@ const WEEKS = [
   "name": "Account Strategy and Business Reviews",
   "short": "Account Strategy and Business Reviews",
   "dates": "Dec 7–11",
-  "accent": "var(--w4)",
   "check": "Use the agent for strategy, scenarios, rehearsal, and a forward looking review",
   "days": [
    "DEC 7",
@@ -539,7 +530,6 @@ const ACTS = [
   "date": "2026-11-09",
   "dow": "MON",
   "fri": false,
-  "emoji": "🥊",
   "title": "The Challenger",
   "mission": "Take a value claim about retaining an agency account, supporting a mission, enabling university research, or winning with a partner. Ask AI to act as a skeptical stakeholder and identify three weak points. Revise the most consequential claim using available evidence.",
   "skill": "Adversarial prompting and human judgment.",
@@ -552,7 +542,6 @@ const ACTS = [
   "date": "2026-11-10",
   "dow": "TUE",
   "fri": false,
-  "emoji": "🎯",
   "title": "The Translator",
   "mission": "Use one message with a customer leader, technical stakeholder, and partner lead. Have AI profile their likely priorities before rewriting. Label inferred priorities, preserve the same facts, and choose a relevant question for each audience.",
   "skill": "Audience profiling and context setting.",
@@ -565,7 +554,6 @@ const ACTS = [
   "date": "2026-11-11",
   "dow": "WED",
   "fri": false,
-  "emoji": "💡",
   "title": "Make the Complex Simple",
   "mission": "Explain interconnection or another relevant technical concept to a nontechnical stakeholder. Generate short analogies, ask AI where each breaks down, and refine the best explanation against an approved reference.",
   "skill": "Self critique and accurate simplification.",
@@ -578,7 +566,6 @@ const ACTS = [
   "date": "2026-11-12",
   "dow": "THU",
   "fri": false,
-  "emoji": "🔍",
   "title": "Reverse Engineer the Prompt",
   "mission": "Start with a strong account preparation example. Ask AI to infer a reusable prompt specifying the audience, evidence, unknowns, tone, and next action. Test it on a different agency, institution, or partner scenario and improve it.",
   "skill": "Prompt design and testing.",
@@ -591,7 +578,6 @@ const ACTS = [
   "date": "2026-11-13",
   "dow": "FRI",
   "fri": true,
-  "emoji": "🎛️",
   "title": "The Situation Room",
   "mission": "Apply the week’s techniques to a situation involving price pressure, incomplete customer information, and unaligned partner engagement. Challenge assumptions, compare perspectives, and create a three sentence brief with two coordinated next actions.",
   "skill": "Combining AI techniques to support a decision.",
@@ -604,7 +590,6 @@ const ACTS = [
   "date": "2026-11-16",
   "dow": "MON",
   "fri": false,
-  "emoji": "🎯",
   "title": "Choose the Account and Research Questions",
   "mission": "Select one real agency, institution, or partner supported customer account. Define three questions about its priorities, challenges, and future plans. Find an initial authoritative source and create the source register. Keep the scope to one account and one useful sales conversation.",
   "skill": "Research planning and focused inquiry.",
@@ -617,7 +602,6 @@ const ACTS = [
   "date": "2026-11-17",
   "dow": "TUE",
   "fri": false,
-  "emoji": "🗂️",
   "title": "Build the Customer Source Pack",
   "mission": "Collect a small set of relevant documents or permitted excerpts. Cover customer plans, technical or service needs, funding or procurement signals, and partner involvement where evidence exists. Record origin, publication date, access date, and relevance. Aim for three to five useful sources across the week.",
   "skill": "Source selection and organizing evidence.",
@@ -630,7 +614,6 @@ const ACTS = [
   "date": "2026-11-18",
   "dow": "WED",
   "fri": false,
-  "emoji": "🗺️",
   "title": "Find the Customer and Partner Story",
   "mission": "Ask AI to connect findings across the pack: customer priorities, stakeholder interests, partner contributions, and possible relevance to Equinix. Use approved capability references for product claims. Separate what sources state from your opportunity hypothesis.",
   "skill": "Synthesis and relationship mapping.",
@@ -643,7 +626,6 @@ const ACTS = [
   "date": "2026-11-19",
   "dow": "THU",
   "fri": false,
-  "emoji": "⚖️",
   "title": "Challenge the Intelligence",
   "mission": "Ask AI to argue against the emerging account story. Find missing, contradictory, or stale information. Check the most important claims against the originals, refine the pack, and turn unresolved gaps into discovery questions.",
   "skill": "Counter analysis and source verification.",
@@ -656,7 +638,6 @@ const ACTS = [
   "date": "2026-11-20",
   "dow": "FRI",
   "fri": true,
-  "emoji": "📄",
   "title": "Create the Account Brief",
   "mission": "Produce a one page brief covering priorities, stakeholders and partners, potential value, alternatives, unknowns, and next questions. Finalize the source pack with a contents list and five questions that will later test the agent.",
   "skill": "Concise briefing and preparation for agent testing.",
@@ -669,7 +650,6 @@ const ACTS = [
   "date": "2026-11-30",
   "dow": "MON",
   "fri": false,
-  "emoji": "✏️",
   "title": "Understand and Design Your Agent",
   "mission": "Define the agent’s purpose, users, three account tasks, and preferred response format. Identify which pack files support those tasks. Draft instructions for evidence, assumptions, missing information, and customer and partner perspectives.",
   "skill": "Scoping an agent and defining useful behavior.",
@@ -693,7 +673,6 @@ const ACTS = [
   "date": "2026-12-01",
   "dow": "TUE",
   "fri": false,
-  "emoji": "🛠️",
   "title": "Build Your Account Agent",
   "mission": "Create the agent, review its name and instructions, add the Customer Source Pack through the approved knowledge setup, and add three starter prompts. Confirm the sources are ready, then ask one known answer question.",
   "skill": "Configuration and grounding in selected sources.",
@@ -722,7 +701,6 @@ const ACTS = [
   "date": "2026-12-02",
   "dow": "WED",
   "fri": false,
-  "emoji": "🧪",
   "title": "Test What It Knows",
   "mission": "Run the five questions prepared in Week 2. Check source references, accuracy, synthesis, and treatment of missing information. Record a pass or issue for each response and identify the highest priority fix.",
   "skill": "Evaluation against expected evidence and behavior.",
@@ -751,7 +729,6 @@ const ACTS = [
   "date": "2026-12-03",
   "dow": "THU",
   "fri": false,
-  "emoji": "🔄",
   "title": "Improve and Maintain Your Agent",
   "mission": "Fix instructions or source content, then rerun the failed test. Add a verified account update or correct an existing source. Refresh or replace the knowledge as needed and confirm the agent uses the revision. Record the update owner and next review date.",
   "skill": "Iterative refinement and knowledge maintenance.",
@@ -775,7 +752,6 @@ const ACTS = [
   "date": "2026-12-04",
   "dow": "FRI",
   "fri": true,
-  "emoji": "🚀",
   "title": "Put Your Agent to Work",
   "mission": "Use the agent to prepare a customer or partner conversation: priorities, questions, and next actions. Demonstrate the result. If sharing is enabled and appropriate, test with an intended colleague and confirm their knowledge access.",
   "skill": "Applied use, handover, and feedback.",
@@ -799,7 +775,6 @@ const ACTS = [
   "date": "2026-12-07",
   "dow": "MON",
   "fri": false,
-  "emoji": "🧭",
   "title": "Establish the Account Truth",
   "mission": "Use the agent to review customer priorities, developments, relationship gaps, and unanswered questions. Ask it to distinguish evidence from inference and identify what matters most for the next conversation. Verify the most consequential finding against the source pack.",
   "skill": "Evidence auditing and prioritization.",
@@ -812,7 +787,6 @@ const ACTS = [
   "date": "2026-12-08",
   "dow": "TUE",
   "fri": false,
-  "emoji": "📈",
   "title": "Develop the Account Strategy",
   "mission": "Work with the agent to develop retention, growth, and relationship priorities where relevant. Include customer outcomes, partner contribution, proposed owners, milestones, and success measures. Challenge one assumption that could cause the plan to stall.",
   "skill": "Strategy formulation and testing execution risks.",
@@ -825,7 +799,6 @@ const ACTS = [
   "date": "2026-12-09",
   "dow": "WED",
   "fri": false,
-  "emoji": "📊",
   "title": "Explore the Scenarios",
   "mission": "Ask the agent how delayed funding, changing connectivity demand, or a different partner role would affect the strategy. Compare a baseline and two changes. Label all hypothetical inputs. If using numbers or projections, verify calculations in an approved spreadsheet and retain the assumptions.",
   "skill": "Scenario reasoning and sensitivity to assumptions.",
@@ -838,7 +811,6 @@ const ACTS = [
   "date": "2026-12-10",
   "dow": "THU",
   "fri": false,
-  "emoji": "🎤",
   "title": "Rehearse the Business Review",
   "mission": "Ask the same agent to play a customer leader, technical stakeholder, and partner executive. Invite difficult questions on value, delivery, cost, evidence, and responsibilities. Improve the weakest response and sharpen the decision or commitment to seek.",
   "skill": "Role play, challenge, and executive communication.",
@@ -851,7 +823,6 @@ const ACTS = [
   "date": "2026-12-11",
   "dow": "FRI",
   "fri": true,
-  "emoji": "🏁",
   "title": "Build the Forward Looking Business Review",
   "mission": "Use the agent and the week’s work to assemble a concise customer QBR or partner business review. Cover what changed, why it matters, future priorities, scenario implications, and proposed actions. Format the reviewed content in a short document or existing review template.",
   "skill": "Synthesis and a clear business recommendation.",
@@ -872,14 +843,10 @@ const TODAY = (() => {
 })();
 
 /* ══ STATE (remembered in this browser) ══ */
-const store = { get(k, f) { try { const v = localStorage.getItem(k); return v === null ? f : JSON.parse(v); } catch (e) { return f; } }, set(k, v) { try { localStorage.setItem(k, JSON.stringify(v)); } catch (e) {} } };
 const activeDay = { 1: 0, 2: 0, 3: 0, 4: 0 };
 
 /* ══ HELPERS ══ */
 const esc = s => String(s ?? '').replace(/[&<>"']/g, c => ({ '&':'&amp;', '<':'&lt;', '>':'&gt;', '"':'&quot;', "'":'&#39;' })[c]);
-const mark = s => esc(s).replace(/\{([^}]+)\}/g, '<mark>{$1}</mark>');
-const hexToRgba = (hex, a) => { const n = parseInt(hex.slice(1), 16); return `rgba(${(n>>16)&255},${(n>>8)&255},${n&255},${a})`; };
-const accentHex = v => ({ 'var(--w1)':'#2997ff', 'var(--w2)':'#64d2ff', 'var(--w3)':'#30d158', 'var(--w4)':'#ff375f', 'var(--w5)':'#ffb340' }[v] || '#2997ff');
 const fmtLong = d => { const x = new Date(d + 'T12:00:00'); return `${['Sunday','Monday','Tuesday','Wednesday','Thursday','Friday','Saturday'][x.getDay()]}, ${['January','February','March','April','May','June','July','August','September','October','November','December'][x.getMonth()]} ${x.getDate()}`; };
 const fmtShort = d => { const x = new Date(d + 'T12:00:00'); return `${['Sun','Mon','Tue','Wed','Thu','Fri','Sat'][x.getDay()]} · ${['Jan','Feb','Mar','Apr','May','Jun','Jul','Aug','Sep','Oct','Nov','Dec'][x.getMonth()]} ${x.getDate()}`; };
 const dayNum = a => ACTS.indexOf(a) + 1;
@@ -917,7 +884,6 @@ function tickers() {
 
 
 /* ══ WEEK TABS + PANELS ══ */
-const ytAt = (v, t) => `https://www.youtube.com/watch?v=${v.youtubeId}&t=${t}s`;
 const mmss = t => `${Math.floor(t / 60)}:${String(t % 60).padStart(2, '0')}`;
 function watchHtml(a, w) {
   if (!a.watch) return '';
@@ -928,7 +894,6 @@ function watchHtml(a, w) {
 const stepsOf = m => m.split(/(?<=\.)\s+(?=[A-Z])/).map(t => t.trim()).filter(Boolean);
 const leadVerb = t => { const m = t.match(/^(\S+)(\s|$)/); return m ? `<b>${esc(m[1])}</b>${esc(t.slice(m[1].length))}` : esc(t); };
 function cardHtml(a, w, idx) {
-  const accent = accentHex(w.accent);
   const today = a.date === TODAY;
   const bar = today ? 'var(--red)' : a.fri ? 'var(--navy)' : 'var(--line-2)';
   const chip = `${a.dow} · ${w.days[idx]}${today ? '<span class="today-tag">· TODAY</span>' : ''}`;
@@ -1119,7 +1084,7 @@ document.addEventListener('loadedmetadata', e => { if (e.target.tagName === 'AUD
 document.addEventListener('pause', e => { if (e.target.tagName === 'AUDIO') syncBrief(e.target); }, true);
 document.addEventListener('play', e => { if (e.target.tagName === 'AUDIO') syncBrief(e.target); }, true);
 
-/* ══ WEEK SWITCH (from the Channel Sales page) ══ */
+/* ══ WEEK SWITCH ══ */
 let switching = false, currentWeek = 1;
 function setWeek(n) {
   const next = document.getElementById('panel-' + n);
