@@ -13,10 +13,6 @@ Degrades gracefully without WebGL2.
 
 - **Hero** with a live **today pill** (today's activity, a countdown before
   Nov 9, the break notice in Thanksgiving week) and number tickers.
-- **Skills marquee** — the twenty AI skills the program teaches, scrolling.
-- **Program bento** — what we heard and how the program responds, the daily
-  rhythm, coaching, your context, the finish line — with a glowing border that
-  follows the pointer, and the data rule.
 - **Weekly activities** — one tab per week. Each week is a row of five
   **expanding day cards**: the open day takes most of the width and shows the
   full brief in two columns (mission, timed steps, build paths · starter
@@ -29,15 +25,12 @@ Degrades gracefully without WebGL2.
 - **Your context** — Federal Civilian · Defense and Intel · SLED and higher ed ·
   Partner Sales — switches the **Your lens** section on every day. Remembered
   in the browser.
-- **The Journey** — a timeline with sticky week titles and a beam that grows as
-  you scroll, each week's five activities as chips that open the day, and the
-  key dates.
-- **The Finish Line** (the Week 4 Business Review and the optional capstone),
-  **Submission Channel** tab, **Materials** with spotlight cards.
+- **Submission Channel** tab for Viva Engage.
 
-The interaction patterns (expanding cards, glowing border, spotlight, scroll
-timeline, bento, number ticker, marquee) are adapted from 21st.dev references
-and re-implemented in plain CSS and JavaScript — no framework, no build step.
+The page is deliberately lean: the hero, then the weeks and the daily
+activities. The interaction patterns (expanding cards, spotlight, number
+ticker) are adapted from 21st.dev references and re-implemented in plain CSS
+and JavaScript — no framework, no build step.
 
 **Today:** the page opens on the current week with today's card open; add
 `?date=YYYY-MM-DD` to preview any day, for example `index.html?date=2026-11-30`.
@@ -53,7 +46,7 @@ All content is in the `DATA` block at the top of the page script in `index.html`
   daily guide layer, drafted for facilitator review.
 - `ENGAGE_EMBED` — set to the cohort's Viva Engage group embed URL to show the
   feed in the Submission Channel tab (until then the tab links out).
-- `MATERIALS` and `DATES`.
+- `MATERIALS` and `DATES` are kept in the data block for a later section.
 
 ## Publish
 

@@ -242,9 +242,7 @@ h1.hero-title .grad {
 }
 .channel-embed iframe { display:block; width:100%; height:100%; }
 
-/* ══════════════════════════════════════
-   GRAND FINAL
-══════════════════════════════════════ */
+/* section eyebrow */
 .grand-final-sec { padding:72px 0 24px; }
 .sec-eyebrow {
   font-size:11px; font-weight:600; letter-spacing:2.5px; text-transform:uppercase;
@@ -346,61 +344,6 @@ footer b { color:var(--text); }
   padding:7px 13px; border-radius:100px; white-space:nowrap;
 }
 .kpi-n { font-variant-numeric:tabular-nums; }
-
-/* marquee of the twenty AI skills */
-.marquee-band { position:relative; z-index:1; border-top:1px solid var(--border); border-bottom:1px solid var(--border); background:rgba(10,10,12,.45); overflow:hidden;
-  -webkit-mask-image:linear-gradient(90deg, transparent, #000 8%, #000 92%, transparent); mask-image:linear-gradient(90deg, transparent, #000 8%, #000 92%, transparent); }
-.marquee { display:flex; width:max-content; animation:marquee 70s linear infinite; }
-.marquee-band:hover .marquee { animation-play-state:paused; }
-.marquee span { display:inline-flex; align-items:center; gap:14px; padding:13px 18px; font-size:12px; font-weight:500; color:var(--text2); white-space:nowrap; }
-.marquee span i { width:5px; height:5px; border-radius:50%; background:var(--accent); opacity:.7; }
-@keyframes marquee { to { transform:translateX(-50%); } }
-@media (prefers-reduced-motion: reduce) { .marquee { animation:none; } }
-
-/* bento with the glowing border (conic gradient that follows the pointer) */
-.bento { display:grid; grid-template-columns:repeat(12,1fr); gap:14px; margin-top:34px; }
-.b-card {
-  position:relative; border-radius:20px; padding:22px 24px;
-  background:var(--surface); border:1px solid var(--border);
-  box-shadow:0 2px 12px rgba(0,0,0,.4);
-  backdrop-filter:blur(24px) saturate(140%); -webkit-backdrop-filter:blur(24px) saturate(140%);
-  --start:0; --active:0; --mx:50%; --my:50%;
-  transition:transform .25s, border-color .25s;
-}
-.b-card:hover { transform:translateY(-2px); }
-.b-card::before {
-  content:""; position:absolute; inset:-1px; border-radius:inherit; pointer-events:none;
-  padding:1.5px;
-  background:conic-gradient(from calc(var(--start) * 1deg), transparent 0deg, #ff7a8a 18deg, #9aa8ff 40deg, #5ac8fa 62deg, transparent 90deg);
-  -webkit-mask:linear-gradient(#000 0 0) content-box, linear-gradient(#000 0 0); mask:linear-gradient(#000 0 0) content-box, linear-gradient(#000 0 0);
-  -webkit-mask-composite:xor; mask-composite:exclude;
-  opacity:var(--active); transition:opacity .35s;
-}
-.b-card::after {
-  content:""; position:absolute; inset:0; border-radius:inherit; pointer-events:none;
-  background:radial-gradient(420px circle at var(--mx) var(--my), rgba(255,255,255,.06), transparent 45%);
-  opacity:var(--active); transition:opacity .35s;
-}
-.b-card > * { position:relative; z-index:1; }
-.b-card h3 { font-size:10.5px; letter-spacing:1.5px; text-transform:uppercase; color:var(--muted); margin-bottom:12px; font-weight:600; display:flex; align-items:center; gap:8px; }
-.b-card h3 .ic { width:24px; height:24px; border-radius:7px; display:grid; place-items:center; background:var(--tint); font-size:12px; }
-.b-card p, .b-card li { font-size:13px; color:var(--text2); line-height:1.55; }
-.b-card ul { list-style:none; }
-.b-card li { padding:3px 0 3px 18px; position:relative; }
-.b-card li::before { content:""; position:absolute; left:0; top:11px; width:5px; height:5px; border-radius:50%; background:var(--accent); }
-.b-card b { color:var(--text); }
-.b-card a { color:var(--accent); text-decoration:none; font-weight:600; }
-.b-big { font-size:clamp(22px,2.6vw,30px); font-weight:700; letter-spacing:-.025em; line-height:1.15; color:var(--text); margin-bottom:10px; }
-.span-5 { grid-column:span 5; } .span-4 { grid-column:span 4; } .span-3 { grid-column:span 3; } .span-6 { grid-column:span 6; } .span-7 { grid-column:span 7; } .span-12 { grid-column:span 12; }
-.heard { display:grid; gap:8px; margin-top:4px; }
-.heard-row { display:grid; grid-template-columns:1fr 1.4fr auto; gap:14px; align-items:center; padding:10px 0; border-top:1px solid var(--border); font-size:12.5px; }
-.heard-row:first-child { border-top:0; padding-top:0; }
-.heard-row b { color:var(--text); font-size:13px; }
-.heard-row span { color:var(--text2); line-height:1.5; }
-.wk-dots { display:flex; gap:4px; }
-.wk-dot { width:20px; height:20px; border-radius:50%; font-size:9px; font-weight:700; display:grid; place-items:center; color:#0b0b0d; }
-@media (max-width:1000px) { .span-5, .span-4, .span-3, .span-6, .span-7 { grid-column:span 6; } }
-@media (max-width:720px) { .span-5, .span-4, .span-3, .span-6, .span-7 { grid-column:span 12; } .heard-row { grid-template-columns:1fr; gap:4px; } }
 
 /* context picker */
 .lens-bar { display:flex; flex-wrap:wrap; align-items:center; gap:8px; margin-top:18px; }
@@ -574,61 +517,7 @@ a.vcard:hover { border-color:var(--border2); transform:translateY(-2px); }
 .v-meta { font-size:9.5px; font-weight:600; letter-spacing:1.2px; text-transform:uppercase; color:var(--muted); margin-top:6px; position:relative; }
 .v-meta .pend { color:var(--w5); }
 
-/* ── JOURNEY TIMELINE with scroll beam ── */
-.journey { padding:72px 0 20px; position:relative; z-index:1; }
-.journey h2 { font-size:clamp(26px,3.6vw,38px); font-weight:700; letter-spacing:-.025em; margin-bottom:8px; }
-.journey .gf-sub { margin-bottom:10px; }
-.tl { position:relative; margin-top:30px; }
-.tl-track { position:absolute; left:19px; top:0; bottom:0; width:2px; background:linear-gradient(to bottom, transparent, var(--border) 8%, var(--border) 92%, transparent); }
-.tl-beam { position:absolute; left:0; top:0; width:2px; height:0; border-radius:2px; background:linear-gradient(to top, #ff375f 0%, #2997ff 40%, transparent 100%); }
-.tl-item { display:grid; grid-template-columns:260px 1fr; gap:24px; padding:26px 0 34px; position:relative; }
-.tl-left { position:sticky; top:84px; align-self:start; display:flex; align-items:center; gap:18px; }
-.tl-node { width:40px; height:40px; border-radius:50%; background:#0b0b0d; display:grid; place-items:center; flex-shrink:0; }
-.tl-node i { width:14px; height:14px; border-radius:50%; background:#2c2c2e; border:1px solid var(--border2); transition:background .3s, box-shadow .3s; }
-.tl-item.lit .tl-node i { background:var(--tl-accent, var(--accent)); box-shadow:0 0 0 5px rgba(255,255,255,.06), 0 0 18px var(--tl-accent, var(--accent)); }
-.tl-left h3 { font-size:clamp(22px,2.8vw,34px); font-weight:800; letter-spacing:-.03em; color:#5c5c62; line-height:1; transition:color .3s; }
-.tl-item.lit .tl-left h3 { color:var(--text); }
-.tl-left small { display:block; font-size:10px; letter-spacing:1.5px; text-transform:uppercase; color:var(--muted); margin-top:5px; font-weight:600; }
-.tl-content { background:var(--surface); border:1px solid var(--border); border-radius:18px; padding:20px 22px; box-shadow:0 2px 12px rgba(0,0,0,.4); backdrop-filter:blur(24px) saturate(140%); -webkit-backdrop-filter:blur(24px) saturate(140%); }
-.tl-content .t-name { font-size:17px; font-weight:700; letter-spacing:-.015em; margin-bottom:6px; }
-.tl-content p { font-size:13px; color:var(--text2); line-height:1.55; }
-.tl-chips { display:flex; flex-wrap:wrap; gap:6px; margin-top:12px; }
-.tl-chip { font-size:11px; color:var(--text); background:var(--tint); border:1px solid var(--border); border-radius:100px; padding:5px 11px; cursor:pointer; transition:background .16s; }
-.tl-chip:hover { background:rgba(255,255,255,.14); }
-.tl-chip.brk { border-style:dashed; color:var(--muted); cursor:default; }
-.tl-meta { display:flex; flex-wrap:wrap; gap:14px; margin-top:12px; font-size:11.5px; color:var(--muted); }
-.tl-meta b { color:var(--text2); font-weight:600; }
-@media (max-width:900px) { .tl-item { grid-template-columns:1fr; gap:12px; } .tl-left { position:static; } .tl-content { margin-left:58px; } }
-@media (max-width:600px) { .tl-content { margin-left:0; } .tl-track, .tl-beam { display:none; } .tl-node { display:none; } }
-
-/* key dates (compact) */
-.kd { margin-top:20px; display:grid; grid-template-columns:repeat(4,1fr); gap:10px; }
-.kd-card { background:var(--surface); border:1px solid var(--border); border-radius:14px; padding:14px 16px; }
-.kd-card .kd-date { font-size:10px; font-weight:700; letter-spacing:1.2px; text-transform:uppercase; color:var(--muted); }
-.kd-card b { display:block; font-size:13px; margin:5px 0 3px; }
-.kd-card p { font-size:11.5px; color:var(--text2); line-height:1.5; }
-.kd-card.next { border-color:rgba(41,151,255,.5); box-shadow:0 0 0 3px rgba(41,151,255,.12); }
-.kd-card.next .kd-date { color:var(--accent); }
-@media (max-width:1000px) { .kd { grid-template-columns:repeat(2,1fr); } }
-@media (max-width:520px) { .kd { grid-template-columns:1fr; } }
-
-/* materials with the spotlight */
-.materials { padding:40px 0 24px; position:relative; z-index:1; }
-.materials h2 { font-size:24px; font-weight:700; letter-spacing:-.02em; margin-bottom:22px; }
-.m-grid { display:grid; grid-template-columns:repeat(4,1fr); gap:12px; }
-.m-card { position:relative; overflow:hidden; background:var(--surface); border:1px solid var(--border); border-radius:14px; padding:14px 16px; box-shadow:0 2px 12px rgba(0,0,0,.4); --mx:50%; --my:50%; transition:border-color .2s; }
-.m-card::before { content:""; position:absolute; inset:0; background:radial-gradient(320px circle at var(--mx) var(--my), rgba(255,255,255,.08), transparent 45%); opacity:0; transition:opacity .3s; pointer-events:none; }
-.m-card:hover { border-color:var(--border2); }
-.m-card:hover::before { opacity:1; }
-.m-card > * { position:relative; }
-.m-card .m-type { font-size:9px; font-weight:600; letter-spacing:1.5px; text-transform:uppercase; color:var(--muted); }
-.m-card b { display:block; font-size:12.5px; margin:4px 0 3px; }
-.m-card p { font-size:11.5px; color:var(--text2); line-height:1.5; }
-.m-card .m-state { display:inline-block; margin-top:8px; font-size:9px; font-weight:600; letter-spacing:1px; text-transform:uppercase; color:var(--w5); border:1px dashed rgba(255,179,64,.5); border-radius:100px; padding:3px 9px; }
-.m-card .m-weeks { font-size:9.5px; color:var(--muted); margin-left:8px; }
-@media (max-width:1120px) { .m-grid { grid-template-columns:repeat(2,1fr); } }
 @media (max-width:900px) { .watch-grid, .paths { grid-template-columns:1fr; } }
-@media (max-width:520px) { .m-grid { grid-template-columns:1fr; } }
 
 .info { padding:28px 0 8px; }
 </style>
@@ -646,10 +535,7 @@ a.vcard:hover { border-color:var(--border2); transform:translateY(-2px); }
     </div>
     <nav class="top-nav">
       <a href="#weeks">Weekly Activities</a>
-      <a href="#journey">The Journey</a>
       <a href="#weeks" onclick="setWeek('channel')">Submission Channel</a>
-      <a href="#finish">The Finish Line</a>
-      <a href="#materials">Materials</a>
     </nav>
     <div class="hbadge">Nov 9 – Dec 11</div>
   </div>
@@ -671,17 +557,6 @@ a.vcard:hover { border-color:var(--border2); transform:translateY(-2px); }
   </div>
 </section>
 
-<!-- SKILLS MARQUEE -->
-<div class="marquee-band" aria-hidden="true"><div class="marquee" id="marquee"></div></div>
-
-<!-- PROGRAM BENTO -->
-<section class="info" id="program">
-  <div class="wrap">
-    <div class="bento" id="bento"></div>
-    <div class="guard">🔒 <b>Data rule for every activity:</b> use public or synthetic practice material and tools approved for your role and data. Internal data stays in appropriately approved environments. Check important claims against sources, label projections as scenarios, and keep human review at every step.</div>
-  </div>
-</section>
-
 <!-- WEEKLY ACTIVITIES -->
 <section class="marathon" id="weeks">
   <div class="wrap">
@@ -689,68 +564,12 @@ a.vcard:hover { border-color:var(--border2); transform:translateY(-2px); }
     <h2>Four weeks. Twenty activities. One day open at a time.</h2>
     <div class="lens-bar" id="lens-bar"></div>
     <p class="lens-note">Pick your context and every day's <b style="color:var(--text)">Your lens</b> section follows it. Choose a day to open the full brief: mission, steps, starter prompt, your share. Use ← → to move between days.</p>
+    <div class="guard" style="margin-top:18px">🔒 <b>Data rule for every activity:</b> use public or synthetic practice material and tools approved for your role and data. Internal data stays in appropriately approved environments. Check important claims against sources, label projections as scenarios, and keep human review at every step.</div>
   </div>
 </section>
 
 <div class="tabbar-outer"><div class="tabbar" id="tabbar"></div></div>
 <main class="wrap" id="panels"></main>
-
-<!-- THE JOURNEY -->
-<section class="journey" id="journey">
-  <div class="wrap">
-    <div class="sec-eyebrow"><span class="eyebrow-dot"></span>The Journey</div>
-    <h2>Four weeks that build on each other.</h2>
-    <p class="gf-sub">Each week reuses the one before: Week 1's judgment feeds Week 2's brief, the brief feeds the Week 3 build, and the build feeds the Week 4 review.</p>
-    <div class="tl" id="tl"></div>
-    <div class="kd" id="kd"></div>
-  </div>
-</section>
-
-<!-- THE FINISH LINE -->
-<section class="grand-final-sec" id="finish">
-  <div class="wrap">
-    <div class="sec-eyebrow"><span class="eyebrow-dot"></span>The Finish Line</div>
-    <h2>One review. Evidence, strategy, and the decisions you need.</h2>
-    <p class="gf-sub">Week 4's Forward-Looking Business Review is where the program lands: the Week 2 intelligence brief, the Week 3 solution and the Week 4 scenarios, assembled into a customer QBR or partner business review you could take into a real conversation next quarter.</p>
-    <div class="gf-grid">
-      <div class="gf-card">
-        <div class="tbar" style="background:linear-gradient(90deg,var(--pink),transparent)"></div>
-        <div class="gf-icon" style="background:linear-gradient(135deg,#f9a8d4,#db2777)">🏁</div>
-        <h3>Your Business Review</h3>
-        <p>Assembled on <b>Friday, December 11</b> from the week's work: what changed, why it matters, future priorities, scenario implications, proposed next actions — and the decisions and commitments to seek.</p>
-        <ul>
-          <li>Customer QBR or partner business review, for your role</li>
-          <li>Every claim traceable to its source; projections labelled as scenarios</li>
-          <li>Rehearsed on Thursday with AI playing the customer, the technical stakeholder and the partner</li>
-          <li>Reviews focus on priorities and growth; sole-source support is a separate activity</li>
-        </ul>
-        <span class="gf-badge">Fri · Dec 11</span>
-      </div>
-      <div class="gf-card">
-        <div class="tbar" style="background:linear-gradient(90deg,var(--w5),transparent)"></div>
-        <div class="gf-icon" style="background:linear-gradient(135deg,#ffd58a,#e08a00)">🤝</div>
-        <h3>Optional Capstone Team Project</h3>
-        <p>Groups of 3 to 5 apply the learning to a shared business challenge across the program — a joint account, a partner motion, an agency segment.</p>
-        <ul>
-          <li>Runs alongside the daily activities, not instead of them</li>
-          <li>Use the Week 3 build week to make the team's tool</li>
-          <li>Bring it to a coaching session for feedback</li>
-          <li>Share the result in the channel in Week 4</li>
-        </ul>
-        <span class="gf-badge">Across the program</span>
-      </div>
-    </div>
-    <p class="gf-note"><b>No separate deliverable</b> — your best Week 4 review is the finish line.</p>
-  </div>
-</section>
-
-<!-- MATERIALS -->
-<section class="materials" id="materials">
-  <div class="wrap">
-    <h2>Materials</h2>
-    <div class="m-grid" id="m-grid"></div>
-  </div>
-</section>
 
 <footer>
   <b>Public Sector Sales AI Activation</b> · Program · Rethink · Research · Build · Review
@@ -1794,36 +1613,7 @@ function tickers() {
   els.forEach(el => io.observe(el));
 }
 
-/* ══ MARQUEE ══ */
-function renderMarquee() {
-  const items = ACTS.map(a => `<span><i></i>${esc(a.skill.replace(/\.$/, ''))}</span>`).join('');
-  document.getElementById('marquee').innerHTML = items + items;
-}
 
-/* ══ BENTO ══ */
-function renderBento() {
-  const HEARD = [
-    ['Make the value case stronger', 'Challenge assumptions, explain technical value clearly, and adapt messages to the customer and partner.', [1]],
-    ['Understand accounts and act earlier', 'Connect agency or institution priorities, partner interests, and buying signals to evidence and next actions.', [2]],
-    ['Reduce repetitive preparation', 'Build a small agent, app, or dashboard that supports recurring account work and can be maintained.', [3]],
-    ['Make plans and reviews more strategic', 'Use evidence and scenarios to recommend priorities, clarify shared responsibilities, and prepare for difficult questions.', [4]],
-    ['Build trust in AI supported work', 'Practise source checking, distinguish facts from assumptions, and retain human judgment throughout.', [1,2,3,4]],
-  ];
-  const dots = ws => `<span class="wk-dots">${ws.map(n => `<span class="wk-dot" style="background:${accentHex(WEEKS[n-1].accent)}">${n}</span>`).join('')}</span>`;
-  document.getElementById('bento').innerHTML = `
-    <div class="b-card span-7"><h3><span class="ic">🎧</span>What we heard · how the program responds</h3>
-      <div class="heard">${HEARD.map(([h, r, ws]) => `<div class="heard-row"><b>${esc(h)}</b><span>${esc(r)}</span>${dots(ws)}</div>`).join('')}</div></div>
-    <div class="b-card span-5"><h3><span class="ic">📅</span>The daily rhythm</h3>
-      <div class="b-big">One activity a day. 15–20 minutes. A short share.</div>
-      <ul><li><b>Mon–Fri</b> · every exercise is part of the program; later activities reuse earlier work</li><li><b>Every day</b> · post your share on Viva Engage — the template is on each day's card</li><li><b>Nov 23–27</b> · Thanksgiving week, no activities, no coaching. Back Monday, November 30</li></ul></div>
-    <div class="b-card span-4"><h3><span class="ic">🧑‍🏫</span>Weekly AI Coaching Sessions</h3>
-      <ul><li><b>One session a week</b> · day and time to be confirmed</li><li>Support, troubleshooting and peer examples</li><li>Hands-on build help in Week 3</li><li>Not on November 11 (Veterans Day)</li></ul></div>
-    <div class="b-card span-4"><h3><span class="ic">🎯</span>Your context</h3>
-      <p>Four cohort contexts, one learning sequence. Pick yours and every day's <b>Your lens</b> follows it.</p>
-      <ul>${AUD.map(a => `<li><b>${esc(a.name)}</b> · ${esc(a.context.split('.')[0].toLowerCase())}</li>`).join('')}</ul></div>
-    <div class="b-card span-4"><h3><span class="ic">🏁</span>The Finish Line</h3>
-      <ul><li><b>Week 4's Business Review</b> is the destination — no extra work</li><li><b>Optional capstone</b> · teams of 3–5 on a shared challenge</li><li><a href="#finish">How the finish line works ↓</a></li></ul></div>`;
-}
 
 /* ══ WEEK TABS + PANELS ══ */
 function lensHtml(a) {
@@ -2007,51 +1797,8 @@ function setWeek(n) {
   setTimeout(() => { current.classList.remove('active', 'leaving'); next.classList.add('active'); switching = false; }, 210);
 }
 
-/* ══ JOURNEY TIMELINE with the scroll beam ══ */
-function renderJourney() {
-  const items = [];
-  WEEKS.forEach(w => {
-    if (w.num === 3) items.push({ title: 'Break', small: 'Nov 23–27', accent: '#ffb340', body: `<div class="t-name">Thanksgiving week</div><p>No scheduled activities or coaching. Save the Week 2 brief and source list; the program resumes Monday, November 30.</p>` });
-    const acts = ACTS.filter(a => a.week === w.num);
-    items.push({ title: `Week ${w.num}`, small: w.dates, accent: accentHex(w.accent), body: `<div class="t-name">${esc(w.name)}</div><p>${esc(w.intro)}</p><div class="tl-chips">${acts.map(a => `<span class="tl-chip" onclick="openActivity('${a.id}')">${a.emoji} ${esc(a.title)}</span>`).join('')}</div><div class="tl-meta"><span><b>Coaching:</b> ${esc(w.coaching)}</span></div>` });
-  });
-  document.getElementById('tl').innerHTML = `<div class="tl-track"><div class="tl-beam" id="tl-beam"></div></div>` + items.map(it => `<div class="tl-item" style="--tl-accent:${it.accent}"><div class="tl-left"><div class="tl-node"><i></i></div><div><h3>${esc(it.title)}</h3><small>${esc(it.small)}</small></div></div><div class="tl-content">${it.body}</div></div>`).join('');
-  const nextDate = DATES.find(k => k.date >= TODAY);
-  document.getElementById('kd').innerHTML = DATES.map(k => `<div class="kd-card${k === nextDate ? ' next' : ''}"><div class="kd-date">${esc(fmtShort(k.date))}${k === nextDate ? ' · next' : ''}</div><b>${esc(k.label)}</b><p>${esc(k.detail)}</p></div>`).join('');
-  const tl = document.getElementById('tl'), beam = document.getElementById('tl-beam');
-  const update = () => {
-    const r = tl.getBoundingClientRect(); const vh = window.innerHeight;
-    const p = Math.max(0, Math.min(1, (vh * 0.55 - r.top) / r.height));
-    beam.style.height = (p * r.height) + 'px';
-    document.querySelectorAll('.tl-item').forEach(it => { const ir = it.getBoundingClientRect(); it.classList.toggle('lit', ir.top < vh * 0.55); });
-  };
-  let raf = 0; const onScroll = () => { if (!raf) raf = requestAnimationFrame(() => { raf = 0; update(); }); };
-  window.addEventListener('scroll', onScroll, { passive: true }); window.addEventListener('resize', onScroll); update();
-}
 
-/* ══ MATERIALS ══ */
-function renderMaterials() {
-  document.getElementById('m-grid').innerHTML = MATERIALS.map(m => `<div class="m-card spot"><span class="m-type">${esc(m.type)}</span><b>${esc(m.name)}</b><p>${esc(m.meta)}</p><span class="m-state">${esc(m.state)}</span><span class="m-weeks">Week ${m.weeks.join(', ')}</span></div>`).join('');
-  bindSpotlights();
-}
 
-/* ══ GLOWING BORDER (bento) and SPOTLIGHT (cards) ══ */
-function bindGlow() {
-  const cards = [...document.querySelectorAll('.b-card')];
-  const state = cards.map(() => ({ cur: 0, target: 0 }));
-  let raf = 0;
-  const tick = () => { raf = 0; let busy = false; cards.forEach((c, i) => { const s = state[i]; const diff = ((s.target - s.cur + 540) % 360) - 180; if (Math.abs(diff) > .2) { s.cur += diff * .12; busy = true; } else s.cur = s.target; c.style.setProperty('--start', s.cur.toFixed(1)); }); if (busy) raf = requestAnimationFrame(tick); };
-  document.addEventListener('pointermove', e => {
-    cards.forEach((c, i) => {
-      const r = c.getBoundingClientRect(); const cx = r.left + r.width / 2, cy = r.top + r.height / 2;
-      const near = e.clientX > r.left - 80 && e.clientX < r.right + 80 && e.clientY > r.top - 80 && e.clientY < r.bottom + 80;
-      c.style.setProperty('--active', near ? '1' : '0');
-      c.style.setProperty('--mx', (e.clientX - r.left) + 'px'); c.style.setProperty('--my', (e.clientY - r.top) + 'px');
-      if (near) state[i].target = (Math.atan2(e.clientY - cy, e.clientX - cx) * 180 / Math.PI + 90 + 360) % 360;
-    });
-    if (!raf) raf = requestAnimationFrame(tick);
-  }, { passive: true });
-}
 function bindSpotlights() {
   document.querySelectorAll('.spot, .xcard').forEach(el => {
     if (el.dataset.spot) return; el.dataset.spot = '1';
@@ -2060,7 +1807,7 @@ function bindSpotlights() {
 }
 
 /* ══ BOOT ══ */
-renderTodayPill(); tickers(); renderMarquee(); renderBento(); renderLensBar(); renderTabs(); renderPanels(); renderJourney(); renderMaterials(); bindGlow();
+renderTodayPill(); tickers(); renderLensBar(); renderTabs(); renderPanels();
 (function () {
   const todayAct = ACTS.find(a => a.date === TODAY);
   const cur = WEEKS.find(w => TODAY >= w.dates_iso[0] && TODAY <= w.dates_iso[4]) || WEEKS.find(w => TODAY < w.dates_iso[0]);
