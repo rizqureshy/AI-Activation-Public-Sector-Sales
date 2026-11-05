@@ -204,14 +204,14 @@ h1.hero-title .grad {
 @keyframes panelOut { to{opacity:0; transform:translateY(-14px)} }
 
 /* staggered card entrance on week change */
-.panel.active .fcard { opacity:0; animation:cardIn .55s cubic-bezier(.22,.9,.3,1) forwards; animation-delay:calc(var(--i,0) * 75ms + 80ms); }
+.panel.active .xcard { opacity:0; animation:cardIn .55s cubic-bezier(.22,.9,.3,1) forwards; animation-delay:calc(var(--i,0) * 60ms + 60ms); }
 @keyframes cardIn {
   from { opacity:0; transform:translateY(26px) scale(.96); }
   to   { opacity:1; transform:none; }
 }
 @media (prefers-reduced-motion: reduce) {
   .panel.active, .panel.leaving { animation:none; }
-  .panel.active .fcard { animation:none; opacity:1; }
+  .panel.active .xcard { animation:none; opacity:1; }
 }
 
 /* compact one-line week band keeps the tabs visually attached to the cards */
@@ -225,118 +225,6 @@ h1.hero-title .grad {
 .week-dates { font-size:10.5px; font-weight:600; letter-spacing:1.5px; text-transform:uppercase; color:var(--muted); margin-top:2px; }
 .week-intro { color:var(--muted); font-size:12.5px; line-height:1.55; margin-left:auto; max-width:52ch; }
 @media (max-width:900px) { .week-intro { margin-left:0; flex-basis:100%; } }
-
-/* DOW header row */
-.dow-row { display:grid; grid-template-columns:repeat(5,1fr); gap:14px; margin-bottom:6px; padding:0 2px; }
-.dow-label {
-  font-size:9.5px; font-weight:600; letter-spacing:1.5px; text-transform:uppercase;
-  color:var(--muted); padding-left:6px;
-}
-.dow-label.fri { color:var(--rose); }
-
-/* ══════════════════════════════════════
-   FLIP CARDS
-══════════════════════════════════════ */
-.cgrid { display:grid; grid-template-columns:repeat(5,1fr); gap:14px; }
-.cgrid.two { grid-template-columns:repeat(2,1fr); }
-
-.fcard { perspective:1400px; height:400px; cursor:pointer; position:relative; }
-.fcard-inner {
-  position:relative; width:100%; height:100%;
-  transform-style:preserve-3d;
-  transition:transform .55s cubic-bezier(.3,.9,.35,1);
-}
-.fcard.flipped .fcard-inner { transform:rotateY(180deg); }
-.face {
-  position:absolute; inset:0;
-  backface-visibility:hidden; -webkit-backface-visibility:hidden;
-  border-radius:18px; border:1px solid var(--border);
-  background:var(--surface);
-  box-shadow:0 2px 12px rgba(0,0,0,.4);
-  display:flex; flex-direction:column;
-  overflow:hidden;
-  transition:border-color .18s, box-shadow .18s;
-}
-.fcard:hover .face { border-color:var(--border2); box-shadow:0 12px 32px rgba(0,0,0,.6); }
-.fcard:not(.flipped):hover .fcard-inner { transform:translateY(-4px); }
-.face.back { transform:rotateY(180deg); }
-
-/* accent bar */
-.abar { position:absolute; top:0; left:0; right:0; height:2.5px; border-radius:18px 18px 0 0; }
-
-/* FRONT */
-.face.front { padding:18px 18px 16px; }
-.f-top { display:flex; align-items:center; gap:6px; margin-bottom:14px; flex-wrap:wrap; }
-.day-chip {
-  font-size:9.5px; font-weight:600; letter-spacing:1.2px;
-  padding:4px 10px; border-radius:100px; border:1px solid;
-}
-.req-opt {
-  font-size:9px; font-weight:600; letter-spacing:1px; text-transform:uppercase;
-  color:var(--muted); border:1px dashed var(--border2); border-radius:100px; padding:3.5px 9px;
-}
-.req-mand {
-  font-size:9px; font-weight:600; letter-spacing:1px; text-transform:uppercase;
-  color:#fff; background:var(--rose);
-  border-radius:100px; padding:4px 10px;
-}
-.f-time { margin-left:auto; font-size:10px; font-weight:500; color:var(--muted); }
-.f-emoji { font-size:30px; line-height:1; margin-bottom:10px; }
-.f-title { font-size:16.5px; font-weight:700; letter-spacing:-.01em; line-height:1.25; margin-bottom:8px; }
-.f-hook { font-size:12.5px; color:var(--text2); font-style:italic; line-height:1.5; }
-.f-unlock { margin-top:13px; padding-top:12px; border-top:1px solid var(--border); }
-.f-unlock h4 {
-  font-size:9px; font-weight:600; letter-spacing:1.5px; text-transform:uppercase;
-  color:var(--muted); margin-bottom:5px;
-}
-.f-unlock p { font-size:11.5px; color:var(--text2); line-height:1.55; }
-.f-foot { margin-top:auto; padding-top:12px; }
-.flip-hint {
-  display:flex; align-items:center; gap:6px;
-  font-size:9.5px; font-weight:600; letter-spacing:1.2px; text-transform:uppercase;
-  color:var(--muted); transition:color .18s;
-}
-.fcard:hover .flip-hint { color:var(--accent); }
-.flip-hint .arr { font-size:12px; }
-
-/* BACK */
-.face.back { padding:0; }
-.back-scroll { padding:18px; overflow-y:auto; height:100%; scrollbar-width:thin; scrollbar-color:rgba(255,255,255,.25) transparent; }
-.back-scroll::-webkit-scrollbar { width:4px; }
-.back-scroll::-webkit-scrollbar-thumb { background:rgba(255,255,255,.2); border-radius:100px; }
-.b-title { font-size:13px; font-weight:700; margin-bottom:10px; display:flex; align-items:center; gap:8px; }
-.b-title .bt-emoji { font-size:16px; }
-.sec { margin-bottom:12px; }
-.sec h4 {
-  font-size:9px; font-weight:600; letter-spacing:1.5px; text-transform:uppercase;
-  color:var(--muted); margin-bottom:4px;
-}
-.sec p { font-size:11.5px; color:var(--text2); line-height:1.6; }
-.sec.tip {
-  background:var(--tint); border-left:2px solid var(--accent);
-  border-radius:0 10px 10px 0; padding:9px 11px;
-}
-.back-foot {
-  font-size:9.5px; font-weight:600; letter-spacing:1.2px; text-transform:uppercase;
-  color:var(--muted); padding-top:4px;
-}
-
-/* mandatory friday card */
-.fcard.mand .face {
-  border-color:rgba(255,69,58,.35);
-  background:rgba(42,20,22,.85);
-}
-.fcard.mand:hover .face { border-color:rgba(255,69,58,.55); }
-
-/* static path cards (week 5) — all content on the front, no flip */
-.fcard.static { height:auto; cursor:default; }
-.fcard.static .face { position:relative; inset:auto; height:100%; padding:20px 20px 18px; }
-.fcard.static .sec { margin:12px 0; }
-.fcard.static .f-unlock { margin-top:auto; }
-.j-list { list-style:none; }
-.j-list li { font-size:11.5px; color:var(--text2); line-height:1.55; padding:2.5px 0 2.5px 16px; position:relative; }
-.j-list li::before { content:""; position:absolute; left:0; top:10px; width:4px; height:4px; border-radius:50%;
-  background:var(--accent); }
 
 /* submission channel panel */
 .channel-cta {
@@ -419,119 +307,330 @@ footer b { color:var(--text); }
   -webkit-backdrop-filter:blur(24px) saturate(140%);
 }
 .guard { background:var(--surface); }
-.face { background:rgba(22,22,27,.88); }
 
 /* ══════════════════════════════════════
    RESPONSIVE
 ══════════════════════════════════════ */
-@media (max-width:1120px) {
-  .cgrid { grid-template-columns:repeat(3,1fr); }
-  .dow-row { display:none; }
-  .fcard { height:348px; }
-}
+
 @media (max-width:900px) {
   .info-grid, .gf-grid { grid-template-columns:1fr; }
   .top-nav { display:none; }
 }
 @media (max-width:720px) {
-  .cgrid { grid-template-columns:repeat(2,1fr); }
-  .cgrid.two { grid-template-columns:1fr; }
   .wrap, .top-inner, .tabbar { padding-left:18px; padding-right:18px; }
   .hero { padding:52px 0 36px; }
   .kpi { padding:6px 16px; }
 }
-@media (max-width:520px) {
-  .cgrid { grid-template-columns:1fr; }
-  .fcard { height:330px; }
-}
+
 
 /* ══════════════════════════════════════
-   PUBLIC SECTOR ADDITIONS (same idiom)
+   REVAMP — patterns adapted from 21st.dev
+   (Expanding Cards, Glowing Effect, Spotlight,
+    Timeline beam, Bento, Number Ticker, Marquee)
+   re-implemented in plain CSS and JS
 ══════════════════════════════════════ */
-/* context picker — tailors the "Your lens" section on every card back */
+
+/* hero: the live "today" pill */
+.today-pill {
+  display:inline-flex; align-items:center; gap:10px; margin-top:26px;
+  padding:8px 8px 8px 16px; border-radius:100px;
+  background:var(--tint); border:1px solid var(--border2);
+  font-size:12.5px; color:var(--text2); text-decoration:none;
+  transition:background .18s, border-color .18s, transform .18s;
+}
+.today-pill:hover { background:rgba(255,255,255,.12); border-color:rgba(255,255,255,.3); transform:translateY(-1px); }
+.today-pill .tp-tag { font-size:9.5px; font-weight:700; letter-spacing:1.5px; text-transform:uppercase; color:var(--accent); display:flex; align-items:center; gap:7px; }
+.today-pill b { color:var(--text); font-weight:600; }
+.today-pill .tp-go {
+  margin-left:4px; background:#f5f5f7; color:#0b0b0d; font-weight:600; font-size:11.5px;
+  padding:7px 13px; border-radius:100px; white-space:nowrap;
+}
+.kpi-n { font-variant-numeric:tabular-nums; }
+
+/* marquee of the twenty AI skills */
+.marquee-band { position:relative; z-index:1; border-top:1px solid var(--border); border-bottom:1px solid var(--border); background:rgba(10,10,12,.45); overflow:hidden;
+  -webkit-mask-image:linear-gradient(90deg, transparent, #000 8%, #000 92%, transparent); mask-image:linear-gradient(90deg, transparent, #000 8%, #000 92%, transparent); }
+.marquee { display:flex; width:max-content; animation:marquee 70s linear infinite; }
+.marquee-band:hover .marquee { animation-play-state:paused; }
+.marquee span { display:inline-flex; align-items:center; gap:14px; padding:13px 18px; font-size:12px; font-weight:500; color:var(--text2); white-space:nowrap; }
+.marquee span i { width:5px; height:5px; border-radius:50%; background:var(--accent); opacity:.7; }
+@keyframes marquee { to { transform:translateX(-50%); } }
+@media (prefers-reduced-motion: reduce) { .marquee { animation:none; } }
+
+/* bento with the glowing border (conic gradient that follows the pointer) */
+.bento { display:grid; grid-template-columns:repeat(12,1fr); gap:14px; margin-top:34px; }
+.b-card {
+  position:relative; border-radius:20px; padding:22px 24px;
+  background:var(--surface); border:1px solid var(--border);
+  box-shadow:0 2px 12px rgba(0,0,0,.4);
+  backdrop-filter:blur(24px) saturate(140%); -webkit-backdrop-filter:blur(24px) saturate(140%);
+  --start:0; --active:0; --mx:50%; --my:50%;
+  transition:transform .25s, border-color .25s;
+}
+.b-card:hover { transform:translateY(-2px); }
+.b-card::before {
+  content:""; position:absolute; inset:-1px; border-radius:inherit; pointer-events:none;
+  padding:1.5px;
+  background:conic-gradient(from calc(var(--start) * 1deg), transparent 0deg, #ff7a8a 18deg, #9aa8ff 40deg, #5ac8fa 62deg, transparent 90deg);
+  -webkit-mask:linear-gradient(#000 0 0) content-box, linear-gradient(#000 0 0); mask:linear-gradient(#000 0 0) content-box, linear-gradient(#000 0 0);
+  -webkit-mask-composite:xor; mask-composite:exclude;
+  opacity:var(--active); transition:opacity .35s;
+}
+.b-card::after {
+  content:""; position:absolute; inset:0; border-radius:inherit; pointer-events:none;
+  background:radial-gradient(420px circle at var(--mx) var(--my), rgba(255,255,255,.06), transparent 45%);
+  opacity:var(--active); transition:opacity .35s;
+}
+.b-card > * { position:relative; z-index:1; }
+.b-card h3 { font-size:10.5px; letter-spacing:1.5px; text-transform:uppercase; color:var(--muted); margin-bottom:12px; font-weight:600; display:flex; align-items:center; gap:8px; }
+.b-card h3 .ic { width:24px; height:24px; border-radius:7px; display:grid; place-items:center; background:var(--tint); font-size:12px; }
+.b-card p, .b-card li { font-size:13px; color:var(--text2); line-height:1.55; }
+.b-card ul { list-style:none; }
+.b-card li { padding:3px 0 3px 18px; position:relative; }
+.b-card li::before { content:""; position:absolute; left:0; top:11px; width:5px; height:5px; border-radius:50%; background:var(--accent); }
+.b-card b { color:var(--text); }
+.b-card a { color:var(--accent); text-decoration:none; font-weight:600; }
+.b-big { font-size:clamp(22px,2.6vw,30px); font-weight:700; letter-spacing:-.025em; line-height:1.15; color:var(--text); margin-bottom:10px; }
+.span-5 { grid-column:span 5; } .span-4 { grid-column:span 4; } .span-3 { grid-column:span 3; } .span-6 { grid-column:span 6; } .span-7 { grid-column:span 7; } .span-12 { grid-column:span 12; }
+.heard { display:grid; gap:8px; margin-top:4px; }
+.heard-row { display:grid; grid-template-columns:1fr 1.4fr auto; gap:14px; align-items:center; padding:10px 0; border-top:1px solid var(--border); font-size:12.5px; }
+.heard-row:first-child { border-top:0; padding-top:0; }
+.heard-row b { color:var(--text); font-size:13px; }
+.heard-row span { color:var(--text2); line-height:1.5; }
+.wk-dots { display:flex; gap:4px; }
+.wk-dot { width:20px; height:20px; border-radius:50%; font-size:9px; font-weight:700; display:grid; place-items:center; color:#0b0b0d; }
+@media (max-width:1000px) { .span-5, .span-4, .span-3, .span-6, .span-7 { grid-column:span 6; } }
+@media (max-width:720px) { .span-5, .span-4, .span-3, .span-6, .span-7 { grid-column:span 12; } .heard-row { grid-template-columns:1fr; gap:4px; } }
+
+/* context picker */
 .lens-bar { display:flex; flex-wrap:wrap; align-items:center; gap:8px; margin-top:18px; }
 .lens-bar .lb-label { font-size:9.5px; font-weight:600; letter-spacing:1.5px; text-transform:uppercase; color:var(--muted); margin-right:4px; }
-.ltab {
-  appearance:none; background:var(--tint); border:1px solid transparent;
-  font-family:var(--sans); font-size:12px; font-weight:500; color:var(--text);
-  padding:7px 14px; border-radius:100px; cursor:pointer; transition:all .18s; white-space:nowrap;
-}
+.ltab { appearance:none; background:var(--tint); border:1px solid transparent; font-family:var(--sans); font-size:12px; font-weight:500; color:var(--text);
+  padding:7px 14px; border-radius:100px; cursor:pointer; transition:all .18s; white-space:nowrap; }
 .ltab:hover { background:rgba(255,255,255,.14); }
 .ltab.on { background:#f5f5f7; color:#0b0b0d; }
 .lens-note { font-size:12px; color:var(--muted); margin-top:10px; max-width:70ch; }
 
-/* steps list and starter prompt on the card back */
-.s-list { list-style:none; counter-reset:s; }
-.s-list li { font-size:11.5px; color:var(--text2); line-height:1.55; padding:2.5px 0 2.5px 20px; position:relative; counter-increment:s; }
-.s-list li::before { content:counter(s); position:absolute; left:0; top:4px; width:14px; height:14px; border-radius:50%;
-  background:var(--tint); color:var(--text); font-size:8.5px; font-weight:700; display:grid; place-items:center; }
+/* ── EXPANDING DAY CARDS ── one day open wide, the other four as slim spines */
+.xgrid {
+  display:grid; grid-template-columns:repeat(5,1fr); gap:10px; height:640px;
+  transition:grid-template-columns .55s cubic-bezier(.22,.9,.3,1);
+}
+.xcard {
+  position:relative; min-width:0; min-height:0; overflow:hidden; border-radius:20px;
+  border:1px solid var(--border); background:rgba(22,22,27,.88); cursor:pointer;
+  box-shadow:0 2px 12px rgba(0,0,0,.4);
+  backdrop-filter:blur(24px) saturate(140%); -webkit-backdrop-filter:blur(24px) saturate(140%);
+  transition:border-color .25s, box-shadow .25s, transform .25s;
+  --mx:50%; --my:50%;
+}
+.xcard:hover { border-color:var(--border2); }
+.xcard[data-active="false"]:hover { transform:translateY(-3px); }
+.xcard[data-active="true"] { border-color:var(--border2); cursor:default; box-shadow:0 18px 50px rgba(0,0,0,.6); }
+.xcard.fri[data-active="true"] { border-color:rgba(255,69,58,.45); }
+.xcard.today::after {
+  content:""; position:absolute; inset:0; border-radius:inherit; pointer-events:none;
+  box-shadow:inset 0 0 0 2px rgba(41,151,255,.55);
+}
+.xcard .abar { position:absolute; top:0; left:0; right:0; height:3px; z-index:2; }
+
+/* spine (collapsed) */
+.x-spine {
+  position:absolute; inset:0; display:flex; flex-direction:column; align-items:center; justify-content:space-between;
+  padding:18px 12px 16px; text-align:center; transition:opacity .25s;
+}
+.xcard[data-active="true"] .x-spine { opacity:0; pointer-events:none; }
+.x-spine .day-chip { font-size:9.5px; }
+.x-spine .x-vert {
+  writing-mode:vertical-rl; transform:rotate(180deg);
+  font-size:15px; font-weight:700; letter-spacing:-.01em; line-height:1.2; color:var(--text);
+  max-height:360px; overflow:hidden; margin:12px 0;
+}
+.x-spine .x-emoji { font-size:28px; line-height:1; }
+.x-spine .x-daynum { font-size:9.5px; font-weight:600; letter-spacing:1.2px; text-transform:uppercase; color:var(--muted); }
+.x-spine .x-done { width:22px; height:22px; border-radius:50%; display:grid; place-items:center; font-size:11px; background:var(--teal); color:#041a0c; margin-top:8px; }
+
+/* open (expanded) */
+.x-open {
+  position:absolute; inset:0; display:grid; grid-template-rows:auto 1fr;
+  opacity:0; transition:opacity .3s .18s; pointer-events:none;
+}
+.xcard[data-active="true"] .x-open { opacity:1; pointer-events:auto; }
+.x-head { padding:22px 24px 14px; border-bottom:1px solid var(--border); position:relative; }
+.x-head::before {
+  content:""; position:absolute; inset:0; pointer-events:none;
+  background:radial-gradient(520px circle at var(--mx) var(--my), rgba(255,255,255,.05), transparent 45%);
+}
+.x-top { display:flex; align-items:center; gap:8px; flex-wrap:wrap; margin-bottom:12px; }
+.day-chip { font-size:9.5px; font-weight:600; letter-spacing:1.2px; padding:4px 10px; border-radius:100px; border:1px solid; }
+.day-chip .today-tag { margin-left:6px; color:#fff; }
+.req-opt { font-size:9px; font-weight:600; letter-spacing:1px; text-transform:uppercase; color:var(--muted); border:1px dashed var(--border2); border-radius:100px; padding:3.5px 9px; }
+.req-mand { font-size:9px; font-weight:600; letter-spacing:1px; text-transform:uppercase; color:#fff; background:var(--rose); border-radius:100px; padding:4px 10px; }
+.x-time { font-size:10.5px; font-weight:500; color:var(--muted); margin-left:4px; }
+.x-top { padding-right:190px; }
+.x-title-row { display:flex; align-items:flex-start; gap:14px; }
+.x-title-row .x-emoji { font-size:34px; line-height:1; }
+.x-title { font-size:clamp(20px,2.2vw,26px); font-weight:700; letter-spacing:-.02em; line-height:1.15; }
+.x-hook { font-size:13.5px; color:var(--text2); font-style:italic; margin-top:4px; line-height:1.5; }
+.x-skill { margin-top:10px; display:inline-flex; align-items:center; gap:8px; font-size:11px; color:var(--text2); background:var(--tint); border:1px solid var(--border); border-radius:100px; padding:5px 12px; }
+.x-skill b { font-size:9px; letter-spacing:1.2px; text-transform:uppercase; color:var(--muted); font-weight:600; }
+.x-actions { position:absolute; right:22px; top:22px; display:flex; gap:8px; }
+.xbtn {
+  appearance:none; background:var(--tint); border:1px solid var(--border2); font-family:var(--sans);
+  font-size:10.5px; font-weight:600; letter-spacing:.8px; text-transform:uppercase; color:var(--text);
+  padding:7px 13px; border-radius:100px; cursor:pointer; transition:all .16s; white-space:nowrap;
+}
+.xbtn:hover { background:rgba(255,255,255,.16); }
+.xbtn.on { background:var(--teal); border-color:var(--teal); color:#041a0c; }
+.xbtn.copied { background:#f5f5f7; border-color:#f5f5f7; color:#0b0b0d; }
+
+.x-body {
+  overflow-y:auto; padding:18px 24px 24px; display:grid; grid-template-columns:1.05fr 1fr; gap:0 26px;
+  scrollbar-width:thin; scrollbar-color:rgba(255,255,255,.25) transparent;
+}
+.x-body::-webkit-scrollbar { width:5px; }
+.x-body::-webkit-scrollbar-thumb { background:rgba(255,255,255,.2); border-radius:100px; }
+.x-col { min-width:0; }
+.sec { margin-bottom:16px; }
+.sec h4 { font-size:9px; font-weight:600; letter-spacing:1.5px; text-transform:uppercase; color:var(--muted); margin-bottom:6px; display:flex; align-items:center; gap:8px; }
+.sec h4 .n { color:var(--accent); }
+.sec p { font-size:12.5px; color:var(--text2); line-height:1.6; }
+.sec.tip { background:var(--tint); border-left:2px solid var(--accent); border-radius:0 10px 10px 0; padding:10px 12px; }
+.sec.lens { border-left:2px solid var(--sky); background:var(--tint); border-radius:0 10px 10px 0; padding:10px 12px; }
+.s-list { list-style:none; counter-reset:s; display:grid; gap:4px; }
+.s-list li { font-size:12.5px; color:var(--text2); line-height:1.55; padding:4px 0 4px 26px; position:relative; counter-increment:s; }
+.s-list li::before { content:counter(s); position:absolute; left:0; top:5px; width:18px; height:18px; border-radius:50%;
+  background:var(--tint); border:1px solid var(--border2); color:var(--text); font-size:9.5px; font-weight:700; display:grid; place-items:center; }
+.s-list li em { font-style:normal; color:var(--muted); font-size:11px; margin-left:6px; }
+.j-list { list-style:none; }
+.j-list li { font-size:12px; color:var(--text2); line-height:1.55; padding:2.5px 0 2.5px 16px; position:relative; }
+.j-list li::before { content:""; position:absolute; left:0; top:10px; width:4px; height:4px; border-radius:50%; background:var(--accent); }
 .prompt {
-  margin:0; padding:10px 11px; border-radius:10px;
-  background:rgba(0,0,0,.45); border:1px solid var(--border);
-  font-family:var(--sans); font-size:11px; color:var(--text2); line-height:1.55;
-  white-space:pre-wrap; overflow-wrap:anywhere;
+  margin:0; padding:12px 13px; border-radius:12px;
+  background:rgba(0,0,0,.5); border:1px solid var(--border);
+  font-family:var(--sans); font-size:12px; color:var(--text2); line-height:1.6; white-space:pre-wrap; overflow-wrap:anywhere;
 }
 .prompt mark { background:rgba(41,151,255,.22); color:#cfe6ff; border-radius:3px; padding:0 3px; }
-.copy-btn {
-  appearance:none; margin-top:7px; background:var(--tint); border:1px solid var(--border2);
-  font-family:var(--sans); font-size:10px; font-weight:600; letter-spacing:1px; text-transform:uppercase;
-  color:var(--text); padding:6px 12px; border-radius:100px; cursor:pointer; transition:all .16s;
-}
+.copy-btn { appearance:none; margin-top:8px; background:var(--tint); border:1px solid var(--border2); font-family:var(--sans); font-size:10px; font-weight:600; letter-spacing:1px; text-transform:uppercase; color:var(--text); padding:6px 12px; border-radius:100px; cursor:pointer; transition:all .16s; }
 .copy-btn:hover { background:rgba(255,255,255,.16); }
 .copy-btn.done { background:var(--teal); border-color:var(--teal); color:#041a0c; }
-.sec.lens { border-left:2px solid var(--sky); background:var(--tint); border-radius:0 10px 10px 0; padding:9px 11px; }
 
-/* today: the card for the current date carries a soft ring */
-.fcard.today .face { border-color:rgba(41,151,255,.6); box-shadow:0 0 0 3px rgba(41,151,255,.18), 0 12px 32px rgba(0,0,0,.6); }
-.day-chip .today-tag { margin-left:6px; color:#fff; }
+/* day navigation under the grid */
+.x-nav { display:flex; align-items:center; gap:10px; margin-top:14px; }
+.x-nav .dots { display:flex; gap:6px; margin:0 auto; }
+.x-nav .dot { width:28px; height:6px; border-radius:100px; background:var(--tint); border:0; cursor:pointer; padding:0; transition:background .2s, width .2s; }
+.x-nav .dot.on { background:#f5f5f7; width:40px; }
+.x-nav .dot.done { background:var(--teal); }
+.x-nav .navbtn { appearance:none; background:var(--tint); border:1px solid var(--border2); color:var(--text); font-family:var(--sans); font-size:11.5px; font-weight:600; padding:8px 14px; border-radius:100px; cursor:pointer; transition:all .16s; }
+.x-nav .navbtn:hover { background:rgba(255,255,255,.14); }
+.x-nav .navbtn:disabled { opacity:.35; cursor:default; }
+.x-hint { font-size:10.5px; color:var(--muted); letter-spacing:.5px; }
 
-/* watch row: the week's Copilot agent videos */
+@media (max-width:1120px) {
+  .x-body { grid-template-columns:1fr; }
+  .xgrid { height:700px; }
+}
+@media (max-width:900px) {
+  .xgrid { display:flex; flex-direction:column; height:auto; gap:10px; }
+  .xcard { min-height:0; }
+  .x-spine { position:static; flex-direction:row; justify-content:flex-start; gap:12px; padding:14px 16px; text-align:left; }
+  .x-spine .x-vert { writing-mode:horizontal-tb; transform:none; margin:0; max-height:none; font-size:14px; }
+  .x-spine .x-emoji { font-size:22px; }
+  .x-spine .x-done { margin:0 0 0 auto; }
+  .xcard[data-active="true"] .x-spine { display:none; }
+  .x-open { position:static; display:none; opacity:1; pointer-events:auto; }
+  .xcard[data-active="true"] .x-open { display:grid; }
+  .x-body { overflow:visible; }
+  .x-actions { position:static; margin-top:12px; }
+  .x-top { padding-right:0; }
+  .today-pill { flex-wrap:wrap; border-radius:18px; padding:14px 16px; gap:8px; }
+  .today-pill .tp-tag { width:100%; }
+  .today-pill .tp-go { margin-left:0; }
+  .x-nav .x-hint { display:none; }
+}
+
+/* break band + paths */
+.break-band { margin-top:6px; display:flex; align-items:center; gap:12px; background:var(--tint); border:1px dashed var(--border2); border-radius:14px; padding:12px 18px; font-size:12.5px; color:var(--text2); margin-bottom:14px; }
+.break-band b { color:var(--text); }
+.paths { display:grid; grid-template-columns:repeat(3,1fr); gap:12px; margin:4px 0 14px; }
+.path { position:relative; background:var(--surface); border:1px solid var(--border); border-radius:14px; padding:14px 16px; --mx:50%; --my:50%; overflow:hidden; }
+.path::before { content:""; position:absolute; inset:0; background:radial-gradient(300px circle at var(--mx) var(--my), rgba(255,255,255,.07), transparent 45%); opacity:0; transition:opacity .3s; pointer-events:none; }
+.path:hover::before { opacity:1; }
+.path b { display:block; font-size:12.5px; margin-bottom:3px; position:relative; }
+.path p { font-size:11.5px; color:var(--text2); line-height:1.5; position:relative; }
+
+/* watch row */
 .watch { margin:18px 0 6px; }
 .watch h3 { font-size:10.5px; letter-spacing:1.5px; text-transform:uppercase; color:var(--muted); margin-bottom:10px; font-weight:600; }
 .watch-grid { display:grid; grid-template-columns:repeat(3,1fr); gap:12px; }
-.vcard {
-  display:flex; gap:12px; align-items:flex-start; text-decoration:none; color:inherit;
-  background:var(--surface); border:1px solid var(--border); border-radius:14px; padding:14px 16px;
-  box-shadow:0 2px 12px rgba(0,0,0,.4); transition:border-color .18s, transform .18s;
-}
+.vcard { position:relative; overflow:hidden; display:flex; gap:12px; align-items:flex-start; text-decoration:none; color:inherit; background:var(--surface); border:1px solid var(--border); border-radius:14px; padding:14px 16px; box-shadow:0 2px 12px rgba(0,0,0,.4); transition:border-color .18s, transform .18s; --mx:50%; --my:50%; }
+.vcard::before { content:""; position:absolute; inset:0; background:radial-gradient(300px circle at var(--mx) var(--my), rgba(255,255,255,.07), transparent 45%); opacity:0; transition:opacity .3s; pointer-events:none; }
+.vcard:hover::before { opacity:1; }
 a.vcard:hover { border-color:var(--border2); transform:translateY(-2px); }
-.v-play { width:36px; height:36px; border-radius:10px; flex-shrink:0; display:grid; place-items:center; font-size:14px;
-  background:var(--tint); color:var(--text); }
+.v-play { width:36px; height:36px; border-radius:10px; flex-shrink:0; display:grid; place-items:center; font-size:14px; background:var(--tint); color:var(--text); position:relative; }
 .vcard.pending .v-play { color:var(--muted); border:1px dashed var(--border2); background:transparent; }
-.v-title { font-size:12.5px; font-weight:600; line-height:1.3; }
-.v-about { font-size:11.5px; color:var(--text2); margin-top:3px; line-height:1.5; }
-.v-meta { font-size:9.5px; font-weight:600; letter-spacing:1.2px; text-transform:uppercase; color:var(--muted); margin-top:6px; }
+.v-title { font-size:12.5px; font-weight:600; line-height:1.3; position:relative; }
+.v-about { font-size:11.5px; color:var(--text2); margin-top:3px; line-height:1.5; position:relative; }
+.v-meta { font-size:9.5px; font-weight:600; letter-spacing:1.2px; text-transform:uppercase; color:var(--muted); margin-top:6px; position:relative; }
 .v-meta .pend { color:var(--w5); }
 
-/* week 3: the three build paths */
-.paths { display:grid; grid-template-columns:repeat(3,1fr); gap:12px; margin:4px 0 16px; }
-.path { background:var(--surface); border:1px solid var(--border); border-radius:14px; padding:14px 16px; }
-.path b { display:block; font-size:12.5px; margin-bottom:3px; }
-.path p { font-size:11.5px; color:var(--text2); line-height:1.5; }
+/* ── JOURNEY TIMELINE with scroll beam ── */
+.journey { padding:72px 0 20px; position:relative; z-index:1; }
+.journey h2 { font-size:clamp(26px,3.6vw,38px); font-weight:700; letter-spacing:-.025em; margin-bottom:8px; }
+.journey .gf-sub { margin-bottom:10px; }
+.tl { position:relative; margin-top:30px; }
+.tl-track { position:absolute; left:19px; top:0; bottom:0; width:2px; background:linear-gradient(to bottom, transparent, var(--border) 8%, var(--border) 92%, transparent); }
+.tl-beam { position:absolute; left:0; top:0; width:2px; height:0; border-radius:2px; background:linear-gradient(to top, #ff375f 0%, #2997ff 40%, transparent 100%); }
+.tl-item { display:grid; grid-template-columns:260px 1fr; gap:24px; padding:26px 0 34px; position:relative; }
+.tl-left { position:sticky; top:84px; align-self:start; display:flex; align-items:center; gap:18px; }
+.tl-node { width:40px; height:40px; border-radius:50%; background:#0b0b0d; display:grid; place-items:center; flex-shrink:0; }
+.tl-node i { width:14px; height:14px; border-radius:50%; background:#2c2c2e; border:1px solid var(--border2); transition:background .3s, box-shadow .3s; }
+.tl-item.lit .tl-node i { background:var(--tl-accent, var(--accent)); box-shadow:0 0 0 5px rgba(255,255,255,.06), 0 0 18px var(--tl-accent, var(--accent)); }
+.tl-left h3 { font-size:clamp(22px,2.8vw,34px); font-weight:800; letter-spacing:-.03em; color:#5c5c62; line-height:1; transition:color .3s; }
+.tl-item.lit .tl-left h3 { color:var(--text); }
+.tl-left small { display:block; font-size:10px; letter-spacing:1.5px; text-transform:uppercase; color:var(--muted); margin-top:5px; font-weight:600; }
+.tl-content { background:var(--surface); border:1px solid var(--border); border-radius:18px; padding:20px 22px; box-shadow:0 2px 12px rgba(0,0,0,.4); backdrop-filter:blur(24px) saturate(140%); -webkit-backdrop-filter:blur(24px) saturate(140%); }
+.tl-content .t-name { font-size:17px; font-weight:700; letter-spacing:-.015em; margin-bottom:6px; }
+.tl-content p { font-size:13px; color:var(--text2); line-height:1.55; }
+.tl-chips { display:flex; flex-wrap:wrap; gap:6px; margin-top:12px; }
+.tl-chip { font-size:11px; color:var(--text); background:var(--tint); border:1px solid var(--border); border-radius:100px; padding:5px 11px; cursor:pointer; transition:background .16s; }
+.tl-chip:hover { background:rgba(255,255,255,.14); }
+.tl-chip.brk { border-style:dashed; color:var(--muted); cursor:default; }
+.tl-meta { display:flex; flex-wrap:wrap; gap:14px; margin-top:12px; font-size:11.5px; color:var(--muted); }
+.tl-meta b { color:var(--text2); font-weight:600; }
+@media (max-width:900px) { .tl-item { grid-template-columns:1fr; gap:12px; } .tl-left { position:static; } .tl-content { margin-left:58px; } }
+@media (max-width:600px) { .tl-content { margin-left:0; } .tl-track, .tl-beam { display:none; } .tl-node { display:none; } }
 
-/* break band between week 2 and week 3 */
-.break-band {
-  margin-top:6px; display:flex; align-items:center; gap:12px;
-  background:var(--tint); border:1px dashed var(--border2); border-radius:14px; padding:12px 18px;
-  font-size:12.5px; color:var(--text2);
-}
-.break-band b { color:var(--text); }
+/* key dates (compact) */
+.kd { margin-top:20px; display:grid; grid-template-columns:repeat(4,1fr); gap:10px; }
+.kd-card { background:var(--surface); border:1px solid var(--border); border-radius:14px; padding:14px 16px; }
+.kd-card .kd-date { font-size:10px; font-weight:700; letter-spacing:1.2px; text-transform:uppercase; color:var(--muted); }
+.kd-card b { display:block; font-size:13px; margin:5px 0 3px; }
+.kd-card p { font-size:11.5px; color:var(--text2); line-height:1.5; }
+.kd-card.next { border-color:rgba(41,151,255,.5); box-shadow:0 0 0 3px rgba(41,151,255,.12); }
+.kd-card.next .kd-date { color:var(--accent); }
+@media (max-width:1000px) { .kd { grid-template-columns:repeat(2,1fr); } }
+@media (max-width:520px) { .kd { grid-template-columns:1fr; } }
 
-/* materials list */
-.materials { padding:8px 0 24px; }
+/* materials with the spotlight */
+.materials { padding:40px 0 24px; position:relative; z-index:1; }
 .materials h2 { font-size:24px; font-weight:700; letter-spacing:-.02em; margin-bottom:22px; }
 .m-grid { display:grid; grid-template-columns:repeat(4,1fr); gap:12px; }
-.m-card { background:var(--surface); border:1px solid var(--border); border-radius:14px; padding:14px 16px; box-shadow:0 2px 12px rgba(0,0,0,.4); }
+.m-card { position:relative; overflow:hidden; background:var(--surface); border:1px solid var(--border); border-radius:14px; padding:14px 16px; box-shadow:0 2px 12px rgba(0,0,0,.4); --mx:50%; --my:50%; transition:border-color .2s; }
+.m-card::before { content:""; position:absolute; inset:0; background:radial-gradient(320px circle at var(--mx) var(--my), rgba(255,255,255,.08), transparent 45%); opacity:0; transition:opacity .3s; pointer-events:none; }
+.m-card:hover { border-color:var(--border2); }
+.m-card:hover::before { opacity:1; }
+.m-card > * { position:relative; }
 .m-card .m-type { font-size:9px; font-weight:600; letter-spacing:1.5px; text-transform:uppercase; color:var(--muted); }
 .m-card b { display:block; font-size:12.5px; margin:4px 0 3px; }
 .m-card p { font-size:11.5px; color:var(--text2); line-height:1.5; }
-.m-card .m-state { display:inline-block; margin-top:8px; font-size:9px; font-weight:600; letter-spacing:1px; text-transform:uppercase;
-  color:var(--w5); border:1px dashed rgba(255,179,64,.5); border-radius:100px; padding:3px 9px; }
+.m-card .m-state { display:inline-block; margin-top:8px; font-size:9px; font-weight:600; letter-spacing:1px; text-transform:uppercase; color:var(--w5); border:1px dashed rgba(255,179,64,.5); border-radius:100px; padding:3px 9px; }
 .m-card .m-weeks { font-size:9.5px; color:var(--muted); margin-left:8px; }
-
 @media (max-width:1120px) { .m-grid { grid-template-columns:repeat(2,1fr); } }
 @media (max-width:900px) { .watch-grid, .paths { grid-template-columns:1fr; } }
 @media (max-width:520px) { .m-grid { grid-template-columns:1fr; } }
+
+.info { padding:28px 0 8px; }
 </style>
 </head>
 <body>
@@ -547,10 +646,10 @@ a.vcard:hover { border-color:var(--border2); transform:translateY(-2px); }
     </div>
     <nav class="top-nav">
       <a href="#weeks">Weekly Activities</a>
+      <a href="#journey">The Journey</a>
       <a href="#weeks" onclick="setWeek('channel')">Submission Channel</a>
       <a href="#finish">The Finish Line</a>
       <a href="#materials">Materials</a>
-      <a href="#timeline">Key Dates</a>
     </nav>
     <div class="hbadge">Nov 9 – Dec 11</div>
   </div>
@@ -562,45 +661,23 @@ a.vcard:hover { border-color:var(--border2); transform:translateY(-2px); }
     <div class="hero-eyebrow"><span class="eyebrow-dot"></span>AI Activation Program · Public Sector Sales · GTM Enablement</div>
     <h1 class="hero-title">Public Sector Sales — <span class="grad">AI Activation Program</span></h1>
     <p class="hero-sub">Four weeks. Twenty short activities, 15–20 minutes a day. From sharper sales judgment to account intelligence, a reusable AI solution you build yourself, and a forward-looking business review — for Federal Civilian, Defense &amp; Intelligence, SLED &amp; higher education, and Public Sector Partner Sales.<br><span class="verbs">Rethink · Research · Build · Review.</span></p>
+    <a class="today-pill" id="today-pill" href="#weeks"></a>
     <div class="kpi-row">
-      <div class="kpi"><div class="kpi-n" style="color:var(--lav)">4</div><div class="kpi-l">Weeks</div></div>
-      <div class="kpi"><div class="kpi-n">20</div><div class="kpi-l">Activities</div></div>
-      <div class="kpi"><div class="kpi-n" style="color:var(--teal)">15–20</div><div class="kpi-l">Minutes a day</div></div>
-      <div class="kpi"><div class="kpi-n" style="color:var(--sky)">4</div><div class="kpi-l">Cohort contexts</div></div>
+      <div class="kpi"><div class="kpi-n" style="color:var(--lav)" data-tick="4">0</div><div class="kpi-l">Weeks</div></div>
+      <div class="kpi"><div class="kpi-n" data-tick="20">0</div><div class="kpi-l">Activities</div></div>
+      <div class="kpi"><div class="kpi-n" style="color:var(--teal)" data-tick="100" data-prefix="≈">0</div><div class="kpi-l">Minutes a week</div></div>
+      <div class="kpi"><div class="kpi-n" style="color:var(--sky)" data-tick="4">0</div><div class="kpi-l">Cohort contexts</div></div>
     </div>
   </div>
 </section>
 
-<!-- INFO STRIP -->
-<section class="info">
+<!-- SKILLS MARQUEE -->
+<div class="marquee-band" aria-hidden="true"><div class="marquee" id="marquee"></div></div>
+
+<!-- PROGRAM BENTO -->
+<section class="info" id="program">
   <div class="wrap">
-    <div class="info-grid">
-      <div class="info-card">
-        <h3>The daily rhythm</h3>
-        <div class="rhythm">
-          <div class="r-step"><b>Mon–Fri</b><span>One activity a day, 15–20 minutes. Every exercise is part of the program; later activities reuse earlier work.</span></div>
-          <div class="r-step"><b>Every day</b><span>A short share on Viva Engage — the template is on each card.</span></div>
-          <div class="r-step"><b>Nov 23–27</b><span>Thanksgiving week. No activities, no coaching. Back on Monday, November 30.</span></div>
-        </div>
-      </div>
-      <div class="info-card">
-        <h3>Weekly AI Coaching Sessions</h3>
-        <ul>
-          <li><b>One session a week</b> · day and time to be confirmed</li>
-          <li>Support, troubleshooting and peer examples</li>
-          <li>Hands-on build help in Week 3</li>
-          <li>Not on November 11 (Veterans Day)</li>
-        </ul>
-      </div>
-      <div class="info-card">
-        <h3>The Finish Line</h3>
-        <ul>
-          <li><b>Week 4's Business Review</b> is the destination — no extra work</li>
-          <li><b>Optional capstone:</b> teams of 3–5 on a shared challenge</li>
-          <li><a href="#finish">How the finish line works ↓</a></li>
-        </ul>
-      </div>
-    </div>
+    <div class="bento" id="bento"></div>
     <div class="guard">🔒 <b>Data rule for every activity:</b> use public or synthetic practice material and tools approved for your role and data. Internal data stays in appropriately approved environments. Check important claims against sources, label projections as scenarios, and keep human review at every step.</div>
   </div>
 </section>
@@ -609,19 +686,25 @@ a.vcard:hover { border-color:var(--border2); transform:translateY(-2px); }
 <section class="marathon" id="weeks">
   <div class="wrap">
     <div class="sec-eyebrow"><span class="eyebrow-dot"></span>The Program · Weekly Activities</div>
-    <h2>Four weeks. Twenty activities. One tab per week.</h2>
+    <h2>Four weeks. Twenty activities. One day open at a time.</h2>
     <div class="lens-bar" id="lens-bar"></div>
-    <p class="lens-note">Pick your context and every card's <b style="color:var(--text)">Your lens</b> section follows it. Tap a card for the full brief: mission, steps, starter prompt, your share.</p>
+    <p class="lens-note">Pick your context and every day's <b style="color:var(--text)">Your lens</b> section follows it. Choose a day to open the full brief: mission, steps, starter prompt, your share. Use ← → to move between days.</p>
   </div>
 </section>
 
-<!-- WEEK TABS -->
-<div class="tabbar-outer">
-  <div class="tabbar" id="tabbar"></div>
-</div>
-
-<!-- WEEK PANELS -->
+<div class="tabbar-outer"><div class="tabbar" id="tabbar"></div></div>
 <main class="wrap" id="panels"></main>
+
+<!-- THE JOURNEY -->
+<section class="journey" id="journey">
+  <div class="wrap">
+    <div class="sec-eyebrow"><span class="eyebrow-dot"></span>The Journey</div>
+    <h2>Four weeks that build on each other.</h2>
+    <p class="gf-sub">Each week reuses the one before: Week 1's judgment feeds Week 2's brief, the brief feeds the Week 3 build, and the build feeds the Week 4 review.</p>
+    <div class="tl" id="tl"></div>
+    <div class="kd" id="kd"></div>
+  </div>
+</section>
 
 <!-- THE FINISH LINE -->
 <section class="grand-final-sec" id="finish">
@@ -666,14 +749,6 @@ a.vcard:hover { border-color:var(--border2); transform:translateY(-2px); }
   <div class="wrap">
     <h2>Materials</h2>
     <div class="m-grid" id="m-grid"></div>
-  </div>
-</section>
-
-<!-- TIMELINE -->
-<section class="timeline" id="timeline">
-  <div class="wrap">
-    <h2>Key dates</h2>
-    <div class="tl-card" id="tl-card"></div>
   </div>
 </section>
 
@@ -1674,217 +1749,327 @@ const TODAY = (() => {
   return `${d.getFullYear()}-${String(d.getMonth() + 1).padStart(2, '0')}-${String(d.getDate()).padStart(2, '0')}`;
 })();
 
-/* ══ CONTEXT (remembered in this browser) ══ */
-let lens = null;
-try { lens = localStorage.getItem('ps-lens'); } catch (e) {}
-if (!AUD.some(a => a.id === lens)) lens = null;
+/* ══ STATE (remembered in this browser) ══ */
+const store = { get(k, f) { try { const v = localStorage.getItem(k); return v === null ? f : JSON.parse(v); } catch (e) { return f; } }, set(k, v) { try { localStorage.setItem(k, JSON.stringify(v)); } catch (e) {} } };
+let lens = store.get('ps-lens', null); if (!AUD.some(a => a.id === lens)) lens = null;
+const done = new Set(store.get('ps-done', []));
+const activeDay = { 1: 0, 2: 0, 3: 0, 4: 0 };
 
-/* ══ RENDER ══ */
+/* ══ HELPERS ══ */
 const esc = s => String(s ?? '').replace(/[&<>"']/g, c => ({ '&':'&amp;', '<':'&lt;', '>':'&gt;', '"':'&quot;', "'":'&#39;' })[c]);
 const mark = s => esc(s).replace(/\{([^}]+)\}/g, '<mark>{$1}</mark>');
-function hexToRgba(hex, a) {
-  const n = parseInt(hex.slice(1), 16);
-  return `rgba(${(n>>16)&255},${(n>>8)&255},${n&255},${a})`;
-}
-function accentHex(v) {
-  return { 'var(--w1)':'#2997ff', 'var(--w2)':'#64d2ff', 'var(--w3)':'#30d158', 'var(--w4)':'#ff375f', 'var(--w5)':'#ffb340' }[v] || '#2997ff';
+const hexToRgba = (hex, a) => { const n = parseInt(hex.slice(1), 16); return `rgba(${(n>>16)&255},${(n>>8)&255},${n&255},${a})`; };
+const accentHex = v => ({ 'var(--w1)':'#2997ff', 'var(--w2)':'#64d2ff', 'var(--w3)':'#30d158', 'var(--w4)':'#ff375f', 'var(--w5)':'#ffb340' }[v] || '#2997ff');
+const fmtLong = d => { const x = new Date(d + 'T12:00:00'); return `${['Sunday','Monday','Tuesday','Wednesday','Thursday','Friday','Saturday'][x.getDay()]}, ${['January','February','March','April','May','June','July','August','September','October','November','December'][x.getMonth()]} ${x.getDate()}`; };
+const fmtShort = d => { const x = new Date(d + 'T12:00:00'); return `${['Sun','Mon','Tue','Wed','Thu','Fri','Sat'][x.getDay()]} · ${['Jan','Feb','Mar','Apr','May','Jun','Jul','Aug','Sep','Oct','Nov','Dec'][x.getMonth()]} ${x.getDate()}`; };
+const dayNum = a => ACTS.indexOf(a) + 1;
+const daysBetween = (a, b) => Math.round((new Date(b + 'T12:00:00') - new Date(a + 'T12:00:00')) / 86400000);
+
+/* ══ TODAY PILL ══ */
+function renderTodayPill() {
+  const el = document.getElementById('today-pill');
+  const todayAct = ACTS.find(a => a.date === TODAY);
+  const next = ACTS.find(a => a.date > TODAY);
+  const inBreak = TODAY >= '2026-11-23' && TODAY <= '2026-11-27';
+  let tag, text, go, target;
+  if (todayAct) { tag = `Today · Day ${dayNum(todayAct)} of 20`; text = `<b>${esc(todayAct.title)}</b> · ${esc(todayAct.hook)}`; go = 'Open today ↗'; target = todayAct; }
+  else if (inBreak && next) { tag = 'Thanksgiving week'; text = `No activities this week. Back <b>${esc(fmtLong(next.date))}</b> with ${esc(next.title)}.`; go = 'Preview Week 3 ↗'; target = next; }
+  else if (TODAY < ACTS[0].date) { const d = daysBetween(TODAY, ACTS[0].date); tag = `Starts in ${d} day${d === 1 ? '' : 's'}`; text = `Day 1 is <b>${esc(ACTS[0].title)}</b> · ${esc(ACTS[0].hook)}`; go = 'Preview Day 1 ↗'; target = ACTS[0]; }
+  else if (next) { tag = `Next · ${esc(fmtShort(next.date))}`; text = `<b>${esc(next.title)}</b> · ${esc(next.hook)}`; go = 'Preview ↗'; target = next; }
+  else { tag = 'Program complete'; text = `Twenty activities done. The guides stay here for reuse.`; go = 'Browse ↗'; target = ACTS[ACTS.length - 1]; }
+  el.innerHTML = `<span class="tp-tag"><span class="eyebrow-dot"></span>${tag}</span><span>${text}</span><span class="tp-go">${go}</span>`;
+  el.onclick = (e) => { e.preventDefault(); openActivity(target.id); };
 }
 
+/* ══ NUMBER TICKERS (count up when the hero is in view) ══ */
+function tickers() {
+  const els = [...document.querySelectorAll('[data-tick]')];
+  const run = el => {
+    const target = Number(el.dataset.tick), prefix = el.dataset.prefix || '', t0 = performance.now(), dur = 1400;
+    const step = now => { const p = Math.min(1, (now - t0) / dur); const e = 1 - Math.pow(1 - p, 3); el.textContent = prefix + Math.round(target * e); if (p < 1) requestAnimationFrame(step); };
+    requestAnimationFrame(step);
+  };
+  if (!('IntersectionObserver' in window) || matchMedia('(prefers-reduced-motion: reduce)').matches) { els.forEach(el => el.textContent = (el.dataset.prefix || '') + el.dataset.tick); return; }
+  const io = new IntersectionObserver(es => es.forEach(e => { if (e.isIntersecting) { run(e.target); io.unobserve(e.target); } }), { threshold: .4 });
+  els.forEach(el => io.observe(el));
+}
+
+/* ══ MARQUEE ══ */
+function renderMarquee() {
+  const items = ACTS.map(a => `<span><i></i>${esc(a.skill.replace(/\.$/, ''))}</span>`).join('');
+  document.getElementById('marquee').innerHTML = items + items;
+}
+
+/* ══ BENTO ══ */
+function renderBento() {
+  const HEARD = [
+    ['Make the value case stronger', 'Challenge assumptions, explain technical value clearly, and adapt messages to the customer and partner.', [1]],
+    ['Understand accounts and act earlier', 'Connect agency or institution priorities, partner interests, and buying signals to evidence and next actions.', [2]],
+    ['Reduce repetitive preparation', 'Build a small agent, app, or dashboard that supports recurring account work and can be maintained.', [3]],
+    ['Make plans and reviews more strategic', 'Use evidence and scenarios to recommend priorities, clarify shared responsibilities, and prepare for difficult questions.', [4]],
+    ['Build trust in AI supported work', 'Practise source checking, distinguish facts from assumptions, and retain human judgment throughout.', [1,2,3,4]],
+  ];
+  const dots = ws => `<span class="wk-dots">${ws.map(n => `<span class="wk-dot" style="background:${accentHex(WEEKS[n-1].accent)}">${n}</span>`).join('')}</span>`;
+  document.getElementById('bento').innerHTML = `
+    <div class="b-card span-7"><h3><span class="ic">🎧</span>What we heard · how the program responds</h3>
+      <div class="heard">${HEARD.map(([h, r, ws]) => `<div class="heard-row"><b>${esc(h)}</b><span>${esc(r)}</span>${dots(ws)}</div>`).join('')}</div></div>
+    <div class="b-card span-5"><h3><span class="ic">📅</span>The daily rhythm</h3>
+      <div class="b-big">One activity a day. 15–20 minutes. A short share.</div>
+      <ul><li><b>Mon–Fri</b> · every exercise is part of the program; later activities reuse earlier work</li><li><b>Every day</b> · post your share on Viva Engage — the template is on each day's card</li><li><b>Nov 23–27</b> · Thanksgiving week, no activities, no coaching. Back Monday, November 30</li></ul></div>
+    <div class="b-card span-4"><h3><span class="ic">🧑‍🏫</span>Weekly AI Coaching Sessions</h3>
+      <ul><li><b>One session a week</b> · day and time to be confirmed</li><li>Support, troubleshooting and peer examples</li><li>Hands-on build help in Week 3</li><li>Not on November 11 (Veterans Day)</li></ul></div>
+    <div class="b-card span-4"><h3><span class="ic">🎯</span>Your context</h3>
+      <p>Four cohort contexts, one learning sequence. Pick yours and every day's <b>Your lens</b> follows it.</p>
+      <ul>${AUD.map(a => `<li><b>${esc(a.name)}</b> · ${esc(a.context.split('.')[0].toLowerCase())}</li>`).join('')}</ul></div>
+    <div class="b-card span-4"><h3><span class="ic">🏁</span>The Finish Line</h3>
+      <ul><li><b>Week 4's Business Review</b> is the destination — no extra work</li><li><b>Optional capstone</b> · teams of 3–5 on a shared challenge</li><li><a href="#finish">How the finish line works ↓</a></li></ul></div>`;
+}
+
+/* ══ WEEK TABS + PANELS ══ */
 function lensHtml(a) {
-  if (lens) return `<div class="sec lens"><h4>Your lens · ${esc(AUD.find(x => x.id === lens).short)}</h4><p class="lens-text">${esc(a.lenses[lens])}</p></div>`;
+  if (lens) { const au = AUD.find(x => x.id === lens); return `<div class="sec lens"><h4>Your lens · ${esc(au.short)}</h4><p class="lens-text">${esc(a.lenses[lens])}</p></div>`; }
   return `<div class="sec lens"><h4>Your lens · pick a context above</h4><p class="lens-text">${AUD.map(x => `<b>${esc(x.short)}:</b> ${esc(a.lenses[x.id])}`).join('<br>')}</p></div>`;
 }
-
-function cardHtml(a, accent, idx, date) {
-  const chipStyle = a.fri
-    ? 'color:var(--rose);border-color:rgba(255,69,58,.45);background:rgba(255,69,58,.10)'
-    : `color:${accentHex(accent)};border-color:${hexToRgba(accentHex(accent),.45)};background:${hexToRgba(accentHex(accent),.12)}`;
-  const bar = a.fri ? 'linear-gradient(90deg,var(--rose),var(--pink))' : accentHex(accent);
+function cardHtml(a, w, idx) {
+  const accent = accentHex(w.accent);
+  const chipStyle = a.fri ? 'color:var(--rose);border-color:rgba(255,69,58,.45);background:rgba(255,69,58,.10)' : `color:${accent};border-color:${hexToRgba(accent,.45)};background:${hexToRgba(accent,.12)}`;
+  const bar = a.fri ? 'linear-gradient(90deg,var(--rose),var(--pink))' : accent;
   const today = a.date === TODAY;
-  const chip = `${a.dow}${date ? ' · ' + date : ''}${today ? '<span class="today-tag">· TODAY</span>' : ''}`;
-  const badge = a.fri ? '<span class="req-mand">Week synthesis</span>' : `<span class="req-opt">Day ${ACTS.indexOf(a) + 1}</span>`;
+  const chip = `${a.dow} · ${w.days[idx]}${today ? '<span class="today-tag">· TODAY</span>' : ''}`;
+  const badge = a.fri ? '<span class="req-mand">Week synthesis</span>' : `<span class="req-opt">Day ${dayNum(a)} of 20</span>`;
   const paths = a.byPath ? `<div class="sec"><h4>By build path</h4><ul class="j-list">${PATHS.map(p => `<li><b>${esc(p.name)}:</b> ${esc(a.byPath[p.id])}</li>`).join('')}</ul></div>` : '';
-  return `<div class="fcard${a.fri ? ' mand' : ''}${today ? ' today' : ''}" style="--i:${idx}" tabindex="0" role="button" aria-pressed="false" id="card-${a.id}"
-       onclick="this.classList.toggle('flipped')"
-       onkeydown="if(event.key==='Enter'||event.key===' '){event.preventDefault();this.classList.toggle('flipped');}">
-    <div class="fcard-inner">
-      <div class="face front">
-        <div class="abar" style="background:${bar}"></div>
-        <div class="f-top">
-          <span class="day-chip" style="${chipStyle}">${a.fri ? '🔴 ' : ''}${chip}</span>
-          ${badge}
-          ${a.time ? `<span class="f-time">${a.time}</span>` : ''}
-        </div>
-        <div class="f-emoji">${a.emoji}</div>
-        <div class="f-title">${esc(a.title)}</div>
-        <p class="f-hook">${esc(a.hook)}</p>
-        ${a.skill ? `<div class="f-unlock"><h4>The AI skill it teaches</h4><p>${esc(a.skill)}</p></div>` : ''}
-        <div class="f-foot">
-          <div class="flip-hint"><span class="arr">⟳</span> Tap for the full brief</div>
+  const steps = a.steps.map(s => { const m = s.match(/^(.*) \((\d+) min\)$/); return `<li>${esc(m ? m[1] : s)}${m ? `<em>${m[2]} min</em>` : ''}</li>`; }).join('');
+  const isDone = done.has(a.id);
+  return `<article class="xcard${a.fri ? ' fri' : ''}${today ? ' today' : ''}" id="card-${a.id}" data-active="${idx === activeDay[w.num] ? 'true' : 'false'}" data-week="${w.num}" data-idx="${idx}" style="--i:${idx}" tabindex="0" role="button" aria-expanded="${idx === activeDay[w.num]}" aria-label="${esc(a.title)}, ${esc(fmtLong(a.date))}">
+    <div class="abar" style="background:${bar}"></div>
+    <div class="x-spine">
+      <span class="day-chip" style="${chipStyle}">${a.dow}</span>
+      <span class="x-vert">${esc(a.title)}</span>
+      <div><span class="x-emoji">${a.emoji}</span><div class="x-daynum">${w.days[idx]}</div>${isDone ? '<div class="x-done">✓</div>' : ''}</div>
+    </div>
+    <div class="x-open">
+      <div class="x-head">
+        <div class="x-top"><span class="day-chip" style="${chipStyle}">${a.fri ? '🔴 ' : ''}${chip}</span>${badge}<span class="x-time">${a.time}</span></div>
+        <div class="x-title-row"><span class="x-emoji">${a.emoji}</span><div><div class="x-title">${esc(a.title)}</div><div class="x-hook">${esc(a.hook)}</div></div></div>
+        <div class="x-skill"><b>AI skill</b>${esc(a.skill.replace(/\.$/, ''))}</div>
+        <div class="x-actions">
+          <button type="button" class="xbtn${isDone ? ' on' : ''}" data-done="${a.id}" onclick="event.stopPropagation();toggleDone('${a.id}', this)">${isDone ? '✓ Done' : 'Mark done'}</button>
+          <button type="button" class="xbtn" onclick="event.stopPropagation();copyLink('${a.id}', this)">Link</button>
         </div>
       </div>
-      <div class="face back">
-        <div class="abar" style="background:${bar}"></div>
-        <div class="back-scroll">
-          <div class="b-title"><span class="bt-emoji">${a.emoji}</span>${esc(a.title)}</div>
+      <div class="x-body" onclick="event.stopPropagation()">
+        <div class="x-col">
           <div class="sec"><h4>Mission</h4><p>${esc(a.mission)}</p>${a.note ? `<p style="margin-top:6px;color:var(--muted)">${esc(a.note)}</p>` : ''}</div>
-          <div class="sec"><h4>Steps · ${a.time}</h4><ol class="s-list">${a.steps.map(s => `<li>${esc(s)}</li>`).join('')}</ol></div>
+          <div class="sec"><h4>Steps <span class="n">${a.time}</span></h4><ol class="s-list">${steps}</ol></div>
           ${paths}
-          <div class="sec"><h4>Starter prompt</h4><pre class="prompt">${mark(a.prompt)}</pre><button type="button" class="copy-btn" data-copy="${a.id}" onclick="event.stopPropagation();copyPrompt(this)">Copy prompt</button></div>
+        </div>
+        <div class="x-col">
+          <div class="sec"><h4>Starter prompt</h4><pre class="prompt">${mark(a.prompt)}</pre><button type="button" class="copy-btn" data-copy="${a.id}" onclick="copyPrompt(this)">Copy prompt</button></div>
           ${lensHtml(a)}
           <div class="sec"><h4>Your share</h4><p>${esc(a.submission)} Post in the channel.</p></div>
-          ${a.tip ? `<div class="sec tip"><h4>💡 Check before you post</h4><p>${esc(a.tip)}</p></div>` : ''}
-          <div class="back-foot">⟳ Tap to flip back</div>
+          <div class="sec tip"><h4>💡 Check before you post</h4><p>${esc(a.tip)}</p></div>
         </div>
       </div>
     </div>
-  </div>`;
+  </article>`;
 }
-
 function videoHtml(v, w) {
-  if (v.youtubeId) {
-    return `<a class="vcard" href="https://www.youtube.com/watch?v=${esc(v.youtubeId)}" target="_blank" rel="noopener">
-      <div class="v-play">▶</div>
-      <div><div class="v-title">${esc(v.title)}</div><div class="v-about">${esc(v.about)}</div><div class="v-meta">${v.minutes} min · YouTube ↗</div></div></a>`;
-  }
-  return `<div class="vcard pending">
-    <div class="v-play">▶</div>
-    <div><div class="v-title">${esc(v.title)}</div><div class="v-about">${esc(v.about)}</div><div class="v-meta">${v.minutes} min · <span class="pend">Link coming before Week ${w.num}</span></div></div></div>`;
+  const inner = `<div class="v-play">▶</div><div><div class="v-title">${esc(v.title)}</div><div class="v-about">${esc(v.about)}</div><div class="v-meta">${v.minutes} min · ${v.youtubeId ? 'YouTube ↗' : `<span class="pend">Link coming before Week ${w.num}</span>`}</div></div>`;
+  return v.youtubeId ? `<a class="vcard spot" href="https://www.youtube.com/watch?v=${esc(v.youtubeId)}" target="_blank" rel="noopener">${inner}</a>` : `<div class="vcard spot pending">${inner}</div>`;
 }
-
-function render() {
-  const lensBar = document.getElementById('lens-bar');
-  lensBar.innerHTML = '<span class="lb-label">Your context</span>' + AUD.map(a =>
-    `<button class="ltab${lens === a.id ? ' on' : ''}" onclick="setLens('${a.id}')">${esc(a.short)}</button>`).join('');
-
-  const tabbar = document.getElementById('tabbar');
-  tabbar.innerHTML = WEEKS.map((w,i) =>
-    `<button class="wtab${i===0?' on':''}" id="wtab-${w.num}" onclick="setWeek(${w.num})">
-       <span class="wt-num">Week ${w.num}</span>${esc(w.short)}
-     </button>`).join('') +
-    `<button class="wtab" id="wtab-channel" onclick="setWeek('channel')">
-       <span class="wt-num">📣</span>Submission Channel
-     </button>`;
-
-  const panels = document.getElementById('panels');
-  panels.innerHTML = WEEKS.map((w,i) => {
-    const acts = ACTS.filter(a => a.week === w.num);
-    const dows = '<div class="dow-row">' + ['MON','TUE','WED','THU','FRI'].map((d,j) =>
-      `<div class="dow-label${j===4?' fri':''}">${d} · ${w.days[j]}${j===4?' 🔴':''}</div>`).join('') + '</div>';
-    const paths = w.num === 3 ? `<div class="paths">${PATHS.map(p => `<div class="path"><b>${esc(p.name)}</b><p>${esc(p.what)}</p></div>`).join('')}</div>` : '';
-    const brk = w.num === 3 ? `<div class="break-band">🦃 <span><b>Thanksgiving week, Nov 23–27:</b> no activities or coaching. Bring your Week 2 brief and source list back on Monday, November 30.</span></div>` : '';
-    return `<section class="panel${i===0?' active':''}" id="panel-${w.num}">
-      <div class="week-head">
-        <div class="week-ghost">W${w.num}</div>
-        <div class="week-meta">
-          <h2>${esc(w.name)}</h2>
-          <div class="week-dates">${esc(w.dates)}${w.check ? ' · ' + esc(w.check) : ''}</div>
-        </div>
-        <p class="week-intro">${esc(w.intro)}</p>
-      </div>
-      ${brk}
-      ${paths}
-      ${dows}
-      <div class="cgrid">${acts.map((a, j) => cardHtml(a, w.accent, j, w.days[j])).join('')}</div>
-      <div class="watch">
-        <h3>Watch this week · Copilot agents</h3>
-        <div class="watch-grid">${w.videos.map(v => videoHtml(v, w)).join('')}</div>
-      </div>
-      <div class="guard" style="margin-top:14px"><b>Coaching focus:</b> ${esc(w.coaching)}${w.note ? ` &nbsp;·&nbsp; <b>Note:</b> ${esc(w.note)}` : ''}</div>
-    </section>`;
-  }).join('') +
-  `<section class="panel" id="panel-channel">
+function gridColumns(w) { return [0,1,2,3,4].map(i => i === activeDay[w] ? '6fr' : '1fr').join(' '); }
+function weekPanel(w, i) {
+  const acts = ACTS.filter(a => a.week === w.num);
+  const paths = w.num === 3 ? `<div class="paths">${PATHS.map(p => `<div class="path spot"><b>${esc(p.name)}</b><p>${esc(p.what)}</p></div>`).join('')}</div>` : '';
+  const brk = w.num === 3 ? `<div class="break-band">🦃 <span><b>Thanksgiving week, Nov 23–27:</b> no activities or coaching. Bring your Week 2 brief and source list back on Monday, November 30.</span></div>` : '';
+  return `<section class="panel${i===0?' active':''}" id="panel-${w.num}">
+    <div class="week-head">
+      <div class="week-ghost">W${w.num}</div>
+      <div class="week-meta"><h2>${esc(w.name)}</h2><div class="week-dates">${esc(w.dates)} · ${esc(w.check)}</div></div>
+      <p class="week-intro">${esc(w.intro)}</p>
+    </div>
+    ${brk}${paths}
+    <div class="xgrid" id="xgrid-${w.num}" style="grid-template-columns:${gridColumns(w.num)}">${acts.map((a, j) => cardHtml(a, w, j)).join('')}</div>
+    <div class="x-nav">
+      <button type="button" class="navbtn" onclick="stepDay(${w.num},-1)" id="prev-${w.num}">← Previous day</button>
+      <div class="dots" id="dots-${w.num}">${acts.map((a, j) => `<button type="button" class="dot${j === activeDay[w.num] ? ' on' : ''}${done.has(a.id) ? ' done' : ''}" aria-label="${esc(a.title)}" onclick="setDay(${w.num},${j})"></button>`).join('')}</div>
+      <span class="x-hint">← → keys move between days</span>
+      <button type="button" class="navbtn" onclick="stepDay(${w.num},1)" id="next-${w.num}">Next day →</button>
+    </div>
+    <div class="watch"><h3>Watch this week · Copilot agents</h3><div class="watch-grid">${w.videos.map(v => videoHtml(v, w)).join('')}</div></div>
+    <div class="guard" style="margin-top:14px"><b>Coaching focus:</b> ${esc(w.coaching)}${w.note ? ` &nbsp;·&nbsp; <b>Note:</b> ${esc(w.note)}` : ''}</div>
+  </section>`;
+}
+function channelPanel() {
+  return `<section class="panel" id="panel-channel">
     <div class="week-head">
       <div class="week-ghost">📣</div>
-      <div class="week-meta">
-        <h2>Activity Submission Channel</h2>
-        <div class="week-dates">Viva Engage · Post every daily share here</div>
-      </div>
+      <div class="week-meta"><h2>Activity Submission Channel</h2><div class="week-dates">Viva Engage · Post every daily share here</div></div>
       <a class="channel-cta" href="${ENGAGE_URL}" target="_blank" rel="noopener">Open in Viva Engage ↗</a>
     </div>
     ${ENGAGE_EMBED
       ? `<div class="channel-embed"><iframe name="embed-feed" title="Viva Engage" src="${ENGAGE_EMBED}" loading="lazy" style="border: 0px; overflow: hidden; width: 100%; height: 100%; min-height: 400px;"></iframe></div>`
       : `<div class="info-grid" style="grid-template-columns:1fr 1fr">
           <div class="info-card"><h3>The cohort community</h3><p>The Public Sector AI Activation community on Viva Engage is being set up. Its feed will appear here. Until then, open Viva Engage and post your shares in the cohort community.</p></div>
-          <div class="info-card"><h3>What a good share looks like</h3><ul>
-            <li>Lead with the day and the activity name</li>
-            <li>Post what the card asks for, not the whole chat</li>
-            <li>Say what changed your thinking, in one line</li>
-            <li>Name an unknown or a claim you corrected</li>
-            <li>Practice material only — internal data stays in approved tools</li>
-          </ul></div>
+          <div class="info-card"><h3>What a good share looks like</h3><ul><li>Lead with the day and the activity name</li><li>Post what the card asks for, not the whole chat</li><li>Say what changed your thinking, in one line</li><li>Name an unknown or a claim you corrected</li><li>Practice material only — internal data stays in approved tools</li></ul></div>
         </div>`}
   </section>`;
-
-  document.getElementById('m-grid').innerHTML = MATERIALS.map(m =>
-    `<div class="m-card"><span class="m-type">${esc(m.type)}</span><b>${esc(m.name)}</b><p>${esc(m.meta)}</p><span class="m-state">${esc(m.state)}</span><span class="m-weeks">Week ${m.weeks.join(', ')}</span></div>`).join('');
-
-  const fmt = d => { const x = new Date(d + 'T12:00:00'); return `${['Sun','Mon','Tue','Wed','Thu','Fri','Sat'][x.getDay()]} · ${['Jan','Feb','Mar','Apr','May','Jun','Jul','Aug','Sep','Oct','Nov','Dec'][x.getMonth()]} ${x.getDate()}`; };
-  document.getElementById('tl-card').innerHTML = DATES.map(k =>
-    `<div class="tl-row"><span class="tl-date">${fmt(k.date)}</span><span class="tl-what"><b>${esc(k.label)}</b> — ${esc(k.detail)}</span></div>`).join('');
+}
+function renderTabs() {
+  document.getElementById('tabbar').innerHTML = WEEKS.map((w,i) => {
+    const n = ACTS.filter(a => a.week === w.num && done.has(a.id)).length;
+    return `<button class="wtab${i===0?' on':''}" id="wtab-${w.num}" onclick="setWeek(${w.num})"><span class="wt-num">Week ${w.num}</span>${esc(w.short)}${n ? `<span class="wt-num" style="color:var(--teal)">${n}/5</span>` : ''}</button>`;
+  }).join('') + `<button class="wtab" id="wtab-channel" onclick="setWeek('channel')"><span class="wt-num">📣</span>Submission Channel</button>`;
+}
+function renderPanels() {
+  document.getElementById('panels').innerHTML = WEEKS.map(weekPanel).join('') + channelPanel();
+  bindSpotlights();
+}
+function renderLensBar() {
+  document.getElementById('lens-bar').innerHTML = '<span class="lb-label">Your context</span>' + AUD.map(a => `<button class="ltab${lens === a.id ? ' on' : ''}" onclick="setLens('${a.id}')">${esc(a.short)}</button>`).join('');
 }
 
+/* ══ DAY SELECTION (expanding cards) ══ */
+function setDay(w, idx) {
+  activeDay[w] = Math.max(0, Math.min(4, idx));
+  const grid = document.getElementById('xgrid-' + w);
+  if (!grid) return;
+  grid.style.gridTemplateColumns = gridColumns(w);
+  [...grid.children].forEach((c, j) => { c.dataset.active = String(j === activeDay[w]); c.setAttribute('aria-expanded', String(j === activeDay[w])); if (j === activeDay[w]) { const b = c.querySelector('.x-body'); if (b) b.scrollTop = 0; } });
+  document.querySelectorAll(`#dots-${w} .dot`).forEach((d, j) => d.classList.toggle('on', j === activeDay[w]));
+  document.getElementById('prev-' + w).disabled = activeDay[w] === 0;
+  document.getElementById('next-' + w).disabled = activeDay[w] === 4;
+}
+function stepDay(w, d) { setDay(w, activeDay[w] + d); }
+document.addEventListener('click', e => {
+  const card = e.target.closest('.xcard');
+  if (card && card.dataset.active === 'false') setDay(Number(card.dataset.week), Number(card.dataset.idx));
+});
+document.addEventListener('keydown', e => {
+  if (e.key !== 'ArrowLeft' && e.key !== 'ArrowRight') return;
+  const card = e.target.closest && e.target.closest('.xcard');
+  const panel = document.querySelector('.panel.active');
+  const w = card ? Number(card.dataset.week) : (panel && panel.id.startsWith('panel-') && panel.id !== 'panel-channel' ? Number(panel.id.slice(6)) : null);
+  if (!w || (e.target.tagName === 'INPUT' || e.target.tagName === 'TEXTAREA')) return;
+  if (!card && !panel.contains(e.target) && !(e.target === document.body)) return;
+  e.preventDefault(); stepDay(w, e.key === 'ArrowRight' ? 1 : -1);
+  const active = document.querySelector(`#xgrid-${w} .xcard[data-active="true"]`); if (active && card) active.focus();
+});
+document.addEventListener('keydown', e => { if ((e.key === 'Enter' || e.key === ' ') && e.target.classList && e.target.classList.contains('xcard') && e.target.dataset.active === 'false') { e.preventDefault(); setDay(Number(e.target.dataset.week), Number(e.target.dataset.idx)); } });
+
+function openActivity(id) {
+  const a = ACTS.find(x => x.id === id); if (!a) return;
+  setWeek(a.week);
+  setDay(a.week, ACTS.filter(x => x.week === a.week).indexOf(a));
+  setTimeout(() => { const el = document.getElementById('xgrid-' + a.week); if (el) { const y = el.getBoundingClientRect().top + window.scrollY - 140; window.scrollTo({ top: y, behavior: matchMedia('(prefers-reduced-motion: reduce)').matches ? 'auto' : 'smooth' }); } }, 240);
+}
+
+/* ══ CONTEXT, DONE, COPY ══ */
 function setLens(id) {
-  lens = lens === id ? null : id;
-  try { lens ? localStorage.setItem('ps-lens', lens) : localStorage.removeItem('ps-lens'); } catch (e) {}
-  document.querySelectorAll('.ltab').forEach(b => b.classList.toggle('on', b.textContent === (AUD.find(a => a.id === lens) || {}).short));
-  document.querySelectorAll('.fcard').forEach(c => {
-    const a = ACTS.find(x => `card-${x.id}` === c.id);
-    const old = c.querySelector('.sec.lens');
-    if (a && old) old.outerHTML = lensHtml(a);
-  });
+  lens = lens === id ? null : id; store.set('ps-lens', lens);
+  renderLensBar();
+  ACTS.forEach(a => { const old = document.querySelector(`#card-${a.id} .sec.lens`); if (old) old.outerHTML = lensHtml(a); });
 }
-
-async function copyPrompt(btn) {
-  const a = ACTS.find(x => x.id === btn.dataset.copy);
-  try {
-    await navigator.clipboard.writeText(a.prompt);
-    btn.textContent = 'Copied';
-    btn.classList.add('done');
-    setTimeout(() => { btn.textContent = 'Copy prompt'; btn.classList.remove('done'); }, 1800);
-  } catch (e) {
-    const pre = btn.previousElementSibling;
-    const range = document.createRange(); range.selectNodeContents(pre);
-    const sel = getSelection(); sel.removeAllRanges(); sel.addRange(range);
-    btn.textContent = 'Select and copy';
-  }
+function toggleDone(id, btn) {
+  if (done.has(id)) done.delete(id); else done.add(id);
+  store.set('ps-done', [...done]);
+  const a = ACTS.find(x => x.id === id);
+  const on = done.has(id);
+  btn.classList.toggle('on', on); btn.textContent = on ? '✓ Done' : 'Mark done';
+  const spine = document.querySelector(`#card-${id} .x-spine > div`);
+  const mark = spine.querySelector('.x-done');
+  if (on && !mark) spine.insertAdjacentHTML('beforeend', '<div class="x-done">✓</div>'); else if (!on && mark) mark.remove();
+  const idx = ACTS.filter(x => x.week === a.week).indexOf(a);
+  document.querySelectorAll(`#dots-${a.week} .dot`)[idx].classList.toggle('done', on);
+  renderTabs(); document.getElementById('wtab-' + a.week).classList.add('on'); document.querySelectorAll('.wtab').forEach(b => { if (b.id !== 'wtab-' + currentWeek) b.classList.remove('on'); });
 }
+async function copyText(text, btn, label) {
+  try { await navigator.clipboard.writeText(text); const t = btn.textContent; btn.classList.add('copied'); btn.textContent = label; setTimeout(() => { btn.classList.remove('copied'); btn.textContent = t; }, 1600); }
+  catch (e) { btn.textContent = 'Select and copy'; }
+}
+function copyPrompt(btn) { const a = ACTS.find(x => x.id === btn.dataset.copy); copyText(a.prompt, btn, 'Copied').then(() => { btn.classList.add('done'); setTimeout(() => btn.classList.remove('done'), 1600); }); }
+function copyLink(id, btn) { copyText(`${location.href.split('#')[0]}#/day/${id}`, btn, 'Copied'); }
 
-let switching = false;
+/* ══ WEEK SWITCH (from the Channel Sales page) ══ */
+let switching = false, currentWeek = 1;
 function setWeek(n) {
   const next = document.getElementById('panel-' + n);
   const current = document.querySelector('.panel.active');
   if (switching || current === next) return;
-
-  if (window.inkBurst) {
-    const wk = WEEKS.find(w => w.num === n);
-    window.inkBurst(wk ? accentHex(wk.accent) : '#2997ff');
-  }
-
+  currentWeek = n;
+  if (window.inkBurst) { const wk = WEEKS.find(w => w.num === n); window.inkBurst(wk ? accentHex(wk.accent) : '#2997ff'); }
   document.querySelectorAll('.wtab').forEach(b => b.classList.remove('on'));
   document.getElementById('wtab-' + n).classList.add('on');
-
   const reduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
-  if (!current || reduced) {
-    if (current) current.classList.remove('active');
-    next.classList.add('active');
-    return;
-  }
-  // ease the old week out, then stagger the new week's cards in
+  if (!current || reduced) { if (current) current.classList.remove('active'); next.classList.add('active'); return; }
   switching = true;
   current.classList.add('leaving');
-  setTimeout(() => {
-    current.classList.remove('active', 'leaving');
-    next.classList.add('active');
-    switching = false;
-  }, 210);
+  setTimeout(() => { current.classList.remove('active', 'leaving'); next.classList.add('active'); switching = false; }, 210);
 }
 
-render();
-/* open on the current week: today's week, or the next one to come */
+/* ══ JOURNEY TIMELINE with the scroll beam ══ */
+function renderJourney() {
+  const items = [];
+  WEEKS.forEach(w => {
+    if (w.num === 3) items.push({ title: 'Break', small: 'Nov 23–27', accent: '#ffb340', body: `<div class="t-name">Thanksgiving week</div><p>No scheduled activities or coaching. Save the Week 2 brief and source list; the program resumes Monday, November 30.</p>` });
+    const acts = ACTS.filter(a => a.week === w.num);
+    items.push({ title: `Week ${w.num}`, small: w.dates, accent: accentHex(w.accent), body: `<div class="t-name">${esc(w.name)}</div><p>${esc(w.intro)}</p><div class="tl-chips">${acts.map(a => `<span class="tl-chip" onclick="openActivity('${a.id}')">${a.emoji} ${esc(a.title)}</span>`).join('')}</div><div class="tl-meta"><span><b>Coaching:</b> ${esc(w.coaching)}</span></div>` });
+  });
+  document.getElementById('tl').innerHTML = `<div class="tl-track"><div class="tl-beam" id="tl-beam"></div></div>` + items.map(it => `<div class="tl-item" style="--tl-accent:${it.accent}"><div class="tl-left"><div class="tl-node"><i></i></div><div><h3>${esc(it.title)}</h3><small>${esc(it.small)}</small></div></div><div class="tl-content">${it.body}</div></div>`).join('');
+  const nextDate = DATES.find(k => k.date >= TODAY);
+  document.getElementById('kd').innerHTML = DATES.map(k => `<div class="kd-card${k === nextDate ? ' next' : ''}"><div class="kd-date">${esc(fmtShort(k.date))}${k === nextDate ? ' · next' : ''}</div><b>${esc(k.label)}</b><p>${esc(k.detail)}</p></div>`).join('');
+  const tl = document.getElementById('tl'), beam = document.getElementById('tl-beam');
+  const update = () => {
+    const r = tl.getBoundingClientRect(); const vh = window.innerHeight;
+    const p = Math.max(0, Math.min(1, (vh * 0.55 - r.top) / r.height));
+    beam.style.height = (p * r.height) + 'px';
+    document.querySelectorAll('.tl-item').forEach(it => { const ir = it.getBoundingClientRect(); it.classList.toggle('lit', ir.top < vh * 0.55); });
+  };
+  let raf = 0; const onScroll = () => { if (!raf) raf = requestAnimationFrame(() => { raf = 0; update(); }); };
+  window.addEventListener('scroll', onScroll, { passive: true }); window.addEventListener('resize', onScroll); update();
+}
+
+/* ══ MATERIALS ══ */
+function renderMaterials() {
+  document.getElementById('m-grid').innerHTML = MATERIALS.map(m => `<div class="m-card spot"><span class="m-type">${esc(m.type)}</span><b>${esc(m.name)}</b><p>${esc(m.meta)}</p><span class="m-state">${esc(m.state)}</span><span class="m-weeks">Week ${m.weeks.join(', ')}</span></div>`).join('');
+  bindSpotlights();
+}
+
+/* ══ GLOWING BORDER (bento) and SPOTLIGHT (cards) ══ */
+function bindGlow() {
+  const cards = [...document.querySelectorAll('.b-card')];
+  const state = cards.map(() => ({ cur: 0, target: 0 }));
+  let raf = 0;
+  const tick = () => { raf = 0; let busy = false; cards.forEach((c, i) => { const s = state[i]; const diff = ((s.target - s.cur + 540) % 360) - 180; if (Math.abs(diff) > .2) { s.cur += diff * .12; busy = true; } else s.cur = s.target; c.style.setProperty('--start', s.cur.toFixed(1)); }); if (busy) raf = requestAnimationFrame(tick); };
+  document.addEventListener('pointermove', e => {
+    cards.forEach((c, i) => {
+      const r = c.getBoundingClientRect(); const cx = r.left + r.width / 2, cy = r.top + r.height / 2;
+      const near = e.clientX > r.left - 80 && e.clientX < r.right + 80 && e.clientY > r.top - 80 && e.clientY < r.bottom + 80;
+      c.style.setProperty('--active', near ? '1' : '0');
+      c.style.setProperty('--mx', (e.clientX - r.left) + 'px'); c.style.setProperty('--my', (e.clientY - r.top) + 'px');
+      if (near) state[i].target = (Math.atan2(e.clientY - cy, e.clientX - cx) * 180 / Math.PI + 90 + 360) % 360;
+    });
+    if (!raf) raf = requestAnimationFrame(tick);
+  }, { passive: true });
+}
+function bindSpotlights() {
+  document.querySelectorAll('.spot, .xcard').forEach(el => {
+    if (el.dataset.spot) return; el.dataset.spot = '1';
+    el.addEventListener('pointermove', e => { const r = el.getBoundingClientRect(); el.style.setProperty('--mx', (e.clientX - r.left) + 'px'); el.style.setProperty('--my', (e.clientY - r.top) + 'px'); }, { passive: true });
+  });
+}
+
+/* ══ BOOT ══ */
+renderTodayPill(); tickers(); renderMarquee(); renderBento(); renderLensBar(); renderTabs(); renderPanels(); renderJourney(); renderMaterials(); bindGlow();
 (function () {
+  const todayAct = ACTS.find(a => a.date === TODAY);
   const cur = WEEKS.find(w => TODAY >= w.dates_iso[0] && TODAY <= w.dates_iso[4]) || WEEKS.find(w => TODAY < w.dates_iso[0]);
-  if (cur && cur.num !== 1) setWeek(cur.num);
+  if (todayAct) activeDay[todayAct.week] = ACTS.filter(a => a.week === todayAct.week).indexOf(todayAct);
+  const m = location.hash.match(/^#\/day\/([\w-]+)$/);
+  if (m && ACTS.some(a => a.id === m[1])) { setTimeout(() => openActivity(m[1]), 50); }
+  else if (cur) { if (cur.num !== 1) setWeek(cur.num); setDay(cur.num, activeDay[cur.num]); }
+  else setDay(1, 0);
+  WEEKS.forEach(w => { if (!cur || w.num !== cur.num) setDay(w.num, activeDay[w.num]); });
 })();
 </script>
 

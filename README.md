@@ -9,23 +9,38 @@ slow-drifting, domain-warped noise clouds on a black canvas; on every week
 tab change the clouds take on that week's accent color, then settle back.
 Degrades gracefully without WebGL2.
 
-- **`index.html`** — the full participant site: the four weeks
-  (Rethink AI · Customer and Partner Intelligence · Create Your AI Solution ·
-  Account Strategy and Business Reviews), 20 activities with full briefs on
-  flip cards — mission, timed steps, a starter prompt with a copy button,
-  your cohort lens, your share, a check before you post, and the AI skill
-  each one teaches — the Thanksgiving break, the three Week 3 build paths
-  (agent · app · dashboard), a Copilot agent video row per week, the
-  Submission Channel tab, the Finish Line (the Week 4 Business Review and
-  the optional capstone), materials, the data rule, and key dates.
+## What's on the page
 
-**Your context:** the picker above the week tabs (Federal Civilian · Defense
-and Intel · SLED and higher ed · Partner Sales) switches the **Your lens**
-section on every card. Remembered in the browser.
+- **Hero** with a live **today pill** (today's activity, a countdown before
+  Nov 9, the break notice in Thanksgiving week) and number tickers.
+- **Skills marquee** — the twenty AI skills the program teaches, scrolling.
+- **Program bento** — what we heard and how the program responds, the daily
+  rhythm, coaching, your context, the finish line — with a glowing border that
+  follows the pointer, and the data rule.
+- **Weekly activities** — one tab per week. Each week is a row of five
+  **expanding day cards**: the open day takes most of the width and shows the
+  full brief in two columns (mission, timed steps, build paths · starter
+  prompt with copy, your lens, your share, a check before you post); the other
+  four collapse to slim spines. Click a spine, use the dots, the previous/next
+  buttons, or ← → keys. Mark a day done; the spine, the dots and the week tab
+  keep count. Every day has a link (`#/day/<id>`). Week 3 shows the three
+  build paths and the Thanksgiving break band; each week has a Copilot agent
+  video row.
+- **Your context** — Federal Civilian · Defense and Intel · SLED and higher ed ·
+  Partner Sales — switches the **Your lens** section on every day. Remembered
+  in the browser.
+- **The Journey** — a timeline with sticky week titles and a beam that grows as
+  you scroll, each week's five activities as chips that open the day, and the
+  key dates.
+- **The Finish Line** (the Week 4 Business Review and the optional capstone),
+  **Submission Channel** tab, **Materials** with spotlight cards.
 
-**Today:** the card for the current date carries a ring and the page opens
-on the current week. Preview any day with `?date=YYYY-MM-DD`, for example
-`index.html?date=2026-11-30`.
+The interaction patterns (expanding cards, glowing border, spotlight, scroll
+timeline, bento, number ticker, marquee) are adapted from 21st.dev references
+and re-implemented in plain CSS and JavaScript — no framework, no build step.
+
+**Today:** the page opens on the current week with today's card open; add
+`?date=YYYY-MM-DD` to preview any day, for example `index.html?date=2026-11-30`.
 
 ## Editing
 
