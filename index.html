@@ -1,165 +1,2011 @@
-<!doctype html>
-<html lang="en-US">
-  <head>
-    <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <title>Public Sector Sales AI Activation Program | Equinix</title>
-    <meta name="description" content="Four weeks, twenty short activities: the Public Sector Sales AI Activation Program for Federal Civilian, Defense and Intelligence, SLED and Partner Sales. November 9 to December 11, 2026." />
-    <meta name="robots" content="noindex" />
-    <meta name="theme-color" content="#ffffff" />
-    <link rel="icon" type="image/svg+xml" href="brand/equinix-fortress.svg" />
-    <script>
-      (function () {
-        var stored = null;
-        try { stored = localStorage.getItem('psaa-motion'); } catch (e) {}
-        var reduce = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
-        document.documentElement.dataset.motion = stored || (reduce ? 'off' : 'on');
-      })();
-    </script>
-    <link rel="stylesheet" href="./activation.css" />
-  </head>
-  <body>
-    <a class="skip-link" href="#main">Skip to content</a>
-    <div class="glow" aria-hidden="true"></div>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Public Sector Sales — AI Activation Program</title>
+<meta name="description" content="Four weeks. Twenty short activities. From sharper sales judgment to account intelligence, a reusable AI solution and a forward-looking business review. The Public Sector Sales AI Activation Program.">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<script src="three.min.js" defer></script>
+<style>
+/* ══════════════════════════════════════
+   TOKENS — light · Apple-like polish
+══════════════════════════════════════ */
+:root {
+  --bg:      #060607;
+  --surface: rgba(22,22,27,.72);
+  --tint:    rgba(255,255,255,.07);
+  --text:    #f5f5f7;
+  --text2:   #c9c9ce;
+  --muted:   #86868b;
+  --border:  rgba(255,255,255,.10);
+  --border2: rgba(255,255,255,.18);
 
-    <header class="site-header">
-      <a class="wordmark" href="#top" aria-label="Equinix. Back to the top"><img class="wordmark-logo" src="brand/equinix-logo-horizontal.svg" alt="" width="124" height="13" decoding="async" /></a>
-      <nav class="site-nav" aria-label="Primary">
-        <ul>
-          <li><a href="#today">Today</a></li>
-          <li><a href="#program">Program</a></li>
-          <li><a href="#weeks">Weeks</a></li>
-          <li><a href="#learn">Learn</a></li>
-          <li><a href="#share">Share</a></li>
-          <li><a href="#materials">Materials</a></li>
-          <li><a href="#dates">Dates</a></li>
-        </ul>
-      </nav>
-      <button type="button" class="motion-toggle" aria-pressed="false" data-motion-toggle>
-        <span class="motion-icon" aria-hidden="true"></span><span class="motion-label">Pause motion</span>
-      </button>
-    </header>
+  --accent:  #2997ff;
+  --accent2: #45a5ff;
 
-    <main id="main" tabindex="-1">
-      <!-- Hero -->
-      <section class="hero" id="top" aria-labelledby="hero-title">
-        <div class="wrap--narrow center hero-copy">
-          <p class="eyebrow">Public Sector Sales</p>
-          <h1 class="display" id="hero-title">AI Activation Program</h1>
-          <p class="lede" id="hero-lede"></p>
-          <div class="actions">
-            <a class="btn btn--primary btn--large" href="#today" data-open-today>Open today&rsquo;s activity</a>
-            <a class="btn btn--link btn--large" href="#weeks">See the four weeks</a>
-          </div>
+  /* legacy accent names, kept for inline styles */
+  --vio:   #2997ff;
+  --vio2:  #45a5ff;
+  --lav:   #2997ff;
+  --sky:   #64d2ff;
+  --teal:  #30d158;
+  --pink:  #ff375f;
+  --rose:  #ff453a;   /* mandatory */
+
+  /* week accents */
+  --w1: #2997ff;
+  --w2: #64d2ff;
+  --w3: #30d158;
+  --w4: #ff375f;
+  --w5: #ffb340;
+
+  --sans: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+  --mono: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+}
+*, *::before, *::after { margin:0; padding:0; box-sizing:border-box; }
+html { scroll-behavior:smooth; }
+body {
+  font-family:var(--sans);
+  background:var(--bg);
+  color:var(--text);
+  line-height:1.55;
+  min-height:100vh;
+  overflow-x:hidden;
+  -webkit-font-smoothing:antialiased;
+}
+
+#fluid-canvas { position:fixed; inset:0; z-index:0; pointer-events:none; }
+
+.wrap { max-width:1240px; margin:0 auto; padding:0 32px; position:relative; z-index:1; }
+
+/* ══════════════════════════════════════
+   HEADER
+══════════════════════════════════════ */
+header.top {
+  position:sticky; top:0; z-index:600;
+  background:rgba(10,10,12,.72);
+  backdrop-filter:blur(20px) saturate(180%); -webkit-backdrop-filter:blur(20px) saturate(180%);
+  border-bottom:1px solid var(--border);
+  height:62px;
+}
+.top-inner {
+  max-width:1240px; margin:0 auto; padding:0 32px; height:100%;
+  display:flex; align-items:center; justify-content:space-between; gap:16px;
+}
+.logo { display:flex; align-items:center; gap:12px; font-weight:700; font-size:15.5px; letter-spacing:-.01em; }
+.logo-mark {
+  width:34px; height:34px; border-radius:9px; flex-shrink:0;
+  background:#f5f5f7;
+  display:grid; place-items:center; font-size:15px; color:#0b0b0d;
+}
+.logo span.dim { color:var(--muted); font-weight:500; }
+.top-nav { display:flex; gap:4px; }
+.top-nav a {
+  font-size:12.5px; font-weight:500; color:var(--text2); text-decoration:none;
+  padding:7px 14px; border-radius:100px; transition:all .16s;
+}
+.top-nav a:hover { color:var(--text); background:rgba(255,255,255,.08); }
+.hbadge {
+  font-size:10.5px; font-weight:600; letter-spacing:1.5px; text-transform:uppercase;
+  color:var(--text2); background:var(--tint);
+  padding:6px 14px; border-radius:100px; white-space:nowrap;
+}
+
+/* ══════════════════════════════════════
+   HERO
+══════════════════════════════════════ */
+.hero { padding:88px 0 44px; position:relative; }
+.hero-eyebrow {
+  display:inline-flex; align-items:center; gap:9px;
+  font-size:11px; font-weight:600; letter-spacing:2.5px; text-transform:uppercase;
+  color:var(--accent); margin-bottom:22px;
+}
+.eyebrow-dot { width:6px; height:6px; border-radius:50%; background:var(--accent);
+  animation:pulse 2.4s ease-in-out infinite; }
+@keyframes pulse { 0%,100%{opacity:1} 50%{opacity:.35} }
+h1.hero-title {
+  font-size:clamp(38px,5.6vw,68px); font-weight:700; letter-spacing:-0.035em;
+  line-height:1.06; max-width:24ch; color:var(--text);
+}
+h1.hero-title .grad {
+  background:linear-gradient(100deg,#ff7a8a 0%,#9aa8ff 50%,#5ac8fa 100%);
+  -webkit-background-clip:text; background-clip:text; -webkit-text-fill-color:transparent;
+}
+.hero-sub { margin-top:20px; font-size:16.5px; color:var(--text2); max-width:64ch; font-weight:400; }
+.hero-sub .verbs {
+  display:inline-block; margin-top:8px; font-weight:700; letter-spacing:.02em;
+  background:linear-gradient(100deg,#ff7a8a,#9aa8ff 50%,#5ac8fa);
+  -webkit-background-clip:text; background-clip:text; -webkit-text-fill-color:transparent;
+}
+
+/* KPI row — bare numerals, hairline dividers */
+.kpi-row { display:inline-flex; flex-wrap:wrap; margin-top:36px; }
+.kpi { padding:6px 34px; border-right:1px solid var(--border); text-align:center; }
+.kpi:first-child { padding-left:0; }
+.kpi:last-child { border-right:none; }
+.kpi-n { font-size:30px; font-weight:700; letter-spacing:-.02em; line-height:1.1; }
+.kpi-l { font-size:9.5px; font-weight:600; letter-spacing:1.5px; text-transform:uppercase; color:var(--muted); margin-top:3px; }
+
+/* ══════════════════════════════════════
+   INFO STRIP
+══════════════════════════════════════ */
+.info { padding:36px 0 8px; }
+.info-grid { display:grid; grid-template-columns:1.2fr 1fr 1fr; gap:16px; }
+.info-card {
+  background:var(--surface);
+  border:1px solid var(--border); border-radius:18px;
+  padding:22px 24px;
+  box-shadow:0 2px 12px rgba(0,0,0,.4);
+}
+.info-card h3 {
+  font-size:10.5px; letter-spacing:1.5px; text-transform:uppercase;
+  color:var(--muted); margin-bottom:12px; font-weight:600;
+}
+.info-card p, .info-card li { font-size:13px; color:var(--text2); }
+.info-card ul { list-style:none; }
+.info-card li { padding:3px 0 3px 18px; position:relative; }
+.info-card li::before { content:""; position:absolute; left:0; top:11px; width:5px; height:5px; border-radius:50%;
+  background:var(--accent); }
+.info-card a { color:var(--accent); text-decoration:none; font-weight:600; }
+.info-card a:hover { text-decoration:underline; }
+.rhythm { display:flex; flex-direction:column; gap:7px; }
+.r-step { display:flex; gap:10px; font-size:12.5px; color:var(--text2); align-items:baseline; }
+.r-step b { font-size:10px; letter-spacing:1px; text-transform:uppercase;
+  color:var(--muted); min-width:84px; font-weight:600; }
+
+.guard {
+  margin-top:16px; border:1px solid var(--border);
+  background:var(--tint);
+  border-radius:16px; padding:15px 20px; font-size:13.5px; color:var(--text2);
+}
+.guard b { color:var(--text); }
+
+/* ══════════════════════════════════════
+   WEEK TABS
+══════════════════════════════════════ */
+.marathon { padding:52px 0 8px; position:relative; z-index:1; scroll-margin-top:70px; }
+.marathon h2 { font-size:clamp(26px,3.6vw,38px); font-weight:700; letter-spacing:-.025em; }
+
+.tabbar-outer {
+  position:sticky; top:62px; z-index:500;
+  background:rgba(10,10,12,.72);
+  backdrop-filter:blur(20px) saturate(180%); -webkit-backdrop-filter:blur(20px) saturate(180%);
+  border-bottom:1px solid var(--border);
+  margin-top:26px;
+}
+.tabbar {
+  max-width:1240px; margin:0 auto; padding:12px 32px;
+  display:flex; gap:8px; overflow-x:auto; scrollbar-width:none;
+}
+.tabbar::-webkit-scrollbar { display:none; }
+.wtab {
+  appearance:none; background:var(--tint); border:1px solid transparent;
+  font-family:var(--sans); font-size:12.5px; font-weight:500;
+  color:var(--text); padding:9px 18px; border-radius:100px;
+  cursor:pointer; transition:all .18s; white-space:nowrap;
+  display:flex; align-items:center; gap:8px;
+}
+.wtab .wt-num {
+  font-size:9.5px; letter-spacing:1px; text-transform:uppercase;
+  font-weight:600; color:var(--muted);
+}
+.wtab:hover { background:rgba(255,255,255,.14); }
+.wtab.on { background:#f5f5f7; color:#0b0b0d; }
+.wtab.on .wt-num { color:rgba(0,0,0,.55); }
+
+/* ══════════════════════════════════════
+   WEEK PANELS
+══════════════════════════════════════ */
+.panel { display:none; padding:22px 0 8px; }
+.panel.active { display:block; animation:fadeUp .4s cubic-bezier(.22,.9,.3,1) both; }
+.panel.leaving { animation:panelOut .22s ease both; }
+@keyframes fadeUp { from{opacity:0; transform:translateY(12px)} to{opacity:1; transform:none} }
+@keyframes panelOut { to{opacity:0; transform:translateY(-14px)} }
+
+/* staggered card entrance on week change */
+.panel.active .fcard { opacity:0; animation:cardIn .55s cubic-bezier(.22,.9,.3,1) forwards; animation-delay:calc(var(--i,0) * 75ms + 80ms); }
+@keyframes cardIn {
+  from { opacity:0; transform:translateY(26px) scale(.96); }
+  to   { opacity:1; transform:none; }
+}
+@media (prefers-reduced-motion: reduce) {
+  .panel.active, .panel.leaving { animation:none; }
+  .panel.active .fcard { animation:none; opacity:1; }
+}
+
+/* compact one-line week band keeps the tabs visually attached to the cards */
+.week-head { display:flex; align-items:center; gap:16px; margin-bottom:14px; flex-wrap:wrap; }
+.week-ghost {
+  font-size:46px; font-weight:800; letter-spacing:-.04em; line-height:1;
+  color:#2c2c2e;
+  flex-shrink:0;
+}
+.week-meta h2 { font-size:clamp(19px,2.4vw,25px); font-weight:700; letter-spacing:-.02em; line-height:1.15; }
+.week-dates { font-size:10.5px; font-weight:600; letter-spacing:1.5px; text-transform:uppercase; color:var(--muted); margin-top:2px; }
+.week-intro { color:var(--muted); font-size:12.5px; line-height:1.55; margin-left:auto; max-width:52ch; }
+@media (max-width:900px) { .week-intro { margin-left:0; flex-basis:100%; } }
+
+/* DOW header row */
+.dow-row { display:grid; grid-template-columns:repeat(5,1fr); gap:14px; margin-bottom:6px; padding:0 2px; }
+.dow-label {
+  font-size:9.5px; font-weight:600; letter-spacing:1.5px; text-transform:uppercase;
+  color:var(--muted); padding-left:6px;
+}
+.dow-label.fri { color:var(--rose); }
+
+/* ══════════════════════════════════════
+   FLIP CARDS
+══════════════════════════════════════ */
+.cgrid { display:grid; grid-template-columns:repeat(5,1fr); gap:14px; }
+.cgrid.two { grid-template-columns:repeat(2,1fr); }
+
+.fcard { perspective:1400px; height:400px; cursor:pointer; position:relative; }
+.fcard-inner {
+  position:relative; width:100%; height:100%;
+  transform-style:preserve-3d;
+  transition:transform .55s cubic-bezier(.3,.9,.35,1);
+}
+.fcard.flipped .fcard-inner { transform:rotateY(180deg); }
+.face {
+  position:absolute; inset:0;
+  backface-visibility:hidden; -webkit-backface-visibility:hidden;
+  border-radius:18px; border:1px solid var(--border);
+  background:var(--surface);
+  box-shadow:0 2px 12px rgba(0,0,0,.4);
+  display:flex; flex-direction:column;
+  overflow:hidden;
+  transition:border-color .18s, box-shadow .18s;
+}
+.fcard:hover .face { border-color:var(--border2); box-shadow:0 12px 32px rgba(0,0,0,.6); }
+.fcard:not(.flipped):hover .fcard-inner { transform:translateY(-4px); }
+.face.back { transform:rotateY(180deg); }
+
+/* accent bar */
+.abar { position:absolute; top:0; left:0; right:0; height:2.5px; border-radius:18px 18px 0 0; }
+
+/* FRONT */
+.face.front { padding:18px 18px 16px; }
+.f-top { display:flex; align-items:center; gap:6px; margin-bottom:14px; flex-wrap:wrap; }
+.day-chip {
+  font-size:9.5px; font-weight:600; letter-spacing:1.2px;
+  padding:4px 10px; border-radius:100px; border:1px solid;
+}
+.req-opt {
+  font-size:9px; font-weight:600; letter-spacing:1px; text-transform:uppercase;
+  color:var(--muted); border:1px dashed var(--border2); border-radius:100px; padding:3.5px 9px;
+}
+.req-mand {
+  font-size:9px; font-weight:600; letter-spacing:1px; text-transform:uppercase;
+  color:#fff; background:var(--rose);
+  border-radius:100px; padding:4px 10px;
+}
+.f-time { margin-left:auto; font-size:10px; font-weight:500; color:var(--muted); }
+.f-emoji { font-size:30px; line-height:1; margin-bottom:10px; }
+.f-title { font-size:16.5px; font-weight:700; letter-spacing:-.01em; line-height:1.25; margin-bottom:8px; }
+.f-hook { font-size:12.5px; color:var(--text2); font-style:italic; line-height:1.5; }
+.f-unlock { margin-top:13px; padding-top:12px; border-top:1px solid var(--border); }
+.f-unlock h4 {
+  font-size:9px; font-weight:600; letter-spacing:1.5px; text-transform:uppercase;
+  color:var(--muted); margin-bottom:5px;
+}
+.f-unlock p { font-size:11.5px; color:var(--text2); line-height:1.55; }
+.f-foot { margin-top:auto; padding-top:12px; }
+.flip-hint {
+  display:flex; align-items:center; gap:6px;
+  font-size:9.5px; font-weight:600; letter-spacing:1.2px; text-transform:uppercase;
+  color:var(--muted); transition:color .18s;
+}
+.fcard:hover .flip-hint { color:var(--accent); }
+.flip-hint .arr { font-size:12px; }
+
+/* BACK */
+.face.back { padding:0; }
+.back-scroll { padding:18px; overflow-y:auto; height:100%; scrollbar-width:thin; scrollbar-color:rgba(255,255,255,.25) transparent; }
+.back-scroll::-webkit-scrollbar { width:4px; }
+.back-scroll::-webkit-scrollbar-thumb { background:rgba(255,255,255,.2); border-radius:100px; }
+.b-title { font-size:13px; font-weight:700; margin-bottom:10px; display:flex; align-items:center; gap:8px; }
+.b-title .bt-emoji { font-size:16px; }
+.sec { margin-bottom:12px; }
+.sec h4 {
+  font-size:9px; font-weight:600; letter-spacing:1.5px; text-transform:uppercase;
+  color:var(--muted); margin-bottom:4px;
+}
+.sec p { font-size:11.5px; color:var(--text2); line-height:1.6; }
+.sec.tip {
+  background:var(--tint); border-left:2px solid var(--accent);
+  border-radius:0 10px 10px 0; padding:9px 11px;
+}
+.back-foot {
+  font-size:9.5px; font-weight:600; letter-spacing:1.2px; text-transform:uppercase;
+  color:var(--muted); padding-top:4px;
+}
+
+/* mandatory friday card */
+.fcard.mand .face {
+  border-color:rgba(255,69,58,.35);
+  background:rgba(42,20,22,.85);
+}
+.fcard.mand:hover .face { border-color:rgba(255,69,58,.55); }
+
+/* static path cards (week 5) — all content on the front, no flip */
+.fcard.static { height:auto; cursor:default; }
+.fcard.static .face { position:relative; inset:auto; height:100%; padding:20px 20px 18px; }
+.fcard.static .sec { margin:12px 0; }
+.fcard.static .f-unlock { margin-top:auto; }
+.j-list { list-style:none; }
+.j-list li { font-size:11.5px; color:var(--text2); line-height:1.55; padding:2.5px 0 2.5px 16px; position:relative; }
+.j-list li::before { content:""; position:absolute; left:0; top:10px; width:4px; height:4px; border-radius:50%;
+  background:var(--accent); }
+
+/* submission channel panel */
+.channel-cta {
+  display:inline-flex; align-items:center; gap:8px; margin-left:auto;
+  font-family:var(--sans); font-size:13px; font-weight:600; color:#fff; text-decoration:none;
+  background:var(--accent); padding:10px 20px; border-radius:100px;
+  transition:background .16s, transform .16s; white-space:nowrap;
+}
+.channel-cta:hover { background:var(--accent2); transform:translateY(-1px); }
+@media (max-width:900px) { .channel-cta { margin-left:0; } }
+.channel-embed {
+  border:1px solid var(--border); border-radius:18px; overflow:hidden;
+  background:var(--surface); height:72vh; min-height:520px;
+  box-shadow:0 2px 14px rgba(0,0,0,.45);
+}
+.channel-embed iframe { display:block; width:100%; height:100%; }
+
+/* ══════════════════════════════════════
+   GRAND FINAL
+══════════════════════════════════════ */
+.grand-final-sec { padding:72px 0 24px; }
+.sec-eyebrow {
+  font-size:11px; font-weight:600; letter-spacing:2.5px; text-transform:uppercase;
+  color:var(--accent); margin-bottom:14px; display:flex; align-items:center; gap:9px;
+}
+.grand-final-sec h2 { font-size:clamp(26px,3.6vw,38px); font-weight:700; letter-spacing:-.025em; margin-bottom:12px; }
+.gf-sub { color:var(--text2); font-size:14.5px; max-width:70ch; margin-bottom:30px; }
+.gf-grid { display:grid; grid-template-columns:1fr 1fr; gap:18px; }
+.gf-card {
+  background:var(--surface);
+  border:1px solid var(--border); border-radius:20px; padding:30px;
+  position:relative; overflow:hidden;
+  box-shadow:0 2px 12px rgba(0,0,0,.4);
+}
+.gf-card .tbar { position:absolute; top:0; left:0; right:0; height:3px; }
+.gf-icon {
+  width:52px; height:52px; border-radius:14px; display:grid; place-items:center;
+  font-size:24px; margin-bottom:16px;
+}
+.gf-card h3 { font-size:22px; font-weight:700; letter-spacing:-.015em; margin-bottom:10px; }
+.gf-card > p { font-size:13.5px; color:var(--text2); margin-bottom:14px; }
+.gf-card ul { list-style:none; margin-bottom:18px; }
+.gf-card li { font-size:13px; color:var(--text2); padding:4px 0 4px 20px; position:relative; }
+.gf-card li::before { content:"✓"; position:absolute; left:0; color:var(--accent); font-size:12px; font-weight:700; }
+.gf-badge {
+  display:inline-block; font-size:10px; font-weight:600; letter-spacing:1.2px; text-transform:uppercase;
+  color:var(--text2); border:1px solid var(--border2); background:var(--tint);
+  border-radius:100px; padding:5px 13px;
+}
+.gf-note { margin-top:24px; text-align:center; font-size:13.5px; color:var(--muted); }
+.gf-note b { color:var(--text); }
+
+/* ══════════════════════════════════════
+   TIMELINE + FOOTER
+══════════════════════════════════════ */
+.timeline { padding:56px 0 40px; }
+.timeline h2 { font-size:24px; font-weight:700; letter-spacing:-.02em; margin-bottom:22px; }
+.tl-card {
+  background:var(--surface);
+  border:1px solid var(--border); border-radius:18px;
+  padding:8px 26px;
+  box-shadow:0 2px 12px rgba(0,0,0,.4);
+}
+.tl-row { display:flex; gap:18px; padding:13px 0; border-bottom:1px solid var(--border); font-size:13.5px; align-items:baseline; }
+.tl-row:last-child { border-bottom:none; }
+.tl-date { font-size:11px; font-weight:600; letter-spacing:.5px; color:var(--muted); min-width:150px; }
+.tl-what { color:var(--text2); }
+.tl-what b { color:var(--text); }
+
+footer {
+  padding:40px 0 52px; text-align:center;
+  font-size:10.5px; font-weight:600; letter-spacing:2.5px; text-transform:uppercase;
+  color:var(--muted); border-top:1px solid var(--border); position:relative; z-index:1;
+}
+footer b { color:var(--text); }
+
+/* dark glass surfaces over the ink */
+.info-card, .gf-card, .tl-card, .guard, .channel-embed {
+  backdrop-filter:blur(24px) saturate(140%);
+  -webkit-backdrop-filter:blur(24px) saturate(140%);
+}
+.guard { background:var(--surface); }
+.face { background:rgba(22,22,27,.88); }
+
+/* ══════════════════════════════════════
+   RESPONSIVE
+══════════════════════════════════════ */
+@media (max-width:1120px) {
+  .cgrid { grid-template-columns:repeat(3,1fr); }
+  .dow-row { display:none; }
+  .fcard { height:348px; }
+}
+@media (max-width:900px) {
+  .info-grid, .gf-grid { grid-template-columns:1fr; }
+  .top-nav { display:none; }
+}
+@media (max-width:720px) {
+  .cgrid { grid-template-columns:repeat(2,1fr); }
+  .cgrid.two { grid-template-columns:1fr; }
+  .wrap, .top-inner, .tabbar { padding-left:18px; padding-right:18px; }
+  .hero { padding:52px 0 36px; }
+  .kpi { padding:6px 16px; }
+}
+@media (max-width:520px) {
+  .cgrid { grid-template-columns:1fr; }
+  .fcard { height:330px; }
+}
+
+/* ══════════════════════════════════════
+   PUBLIC SECTOR ADDITIONS (same idiom)
+══════════════════════════════════════ */
+/* context picker — tailors the "Your lens" section on every card back */
+.lens-bar { display:flex; flex-wrap:wrap; align-items:center; gap:8px; margin-top:18px; }
+.lens-bar .lb-label { font-size:9.5px; font-weight:600; letter-spacing:1.5px; text-transform:uppercase; color:var(--muted); margin-right:4px; }
+.ltab {
+  appearance:none; background:var(--tint); border:1px solid transparent;
+  font-family:var(--sans); font-size:12px; font-weight:500; color:var(--text);
+  padding:7px 14px; border-radius:100px; cursor:pointer; transition:all .18s; white-space:nowrap;
+}
+.ltab:hover { background:rgba(255,255,255,.14); }
+.ltab.on { background:#f5f5f7; color:#0b0b0d; }
+.lens-note { font-size:12px; color:var(--muted); margin-top:10px; max-width:70ch; }
+
+/* steps list and starter prompt on the card back */
+.s-list { list-style:none; counter-reset:s; }
+.s-list li { font-size:11.5px; color:var(--text2); line-height:1.55; padding:2.5px 0 2.5px 20px; position:relative; counter-increment:s; }
+.s-list li::before { content:counter(s); position:absolute; left:0; top:4px; width:14px; height:14px; border-radius:50%;
+  background:var(--tint); color:var(--text); font-size:8.5px; font-weight:700; display:grid; place-items:center; }
+.prompt {
+  margin:0; padding:10px 11px; border-radius:10px;
+  background:rgba(0,0,0,.45); border:1px solid var(--border);
+  font-family:var(--sans); font-size:11px; color:var(--text2); line-height:1.55;
+  white-space:pre-wrap; overflow-wrap:anywhere;
+}
+.prompt mark { background:rgba(41,151,255,.22); color:#cfe6ff; border-radius:3px; padding:0 3px; }
+.copy-btn {
+  appearance:none; margin-top:7px; background:var(--tint); border:1px solid var(--border2);
+  font-family:var(--sans); font-size:10px; font-weight:600; letter-spacing:1px; text-transform:uppercase;
+  color:var(--text); padding:6px 12px; border-radius:100px; cursor:pointer; transition:all .16s;
+}
+.copy-btn:hover { background:rgba(255,255,255,.16); }
+.copy-btn.done { background:var(--teal); border-color:var(--teal); color:#041a0c; }
+.sec.lens { border-left:2px solid var(--sky); background:var(--tint); border-radius:0 10px 10px 0; padding:9px 11px; }
+
+/* today: the card for the current date carries a soft ring */
+.fcard.today .face { border-color:rgba(41,151,255,.6); box-shadow:0 0 0 3px rgba(41,151,255,.18), 0 12px 32px rgba(0,0,0,.6); }
+.day-chip .today-tag { margin-left:6px; color:#fff; }
+
+/* watch row: the week's Copilot agent videos */
+.watch { margin:18px 0 6px; }
+.watch h3 { font-size:10.5px; letter-spacing:1.5px; text-transform:uppercase; color:var(--muted); margin-bottom:10px; font-weight:600; }
+.watch-grid { display:grid; grid-template-columns:repeat(3,1fr); gap:12px; }
+.vcard {
+  display:flex; gap:12px; align-items:flex-start; text-decoration:none; color:inherit;
+  background:var(--surface); border:1px solid var(--border); border-radius:14px; padding:14px 16px;
+  box-shadow:0 2px 12px rgba(0,0,0,.4); transition:border-color .18s, transform .18s;
+}
+a.vcard:hover { border-color:var(--border2); transform:translateY(-2px); }
+.v-play { width:36px; height:36px; border-radius:10px; flex-shrink:0; display:grid; place-items:center; font-size:14px;
+  background:var(--tint); color:var(--text); }
+.vcard.pending .v-play { color:var(--muted); border:1px dashed var(--border2); background:transparent; }
+.v-title { font-size:12.5px; font-weight:600; line-height:1.3; }
+.v-about { font-size:11.5px; color:var(--text2); margin-top:3px; line-height:1.5; }
+.v-meta { font-size:9.5px; font-weight:600; letter-spacing:1.2px; text-transform:uppercase; color:var(--muted); margin-top:6px; }
+.v-meta .pend { color:var(--w5); }
+
+/* week 3: the three build paths */
+.paths { display:grid; grid-template-columns:repeat(3,1fr); gap:12px; margin:4px 0 16px; }
+.path { background:var(--surface); border:1px solid var(--border); border-radius:14px; padding:14px 16px; }
+.path b { display:block; font-size:12.5px; margin-bottom:3px; }
+.path p { font-size:11.5px; color:var(--text2); line-height:1.5; }
+
+/* break band between week 2 and week 3 */
+.break-band {
+  margin-top:6px; display:flex; align-items:center; gap:12px;
+  background:var(--tint); border:1px dashed var(--border2); border-radius:14px; padding:12px 18px;
+  font-size:12.5px; color:var(--text2);
+}
+.break-band b { color:var(--text); }
+
+/* materials list */
+.materials { padding:8px 0 24px; }
+.materials h2 { font-size:24px; font-weight:700; letter-spacing:-.02em; margin-bottom:22px; }
+.m-grid { display:grid; grid-template-columns:repeat(4,1fr); gap:12px; }
+.m-card { background:var(--surface); border:1px solid var(--border); border-radius:14px; padding:14px 16px; box-shadow:0 2px 12px rgba(0,0,0,.4); }
+.m-card .m-type { font-size:9px; font-weight:600; letter-spacing:1.5px; text-transform:uppercase; color:var(--muted); }
+.m-card b { display:block; font-size:12.5px; margin:4px 0 3px; }
+.m-card p { font-size:11.5px; color:var(--text2); line-height:1.5; }
+.m-card .m-state { display:inline-block; margin-top:8px; font-size:9px; font-weight:600; letter-spacing:1px; text-transform:uppercase;
+  color:var(--w5); border:1px dashed rgba(255,179,64,.5); border-radius:100px; padding:3px 9px; }
+.m-card .m-weeks { font-size:9.5px; color:var(--muted); margin-left:8px; }
+
+@media (max-width:1120px) { .m-grid { grid-template-columns:repeat(2,1fr); } }
+@media (max-width:900px) { .watch-grid, .paths { grid-template-columns:1fr; } }
+@media (max-width:520px) { .m-grid { grid-template-columns:1fr; } }
+</style>
+</head>
+<body>
+
+<canvas id="fluid-canvas" aria-hidden="true"></canvas>
+
+<!-- HEADER -->
+<header class="top">
+  <div class="top-inner">
+    <div class="logo">
+      <div class="logo-mark">◈</div>
+      <div>Public Sector Sales AI Activation&nbsp;<span class="dim">· Program</span></div>
+    </div>
+    <nav class="top-nav">
+      <a href="#weeks">Weekly Activities</a>
+      <a href="#weeks" onclick="setWeek('channel')">Submission Channel</a>
+      <a href="#finish">The Finish Line</a>
+      <a href="#materials">Materials</a>
+      <a href="#timeline">Key Dates</a>
+    </nav>
+    <div class="hbadge">Nov 9 – Dec 11</div>
+  </div>
+</header>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="wrap">
+    <div class="hero-eyebrow"><span class="eyebrow-dot"></span>AI Activation Program · Public Sector Sales · GTM Enablement</div>
+    <h1 class="hero-title">Public Sector Sales — <span class="grad">AI Activation Program</span></h1>
+    <p class="hero-sub">Four weeks. Twenty short activities, 15–20 minutes a day. From sharper sales judgment to account intelligence, a reusable AI solution you build yourself, and a forward-looking business review — for Federal Civilian, Defense &amp; Intelligence, SLED &amp; higher education, and Public Sector Partner Sales.<br><span class="verbs">Rethink · Research · Build · Review.</span></p>
+    <div class="kpi-row">
+      <div class="kpi"><div class="kpi-n" style="color:var(--lav)">4</div><div class="kpi-l">Weeks</div></div>
+      <div class="kpi"><div class="kpi-n">20</div><div class="kpi-l">Activities</div></div>
+      <div class="kpi"><div class="kpi-n" style="color:var(--teal)">15–20</div><div class="kpi-l">Minutes a day</div></div>
+      <div class="kpi"><div class="kpi-n" style="color:var(--sky)">4</div><div class="kpi-l">Cohort contexts</div></div>
+    </div>
+  </div>
+</section>
+
+<!-- INFO STRIP -->
+<section class="info">
+  <div class="wrap">
+    <div class="info-grid">
+      <div class="info-card">
+        <h3>The daily rhythm</h3>
+        <div class="rhythm">
+          <div class="r-step"><b>Mon–Fri</b><span>One activity a day, 15–20 minutes. Every exercise is part of the program; later activities reuse earlier work.</span></div>
+          <div class="r-step"><b>Every day</b><span>A short share on Viva Engage — the template is on each card.</span></div>
+          <div class="r-step"><b>Nov 23–27</b><span>Thanksgiving week. No activities, no coaching. Back on Monday, November 30.</span></div>
         </div>
-        <div class="wrap stats" id="hero-stats" aria-label="Program at a glance"></div>
-      </section>
-
-      <!-- Today: the reactive panel -->
-      <section class="today" id="today" aria-labelledby="today-title">
-        <div class="wrap today-grid">
-          <div class="today-card" id="today-card" data-reveal></div>
-          <aside class="side" data-reveal>
-            <div class="side-card cohort-card">
-              <h2 class="side-title">Your cohort</h2>
-              <p class="muted small">Examples and prompts adapt to the context you choose. Remembered on this device.</p>
-              <div class="segmented" id="cohort-picker" role="radiogroup" aria-label="Cohort context"></div>
-              <p class="small cohort-context" id="cohort-context"></p>
-            </div>
-            <div class="side-card progress-card" id="progress-card"></div>
-          </aside>
-        </div>
-      </section>
-
-      <!-- Program -->
-      <section class="program" id="program" aria-labelledby="program-title">
-        <div class="wrap center" data-reveal>
-          <p class="eyebrow">From discovery to practice</p>
-          <h2 class="title" id="program-title">What we heard. How the program responds.</h2>
-          <p class="lede" id="program-cohort"></p>
-        </div>
-        <div class="wrap heard" id="heard"></div>
-        <div class="wrap journey" id="journey" aria-label="The four week journey"></div>
-        <div class="wrap rhythm" id="rhythm"></div>
-        <div class="wrap"><div class="rule" id="data-rule"></div></div>
-      </section>
-
-      <!-- Weeks -->
-      <section class="weeks" id="weeks" aria-labelledby="weeks-title">
-        <div class="wrap center" data-reveal>
-          <p class="eyebrow">Daily activities</p>
-          <h2 class="title" id="weeks-title">Twenty activities. One focused advance a day.</h2>
-          <p class="lede">Each takes 15 to 20 minutes: a why, the steps, a starter prompt, your cohort&rsquo;s lens, and what to share. Open an activity for the full guide.</p>
-        </div>
-        <div class="wrap">
-          <div class="tabbar" id="week-tabs" role="tablist" aria-label="Weeks"></div>
-          <div id="week-panels"></div>
-        </div>
-      </section>
-
-      <!-- Learn: Copilot agent videos -->
-      <section class="learn" id="learn" aria-labelledby="learn-title">
-        <div class="wrap center" data-reveal>
-          <p class="eyebrow">Learn</p>
-          <h2 class="title" id="learn-title">Copilot agents, one short video at a time.</h2>
-          <p class="lede">Each week pairs its activities with short videos on understanding and building Copilot agents. Watch before the day that uses the skill.</p>
-        </div>
-        <div class="wrap" id="learn-grid"></div>
-      </section>
-
-      <!-- Share: Viva Engage -->
-      <section class="share" id="share" aria-labelledby="share-title">
-        <div class="wrap center" data-reveal>
-          <p class="eyebrow">Share</p>
-          <h2 class="title" id="share-title">Post your share. Learn from the cohort.</h2>
-          <p class="lede">Every activity ends with a short Viva Engage share. Each guide gives you a template to copy, so posting takes a minute.</p>
-        </div>
-        <div class="wrap" id="engage"></div>
-      </section>
-
-      <!-- Materials -->
-      <section class="materials" id="materials" aria-labelledby="materials-title">
-        <div class="wrap center" data-reveal>
-          <p class="eyebrow">Materials</p>
-          <h2 class="title" id="materials-title">What the program provides.</h2>
-          <p class="lede">Fictional scenarios, source packs and synthetic data so every exercise can be done with practice material. Items are listed as they are prepared.</p>
-        </div>
-        <div class="wrap"><ul class="resource-list" id="materials-list"></ul></div>
-      </section>
-
-      <!-- Dates -->
-      <section class="dates" id="dates" aria-labelledby="dates-title">
-        <div class="wrap center" data-reveal>
-          <p class="eyebrow">Key dates</p>
-          <h2 class="title" id="dates-title">November 9 to December 11.</h2>
-          <p class="lede">Twenty program days with a break for Thanksgiving week. Add the daily slot to your calendar in one click.</p>
-          <div class="actions">
-            <button type="button" class="btn btn--primary" data-ics>Add the program to my calendar</button>
-          </div>
-        </div>
-        <div class="wrap"><ol class="timeline" id="timeline"></ol></div>
-      </section>
-    </main>
-
-    <footer class="site-footer">
-      <img class="footer-logo" src="brand/equinix-logo-vertical.svg" alt="Equinix" width="124" height="60" loading="lazy" decoding="async" />
-      <p>Internal program site for Equinix Public Sector Sales, from GTM Enablement. The daily guides are drafts for facilitator review; the activity sequence follows the four week plan of November 2026. Progress and cohort choice are stored only in your browser.</p>
-    </footer>
-
-    <dialog class="drawer" id="activity-drawer" aria-labelledby="drawer-title">
-      <div class="drawer-panel">
-        <div class="drawer-bar">
-          <span class="drawer-thread" aria-hidden="true"></span>
-          <button type="button" class="drawer-close" data-drawer-close aria-label="Close activity">
-            <svg width="14" height="14" viewBox="0 0 14 14" aria-hidden="true"><path d="M2 2l10 10M12 2L2 12" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/></svg>
-          </button>
-        </div>
-        <div class="drawer-content" id="drawer-content"></div>
       </div>
-    </dialog>
+      <div class="info-card">
+        <h3>Weekly AI Coaching Sessions</h3>
+        <ul>
+          <li><b>One session a week</b> · day and time to be confirmed</li>
+          <li>Support, troubleshooting and peer examples</li>
+          <li>Hands-on build help in Week 3</li>
+          <li>Not on November 11 (Veterans Day)</li>
+        </ul>
+      </div>
+      <div class="info-card">
+        <h3>The Finish Line</h3>
+        <ul>
+          <li><b>Week 4's Business Review</b> is the destination — no extra work</li>
+          <li><b>Optional capstone:</b> teams of 3–5 on a shared challenge</li>
+          <li><a href="#finish">How the finish line works ↓</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="guard">🔒 <b>Data rule for every activity:</b> use public or synthetic practice material and tools approved for your role and data. Internal data stays in appropriately approved environments. Check important claims against sources, label projections as scenarios, and keep human review at every step.</div>
+  </div>
+</section>
 
-    <div class="toast" id="toast" role="status" aria-live="polite"></div>
+<!-- WEEKLY ACTIVITIES -->
+<section class="marathon" id="weeks">
+  <div class="wrap">
+    <div class="sec-eyebrow"><span class="eyebrow-dot"></span>The Program · Weekly Activities</div>
+    <h2>Four weeks. Twenty activities. One tab per week.</h2>
+    <div class="lens-bar" id="lens-bar"></div>
+    <p class="lens-note">Pick your context and every card's <b style="color:var(--text)">Your lens</b> section follows it. Tap a card for the full brief: mission, steps, starter prompt, your share.</p>
+  </div>
+</section>
 
-    <script type="module" src="./app.js"></script>
-  </body>
+<!-- WEEK TABS -->
+<div class="tabbar-outer">
+  <div class="tabbar" id="tabbar"></div>
+</div>
+
+<!-- WEEK PANELS -->
+<main class="wrap" id="panels"></main>
+
+<!-- THE FINISH LINE -->
+<section class="grand-final-sec" id="finish">
+  <div class="wrap">
+    <div class="sec-eyebrow"><span class="eyebrow-dot"></span>The Finish Line</div>
+    <h2>One review. Evidence, strategy, and the decisions you need.</h2>
+    <p class="gf-sub">Week 4's Forward-Looking Business Review is where the program lands: the Week 2 intelligence brief, the Week 3 solution and the Week 4 scenarios, assembled into a customer QBR or partner business review you could take into a real conversation next quarter.</p>
+    <div class="gf-grid">
+      <div class="gf-card">
+        <div class="tbar" style="background:linear-gradient(90deg,var(--pink),transparent)"></div>
+        <div class="gf-icon" style="background:linear-gradient(135deg,#f9a8d4,#db2777)">🏁</div>
+        <h3>Your Business Review</h3>
+        <p>Assembled on <b>Friday, December 11</b> from the week's work: what changed, why it matters, future priorities, scenario implications, proposed next actions — and the decisions and commitments to seek.</p>
+        <ul>
+          <li>Customer QBR or partner business review, for your role</li>
+          <li>Every claim traceable to its source; projections labelled as scenarios</li>
+          <li>Rehearsed on Thursday with AI playing the customer, the technical stakeholder and the partner</li>
+          <li>Reviews focus on priorities and growth; sole-source support is a separate activity</li>
+        </ul>
+        <span class="gf-badge">Fri · Dec 11</span>
+      </div>
+      <div class="gf-card">
+        <div class="tbar" style="background:linear-gradient(90deg,var(--w5),transparent)"></div>
+        <div class="gf-icon" style="background:linear-gradient(135deg,#ffd58a,#e08a00)">🤝</div>
+        <h3>Optional Capstone Team Project</h3>
+        <p>Groups of 3 to 5 apply the learning to a shared business challenge across the program — a joint account, a partner motion, an agency segment.</p>
+        <ul>
+          <li>Runs alongside the daily activities, not instead of them</li>
+          <li>Use the Week 3 build week to make the team's tool</li>
+          <li>Bring it to a coaching session for feedback</li>
+          <li>Share the result in the channel in Week 4</li>
+        </ul>
+        <span class="gf-badge">Across the program</span>
+      </div>
+    </div>
+    <p class="gf-note"><b>No separate deliverable</b> — your best Week 4 review is the finish line.</p>
+  </div>
+</section>
+
+<!-- MATERIALS -->
+<section class="materials" id="materials">
+  <div class="wrap">
+    <h2>Materials</h2>
+    <div class="m-grid" id="m-grid"></div>
+  </div>
+</section>
+
+<!-- TIMELINE -->
+<section class="timeline" id="timeline">
+  <div class="wrap">
+    <h2>Key dates</h2>
+    <div class="tl-card" id="tl-card"></div>
+  </div>
+</section>
+
+<footer>
+  <b>Public Sector Sales AI Activation</b> · Program · Rethink · Research · Build · Review
+</footer>
+
+<script>
+/* ══ DATA ══ */
+const AUD = [
+ {
+  "id": "fed",
+  "name": "Federal Civilian",
+  "short": "Federal Civilian",
+  "context": "Agency objectives, early recompete preparation, relationship health, connectivity needs, and coordination with prime partners."
+ },
+ {
+  "id": "def",
+  "name": "Defense and Intelligence",
+  "short": "Defense and Intel",
+  "context": "Mission context from permitted sources, technical discovery, evidence gaps, and delivery partner roles. Sensitive requirements stay outside practice examples."
+ },
+ {
+  "id": "sled",
+  "name": "SLED and higher education",
+  "short": "SLED and higher ed",
+  "context": "Public service priorities, research and funding signals, campus networks, on premises alternatives, and regional partner contributions."
+ },
+ {
+  "id": "partner",
+  "name": "Public Sector Partner Sales",
+  "short": "Partner Sales",
+  "context": "Partner business priorities, capabilities, delivery interests, joint account planning, and coordinated customer engagement."
+ }
+];
+const WEEKS = [
+ {
+  "num": 1,
+  "name": "Rethink AI",
+  "short": "Rethink AI",
+  "dates": "Nov 9–13",
+  "accent": "var(--w1)",
+  "check": "Challenge assumptions · Adapt to the audience · Simplify accurately · Reuse what works",
+  "days": [
+   "NOV 9",
+   "NOV 10",
+   "NOV 11",
+   "NOV 12",
+   "NOV 13"
+  ],
+  "dates_iso": [
+   "2026-11-09",
+   "2026-11-10",
+   "2026-11-11",
+   "2026-11-12",
+   "2026-11-13"
+  ],
+  "intro": "Use AI with greater confidence and judgment to strengthen a value message and prepare for a difficult customer or partner conversation.",
+  "coaching": "When AI pushback is useful, when it is invented, and how to improve the next prompt.",
+  "note": "November 11 is Veterans Day. Where observed, move that exercise to another short slot within the week; coaching is scheduled on another day.",
+  "videos": [
+   {
+    "id": "w1-v1",
+    "title": "What a Copilot agent is, and what it is not",
+    "minutes": 6,
+    "about": "The difference between a chat, a prompt and an agent, in sales terms.",
+    "youtubeId": null
+   },
+   {
+    "id": "w1-v2",
+    "title": "Prompts that hold up: role, evidence, unknowns, tone, next action",
+    "minutes": 8,
+    "about": "The five parts of a reusable prompt, the shape you will reverse engineer on Thursday.",
+    "youtubeId": null
+   }
+  ]
+ },
+ {
+  "num": 2,
+  "name": "Customer and Partner Intelligence",
+  "short": "Customer and Partner Intelligence",
+  "dates": "Nov 16–20",
+  "accent": "var(--w2)",
+  "check": "Research priorities · Understand relationships · Test the value case · Prepare the next conversation",
+  "days": [
+   "NOV 16",
+   "NOV 17",
+   "NOV 18",
+   "NOV 19",
+   "NOV 20"
+  ],
+  "dates_iso": [
+   "2026-11-16",
+   "2026-11-17",
+   "2026-11-18",
+   "2026-11-19",
+   "2026-11-20"
+  ],
+  "intro": "Turn a small set of customer and partner sources into a credible intelligence brief, a tested opportunity hypothesis, and useful next questions.",
+  "coaching": "Distinguishing a credible signal from an assumption and turning research into a useful question.",
+  "note": "Save the brief and source list for Week 3. The program pauses November 23 to 27 and resumes November 30.",
+  "videos": [
+   {
+    "id": "w2-v1",
+    "title": "Grounding Copilot on your sources: files, SharePoint and the web",
+    "minutes": 7,
+    "about": "How to point Copilot at a source pack so answers cite what you gave it.",
+    "youtubeId": null
+   },
+   {
+    "id": "w2-v2",
+    "title": "Asking for sources and dates, every time",
+    "minutes": 5,
+    "about": "Prompt patterns that separate stated plans from inferred opportunities.",
+    "youtubeId": null
+   }
+  ]
+ },
+ {
+  "num": 3,
+  "name": "Create Your AI Solution",
+  "short": "Create Your AI Solution",
+  "dates": "Nov 30–Dec 4",
+  "accent": "var(--w3)",
+  "check": "Choose one recurring task · Build a small solution · Test it · Keep it useful",
+  "days": [
+   "NOV 30",
+   "DEC 1",
+   "DEC 2",
+   "DEC 3",
+   "DEC 4"
+  ],
+  "dates_iso": [
+   "2026-11-30",
+   "2026-12-01",
+   "2026-12-02",
+   "2026-12-03",
+   "2026-12-04"
+  ],
+  "intro": "Create and test one reusable prototype for account preparation, account maintenance, or joint customer and partner planning, with clear instructions for updating it.",
+  "coaching": "Hands on build support, narrowing scope, and troubleshooting across the three paths.",
+  "note": "Use the tested output to support Week 4. These are learning prototypes; production integrations and automatic account updates require separate implementation.",
+  "videos": [
+   {
+    "id": "w3-v1",
+    "title": "Build your first agent with the Copilot agent builder",
+    "minutes": 10,
+    "about": "Name, instructions, knowledge sources and a first test, start to finish.",
+    "youtubeId": null
+   },
+   {
+    "id": "w3-v2",
+    "title": "Writing agent instructions that stay in scope",
+    "minutes": 7,
+    "about": "Briefing structure, what to refuse, and the human review point.",
+    "youtubeId": null
+   },
+   {
+    "id": "w3-v3",
+    "title": "Testing, updating and sharing an agent with a colleague",
+    "minutes": 8,
+    "about": "Refresh a knowledge source, retest, and hand it over with known limits.",
+    "youtubeId": null
+   }
+  ]
+ },
+ {
+  "num": 4,
+  "name": "Account Strategy and Business Reviews",
+  "short": "Account Strategy and Business Reviews",
+  "dates": "Dec 7–11",
+  "accent": "var(--w4)",
+  "check": "Establish the evidence · Choose priorities · Explore scenarios · Rehearse · Agree next actions",
+  "days": [
+   "DEC 7",
+   "DEC 8",
+   "DEC 9",
+   "DEC 10",
+   "DEC 11"
+  ],
+  "dates_iso": [
+   "2026-12-07",
+   "2026-12-08",
+   "2026-12-09",
+   "2026-12-10",
+   "2026-12-11"
+  ],
+  "intro": "Connect account intelligence and analysis to a practical strategy and a forward looking customer or partner business review with proposed owners, actions, and measures.",
+  "coaching": "Strengthening the recommendation, testing the evidence, and turning an account update into a strategic discussion.",
+  "note": "Reviews focus on customer and partner priorities and growth. Sole source support remains a separate activity and is not an assumed outcome of the review.",
+  "videos": [
+   {
+    "id": "w4-v1",
+    "title": "Using your agent for account planning and review preparation",
+    "minutes": 8,
+    "about": "Turning the Week 3 prototype into a planning partner.",
+    "youtubeId": null
+   },
+   {
+    "id": "w4-v2",
+    "title": "Scenario tables with Copilot in Excel",
+    "minutes": 7,
+    "about": "Baseline and two changes, with one calculation checked by hand.",
+    "youtubeId": null
+   }
+  ]
+ }
+];
+const ACTS = [
+ {
+  "id": "w1-mon",
+  "week": 1,
+  "date": "2026-11-09",
+  "dow": "MON",
+  "fri": false,
+  "time": "19 min",
+  "emoji": "🥊",
+  "title": "The Challenger",
+  "hook": "Ask AI to attack the claim before a customer does.",
+  "mission": "Take a claim about retaining an agency account, supporting a mission, enabling university research, or winning with a partner. Ask AI to act as a skeptical stakeholder and identify its three weakest points. Revise the most important claim using only evidence available.",
+  "steps": [
+   "Write one claim you make often in two or three sentences. Keep it specific: a retention argument, a mission outcome, a research enablement story, or a partner win theme. (3 min)",
+   "Give AI a role: a skeptical program leader, a contracting officer, a CIO or a partner executive. Ask for the three weakest points and tell it not to soften them. (5 min)",
+   "Pick the point that matters most. Ask what evidence would settle it, and whether you actually have that evidence. (4 min)",
+   "Rewrite the claim using only evidence you can point to today. Label anything that is still an assumption. (5 min)",
+   "Post your share: the weakest claim, your revision, and the evidence you still need. (2 min)"
+  ],
+  "prompt": "Act as a skeptical {stakeholder} who has heard many vendor claims. Here is a claim I make about my account: \"{claim}\".\nIdentify its three weakest points. For each: say why it is weak, what evidence would make it credible, and what question you would ask me in a meeting. Do not soften the critique and do not offer compliments.",
+  "byPath": null,
+  "lenses": {
+   "fed": "Use a claim about why the agency should keep or expand its footprint ahead of a recompete. Play the contracting officer or program manager.",
+   "def": "Use a mission support claim built only from permitted public context. Play a technical evaluator who wants evidence, not adjectives.",
+   "sled": "Use a claim about enabling university research or a state service. Play a CIO weighing an on premises alternative.",
+   "partner": "Use a joint win theme with a prime or delivery partner. Play the partner executive who asks what Equinix adds to their deal."
+  },
+  "submission": "The weakest claim, your revision, and the evidence still needed.",
+  "tip": "If AI invented a weakness that no real stakeholder would raise, say so in your share. Spotting invented pushback is part of the skill.",
+  "skill": "Adversarial prompting and human judgment.",
+  "note": null
+ },
+ {
+  "id": "w1-tue",
+  "week": 1,
+  "date": "2026-11-10",
+  "dow": "TUE",
+  "fri": false,
+  "time": "20 min",
+  "emoji": "🎯",
+  "title": "The Translator",
+  "hook": "One message. Three readers. Profile them before you write.",
+  "mission": "Use one message with three audiences: a customer program or business leader, a technical stakeholder, and a partner lead. Ask AI to profile their likely priorities before rewriting. Label inferred priorities and check that all three versions preserve the same facts.",
+  "steps": [
+   "Take yesterday’s revised claim or a short update you need to send this week. One paragraph is enough. (3 min)",
+   "Ask AI to profile three readers: a program or business leader, a technical stakeholder, and a partner lead. For each, ask what they care about, what they worry about, and how they measure success. Mark which priorities are inferred. (5 min)",
+   "Ask for three rewrites, each driven by its profile. Require that every version keep the same facts, figures and caveats. (6 min)",
+   "Read the three side by side. Check nothing was added or dropped. Pick the two that contrast most. (4 min)",
+   "Post your share: the two versions and the one difference that matters. (2 min)"
+  ],
+  "prompt": "I need to send this message to three readers: a {leader role}, a {technical role} and a {partner role}.\nMessage: \"{message}\"\nFirst, profile each reader: their top three priorities, their main concern, and how they judge success. Mark each priority as stated (I told you) or inferred (your assumption).\nThen rewrite the message once for each reader. Keep every fact, number and caveat identical across the three versions. Finish with a table of the facts, showing they appear in all three.",
+  "byPath": null,
+  "lenses": {
+   "fed": "Readers: an agency program director, the agency network architect, and the prime contractor’s capture lead.",
+   "def": "Readers: a mission owner, a systems integrator engineer, and a delivery partner program manager. Use public context only.",
+   "sled": "Readers: a university research office leader, a campus network manager, and a regional partner account manager.",
+   "partner": "Readers: the partner’s practice leader, the partner’s solution architect, and the end customer’s program lead."
+  },
+  "submission": "Two contrasting versions and the difference that matters.",
+  "tip": "If a version reads better because it dropped a caveat, it is not a translation. Put the caveat back.",
+  "skill": "Audience profiling and context setting.",
+  "note": null
+ },
+ {
+  "id": "w1-wed",
+  "week": 1,
+  "date": "2026-11-11",
+  "dow": "WED",
+  "fri": false,
+  "time": "18 min",
+  "emoji": "💡",
+  "title": "Make the Complex Simple",
+  "hook": "Generate analogies, then ask where each one breaks.",
+  "mission": "Explain interconnection or another relevant technical concept to a nontechnical stakeholder. Generate short analogies, ask AI where each breaks down, and refine the strongest one against a supplied definition or approved reference.",
+  "steps": [
+   "Pick the concept you explain most often: interconnection, a private connection to a cloud, a neutral facility, or latency between sites. (2 min)",
+   "Ask AI for five short analogies aimed at a nontechnical leader, each in two sentences. (4 min)",
+   "Ask AI to critique its own list: for each analogy, what would someone get wrong if they took it literally? (5 min)",
+   "Choose the one that survives. Refine it against the approved definition in the source pack, and write the limitation it must carry. (5 min)",
+   "Post your share: the explanation and the limitation it must preserve. (2 min)"
+  ],
+  "prompt": "Explain {concept} to a {nontechnical role} who has ten seconds of attention.\nStep 1: give five analogies, two sentences each.\nStep 2: for each analogy, say what someone would misunderstand if they took it literally, and which fact about {concept} it hides.\nStep 3: recommend the one that survives best, and state the one limitation I must say out loud when I use it.\nApproved definition to stay true to: \"{definition}\"",
+  "byPath": null,
+  "lenses": {
+   "fed": "Explain interconnection to an agency program director who thinks in terms of mission uptime and budget cycles.",
+   "def": "Explain a neutral, multi carrier facility to a mission owner, without reference to any specific program or requirement.",
+   "sled": "Explain a private connection to a cloud provider to a provost or state agency director weighing an on premises alternative.",
+   "partner": "Explain where Equinix fits in the partner’s solution to the partner’s own sales team, so they can repeat it."
+  },
+  "submission": "Your explanation and the limitation it must preserve.",
+  "tip": "Simplification is only accurate if it survives the approved definition. If you cannot find the definition, note that as the evidence still needed.",
+  "skill": "Self critique and accurate simplification.",
+  "note": "Veterans Day. If your office observes it, do this exercise in another short slot this week."
+ },
+ {
+  "id": "w1-thu",
+  "week": 1,
+  "date": "2026-11-12",
+  "dow": "THU",
+  "fri": false,
+  "time": "20 min",
+  "emoji": "🔍",
+  "title": "Reverse Engineer the Prompt",
+  "hook": "Work backwards from a strong brief to a prompt you can reuse.",
+  "mission": "Start with a strong fictional account preparation brief. Ask AI to infer a reusable prompt covering audience, evidence, unknowns, tone, and next action. Test it on a different agency, institution, or partner scenario and correct what fails.",
+  "steps": [
+   "Open the sample account preparation brief from the source pack. Read it once as a seller: what makes it good? (3 min)",
+   "Ask AI to write the complete prompt that would produce this brief: audience, evidence required, unknowns to list, tone, and the next action it must end with. (5 min)",
+   "Run that prompt on a different scenario from your cohort context. Compare the result with the original brief. (6 min)",
+   "Fix what failed: a missing instruction, a vague audience, an assumption about data you did not have. Keep the prompt to one screen. (4 min)",
+   "Post your share: the reusable prompt and the one improvement testing gave you. (2 min)"
+  ],
+  "prompt": "Here is an account preparation brief I consider strong:\n\"{paste the sample brief}\"\nWrite the complete prompt that would produce a brief of this quality for a different account. The prompt must specify: the audience, the evidence it may use and how to cite it, the unknowns it must list rather than guess, the tone, and the next action it must end with. Keep the prompt under 200 words so I can reuse it.",
+  "byPath": null,
+  "lenses": {
+   "fed": "Test the prompt on a different civilian agency with a recompete 18 months out.",
+   "def": "Test it on a fictional defense program described only with public context, and check it refuses to invent sensitive detail.",
+   "sled": "Test it on a university with a new research computing grant, or a state agency consolidating sites.",
+   "partner": "Test it on a joint account where the partner leads and Equinix is a component, and see whether the prompt still names the partner’s interests."
+  },
+  "submission": "Your reusable prompt and one improvement from testing.",
+  "tip": "A prompt that works on only one scenario is a template, not a tool. If the second run invented facts, add an instruction that unknowns must be listed, not filled.",
+  "skill": "Prompt design and transfer testing.",
+  "note": null
+ },
+ {
+  "id": "w1-fri",
+  "week": 1,
+  "date": "2026-11-13",
+  "dow": "FRI",
+  "fri": true,
+  "time": "20 min",
+  "emoji": "🎛️",
+  "title": "The Situation Room",
+  "hook": "Price pressure, missing information, a partner out of step. Decide anyway.",
+  "mission": "Work through a scenario with price pressure, incomplete customer information, and unaligned partner engagement. Challenge the assumptions, compare stakeholder perspectives, and produce a three sentence brief with two coordinated next actions.",
+  "steps": [
+   "Read the Situation Room scenario for your cohort context in the source pack. List the three things you do not know. (3 min)",
+   "Challenge: ask AI which assumptions in the scenario are weakest and which one would change the decision if wrong. (5 min)",
+   "Translate: ask for the situation as seen by the customer, the partner, and your own leadership. Note where they conflict. (4 min)",
+   "Decide: write a three sentence brief and two coordinated next actions, one for the customer and one for the partner. Use your Thursday prompt if it fits. (5 min)",
+   "Post your share: the brief, the next actions, and what changed your thinking. (3 min)"
+  ],
+  "prompt": "Scenario: {paste the scenario}.\nUnknowns I have: {list}.\n1. List the assumptions in this scenario, ranked by how much the decision changes if each is wrong.\n2. Describe the situation from three perspectives: the customer leader, the partner lead, and my sales leadership. Where do they conflict?\n3. Draft a three sentence brief for my manager and two coordinated next actions, one toward the customer and one toward the partner. Each action must name an owner and a date. State what you assumed.",
+  "byPath": null,
+  "lenses": {
+   "fed": "The scenario centers on a budget continuing resolution, a prime partner slow to engage, and a program office asking for a price concession.",
+   "def": "A delivery partner has changed roles mid pursuit, requirements are only partly visible, and the evaluator is cost focused. Public context only.",
+   "sled": "A university faces a grant timing change, a regional partner is pitching a competing design, and the CIO is asking why not stay on campus.",
+   "partner": "Your partner is pursuing a parallel deal with another provider, the end customer is quiet, and your leadership wants a forecast call this week."
+  },
+  "submission": "Your brief, next actions, and what changed your thinking.",
+  "tip": "Two actions that both point at the customer are not coordinated. One of them should move the partner.",
+  "skill": "Combining prompting techniques to support a decision.",
+  "note": null
+ },
+ {
+  "id": "w2-mon",
+  "week": 2,
+  "date": "2026-11-16",
+  "dow": "MON",
+  "fri": false,
+  "time": "19 min",
+  "emoji": "🔎",
+  "title": "The Customer Priority Profiler",
+  "hook": "Separate what the customer said from what you hope they meant.",
+  "mission": "Use a small source pack to identify an agency’s mission and modernization priorities, a state or local service objective, or a university’s research and connectivity needs. Separate stated plans from inferred opportunities. Partner sellers examine the end customer alongside the partner’s target market.",
+  "steps": [
+   "Open the Week 2 source pack for your cohort context: a strategic plan extract, a budget or funding note, a news item, and a partner page. (3 min)",
+   "Ask AI to extract the customer’s priorities, each with the source and its date. Require it to mark every item as stated or inferred. (6 min)",
+   "Challenge one inferred item: what would need to be true for it to be a real opportunity? (4 min)",
+   "Choose the three priorities that matter most for your account and write one question the sources cannot answer. (4 min)",
+   "Post your share: three priorities with sources and dates, and your unanswered question. (2 min)"
+  ],
+  "prompt": "Using only the sources I provide, list this {customer type}’s mission and modernization priorities.\nSources: {paste or attach the source pack}.\nFor each priority: quote or closely paraphrase the supporting line, name the source and its date, and mark it STATED (the source says it) or INFERRED (you are connecting dots). Do not add priorities that are not supported. Finish with three questions the sources cannot answer.",
+  "byPath": null,
+  "lenses": {
+   "fed": "Focus on the agency strategic plan and IT modernization priorities, with the recompete window noted if the sources show it.",
+   "def": "Use public mission statements and published modernization goals only. Anything sensitive stays out of the exercise.",
+   "sled": "Look for research funding signals, campus network or data center plans, and state service objectives such as consolidation or resilience.",
+   "partner": "Profile the end customer and the partner’s stated target market side by side, and mark where they overlap."
+  },
+  "submission": "Three priorities, their sources and dates, and one unanswered question.",
+  "tip": "If a priority has no date, it is not evidence yet. Find the date or move it to the unanswered questions.",
+  "skill": "Source grounded synthesis.",
+  "note": null
+ },
+ {
+  "id": "w2-tue",
+  "week": 2,
+  "date": "2026-11-17",
+  "dow": "TUE",
+  "fri": false,
+  "time": "19 min",
+  "emoji": "🗺️",
+  "title": "The Partner and Stakeholder Map",
+  "hook": "Map who matters, then treat every motive as a question to validate.",
+  "mission": "Map the customer, prime or delivery partner, technical influencers, and Equinix account and partner roles. Use evidence to identify capabilities and relationships. Treat partner motivations and gaps as questions to validate, then propose one coordinated discovery action.",
+  "steps": [
+   "List the roles you know from the source pack: customer leaders, prime or delivery partner, technical influencers, and the Equinix account and partner team. (3 min)",
+   "Ask AI to build a simple map: who influences whom, which capability each party brings, and what evidence supports each link. (5 min)",
+   "Ask it to list the partner’s likely motivations and gaps as questions, not statements. (4 min)",
+   "Pick the assumption that most affects the deal and write one coordinated discovery action to validate it with the partner. (5 min)",
+   "Post your share: the map in text or a quick sketch, and the assumption you will validate. (2 min)"
+  ],
+  "prompt": "Build a stakeholder and partner map for this account from the evidence below.\nParties: {customer roles}, {partner and role}, {technical influencers}, {Equinix roles}.\nEvidence: {paste}.\nFor each party: their capability, their likely interest, and the evidence that supports it (or \"no evidence\"). Draw the relationships as a simple list of \"A influences B because...\". Then write the partner’s motivations and gaps as questions I should validate, and propose one discovery action the partner and I can take together.",
+  "byPath": null,
+  "lenses": {
+   "fed": "Include the prime contractor and the agency program office. Ask what the prime gains from Equinix being in the solution.",
+   "def": "Map the systems integrator and delivery partner roles from public information. Treat mission ownership as unknown unless published.",
+   "sled": "Include the university research office, central IT, procurement, and the regional partner. Ask where procurement rules shape the path.",
+   "partner": "Map your partner’s own stakeholders too: who in the partner decides to lead with Equinix, and what they measure."
+  },
+  "submission": "A simple map and one assumption to validate with the partner.",
+  "tip": "A motive written as a fact is an assumption in disguise. Every motive on your map should end with a question mark until the partner confirms it.",
+  "skill": "Relationship mapping and gap detection.",
+  "note": null
+ },
+ {
+  "id": "w2-wed",
+  "week": 2,
+  "date": "2026-11-18",
+  "dow": "WED",
+  "fri": false,
+  "time": "19 min",
+  "emoji": "⚖️",
+  "title": "The Value Case Under Pressure",
+  "hook": "Make AI argue for the alternative, including staying on premises.",
+  "mission": "Connect one customer priority to a potential Equinix contribution using approved capability information. Ask AI to make the strongest case for an alternative, including remaining on premises where relevant. Identify what would support or weaken the proposed fit.",
+  "steps": [
+   "Take one priority from Monday. Write a one sentence value hypothesis: because the customer needs X, an Equinix contribution Y could help, using approved capability language. (3 min)",
+   "Ask AI to make the strongest possible case for the alternative: another provider, a different design, or remaining on premises. (5 min)",
+   "Ask what evidence would support the Equinix fit and what evidence would weaken it. Keep the two lists honest. (5 min)",
+   "Decide what you believe today and what you need to find out. Rewrite the hypothesis if the alternative won a point. (4 min)",
+   "Post your share: the hypothesis, the strongest alternative, and the evidence you need. (2 min)"
+  ],
+  "prompt": "Customer priority: {priority with source}.\nMy value hypothesis: \"{because the customer needs X, Equinix contribution Y could help}\". Approved capability information: {paste}.\nMake the strongest case for the alternative: {another provider, a different architecture, or staying on premises}. Be specific about cost, risk, control and timing. Then list evidence that would support my hypothesis and evidence that would weaken it. End by telling me which single piece of evidence I should go and get first.",
+  "byPath": null,
+  "lenses": {
+   "fed": "The alternative is often the incumbent arrangement continuing through the recompete. Argue for it properly.",
+   "def": "Argue for a government owned facility or an existing contract vehicle, using public considerations only.",
+   "sled": "Argue for keeping research computing on campus, including grant rules and local staff. This is the case the CIO will make.",
+   "partner": "Argue for the partner delivering the solution without Equinix, so you learn what Equinix must add to earn its place."
+  },
+  "submission": "A value hypothesis, the strongest alternative, and evidence needed.",
+  "tip": "If the alternative’s case is weak, you probably wrote the prompt to lose. Ask again and tell AI to win.",
+  "skill": "Counter analysis and evidence based comparison.",
+  "note": null
+ },
+ {
+  "id": "w2-thu",
+  "week": 2,
+  "date": "2026-11-19",
+  "dow": "THU",
+  "fri": false,
+  "time": "18 min",
+  "emoji": "📡",
+  "title": "From Signal to Conversation",
+  "hook": "One dated signal, one message, three questions worth asking.",
+  "mission": "Choose a dated signal from the source pack, such as a planning update, funding announcement, market research notice, or partner initiative. Assess its relevance and uncertainty. Draft a short outreach message and three discovery questions for the appropriate customer or partner contact.",
+  "steps": [
+   "Choose one dated signal from the source pack: a planning update, a funding announcement, a market research notice, or a partner initiative. (3 min)",
+   "Ask AI to assess the signal: how relevant to your account, how certain, what it could also mean, and what would confirm it. (4 min)",
+   "Ask for a short outreach message to the right contact, under 120 words, that references the signal and asks rather than sells. (5 min)",
+   "Ask for three discovery questions, then cut any that the sources already answer. Rewrite the message in your own voice. (4 min)",
+   "Post your share: the signal, its source, and the conversation it should open. (2 min)"
+  ],
+  "prompt": "Signal: \"{signal}\" ({source}, {date}).\nAccount context: {two lines}.\n1. Assess the signal: relevance to my account (high, medium, low and why), how certain it is, two other things it could mean, and what would confirm it.\n2. Draft an outreach message of under 120 words to {contact role}. Reference the signal, show I understand their situation, and ask for a conversation. No product claims.\n3. Give me three discovery questions that the sources cannot already answer.",
+  "byPath": null,
+  "lenses": {
+   "fed": "Signals: a budget justification line, a market research notice, a modernization milestone, or a prime partner announcement.",
+   "def": "Signals from public sources only: a published strategy, a public contract announcement, or a partner press release.",
+   "sled": "Signals: a research grant award, a campus master plan update, a state resilience initiative, or a regional partner program.",
+   "partner": "Signals from the partner itself: a new practice, a certification, a hiring pattern, or a joint announcement with a customer."
+  },
+  "submission": "The signal, its source, and the conversation it should open.",
+  "tip": "If the message could have been sent without the signal, it is not tailored. The signal should be the reason for the note.",
+  "skill": "Interpreting signals and tailoring outreach.",
+  "note": null
+ },
+ {
+  "id": "w2-fri",
+  "week": 2,
+  "date": "2026-11-20",
+  "dow": "FRI",
+  "fri": true,
+  "time": "20 min",
+  "emoji": "🗂️",
+  "title": "The Customer and Partner Intelligence Brief",
+  "hook": "The week on one page, challenged by an account leader.",
+  "mission": "Bring the week’s work into one page: priorities, stakeholders, value hypothesis, alternatives, unknowns, and next actions. Ask AI what an account or partner leader would challenge. Check the most consequential claim against its source and refine the brief.",
+  "steps": [
+   "Gather the week: priorities, the map, the value hypothesis and alternative, the signal, and your open questions. (4 min)",
+   "Ask AI to assemble a one page brief with these headings: priorities, stakeholders, value hypothesis, alternatives, unknowns, next actions. Every claim keeps its source. (5 min)",
+   "Ask what an account leader or partner leader would challenge first, and why. (4 min)",
+   "Take the most consequential claim back to its source. Correct or qualify it. Refine the brief. (5 min)",
+   "Post your share: the brief and the claim you corrected or qualified. Save the brief and source list for Week 3. (2 min)"
+  ],
+  "prompt": "Assemble a one page customer and partner intelligence brief from my week’s notes below. Headings: Priorities, Stakeholders and partner, Value hypothesis, Strongest alternative, Unknowns, Next actions (owner and date).\nNotes: {paste}.\nKeep every source and date attached to its claim. Mark inferred items. Then, as an account leader reading this for the first time, tell me the three things you would challenge and which claim, if wrong, would change the plan the most.",
+  "byPath": null,
+  "lenses": {
+   "fed": "Write for the account leader preparing a recompete strategy. Lead with the window and the relationship health.",
+   "def": "Write for a leader who will check every public source. Keep the brief free of anything you could not cite publicly.",
+   "sled": "Write for a leader comparing several institutions. Make the funding signal and the on premises alternative explicit.",
+   "partner": "Write it as a joint brief the partner could read. Separate the partner’s interests from the customer’s, and name the shared next action."
+  },
+  "submission": "Your brief and one claim you corrected or qualified.",
+  "tip": "The most consequential claim is rarely the most interesting one. Check the claim your next actions depend on.",
+  "skill": "Synthesis, source checking, and concise briefing.",
+  "note": null
+ },
+ {
+  "id": "w3-mon",
+  "week": 3,
+  "date": "2026-11-30",
+  "dow": "MON",
+  "fri": false,
+  "time": "19 min",
+  "emoji": "✏️",
+  "title": "Design the Account Workflow",
+  "hook": "Pick one recurring task. Decide what the tool does and what stays with you.",
+  "mission": "Pick one recurring task exposed by Week 2. Sketch its inputs, steps, output, and human review point. Define what the solution should do and what it should leave to the seller. Choose the build path that fits the task and available approved tools.",
+  "steps": [
+   "Reread your Week 2 brief. Pick one task you repeat: a pre meeting briefing, a stakeholder update, a milestone check, a joint plan refresh. (4 min)",
+   "Sketch the workflow: inputs, steps, output, and the point where a human reviews before anything goes out. Hand drawn is fine. (5 min)",
+   "Ask AI to tighten the sketch into instructions, and to say what the tool should refuse to do or leave to you. (4 min)",
+   "Choose the build path: agent, app or dashboard. Write one success criterion you can test on Wednesday. (4 min)",
+   "Post your share: the sketch and the success criterion. (2 min)"
+  ],
+  "prompt": "I want to build a small {agent / app / dashboard} for this recurring task: {task}.\nInputs I have: {list}. Output I need: {describe}. Human review point: {where}.\nTurn this into a clear specification: purpose in one sentence, inputs, steps, output format, what the tool must not do, and what stays with me as the seller. Then write one success criterion I can test with sample data, phrased as \"given X, the tool produces Y\".",
+  "byPath": {
+   "agent": "An agent that answers recurring questions and produces a briefing in a fixed structure from the approved source pack. The human review point is before any briefing is shared.",
+   "app": "A small app that walks you through discovery inputs for a meeting and produces a preparation sheet. The review point is the sheet itself.",
+   "dashboard": "A dashboard of account priorities, milestones, owners and actions from sample data. The review point is the weekly check of what changed."
+  },
+  "lenses": {
+   "fed": "Good tasks: a recompete milestone tracker, a monthly agency update brief, or a prime partner coordination checklist.",
+   "def": "Good tasks: a public context briefing before technical discovery, or a delivery partner role tracker. Keep sensitive data out of the prototype.",
+   "sled": "Good tasks: a grant and funding signal digest, a campus stakeholder update, or an institution comparison sheet.",
+   "partner": "Good tasks: a joint account plan refresh, a partner capability brief, or a weekly co sell action list."
+  },
+  "submission": "A small workflow sketch and one testable success criterion.",
+  "tip": "If the sketch has no human review point, add one before you build. The tool supports your judgment; it does not replace it.",
+  "skill": "Turning a business need into clear instructions.",
+  "note": null
+ },
+ {
+  "id": "w3-tue",
+  "week": 3,
+  "date": "2026-12-01",
+  "dow": "TUE",
+  "fri": false,
+  "time": "20 min",
+  "emoji": "🛠️",
+  "title": "Build the First Useful Version",
+  "hook": "One function working beats five functions planned.",
+  "mission": "Adapt a supplied starter to your scenario. Configure an agent with a briefing structure and approved source pack; create an app that organizes discovery inputs; or populate a dashboard with sample account milestones and actions. Complete one useful function before adding more.",
+  "steps": [
+   "Open the starter template for your path and watch the matching build video if you have not yet. (3 min)",
+   "Adapt the starter to your scenario. Agent: paste the briefing structure as instructions and attach the source pack. App: set up the discovery inputs. Dashboard: load the sample milestones and actions. (8 min)",
+   "Run the core function once with sample data. Fix the first thing that breaks. Resist adding a second function. (5 min)",
+   "Capture a screenshot or example output. (2 min)",
+   "Post your share: the screenshot or output showing the core function. (2 min)"
+  ],
+  "prompt": "Here is my specification from yesterday: {paste}.\nHelp me adapt the {agent / app / dashboard} starter to it. Give me, in order: the exact instructions or configuration to enter, the sample data to use for a first run, and the single core function to test first. Keep it to what I can finish in fifteen minutes; list anything else under \"later\".",
+  "byPath": {
+   "agent": "Enter the briefing structure as the agent’s instructions, attach the approved source pack as knowledge, and ask it for one briefing. Check it cites the pack.",
+   "app": "Build the input form for one meeting type and generate one preparation sheet from sample answers.",
+   "dashboard": "Load the sample account dataset, build one view of milestones by owner and date, and check one total by hand."
+  },
+  "lenses": {
+   "fed": "Sample data: the fictional civilian agency scenario and its source pack.",
+   "def": "Sample data: the fictional defense scenario with public context only. No real program data in the prototype.",
+   "sled": "Sample data: the fictional university or state agency scenario and its funding signals.",
+   "partner": "Sample data: the fictional joint account with the partner’s roles and the shared milestones."
+  },
+  "submission": "A screenshot or example output showing the core function.",
+  "tip": "If the output looks right but you cannot say where a fact came from, the core function is not done yet.",
+  "skill": "Building through instructions, configuration, or AI assisted generation.",
+  "note": null
+ },
+ {
+  "id": "w3-wed",
+  "week": 3,
+  "date": "2026-12-02",
+  "dow": "WED",
+  "fri": false,
+  "time": "20 min",
+  "emoji": "🕵️",
+  "title": "The Account Data Detective",
+  "hook": "Feed it a stale date, a conflict and a missing owner. See what it does.",
+  "mission": "Test the solution with a small synthetic update pack containing a stale date, a conflicting statement, and a missing owner. Agent users test answers and source handling; app users test inputs and logic; dashboard users test calculations, labels, and missing values. Correct one meaningful error.",
+  "steps": [
+   "Open the synthetic update pack. It contains a stale date, a statement that conflicts with the source pack, and an item with no owner. (3 min)",
+   "Run each case through your tool. Record what it did with each: flagged it, ignored it, or made something up. (6 min)",
+   "Pick the most meaningful failure and correct it: an instruction, a validation rule, a label, a formula. (6 min)",
+   "Retest the same case and one case that previously passed. (3 min)",
+   "Post your share: the failed case, the correction, and the retest result. (2 min)"
+  ],
+  "prompt": "I am testing my {agent / app / dashboard} with three bad inputs: a stale date ({example}), a statement that conflicts with my source ({example}), and an item with no owner.\nFor each, tell me what a well built tool should do, how to check whether mine did it, and the smallest change that would fix the failure. Then write a short test log format I can reuse: case, expected, actual, fix, retest.",
+  "byPath": {
+   "agent": "Ask the agent a question the stale item answers. Does it mention the date? Ask about the conflicting statement. Does it surface both sources or pick one silently?",
+   "app": "Enter the missing owner and the stale date. Does the app accept them quietly, or ask?",
+   "dashboard": "Load the update pack. Do totals change correctly, are labels still right, and how is the missing owner shown?"
+  },
+  "lenses": {
+   "fed": "The stale date is a recompete milestone that moved. The conflict is two budget figures from different documents.",
+   "def": "The conflict is between two public sources about a program timeline. The tool should show both, not choose.",
+   "sled": "The stale date is a grant deadline that passed. The missing owner is on the campus network milestone.",
+   "partner": "The conflict is the partner’s stated role versus the customer’s description of it. The missing owner is a shared action."
+  },
+  "submission": "One failed case, the correction, and the retest result.",
+  "tip": "A tool that filled the missing owner with a plausible name failed the test. Flagging is the right behavior.",
+  "skill": "Structured testing, data checks, and iteration.",
+  "note": null
+ },
+ {
+  "id": "w3-thu",
+  "week": 3,
+  "date": "2026-12-03",
+  "dow": "THU",
+  "fri": false,
+  "time": "19 min",
+  "emoji": "🔄",
+  "title": "Keep the Account Current",
+  "hook": "Change one fact upstream. Does the output follow?",
+  "mission": "Introduce a new customer priority or partner action. Refresh the source, input, or dataset and check whether the output changes correctly. Add a last updated date, maintenance owner, and human review step. Define how obsolete information will be removed or flagged.",
+  "steps": [
+   "Write one new fact: a new customer priority or a new partner action, dated today. (3 min)",
+   "Add it to the source pack, input set or dataset. Run the tool again and compare before and after. Did the output change where it should, and only there? (5 min)",
+   "Add a last updated date, a maintenance owner, and a human review step to the tool or its instructions. (5 min)",
+   "Write the update instructions in five lines, including how obsolete items get flagged or removed. (4 min)",
+   "Post your share: before and after, and the update instructions. (2 min)"
+  ],
+  "prompt": "My {agent / app / dashboard} uses this source or dataset: {describe}. I am adding this new fact: \"{fact}\" dated {date}.\n1. Tell me how to refresh the source so the tool picks it up, and what in the output should change and what should not.\n2. Write a maintenance block I can add: last updated, owner, review step, and the rule for flagging or removing obsolete items.\n3. Write update instructions in five lines a colleague could follow.",
+  "byPath": {
+   "agent": "Replace or add a document in the knowledge source. Ask the same question as before and compare the answers and citations.",
+   "app": "Add the new input field or option. Check that old preparation sheets still read correctly.",
+   "dashboard": "Append the new milestone or action. Check the view, the totals and the label for the new owner."
+  },
+  "lenses": {
+   "fed": "New fact: the agency published an updated modernization milestone, or the prime partner named a new capture lead.",
+   "def": "New fact: a public announcement about a program phase. Treat it as a scenario fact in the prototype.",
+   "sled": "New fact: a new grant award, or the state agency added a resilience objective.",
+   "partner": "New fact: the partner committed to a joint workshop with a date and an owner."
+  },
+  "submission": "A before and after example plus the update instructions.",
+  "tip": "If the output changed somewhere unrelated, the tool is leaning on the new fact too hard. Note it as a known limit.",
+  "skill": "Managing context and maintaining reliable outputs.",
+  "note": null
+ },
+ {
+  "id": "w3-fri",
+  "week": 3,
+  "date": "2026-12-04",
+  "dow": "FRI",
+  "fri": true,
+  "time": "20 min",
+  "emoji": "📦",
+  "title": "Make It Usable by a Colleague",
+  "hook": "Hand it over. Watch where they get stuck. Fix that one thing.",
+  "mission": "Package the prototype with a short purpose statement, inputs, instructions, and known limits. Have a peer try a sample task, or follow a supplied user test if a peer is unavailable. Fix one usability issue and share a suitable demonstration in the approved environment.",
+  "steps": [
+   "Write the one page package: purpose in one sentence, inputs, how to use it, known limits, owner and last updated. (4 min)",
+   "Ask a peer to try one sample task without your help, or follow the supplied user test script. Note where they hesitate. (6 min)",
+   "Fix the one usability issue that caused the most hesitation. (5 min)",
+   "Record or write a short demonstration in the approved environment: what it does, in under two minutes. (3 min)",
+   "Post your share: the demonstration and the improvement you made. (2 min)"
+  ],
+  "prompt": "Write the handover page for my {agent / app / dashboard}: purpose in one sentence, inputs, step by step use, known limits, owner, last updated.\nSpecification: {paste}. Test log: {paste}.\nThen write a five minute user test script for a colleague who has never seen it: three tasks, what a good result looks like, and two questions to ask them afterwards.",
+  "byPath": {
+   "agent": "Share the agent in the approved environment. Watch whether the colleague knows what to ask it and whether they trust the citations.",
+   "app": "Give the colleague the link and one meeting to prepare for. Watch where the form confuses them.",
+   "dashboard": "Give the colleague the dashboard and ask them to find what changed this week. Watch which label they misread."
+  },
+  "lenses": {
+   "fed": "Test it with a colleague from another agency account. Their questions will show what you assumed about yours.",
+   "def": "Test it with the public context scenario only, and check the known limits say so plainly.",
+   "sled": "Test it with a colleague covering a different state or institution type.",
+   "partner": "Test it with a colleague who manages a different partner, or with the partner lens from a direct seller."
+  },
+  "submission": "A short demonstration and the improvement made after testing.",
+  "tip": "Known limits are part of the product. A package without them is a demo, not a handover.",
+  "skill": "Usability testing and practical handover.",
+  "note": null
+ },
+ {
+  "id": "w4-mon",
+  "week": 4,
+  "date": "2026-12-07",
+  "dow": "MON",
+  "fri": false,
+  "time": "20 min",
+  "emoji": "🧭",
+  "title": "Establish the Account Truth",
+  "hook": "What does the evidence support, what changed, and what are you still assuming?",
+  "mission": "Review the Week 2 brief and Week 3 output. Ask AI to identify what the evidence supports, what has changed, and where assumptions remain. Choose the three facts or gaps that most affect the account’s future. Verify the most consequential point.",
+  "steps": [
+   "Put the Week 2 brief and your Week 3 tool’s latest output side by side. (4 min)",
+   "Ask AI to sort every claim into three columns: supported by evidence, changed since Week 2, still an assumption. (5 min)",
+   "Choose the three facts or gaps that most affect the account’s future. Say why each matters. (5 min)",
+   "Verify the most consequential point against its source or by asking your tool for the citation. (4 min)",
+   "Post your share: three strategic findings, each with its evidence or its gap. (2 min)"
+  ],
+  "prompt": "Here is my Week 2 intelligence brief: {paste}. Here is my current account output: {paste}.\nSort every claim into: SUPPORTED (name the evidence), CHANGED (what changed and when), ASSUMPTION (what we are assuming and the risk if wrong). Then recommend the three facts or gaps that most affect the account’s next twelve months, and tell me which one to verify first and how.",
+  "byPath": null,
+  "lenses": {
+   "fed": "The consequential point is often the recompete timeline or the relationship health with the program office.",
+   "def": "Audit only public context. Where the truth is unknowable from permitted sources, record it as a gap, not a guess.",
+   "sled": "The consequential point is often funding timing or the strength of the on premises alternative.",
+   "partner": "Audit the partner’s commitments as carefully as the customer’s facts. A changed partner role is a strategic finding."
+  },
+  "submission": "Three strategic findings and the evidence or gap behind each.",
+  "tip": "A finding with no evidence and no named gap is an opinion. Either find the source or call it a gap.",
+  "skill": "Evidence auditing and prioritization.",
+  "note": null
+ },
+ {
+  "id": "w4-tue",
+  "week": 4,
+  "date": "2026-12-08",
+  "dow": "TUE",
+  "fri": false,
+  "time": "20 min",
+  "emoji": "📈",
+  "title": "Design the Account Growth Plan",
+  "hook": "One retention priority, one growth hypothesis, one relationship action.",
+  "mission": "Draft a concise plan around one retention priority, one growth hypothesis, and one relationship action, where relevant. Include customer outcomes, partner contribution, milestones, proposed owners, and measures. Ask AI where the plan could stall and revise one weak step.",
+  "steps": [
+   "From Monday’s findings, choose one retention priority, one growth hypothesis and one relationship action. (3 min)",
+   "Ask AI to draft the plan: for each item, the customer outcome, the partner contribution, milestones, a proposed owner and a measure. (6 min)",
+   "Ask where the plan could stall: procurement, funding, partner capacity, a missing sponsor. Pick the most likely stall. (4 min)",
+   "Revise the weak step so the stall is addressed. Keep the plan to one page. (5 min)",
+   "Post your share: the plan and the risk you addressed. (2 min)"
+  ],
+  "prompt": "Draft a one page account growth plan from these three items: retention priority \"{A}\", growth hypothesis \"{B}\", relationship action \"{C}\". Evidence: {paste Monday’s findings}.\nFor each item give: customer outcome, partner contribution, milestones with dates, proposed owner, and a measure of success. Then name the three places this plan is most likely to stall and why. Rewrite the single weakest step so the most likely stall is addressed.",
+  "byPath": null,
+  "lenses": {
+   "fed": "Retention centers on the recompete; growth on a modernization priority; the relationship action on the program office or the prime.",
+   "def": "Keep the plan at the level of public mission goals and partner roles. The relationship action may be with the delivery partner.",
+   "sled": "Growth may be a research computing or resilience initiative; the relationship action may involve procurement or the research office.",
+   "partner": "Write a joint plan. The partner’s contribution and owner appear on every line, and the measure is shared."
+  },
+  "submission": "Your account or joint partner plan and the risk you addressed.",
+  "tip": "If every owner is you, the plan has no partner in it. Share the load or name the gap.",
+  "skill": "Strategy design and testing execution risks.",
+  "note": null
+ },
+ {
+  "id": "w4-wed",
+  "week": 4,
+  "date": "2026-12-09",
+  "dow": "WED",
+  "fri": false,
+  "time": "19 min",
+  "emoji": "📊",
+  "title": "Explore the Scenarios",
+  "hook": "A baseline and two changes. Check one number by hand.",
+  "mission": "Using a small supplied synthetic dataset, compare a baseline with two changes, such as delayed funding, increased connectivity demand, or a changed partner role. Check one calculation manually. Use a simple table, chart, or Week 3 tool to show how the assumptions affect the plan.",
+  "steps": [
+   "Open the synthetic scenario dataset. Note the baseline: the plan as it stands. (3 min)",
+   "Define two changes relevant to your account: delayed funding, higher connectivity demand, a changed partner role. Ask AI to project each against the baseline. (5 min)",
+   "Check one calculation by hand or in a spreadsheet. If it disagrees, trust the hand check and ask AI why. (4 min)",
+   "Show the comparison as a simple table or chart, or through your Week 3 tool. Label every projection as a scenario. (5 min)",
+   "Post your share: the comparison, the assumptions, and one planning implication. (2 min)"
+  ],
+  "prompt": "Dataset: {paste or attach the synthetic dataset}. Baseline: {describe}.\nScenario 1: {change, for example funding delayed two quarters}. Scenario 2: {change}.\nProject both against the baseline for the next four quarters. Show a table with the assumptions stated above each column. Show me the formula behind the {metric} figure so I can check it by hand. Label every projection \"scenario\", not forecast. Finish with one implication for my plan.",
+  "byPath": null,
+  "lenses": {
+   "fed": "Changes: a continuing resolution delays funding; the recompete moves earlier; the prime changes its teaming.",
+   "def": "Changes: a program phase shifts; a delivery partner role changes. Use only the synthetic dataset.",
+   "sled": "Changes: a grant arrives late; research demand doubles; the campus keeps part of the workload on premises.",
+   "partner": "Changes: the partner wins or loses an adjacent deal; the partner’s delivery capacity shifts; the customer changes the route to market."
+  },
+  "submission": "The comparison, assumptions, and one planning implication.",
+  "tip": "A scenario is not a forecast. If the word forecast appears in your table, change it.",
+  "skill": "Scenario analysis, data projections, and sensitivity to assumptions.",
+  "note": null
+ },
+ {
+  "id": "w4-thu",
+  "week": 4,
+  "date": "2026-12-10",
+  "dow": "THU",
+  "fri": false,
+  "time": "20 min",
+  "emoji": "🎤",
+  "title": "Enter the Customer and Partner Room",
+  "hook": "Three voices in the room, every hard question allowed.",
+  "mission": "Rehearse the strategy with AI playing a customer leader, technical stakeholder, and partner executive. Invite hard questions on value, delivery, cost, evidence, and responsibilities. Improve the weakest answer and make the proposed next decision explicit.",
+  "steps": [
+   "Give AI your plan and scenarios. Set up three voices: a customer leader, a technical stakeholder, a partner executive. (3 min)",
+   "Ask each voice for its two hardest questions on value, delivery, cost, evidence and responsibilities. Answer them out loud or in writing, briefly. (6 min)",
+   "Ask AI which of your answers was weakest and why. Do not argue; improve it. (4 min)",
+   "Rewrite the weakest answer. Then write the single decision you will ask for at the end of the review. (5 min)",
+   "Post your share: the hardest question and your improved answer. (2 min)"
+  ],
+  "prompt": "Plan: {paste}. Scenarios: {paste}.\nPlay three people in a business review: a {customer leader role}, a {technical role}, and a {partner executive role}. Each asks me their two hardest questions about value, delivery, cost, evidence and who is responsible for what. Ask one at a time and wait for my answer. After six questions, tell me which answer was weakest and why, and suggest how to make the next decision I am asking for explicit.",
+  "byPath": null,
+  "lenses": {
+   "fed": "Voices: an agency program director, the agency network architect, the prime’s capture lead. Expect a question about the recompete and about cost.",
+   "def": "Voices: a mission owner, an integrator engineer, a delivery partner lead. Expect a question about evidence you cannot share.",
+   "sled": "Voices: a provost or agency director, the campus network manager, a regional partner executive. Expect the on premises question.",
+   "partner": "Voices: the partner’s practice leader, their architect, and the end customer’s program lead. Expect a question about who owns the relationship."
+  },
+  "submission": "The hardest question and your improved answer.",
+  "tip": "If the improved answer is longer than the first one, it is probably not better. Make it clearer, not fuller.",
+  "skill": "Role play, executive communication, and revision.",
+  "note": null
+ },
+ {
+  "id": "w4-fri",
+  "week": 4,
+  "date": "2026-12-11",
+  "dow": "FRI",
+  "fri": true,
+  "time": "20 min",
+  "emoji": "🏁",
+  "title": "The Forward Looking Business Review",
+  "hook": "What changed, why it matters, what next, and the decisions you need.",
+  "mission": "Assemble a concise review from the week’s work: what changed, why it matters, future priorities, scenario implications, and proposed next actions. Choose a customer QBR or partner business review for your role. End with the decisions and commitments to seek in the real conversation.",
+  "steps": [
+   "Choose the format for your role: a customer quarterly business review or a partner business review. Open the review template. (3 min)",
+   "Ask AI to assemble the review from the week: what changed, why it matters, future priorities, scenario implications, proposed next actions with owners. (6 min)",
+   "Write the closing slide yourself: the decisions and commitments you will seek in the real conversation. (4 min)",
+   "Read it as the customer or partner would. Cut anything that is a status update rather than a decision aid. Check the most important number once more. (5 min)",
+   "Post your share: the review and the decisions it is designed to support. (2 min)"
+  ],
+  "prompt": "Assemble a {customer QBR / partner business review} from my week: findings {paste}, plan {paste}, scenarios {paste}, rehearsal notes {paste}.\nStructure: what changed since last review, why it matters to the customer and partner, future priorities, scenario implications (labelled as scenarios), proposed next actions with owners and dates. Keep each section to five lines. Leave the final section, \"Decisions and commitments we seek\", for me to write, but suggest two candidates. Then tell me which slide a skeptical leader would stop on.",
+  "byPath": null,
+  "lenses": {
+   "fed": "A customer QBR for the agency program office, with the prime’s role explicit. The decision may be about recompete preparation steps.",
+   "def": "A review built on public context and the partner’s role, with evidence gaps stated plainly as items to discuss.",
+   "sled": "A customer QBR for the institution or agency, with the on premises alternative addressed and the funding timeline explicit.",
+   "partner": "A partner business review: joint priorities, shared actions, and the commitments you ask of each other."
+  },
+  "submission": "Your review and the decisions it is designed to support.",
+  "tip": "A review that ends without a decision to ask for is an update. End on the ask.",
+  "skill": "Combining evidence, strategy, and a clear business narrative.",
+  "note": null
+ }
+];
+const PATHS = [
+ {
+  "id": "agent",
+  "name": "Agent",
+  "what": "A Copilot agent for recurring briefings and questions, grounded on an approved source pack."
+ },
+ {
+  "id": "app",
+  "name": "App",
+  "what": "A small app that guides a preparation workflow and organizes discovery inputs."
+ },
+ {
+  "id": "dashboard",
+  "name": "Dashboard",
+  "what": "A dashboard of account priorities, milestones, owners and actions."
+ }
+];
+const MATERIALS = [
+ {
+  "type": "Scenario",
+  "name": "Fictional scenario for each cohort context",
+  "meta": "Four short scenarios, one per cohort context",
+  "state": "In preparation",
+  "weeks": [
+   1,
+   2,
+   3,
+   4
+  ]
+ },
+ {
+  "type": "Sources",
+  "name": "Short source pack",
+  "meta": "Plan extract, funding note, news item, partner page, approved definitions",
+  "state": "In preparation",
+  "weeks": [
+   1,
+   2
+  ]
+ },
+ {
+  "type": "Sample brief",
+  "name": "Sample account preparation brief",
+  "meta": "For Reverse Engineer the Prompt",
+  "state": "In preparation",
+  "weeks": [
+   1
+  ]
+ },
+ {
+  "type": "Dataset",
+  "name": "Synthetic account dataset",
+  "meta": "Milestones, owners, actions",
+  "state": "In preparation",
+  "weeks": [
+   3,
+   4
+  ]
+ },
+ {
+  "type": "Starters",
+  "name": "Starter templates for the three build paths",
+  "meta": "Agent instructions, app skeleton, dashboard workbook",
+  "state": "In preparation",
+  "weeks": [
+   3
+  ]
+ },
+ {
+  "type": "Test pack",
+  "name": "Synthetic update pack",
+  "meta": "A stale date, a conflicting statement, a missing owner",
+  "state": "In preparation",
+  "weeks": [
+   3
+  ]
+ },
+ {
+  "type": "Templates",
+  "name": "Account plan and review template",
+  "meta": "Compact plan and QBR or partner review layout",
+  "state": "In preparation",
+  "weeks": [
+   4
+  ]
+ },
+ {
+  "type": "Access",
+  "name": "Tool access confirmed before the build week",
+  "meta": "Copilot agents and approved environments",
+  "state": "In preparation",
+  "weeks": [
+   3
+  ]
+ }
+];
+const DATES = [
+ {
+  "date": "2026-11-09",
+  "label": "Program starts",
+  "detail": "Week 1, Rethink AI. Day 1: The Challenger."
+ },
+ {
+  "date": "2026-11-11",
+  "label": "Veterans Day",
+  "detail": "Where observed, move the exercise to another slot in the week."
+ },
+ {
+  "date": "2026-11-13",
+  "label": "Week 1 closes",
+  "detail": "The Situation Room. Coaching this week: when AI pushback is useful."
+ },
+ {
+  "date": "2026-11-20",
+  "label": "Week 2 closes",
+  "detail": "The Intelligence Brief. Save the brief and sources for Week 3."
+ },
+ {
+  "date": "2026-11-23",
+  "label": "Thanksgiving break",
+  "detail": "November 23 to 27. No scheduled activities or coaching."
+ },
+ {
+  "date": "2026-11-30",
+  "label": "Program resumes",
+  "detail": "Week 3, Create Your AI Solution. Choose your build path."
+ },
+ {
+  "date": "2026-12-04",
+  "label": "Week 3 closes",
+  "detail": "Make It Usable by a Colleague. Demonstrations shared."
+ },
+ {
+  "date": "2026-12-11",
+  "label": "Program closes",
+  "detail": "The Forward Looking Business Review."
+ }
+];
+/* Set to the cohort's Viva Engage group embed URL when the community exists. */
+const ENGAGE_EMBED = null;
+const ENGAGE_URL = 'https://engage.cloud.microsoft/';
+
+/* ══ TODAY (override with ?date=YYYY-MM-DD for previews) ══ */
+const TODAY = (() => {
+  const q = new URLSearchParams(location.search).get('date');
+  if (/^\d{4}-\d{2}-\d{2}$/.test(q || '')) return q;
+  const d = new Date();
+  return `${d.getFullYear()}-${String(d.getMonth() + 1).padStart(2, '0')}-${String(d.getDate()).padStart(2, '0')}`;
+})();
+
+/* ══ CONTEXT (remembered in this browser) ══ */
+let lens = null;
+try { lens = localStorage.getItem('ps-lens'); } catch (e) {}
+if (!AUD.some(a => a.id === lens)) lens = null;
+
+/* ══ RENDER ══ */
+const esc = s => String(s ?? '').replace(/[&<>"']/g, c => ({ '&':'&amp;', '<':'&lt;', '>':'&gt;', '"':'&quot;', "'":'&#39;' })[c]);
+const mark = s => esc(s).replace(/\{([^}]+)\}/g, '<mark>{$1}</mark>');
+function hexToRgba(hex, a) {
+  const n = parseInt(hex.slice(1), 16);
+  return `rgba(${(n>>16)&255},${(n>>8)&255},${n&255},${a})`;
+}
+function accentHex(v) {
+  return { 'var(--w1)':'#2997ff', 'var(--w2)':'#64d2ff', 'var(--w3)':'#30d158', 'var(--w4)':'#ff375f', 'var(--w5)':'#ffb340' }[v] || '#2997ff';
+}
+
+function lensHtml(a) {
+  if (lens) return `<div class="sec lens"><h4>Your lens · ${esc(AUD.find(x => x.id === lens).short)}</h4><p class="lens-text">${esc(a.lenses[lens])}</p></div>`;
+  return `<div class="sec lens"><h4>Your lens · pick a context above</h4><p class="lens-text">${AUD.map(x => `<b>${esc(x.short)}:</b> ${esc(a.lenses[x.id])}`).join('<br>')}</p></div>`;
+}
+
+function cardHtml(a, accent, idx, date) {
+  const chipStyle = a.fri
+    ? 'color:var(--rose);border-color:rgba(255,69,58,.45);background:rgba(255,69,58,.10)'
+    : `color:${accentHex(accent)};border-color:${hexToRgba(accentHex(accent),.45)};background:${hexToRgba(accentHex(accent),.12)}`;
+  const bar = a.fri ? 'linear-gradient(90deg,var(--rose),var(--pink))' : accentHex(accent);
+  const today = a.date === TODAY;
+  const chip = `${a.dow}${date ? ' · ' + date : ''}${today ? '<span class="today-tag">· TODAY</span>' : ''}`;
+  const badge = a.fri ? '<span class="req-mand">Week synthesis</span>' : `<span class="req-opt">Day ${ACTS.indexOf(a) + 1}</span>`;
+  const paths = a.byPath ? `<div class="sec"><h4>By build path</h4><ul class="j-list">${PATHS.map(p => `<li><b>${esc(p.name)}:</b> ${esc(a.byPath[p.id])}</li>`).join('')}</ul></div>` : '';
+  return `<div class="fcard${a.fri ? ' mand' : ''}${today ? ' today' : ''}" style="--i:${idx}" tabindex="0" role="button" aria-pressed="false" id="card-${a.id}"
+       onclick="this.classList.toggle('flipped')"
+       onkeydown="if(event.key==='Enter'||event.key===' '){event.preventDefault();this.classList.toggle('flipped');}">
+    <div class="fcard-inner">
+      <div class="face front">
+        <div class="abar" style="background:${bar}"></div>
+        <div class="f-top">
+          <span class="day-chip" style="${chipStyle}">${a.fri ? '🔴 ' : ''}${chip}</span>
+          ${badge}
+          ${a.time ? `<span class="f-time">${a.time}</span>` : ''}
+        </div>
+        <div class="f-emoji">${a.emoji}</div>
+        <div class="f-title">${esc(a.title)}</div>
+        <p class="f-hook">${esc(a.hook)}</p>
+        ${a.skill ? `<div class="f-unlock"><h4>The AI skill it teaches</h4><p>${esc(a.skill)}</p></div>` : ''}
+        <div class="f-foot">
+          <div class="flip-hint"><span class="arr">⟳</span> Tap for the full brief</div>
+        </div>
+      </div>
+      <div class="face back">
+        <div class="abar" style="background:${bar}"></div>
+        <div class="back-scroll">
+          <div class="b-title"><span class="bt-emoji">${a.emoji}</span>${esc(a.title)}</div>
+          <div class="sec"><h4>Mission</h4><p>${esc(a.mission)}</p>${a.note ? `<p style="margin-top:6px;color:var(--muted)">${esc(a.note)}</p>` : ''}</div>
+          <div class="sec"><h4>Steps · ${a.time}</h4><ol class="s-list">${a.steps.map(s => `<li>${esc(s)}</li>`).join('')}</ol></div>
+          ${paths}
+          <div class="sec"><h4>Starter prompt</h4><pre class="prompt">${mark(a.prompt)}</pre><button type="button" class="copy-btn" data-copy="${a.id}" onclick="event.stopPropagation();copyPrompt(this)">Copy prompt</button></div>
+          ${lensHtml(a)}
+          <div class="sec"><h4>Your share</h4><p>${esc(a.submission)} Post in the channel.</p></div>
+          ${a.tip ? `<div class="sec tip"><h4>💡 Check before you post</h4><p>${esc(a.tip)}</p></div>` : ''}
+          <div class="back-foot">⟳ Tap to flip back</div>
+        </div>
+      </div>
+    </div>
+  </div>`;
+}
+
+function videoHtml(v, w) {
+  if (v.youtubeId) {
+    return `<a class="vcard" href="https://www.youtube.com/watch?v=${esc(v.youtubeId)}" target="_blank" rel="noopener">
+      <div class="v-play">▶</div>
+      <div><div class="v-title">${esc(v.title)}</div><div class="v-about">${esc(v.about)}</div><div class="v-meta">${v.minutes} min · YouTube ↗</div></div></a>`;
+  }
+  return `<div class="vcard pending">
+    <div class="v-play">▶</div>
+    <div><div class="v-title">${esc(v.title)}</div><div class="v-about">${esc(v.about)}</div><div class="v-meta">${v.minutes} min · <span class="pend">Link coming before Week ${w.num}</span></div></div></div>`;
+}
+
+function render() {
+  const lensBar = document.getElementById('lens-bar');
+  lensBar.innerHTML = '<span class="lb-label">Your context</span>' + AUD.map(a =>
+    `<button class="ltab${lens === a.id ? ' on' : ''}" onclick="setLens('${a.id}')">${esc(a.short)}</button>`).join('');
+
+  const tabbar = document.getElementById('tabbar');
+  tabbar.innerHTML = WEEKS.map((w,i) =>
+    `<button class="wtab${i===0?' on':''}" id="wtab-${w.num}" onclick="setWeek(${w.num})">
+       <span class="wt-num">Week ${w.num}</span>${esc(w.short)}
+     </button>`).join('') +
+    `<button class="wtab" id="wtab-channel" onclick="setWeek('channel')">
+       <span class="wt-num">📣</span>Submission Channel
+     </button>`;
+
+  const panels = document.getElementById('panels');
+  panels.innerHTML = WEEKS.map((w,i) => {
+    const acts = ACTS.filter(a => a.week === w.num);
+    const dows = '<div class="dow-row">' + ['MON','TUE','WED','THU','FRI'].map((d,j) =>
+      `<div class="dow-label${j===4?' fri':''}">${d} · ${w.days[j]}${j===4?' 🔴':''}</div>`).join('') + '</div>';
+    const paths = w.num === 3 ? `<div class="paths">${PATHS.map(p => `<div class="path"><b>${esc(p.name)}</b><p>${esc(p.what)}</p></div>`).join('')}</div>` : '';
+    const brk = w.num === 3 ? `<div class="break-band">🦃 <span><b>Thanksgiving week, Nov 23–27:</b> no activities or coaching. Bring your Week 2 brief and source list back on Monday, November 30.</span></div>` : '';
+    return `<section class="panel${i===0?' active':''}" id="panel-${w.num}">
+      <div class="week-head">
+        <div class="week-ghost">W${w.num}</div>
+        <div class="week-meta">
+          <h2>${esc(w.name)}</h2>
+          <div class="week-dates">${esc(w.dates)}${w.check ? ' · ' + esc(w.check) : ''}</div>
+        </div>
+        <p class="week-intro">${esc(w.intro)}</p>
+      </div>
+      ${brk}
+      ${paths}
+      ${dows}
+      <div class="cgrid">${acts.map((a, j) => cardHtml(a, w.accent, j, w.days[j])).join('')}</div>
+      <div class="watch">
+        <h3>Watch this week · Copilot agents</h3>
+        <div class="watch-grid">${w.videos.map(v => videoHtml(v, w)).join('')}</div>
+      </div>
+      <div class="guard" style="margin-top:14px"><b>Coaching focus:</b> ${esc(w.coaching)}${w.note ? ` &nbsp;·&nbsp; <b>Note:</b> ${esc(w.note)}` : ''}</div>
+    </section>`;
+  }).join('') +
+  `<section class="panel" id="panel-channel">
+    <div class="week-head">
+      <div class="week-ghost">📣</div>
+      <div class="week-meta">
+        <h2>Activity Submission Channel</h2>
+        <div class="week-dates">Viva Engage · Post every daily share here</div>
+      </div>
+      <a class="channel-cta" href="${ENGAGE_URL}" target="_blank" rel="noopener">Open in Viva Engage ↗</a>
+    </div>
+    ${ENGAGE_EMBED
+      ? `<div class="channel-embed"><iframe name="embed-feed" title="Viva Engage" src="${ENGAGE_EMBED}" loading="lazy" style="border: 0px; overflow: hidden; width: 100%; height: 100%; min-height: 400px;"></iframe></div>`
+      : `<div class="info-grid" style="grid-template-columns:1fr 1fr">
+          <div class="info-card"><h3>The cohort community</h3><p>The Public Sector AI Activation community on Viva Engage is being set up. Its feed will appear here. Until then, open Viva Engage and post your shares in the cohort community.</p></div>
+          <div class="info-card"><h3>What a good share looks like</h3><ul>
+            <li>Lead with the day and the activity name</li>
+            <li>Post what the card asks for, not the whole chat</li>
+            <li>Say what changed your thinking, in one line</li>
+            <li>Name an unknown or a claim you corrected</li>
+            <li>Practice material only — internal data stays in approved tools</li>
+          </ul></div>
+        </div>`}
+  </section>`;
+
+  document.getElementById('m-grid').innerHTML = MATERIALS.map(m =>
+    `<div class="m-card"><span class="m-type">${esc(m.type)}</span><b>${esc(m.name)}</b><p>${esc(m.meta)}</p><span class="m-state">${esc(m.state)}</span><span class="m-weeks">Week ${m.weeks.join(', ')}</span></div>`).join('');
+
+  const fmt = d => { const x = new Date(d + 'T12:00:00'); return `${['Sun','Mon','Tue','Wed','Thu','Fri','Sat'][x.getDay()]} · ${['Jan','Feb','Mar','Apr','May','Jun','Jul','Aug','Sep','Oct','Nov','Dec'][x.getMonth()]} ${x.getDate()}`; };
+  document.getElementById('tl-card').innerHTML = DATES.map(k =>
+    `<div class="tl-row"><span class="tl-date">${fmt(k.date)}</span><span class="tl-what"><b>${esc(k.label)}</b> — ${esc(k.detail)}</span></div>`).join('');
+}
+
+function setLens(id) {
+  lens = lens === id ? null : id;
+  try { lens ? localStorage.setItem('ps-lens', lens) : localStorage.removeItem('ps-lens'); } catch (e) {}
+  document.querySelectorAll('.ltab').forEach(b => b.classList.toggle('on', b.textContent === (AUD.find(a => a.id === lens) || {}).short));
+  document.querySelectorAll('.fcard').forEach(c => {
+    const a = ACTS.find(x => `card-${x.id}` === c.id);
+    const old = c.querySelector('.sec.lens');
+    if (a && old) old.outerHTML = lensHtml(a);
+  });
+}
+
+async function copyPrompt(btn) {
+  const a = ACTS.find(x => x.id === btn.dataset.copy);
+  try {
+    await navigator.clipboard.writeText(a.prompt);
+    btn.textContent = 'Copied';
+    btn.classList.add('done');
+    setTimeout(() => { btn.textContent = 'Copy prompt'; btn.classList.remove('done'); }, 1800);
+  } catch (e) {
+    const pre = btn.previousElementSibling;
+    const range = document.createRange(); range.selectNodeContents(pre);
+    const sel = getSelection(); sel.removeAllRanges(); sel.addRange(range);
+    btn.textContent = 'Select and copy';
+  }
+}
+
+let switching = false;
+function setWeek(n) {
+  const next = document.getElementById('panel-' + n);
+  const current = document.querySelector('.panel.active');
+  if (switching || current === next) return;
+
+  if (window.inkBurst) {
+    const wk = WEEKS.find(w => w.num === n);
+    window.inkBurst(wk ? accentHex(wk.accent) : '#2997ff');
+  }
+
+  document.querySelectorAll('.wtab').forEach(b => b.classList.remove('on'));
+  document.getElementById('wtab-' + n).classList.add('on');
+
+  const reduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  if (!current || reduced) {
+    if (current) current.classList.remove('active');
+    next.classList.add('active');
+    return;
+  }
+  // ease the old week out, then stagger the new week's cards in
+  switching = true;
+  current.classList.add('leaving');
+  setTimeout(() => {
+    current.classList.remove('active', 'leaving');
+    next.classList.add('active');
+    switching = false;
+  }, 210);
+}
+
+render();
+/* open on the current week: today's week, or the next one to come */
+(function () {
+  const cur = WEEKS.find(w => TODAY >= w.dates_iso[0] && TODAY <= w.dates_iso[4]) || WEEKS.find(w => TODAY < w.dates_iso[0]);
+  if (cur && cur.num !== 1) setWeek(cur.num);
+})();
+</script>
+
+<script>
+/* ══ LIVE INK CLOUDS — WebGL (three.js) ══
+   Slow-drifting ink clouds on black: two domain-warped FBM noise fields
+   (salmon + powder blue) that morph continuously like ink suspended in
+   still water. No bursts — changing week gently tints the warm cloud
+   toward that week's accent color, then it settles back.
+   Degrades to the plain dark page without WebGL. */
+function initClouds() {
+  if (initClouds.done || typeof THREE === 'undefined') return;
+  const canvas = document.getElementById('fluid-canvas');
+  if (!canvas) return;
+  initClouds.done = true;
+  let renderer;
+  try {
+    renderer = new THREE.WebGLRenderer({ canvas, alpha: true, antialias: false, depth: false, stencil: false, premultipliedAlpha: false, powerPreference: 'low-power' });
+  } catch (e) { return; }
+  renderer.setPixelRatio(Math.min(window.devicePixelRatio, 1.25));
+  renderer.setSize(window.innerWidth, window.innerHeight);
+
+  const scene = new THREE.Scene();
+  const camera = new THREE.Camera();
+  const uniforms = {
+    uTime:      { value: 90 },   /* start mid-drift so the opening frame is already cloudy */
+    uAspect:    { value: window.innerWidth / window.innerHeight },
+    uAccent:    { value: new THREE.Vector3(1.0, 0.40, 0.40) },
+    uAccentAmt: { value: 0 },
+  };
+  const material = new THREE.ShaderMaterial({
+    uniforms,
+    depthTest: false, depthWrite: false, blending: THREE.NoBlending,
+    vertexShader: 'varying vec2 vUv; void main(){ vUv = uv; gl_Position = vec4(position.xy, 0.0, 1.0); }',
+    fragmentShader: `
+      precision highp float;
+      varying vec2 vUv;
+      uniform float uTime; uniform float uAspect;
+      uniform vec3 uAccent; uniform float uAccentAmt;
+
+      float hash(vec2 p){ return fract(sin(dot(p, vec2(127.1, 311.7))) * 43758.5453123); }
+      float noise(vec2 p){
+        vec2 i = floor(p), f = fract(p);
+        vec2 u = f * f * (3.0 - 2.0 * f);
+        return mix(mix(hash(i), hash(i + vec2(1.0, 0.0)), u.x),
+                   mix(hash(i + vec2(0.0, 1.0)), hash(i + vec2(1.0, 1.0)), u.x), u.y);
+      }
+      float fbm(vec2 p){
+        float v = 0.0, a = 0.5;
+        for (int i = 0; i < 5; i++) { v += a * noise(p); p = p * 2.03 + vec2(17.3, 9.1); a *= 0.5; }
+        return v;
+      }
+      void main(){
+        vec2 uv = vUv; uv.x *= uAspect;
+        float t = uTime * 0.02;
+
+        /* slow domain warp — this is what makes the clouds billow */
+        vec2 q = vec2(fbm(uv * 1.1 + vec2(t * 0.9, t * 0.4)),
+                      fbm(uv * 1.1 - vec2(t * 0.5, t * 0.8) + vec2(5.2, 1.3)));
+
+        /* two cloud centers wandering very slowly */
+        vec2 c1 = vec2((0.68 + 0.09 * sin(t * 0.7)) * uAspect, 0.42 + 0.08 * cos(t * 0.5));
+        vec2 c2 = vec2((0.28 + 0.09 * cos(t * 0.6)) * uAspect, 0.62 + 0.08 * sin(t * 0.8));
+
+        float warm = fbm(uv * 1.6 + 2.4 * q + vec2(t, -t * 0.6));
+        float cool = fbm(uv * 1.8 - 2.2 * q + vec2(-t * 0.8, t) + vec2(3.7, 8.1));
+
+        float mask1 = exp(-2.6 * dot(uv - c1, uv - c1));
+        float mask2 = exp(-2.4 * dot(uv - c2, uv - c2));
+        float dw = pow(smoothstep(0.34, 0.86, warm), 1.4) * mask1;
+        float dc = pow(smoothstep(0.32, 0.84, cool), 1.3) * mask2;
+
+        vec3 warmCol = mix(vec3(1.0, 0.36, 0.38), uAccent, uAccentAmt * 0.75);
+        vec3 coolCol = vec3(0.48, 0.72, 1.0);
+
+        /* fine detail + white wisps where the two inks overlap */
+        float hi = fbm(uv * 3.5 + q * 3.0 - vec2(t * 0.5, t * 0.3));
+        vec3 col = warmCol * dw + coolCol * dc;
+        col += vec3(0.9, 0.92, 1.0) * (dw * dc * 1.1) * (0.5 + 0.5 * hi);
+        col *= 0.75 + 0.5 * hi;
+
+        float a = clamp((dw + dc) * 1.1, 0.0, 0.85);
+        gl_FragColor = vec4(col, a);
+      }`,
+  });
+  scene.add(new THREE.Mesh(new THREE.PlaneGeometry(2, 2), material));
+
+  /* week change → the warm cloud slowly takes the week's accent, then settles back */
+  window.inkBurst = function (hex) {
+    const v = parseInt(hex.replace('#', ''), 16);
+    uniforms.uAccent.value.set(((v >> 16) & 255) / 255, ((v >> 8) & 255) / 255, (v & 255) / 255);
+    uniforms.uAccentAmt.value = 1;
+  };
+
+  window.addEventListener('resize', () => {
+    renderer.setSize(window.innerWidth, window.innerHeight);
+    uniforms.uAspect.value = window.innerWidth / window.innerHeight;
+  });
+
+  if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+    renderer.render(scene, camera);
+    return;
+  }
+
+  let last = performance.now();
+  (function frame(now) {
+    requestAnimationFrame(frame);
+    const dt = Math.min((now - last) / 1000, 0.05);
+    last = now;
+    if (document.hidden) return;
+    uniforms.uTime.value += dt;
+    uniforms.uAccentAmt.value = Math.max(0, uniforms.uAccentAmt.value - dt / 6);
+    renderer.render(scene, camera);
+  })(last);
+}
+if (document.readyState === 'complete') initClouds();
+else {
+  document.addEventListener('DOMContentLoaded', initClouds);
+  window.addEventListener('load', initClouds);
+}
+</script>
+
+</body>
 </html>
