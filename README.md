@@ -26,6 +26,12 @@ Day cards carry their day number rather than an icon.
   the build environment, the Customer Source Pack components, the two assigned
   tutorials, and each day's video chapter. Chapters and tutorials play inside
   the page (YouTube's no-cookie embed), a chapter from its start to its end time.
+- **Audio briefs.** A one minute "how the program works" brief in the program
+  band, and a short spoken brief on every day card: what to do, in an easy
+  going voice, with one example. Generated with ElevenLabs (voice: Kristen,
+  model eleven_v4); the files are in `audio/`, the scripts in
+  `audio/scripts.json`. One brief plays at a time; the button shows progress
+  and time left.
 - **Submission Channel** tab for Viva Engage.
 
 The page is deliberately lean: the program band, then the weeks and the
@@ -54,6 +60,6 @@ All content is in the `DATA` block at the top of the page script in `index.html`
 ## Publish
 
 GitHub Pages → Settings → Pages → deploy from the default branch, root.
-Or copy `index.html` and the `brand/` folder anywhere — the page is
+Or copy `index.html`, `brand/` and `audio/` anywhere — the page is
 self-contained apart from the Inter font from Google Fonts and the YouTube
 players.

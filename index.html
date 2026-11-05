@@ -92,6 +92,37 @@ h1.hero-title span { font-weight:600; background:linear-gradient(90deg, #ffd3d5 
 
 .ribbon { height:4px; background:linear-gradient(90deg, var(--red) 0%, #ff6a70 22%, var(--blue-2) 60%, var(--navy) 100%); }
 
+/* ══ AUDIO BRIEF BUTTON ══ */
+.brief-row { margin-top:14px; }
+.brief-btn {
+  --p:0%; position:relative; overflow:hidden; display:inline-flex; align-items:center; gap:12px; margin-top:12px;
+  padding:8px 14px 8px 8px; border-radius:100px; border:1px solid var(--line-2); background:var(--surface);
+  cursor:pointer; text-align:left; transition:border-color .18s, transform .18s, box-shadow .18s; max-width:100%;
+}
+.brief-btn::before { content:""; position:absolute; inset:0; width:var(--p); background:linear-gradient(90deg, rgba(31,78,156,.14), rgba(31,78,156,.06)); transition:width .3s linear; pointer-events:none; }
+.brief-btn:hover { border-color:var(--navy); transform:translateY(-1px); box-shadow:0 6px 16px rgba(31,78,156,.14); }
+.brief-btn > * { position:relative; }
+.bb-ic { width:34px; height:34px; border-radius:50%; flex-shrink:0; display:grid; place-items:center; background:linear-gradient(135deg, var(--blue-2), var(--navy)); color:#fff; box-shadow:0 4px 12px rgba(31,78,156,.3); }
+.bb-ic::before { content:""; width:0; height:0; border-left:11px solid #fff; border-top:7px solid transparent; border-bottom:7px solid transparent; margin-left:3px; }
+.brief-btn.playing .bb-ic::before { width:10px; height:12px; border:0; border-left:3.5px solid #fff; border-right:3.5px solid #fff; margin:0; }
+.brief-btn.playing .bb-ic { animation:pulse-ring 1.6s ease-out infinite; }
+@keyframes pulse-ring { 0% { box-shadow:0 0 0 0 rgba(31,78,156,.35); } 100% { box-shadow:0 0 0 12px rgba(31,78,156,0); } }
+.bb-text { display:flex; flex-direction:column; line-height:1.2; min-width:0; }
+.bb-text b { font-size:12.5px; font-weight:600; color:var(--text); }
+.bb-sub { font-size:11px; color:var(--muted); margin-top:2px; }
+.bb-time { font-size:11px; font-weight:600; color:var(--muted); font-variant-numeric:tabular-nums; margin-left:6px; white-space:nowrap; }
+.xcard.today .bb-ic { background:linear-gradient(135deg, #ff5a60, var(--red-dk)); box-shadow:0 4px 12px rgba(233,28,36,.3); }
+.xcard.today .brief-btn::before { background:linear-gradient(90deg, rgba(233,28,36,.12), rgba(233,28,36,.05)); }
+.xcard.today .brief-btn:hover { border-color:var(--red); box-shadow:0 6px 16px rgba(233,28,36,.14); }
+.brief-btn--hero { margin-top:0; background:rgba(255,255,255,.1); border-color:rgba(255,255,255,.25); backdrop-filter:blur(10px); -webkit-backdrop-filter:blur(10px); }
+.brief-btn--hero::before { background:linear-gradient(90deg, rgba(255,255,255,.18), rgba(255,255,255,.06)); }
+.brief-btn--hero:hover { border-color:rgba(255,255,255,.5); box-shadow:0 6px 18px rgba(0,0,0,.25); }
+.brief-btn--hero .bb-text b { color:#fff; }
+.brief-btn--hero .bb-sub, .brief-btn--hero .bb-time { color:var(--on-navy); }
+.brief-btn--hero .bb-ic { background:linear-gradient(135deg, #ff5a60, var(--red-dk)); box-shadow:0 4px 12px rgba(233,28,36,.35); }
+@keyframes pulse-ring-hero { 0% { box-shadow:0 0 0 0 rgba(233,28,36,.4); } 100% { box-shadow:0 0 0 12px rgba(233,28,36,0); } }
+.brief-btn--hero.playing .bb-ic { animation-name:pulse-ring-hero; }
+
 /* ══ WEEKS ══ */
 .marathon { padding:44px 0 6px; scroll-margin-top:70px; }
 .sec-eyebrow { font-size:11px; font-weight:600; letter-spacing:2px; text-transform:uppercase; color:var(--red); margin-bottom:10px; }
@@ -138,7 +169,7 @@ h1.hero-title span { font-weight:600; background:linear-gradient(90deg, #ffd3d5 
 .tl-chip { font-size:12px; color:var(--text); background:var(--surface-2); border:1px solid var(--line); border-radius:100px; padding:5px 11px; }
 
 /* ── EXPANDING DAY CARDS ── */
-.xgrid { display:grid; grid-template-columns:repeat(5,1fr); gap:10px; height:470px; transition:grid-template-columns .5s cubic-bezier(.22,.9,.3,1), height .35s cubic-bezier(.22,.9,.3,1); }
+.xgrid { display:grid; grid-template-columns:repeat(5,1fr); gap:10px; height:520px; transition:grid-template-columns .5s cubic-bezier(.22,.9,.3,1), height .35s cubic-bezier(.22,.9,.3,1); }
 .xgrid.playing { height:640px; }
 .xcard { position:relative; min-width:0; min-height:0; overflow:hidden; border-radius:var(--r); border:1px solid var(--line); background:var(--surface); cursor:pointer; box-shadow:var(--shadow); transition:border-color .2s, box-shadow .2s, transform .2s; }
 .xcard:hover { border-color:var(--line-2); }
@@ -174,7 +205,7 @@ h1.hero-title span { font-weight:600; background:linear-gradient(90deg, #ffd3d5 
 .x-head > .x-actions { position:absolute; }
 .x-top { display:flex; align-items:center; gap:8px; flex-wrap:wrap; margin-bottom:12px; padding-right:190px; }
 .x-time { font-size:11px; font-weight:500; color:var(--muted); margin-left:4px; }
-.x-title-row { display:flex; align-items:center; gap:14px; max-width:78%; }
+.x-title-row { display:flex; align-items:center; gap:14px; max-width:78%; margin-bottom:4px; }
 .xcard.today .x-title-row .x-num { background:linear-gradient(180deg, #ff5a60, var(--red-dk)); -webkit-background-clip:text; background-clip:text; }
 .x-title { font-size:clamp(22px,2.3vw,28px); font-weight:700; letter-spacing:-.025em; line-height:1.12; color:var(--text); }
 .x-actions { position:absolute; right:22px; top:20px; display:flex; gap:8px; }
@@ -264,7 +295,7 @@ footer .wrap { display:flex; justify-content:space-between; gap:16px; flex-wrap:
 footer b { color:var(--text-2); font-weight:600; }
 
 /* ══ RESPONSIVE ══ */
-@media (max-width:1120px) { .x-body { grid-template-columns:1fr; } .xgrid { height:560px; } .xgrid.playing { height:760px; } }
+@media (max-width:1120px) { .x-body { grid-template-columns:1fr; } .xgrid { height:600px; } .xgrid.playing { height:760px; } }
 @media (max-width:900px) {
   .hero-grid { grid-template-columns:1fr; gap:28px; }
   .top-nav { display:none; }
@@ -326,6 +357,10 @@ footer b { color:var(--text-2); font-weight:600; }
       <h1 class="hero-title">AI Activation Program <span>for Public Sector Sales</span></h1>
       <p class="hero-sub">Four active learning weeks build stronger sales judgment and account understanding, then turn that knowledge into a working M365 Copilot agent used for strategy and customer or partner business reviews. One activity a day, 15 to 20 minutes, with a short share on Viva Engage.</p>
       <a class="today-pill" id="today-pill" href="#weeks"></a>
+      <div class="brief-row">
+        <button type="button" class="brief-btn brief-btn--hero" id="welcome-brief" onclick="toggleBrief('welcome', this)"><span class="bb-ic"></span><span class="bb-text"><b>Listen: how the program works</b><span class="bb-sub">One minute. Don't overthink it.</span></span><span class="bb-time">1:02</span></button>
+        <audio id="audio-welcome" preload="none" src="audio/welcome.mp3"></audio>
+      </div>
     </div>
     <aside class="facts" aria-label="Program at a glance">
       <h3>At a glance</h3>
@@ -493,6 +528,7 @@ const WEEKS = [
 const ACTS = [
  {
   "id": "w1-mon",
+  "brief_secs": 48.8,
   "week": 1,
   "date": "2026-11-09",
   "dow": "MON",
@@ -505,6 +541,7 @@ const ACTS = [
  },
  {
   "id": "w1-tue",
+  "brief_secs": 50.3,
   "week": 1,
   "date": "2026-11-10",
   "dow": "TUE",
@@ -517,6 +554,7 @@ const ACTS = [
  },
  {
   "id": "w1-wed",
+  "brief_secs": 44.0,
   "week": 1,
   "date": "2026-11-11",
   "dow": "WED",
@@ -529,6 +567,7 @@ const ACTS = [
  },
  {
   "id": "w1-thu",
+  "brief_secs": 39.9,
   "week": 1,
   "date": "2026-11-12",
   "dow": "THU",
@@ -541,6 +580,7 @@ const ACTS = [
  },
  {
   "id": "w1-fri",
+  "brief_secs": 40.2,
   "week": 1,
   "date": "2026-11-13",
   "dow": "FRI",
@@ -553,6 +593,7 @@ const ACTS = [
  },
  {
   "id": "w2-mon",
+  "brief_secs": 46.4,
   "week": 2,
   "date": "2026-11-16",
   "dow": "MON",
@@ -565,6 +606,7 @@ const ACTS = [
  },
  {
   "id": "w2-tue",
+  "brief_secs": 39.5,
   "week": 2,
   "date": "2026-11-17",
   "dow": "TUE",
@@ -577,6 +619,7 @@ const ACTS = [
  },
  {
   "id": "w2-wed",
+  "brief_secs": 42.0,
   "week": 2,
   "date": "2026-11-18",
   "dow": "WED",
@@ -589,6 +632,7 @@ const ACTS = [
  },
  {
   "id": "w2-thu",
+  "brief_secs": 34.0,
   "week": 2,
   "date": "2026-11-19",
   "dow": "THU",
@@ -601,6 +645,7 @@ const ACTS = [
  },
  {
   "id": "w2-fri",
+  "brief_secs": 39.1,
   "week": 2,
   "date": "2026-11-20",
   "dow": "FRI",
@@ -613,6 +658,7 @@ const ACTS = [
  },
  {
   "id": "w3-mon",
+  "brief_secs": 42.6,
   "week": 3,
   "date": "2026-11-30",
   "dow": "MON",
@@ -636,6 +682,7 @@ const ACTS = [
  },
  {
   "id": "w3-tue",
+  "brief_secs": 38.2,
   "week": 3,
   "date": "2026-12-01",
   "dow": "TUE",
@@ -664,6 +711,7 @@ const ACTS = [
  },
  {
   "id": "w3-wed",
+  "brief_secs": 38.0,
   "week": 3,
   "date": "2026-12-02",
   "dow": "WED",
@@ -692,6 +740,7 @@ const ACTS = [
  },
  {
   "id": "w3-thu",
+  "brief_secs": 40.4,
   "week": 3,
   "date": "2026-12-03",
   "dow": "THU",
@@ -715,6 +764,7 @@ const ACTS = [
  },
  {
   "id": "w3-fri",
+  "brief_secs": 34.1,
   "week": 3,
   "date": "2026-12-04",
   "dow": "FRI",
@@ -738,6 +788,7 @@ const ACTS = [
  },
  {
   "id": "w4-mon",
+  "brief_secs": 43.4,
   "week": 4,
   "date": "2026-12-07",
   "dow": "MON",
@@ -750,6 +801,7 @@ const ACTS = [
  },
  {
   "id": "w4-tue",
+  "brief_secs": 36.7,
   "week": 4,
   "date": "2026-12-08",
   "dow": "TUE",
@@ -762,6 +814,7 @@ const ACTS = [
  },
  {
   "id": "w4-wed",
+  "brief_secs": 42.1,
   "week": 4,
   "date": "2026-12-09",
   "dow": "WED",
@@ -774,6 +827,7 @@ const ACTS = [
  },
  {
   "id": "w4-thu",
+  "brief_secs": 38.4,
   "week": 4,
   "date": "2026-12-10",
   "dow": "THU",
@@ -786,6 +840,7 @@ const ACTS = [
  },
  {
   "id": "w4-fri",
+  "brief_secs": 38.5,
   "week": 4,
   "date": "2026-12-11",
   "dow": "FRI",
@@ -885,6 +940,8 @@ function cardHtml(a, w, idx) {
         <div class="x-top"><span class="day-chip">${chip}</span>${badge}<span class="x-time">15–20 min</span></div>
         <span class="x-mark" aria-hidden="true">${String(dayNum(a)).padStart(2, '0')}</span>
         <div class="x-title-row"><div class="x-title">${esc(a.title)}</div></div>
+        <button type="button" class="brief-btn" id="brief-${a.id}" onclick="event.stopPropagation();toggleBrief('${a.id}', this)"><span class="bb-ic"></span><span class="bb-text"><b>Listen to today's brief</b><span class="bb-sub">What to do, with an example</span></span><span class="bb-time">${a.brief_secs ? mmss(Math.round(a.brief_secs)) : ''}</span></button>
+        <audio id="audio-${a.id}" preload="none" src="audio/${a.id}.mp3"></audio>
         <div class="x-actions">
           <button type="button" class="xbtn" onclick="event.stopPropagation();copyLink('${a.id}', this)">Link</button>
         </div>
@@ -990,6 +1047,7 @@ function setDay(w, idx) {
   if (!grid) return;
   grid.style.gridTemplateColumns = gridColumns(w);
   grid.querySelectorAll('.player').forEach(p => p.remove()); grid.classList.remove('playing'); grid.querySelectorAll('.clip.on').forEach(c => c.classList.remove('on'));
+  grid.querySelectorAll('audio').forEach(au => { if (!au.paused) { au.pause(); au.currentTime = 0; syncBrief(au); } });
   [...grid.children].forEach((c, j) => { c.dataset.active = String(j === activeDay[w]); c.setAttribute('aria-expanded', String(j === activeDay[w])); if (j === activeDay[w]) { const b = c.querySelector('.x-body'); if (b) b.scrollTop = 0; } });
   document.querySelectorAll(`#dots-${w} .dot`).forEach((d, j) => d.classList.toggle('on', j === activeDay[w]));
   document.getElementById('prev-' + w).disabled = activeDay[w] === 0;
@@ -1025,6 +1083,30 @@ async function copyText(text, btn, label) {
   catch (e) { btn.textContent = 'Select and copy'; }
 }
 function copyLink(id, btn) { copyText(`${location.href.split('#')[0]}#/day/${id}`, btn, 'Copied'); }
+
+/* ══ AUDIO BRIEFS ══ one plays at a time; the button shows progress */
+let currentBrief = null;
+function toggleBrief(id, btn) {
+  const audio = document.getElementById('audio-' + id);
+  if (!audio) return;
+  if (currentBrief && currentBrief !== audio) { currentBrief.pause(); currentBrief.currentTime = 0; syncBrief(currentBrief); }
+  if (audio.paused) { audio.play().catch(() => {}); currentBrief = audio; } else { audio.pause(); }
+  syncBrief(audio);
+}
+function syncBrief(audio) {
+  const btn = document.getElementById(audio.id.replace('audio-', 'brief-')) || (audio.id === 'audio-welcome' ? document.getElementById('welcome-brief') : null);
+  if (!btn) return;
+  btn.classList.toggle('playing', !audio.paused && !audio.ended);
+  const p = audio.duration ? (audio.currentTime / audio.duration) * 100 : 0;
+  btn.style.setProperty('--p', p + '%');
+  const t = btn.querySelector('.bb-time');
+  if (t && audio.duration) t.textContent = audio.paused && audio.currentTime === 0 ? mmss(Math.round(audio.duration)) : mmss(Math.round(audio.duration - audio.currentTime));
+}
+document.addEventListener('timeupdate', e => { if (e.target.tagName === 'AUDIO') syncBrief(e.target); }, true);
+document.addEventListener('ended', e => { if (e.target.tagName === 'AUDIO') { e.target.currentTime = 0; syncBrief(e.target); if (currentBrief === e.target) currentBrief = null; } }, true);
+document.addEventListener('loadedmetadata', e => { if (e.target.tagName === 'AUDIO') syncBrief(e.target); }, true);
+document.addEventListener('pause', e => { if (e.target.tagName === 'AUDIO') syncBrief(e.target); }, true);
+document.addEventListener('play', e => { if (e.target.tagName === 'AUDIO') syncBrief(e.target); }, true);
 
 /* ══ WEEK SWITCH (from the Channel Sales page) ══ */
 let switching = false, currentWeek = 1;
