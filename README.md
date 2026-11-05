@@ -19,7 +19,8 @@ Day cards carry their day number rather than an icon.
   at-a-glance facts with number tickers.
 - **Weekly activities** — one tab per week. Each week is a row of five
   **expanding day cards**: the open day takes most of the width and shows the
-  activity as the program brief states it (mission, AI skill, keep and share);
+  activity as the program brief states it: the mission laid out as numbered
+  steps, one per sentence of the brief, the AI skill and the keep-and-share line;
   the other four collapse to slim spines. Click a spine, use the dots, the
   previous/next buttons, or ← → keys. Every day has a link (`#/day/<id>`). Week 3 shows
   the build environment, the Customer Source Pack components, the two assigned
