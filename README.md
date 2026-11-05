@@ -15,22 +15,20 @@ Degrades gracefully without WebGL2.
   Nov 9, the break notice in Thanksgiving week) and number tickers.
 - **Weekly activities** — one tab per week. Each week is a row of five
   **expanding day cards**: the open day takes most of the width and shows the
-  full brief in two columns (mission, timed steps, build paths · starter
-  prompt with copy, your lens, your share, a check before you post); the other
-  four collapse to slim spines. Click a spine, use the dots, the previous/next
-  buttons, or ← → keys. Mark a day done; the spine, the dots and the week tab
-  keep count. Every day has a link (`#/day/<id>`). Week 3 shows the three
-  build paths and the Thanksgiving break band; each week has a Copilot agent
-  video row.
-- **Your context** — Federal Civilian · Defense and Intel · SLED and higher ed ·
-  Partner Sales — switches the **Your lens** section on every day. Remembered
-  in the browser.
+  activity as the program brief states it (mission, AI skill, keep and share);
+  the other four collapse to slim spines. Click a spine, use the dots, the
+  previous/next buttons, or ← → keys. Mark a day done; the spine, the dots and
+  the week tab keep count. Every day has a link (`#/day/<id>`). Week 3 shows
+  the build environment, the Customer Source Pack components, the two assigned
+  tutorials, and each day's video chapter as a link that opens at the right
+  time.
 - **Submission Channel** tab for Viva Engage.
 
 The page is deliberately lean: the hero, then the weeks and the daily
-activities. The interaction patterns (expanding cards, spotlight, number
-ticker) are adapted from 21st.dev references and re-implemented in plain CSS
-and JavaScript — no framework, no build step.
+activities, with the activity text taken from the full program brief
+(November 2026) and nothing added to it. The interaction patterns (expanding
+cards, spotlight, number ticker) are adapted from 21st.dev references and
+re-implemented in plain CSS and JavaScript — no framework, no build step.
 
 **Today:** the page opens on the current week with today's card open; add
 `?date=YYYY-MM-DD` to preview any day, for example `index.html?date=2026-11-30`.
@@ -39,14 +37,15 @@ and JavaScript — no framework, no build step.
 
 All content is in the `DATA` block at the top of the page script in `index.html`:
 
-- `WEEKS` — name, dates, accent, outcome, coaching focus, note, and the week's `videos`
-  (set `youtubeId` to turn a "link coming" card into a YouTube link).
-- `ACTS` — the twenty activities. The mission, skill and share line follow the
-  four week activity plan; the steps, starter prompt, lenses and check are the
-  daily guide layer, drafted for facilitator review.
+- `WEEKS` — name, dates, accent, outcome, coaching focus, note; Week 3 also
+  carries the build environment line and the two tutorials (`videos`, with
+  their YouTube ids).
+- `ACTS` — the twenty activities: mission, AI skill and keep-and-share line,
+  word for word from the program brief. Week 3 days carry `watch`, the
+  assigned chapter with start and end seconds.
+- `PACK` — the Customer Source Pack components shown in Week 3.
 - `ENGAGE_EMBED` — set to the cohort's Viva Engage group embed URL to show the
   feed in the Submission Channel tab (until then the tab links out).
-- `MATERIALS` and `DATES` are kept in the data block for a later section.
 
 ## Publish
 

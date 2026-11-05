@@ -4,7 +4,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Public Sector Sales — AI Activation Program</title>
-<meta name="description" content="Four weeks. Twenty short activities. From sharper sales judgment to account intelligence, a reusable AI solution and a forward-looking business review. The Public Sector Sales AI Activation Program.">
+<meta name="description" content="Four weeks. Twenty short activities. Sharper sales judgment and account understanding, turned into a working M365 Copilot agent for strategy and business reviews. The Public Sector Sales AI Activation Program.">
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
 <script src="three.min.js" defer></script>
 <style>
@@ -356,7 +356,7 @@ footer b { color:var(--text); }
 
 /* ── EXPANDING DAY CARDS ── one day open wide, the other four as slim spines */
 .xgrid {
-  display:grid; grid-template-columns:repeat(5,1fr); gap:10px; height:640px;
+  display:grid; grid-template-columns:repeat(5,1fr); gap:10px; height:470px;
   transition:grid-template-columns .55s cubic-bezier(.22,.9,.3,1);
 }
 .xcard {
@@ -386,8 +386,8 @@ footer b { color:var(--text); }
 .x-spine .day-chip { font-size:9.5px; }
 .x-spine .x-vert {
   writing-mode:vertical-rl; transform:rotate(180deg);
-  font-size:15px; font-weight:700; letter-spacing:-.01em; line-height:1.2; color:var(--text);
-  max-height:360px; overflow:hidden; margin:12px 0;
+  font-size:14px; font-weight:700; letter-spacing:-.01em; line-height:1.2; color:var(--text);
+  max-height:250px; overflow:hidden; margin:12px 0;
 }
 .x-spine .x-emoji { font-size:28px; line-height:1; }
 .x-spine .x-daynum { font-size:9.5px; font-weight:600; letter-spacing:1.2px; text-transform:uppercase; color:var(--muted); }
@@ -458,6 +458,17 @@ footer b { color:var(--text); }
 .copy-btn:hover { background:rgba(255,255,255,.16); }
 .copy-btn.done { background:var(--teal); border-color:var(--teal); color:#041a0c; }
 
+.mission { font-size:14.5px !important; color:var(--text) !important; line-height:1.6 !important; }
+.clips { display:flex; flex-wrap:wrap; gap:6px; }
+.clip { display:inline-flex; align-items:center; gap:6px; font-size:11.5px; font-weight:600; color:var(--text); background:var(--tint); border:1px solid var(--border2); border-radius:100px; padding:6px 12px; text-decoration:none; transition:background .16s; }
+a.clip:hover { background:rgba(255,255,255,.16); }
+.clip.pending { color:var(--muted); border-style:dashed; }
+.pack { margin:4px 0 14px; display:grid; gap:10px; background:var(--surface); border:1px solid var(--border); border-radius:14px; padding:14px 16px; font-size:12.5px; color:var(--text2); }
+.pack b { color:var(--text); }
+.pack-row { display:flex; flex-wrap:wrap; align-items:center; gap:6px; }
+.pack-label { font-size:9.5px; font-weight:600; letter-spacing:1.5px; text-transform:uppercase; color:var(--muted); margin-right:4px; }
+.tl-chip { font-size:11px; color:var(--text); background:var(--tint); border:1px solid var(--border); border-radius:100px; padding:5px 11px; }
+.watch-grid.two { grid-template-columns:repeat(2,1fr); }
 /* day navigation under the grid */
 .x-nav { display:flex; align-items:center; gap:10px; margin-top:14px; }
 .x-nav .dots { display:flex; gap:6px; margin:0 auto; }
@@ -471,7 +482,7 @@ footer b { color:var(--text); }
 
 @media (max-width:1120px) {
   .x-body { grid-template-columns:1fr; }
-  .xgrid { height:700px; }
+  .xgrid { height:560px; }
 }
 @media (max-width:900px) {
   .xgrid { display:flex; flex-direction:column; height:auto; gap:10px; }
@@ -517,7 +528,7 @@ a.vcard:hover { border-color:var(--border2); transform:translateY(-2px); }
 .v-meta { font-size:9.5px; font-weight:600; letter-spacing:1.2px; text-transform:uppercase; color:var(--muted); margin-top:6px; position:relative; }
 .v-meta .pend { color:var(--w5); }
 
-@media (max-width:900px) { .watch-grid, .paths { grid-template-columns:1fr; } }
+@media (max-width:900px) { .watch-grid, .watch-grid.two { grid-template-columns:1fr; } }
 
 .info { padding:28px 0 8px; }
 </style>
@@ -546,13 +557,13 @@ a.vcard:hover { border-color:var(--border2); transform:translateY(-2px); }
   <div class="wrap">
     <div class="hero-eyebrow"><span class="eyebrow-dot"></span>AI Activation Program · Public Sector Sales · GTM Enablement</div>
     <h1 class="hero-title">Public Sector Sales — <span class="grad">AI Activation Program</span></h1>
-    <p class="hero-sub">Four weeks. Twenty short activities, 15–20 minutes a day. From sharper sales judgment to account intelligence, a reusable AI solution you build yourself, and a forward-looking business review — for Federal Civilian, Defense &amp; Intelligence, SLED &amp; higher education, and Public Sector Partner Sales.<br><span class="verbs">Rethink · Research · Build · Review.</span></p>
+    <p class="hero-sub">Four active learning weeks build stronger sales judgment and account understanding, then turn that knowledge into a working M365 Copilot agent used for strategy and customer or partner business reviews — for Federal Civilian, Defense &amp; Intelligence, SLED &amp; higher education, and Public Sector Partner Sales. 15–20 minutes a day.<br><span class="verbs">Rethink · Research · Build · Review.</span></p>
     <a class="today-pill" id="today-pill" href="#weeks"></a>
     <div class="kpi-row">
       <div class="kpi"><div class="kpi-n" style="color:var(--lav)" data-tick="4">0</div><div class="kpi-l">Weeks</div></div>
       <div class="kpi"><div class="kpi-n" data-tick="20">0</div><div class="kpi-l">Activities</div></div>
       <div class="kpi"><div class="kpi-n" style="color:var(--teal)" data-tick="100" data-prefix="≈">0</div><div class="kpi-l">Minutes a week</div></div>
-      <div class="kpi"><div class="kpi-n" style="color:var(--sky)" data-tick="4">0</div><div class="kpi-l">Cohort contexts</div></div>
+      <div class="kpi"><div class="kpi-n" style="color:var(--sky)" data-tick="1">0</div><div class="kpi-l">Working Copilot agent</div></div>
     </div>
   </div>
 </section>
@@ -562,8 +573,7 @@ a.vcard:hover { border-color:var(--border2); transform:translateY(-2px); }
   <div class="wrap">
     <div class="sec-eyebrow"><span class="eyebrow-dot"></span>The Program · Weekly Activities</div>
     <h2>Four weeks. Twenty activities. One day open at a time.</h2>
-    <div class="lens-bar" id="lens-bar"></div>
-    <p class="lens-note">Pick your context and every day's <b style="color:var(--text)">Your lens</b> section follows it. Choose a day to open the full brief: mission, steps, starter prompt, your share. Use ← → to move between days.</p>
+    <p class="lens-note">Choose a day to open its activity. Use ← → to move between days. Each activity takes 15 to 20 minutes and ends with a short share on Viva Engage.</p>
     <div class="guard" style="margin-top:18px">🔒 <b>Data rule for every activity:</b> use public or synthetic practice material and tools approved for your role and data. Internal data stays in appropriately approved environments. Check important claims against sources, label projections as scenarios, and keep human review at every step.</div>
   </div>
 </section>
@@ -577,32 +587,6 @@ a.vcard:hover { border-color:var(--border2); transform:translateY(-2px); }
 
 <script>
 /* ══ DATA ══ */
-const AUD = [
- {
-  "id": "fed",
-  "name": "Federal Civilian",
-  "short": "Federal Civilian",
-  "context": "Agency objectives, early recompete preparation, relationship health, connectivity needs, and coordination with prime partners."
- },
- {
-  "id": "def",
-  "name": "Defense and Intelligence",
-  "short": "Defense and Intel",
-  "context": "Mission context from permitted sources, technical discovery, evidence gaps, and delivery partner roles. Sensitive requirements stay outside practice examples."
- },
- {
-  "id": "sled",
-  "name": "SLED and higher education",
-  "short": "SLED and higher ed",
-  "context": "Public service priorities, research and funding signals, campus networks, on premises alternatives, and regional partner contributions."
- },
- {
-  "id": "partner",
-  "name": "Public Sector Partner Sales",
-  "short": "Partner Sales",
-  "context": "Partner business priorities, capabilities, delivery interests, joint account planning, and coordinated customer engagement."
- }
-];
 const WEEKS = [
  {
   "num": 1,
@@ -610,7 +594,7 @@ const WEEKS = [
   "short": "Rethink AI",
   "dates": "Nov 9–13",
   "accent": "var(--w1)",
-  "check": "Challenge assumptions · Adapt to the audience · Simplify accurately · Reuse what works",
+  "check": "Challenge assumptions · Understand the audience · Simplify accurately · Decide under pressure",
   "days": [
    "NOV 9",
    "NOV 10",
@@ -625,25 +609,10 @@ const WEEKS = [
    "2026-11-12",
    "2026-11-13"
   ],
-  "intro": "Use AI with greater confidence and judgment to strengthen a value message and prepare for a difficult customer or partner conversation.",
-  "coaching": "When AI pushback is useful, when it is invented, and how to improve the next prompt.",
-  "note": "November 11 is Veterans Day. Where observed, move that exercise to another short slot within the week; coaching is scheduled on another day.",
-  "videos": [
-   {
-    "id": "w1-v1",
-    "title": "What a Copilot agent is, and what it is not",
-    "minutes": 6,
-    "about": "The difference between a chat, a prompt and an agent, in sales terms.",
-    "youtubeId": null
-   },
-   {
-    "id": "w1-v2",
-    "title": "Prompts that hold up: role, evidence, unknowns, tone, next action",
-    "minutes": 8,
-    "about": "The five parts of a reusable prompt, the shape you will reverse engineer on Thursday.",
-    "youtubeId": null
-   }
-  ]
+  "intro": "A sharper customer or partner value message and reusable prompts, supported by stronger judgment about AI outputs.",
+  "coaching": "Distinguish useful pushback from invented objections and improve the next prompt.",
+  "note": "November 11 is Veterans Day. Where observed, move that exercise to another short slot within the week and schedule coaching on another day.",
+  "videos": []
  },
  {
   "num": 2,
@@ -651,7 +620,7 @@ const WEEKS = [
   "short": "Customer and Partner Intelligence",
   "dates": "Nov 16–20",
   "accent": "var(--w2)",
-  "check": "Research priorities · Understand relationships · Test the value case · Prepare the next conversation",
+  "check": "Research a real account · Challenge the account story · Prepare the agent’s knowledge",
   "days": [
    "NOV 16",
    "NOV 17",
@@ -666,33 +635,18 @@ const WEEKS = [
    "2026-11-19",
    "2026-11-20"
   ],
-  "intro": "Turn a small set of customer and partner sources into a credible intelligence brief, a tested opportunity hypothesis, and useful next questions.",
-  "coaching": "Distinguishing a credible signal from an assumption and turning research into a useful question.",
-  "note": "Save the brief and source list for Week 3. The program pauses November 23 to 27 and resumes November 30.",
-  "videos": [
-   {
-    "id": "w2-v1",
-    "title": "Grounding Copilot on your sources: files, SharePoint and the web",
-    "minutes": 7,
-    "about": "How to point Copilot at a source pack so answers cite what you gave it.",
-    "youtubeId": null
-   },
-   {
-    "id": "w2-v2",
-    "title": "Asking for sources and dates, every time",
-    "minutes": 5,
-    "about": "Prompt patterns that separate stated plans from inferred opportunities.",
-    "youtubeId": null
-   }
-  ]
+  "intro": "A Customer Source Pack and a one page account brief, with traceable evidence, partner context, and clearly stated gaps.",
+  "coaching": "Turn research into relevant questions and distinguish evidence from interpretation.",
+  "note": "No activities or coaching November 23 to 27. Keep the pack in its approved location, ready for the November 30 restart.",
+  "videos": []
  },
  {
   "num": 3,
-  "name": "Create Your AI Solution",
-  "short": "Create Your AI Solution",
+  "name": "Create Your AI Agent",
+  "short": "Create Your AI Agent",
   "dates": "Nov 30–Dec 4",
   "accent": "var(--w3)",
-  "check": "Choose one recurring task · Build a small solution · Test it · Keep it useful",
+  "check": "Learn agents · Build on the pack · Test · Refine · Maintain",
   "days": [
    "NOV 30",
    "DEC 1",
@@ -707,30 +661,24 @@ const WEEKS = [
    "2026-12-03",
    "2026-12-04"
   ],
-  "intro": "Create and test one reusable prototype for account preparation, account maintenance, or joint customer and partner planning, with clear instructions for updating it.",
-  "coaching": "Hands on build support, narrowing scope, and troubleshooting across the three paths.",
-  "note": "Use the tested output to support Week 4. These are learning prototypes; production integrations and automatic account updates require separate implementation.",
+  "intro": "A working M365 Copilot account agent built on the Customer Source Pack, with tested answers, reusable prompts, and an update routine.",
+  "coaching": "Build support and troubleshooting using the cohort’s actual Copilot experience.",
+  "note": "Keep the same agent and source pack for Week 4. A working agent answers the agreed tasks and has been tested; it does not imply automated CRM updates or unattended account monitoring.",
+  "build": "Agent Builder within Microsoft 365 Copilot. The agent supports account questions, preparation, and analysis. The assigned video chapters are included within the daily 15 to 20 minute session.",
   "videos": [
    {
-    "id": "w3-v1",
-    "title": "Build your first agent with the Copilot agent builder",
-    "minutes": 10,
-    "about": "Name, instructions, knowledge sources and a first test, start to finish.",
-    "youtubeId": null
+    "key": "A",
+    "title": "Create agents fast with Agent Builder in Copilot",
+    "by": "Microsoft Mechanics · 9 min 35 s · September 23, 2026",
+    "about": "The primary walkthrough: agent creation, selected knowledge, preview testing, and sharing inside Copilot. Apply the steps to the Customer Source Pack instead of the video’s onboarding example.",
+    "youtubeId": "dlS2meHJWAk"
    },
    {
-    "id": "w3-v2",
-    "title": "Writing agent instructions that stay in scope",
-    "minutes": 7,
-    "about": "Briefing structure, what to refuse, and the human review point.",
-    "youtubeId": null
-   },
-   {
-    "id": "w3-v3",
-    "title": "Testing, updating and sharing an agent with a colleague",
-    "minutes": 8,
-    "about": "Refresh a knowledge source, retest, and hand it over with known limits.",
-    "youtubeId": null
+    "key": "B",
+    "title": "Build Your Own AI Agents with Microsoft 365 Copilot",
+    "by": "Lisa Crosbie · 18 min 23 s · November 25, 2024",
+    "about": "Clear demonstrations of configuration, testing, and editing an existing agent. Screen labels and some capabilities have changed since recording; use the current Microsoft guidance alongside.",
+    "youtubeId": "211EGT_2x9c"
    }
   ]
  },
@@ -740,7 +688,7 @@ const WEEKS = [
   "short": "Account Strategy and Business Reviews",
   "dates": "Dec 7–11",
   "accent": "var(--w4)",
-  "check": "Establish the evidence · Choose priorities · Explore scenarios · Rehearse · Agree next actions",
+  "check": "Use the agent for strategy, scenarios, rehearsal, and a forward looking review",
   "days": [
    "DEC 7",
    "DEC 8",
@@ -755,25 +703,10 @@ const WEEKS = [
    "2026-12-10",
    "2026-12-11"
   ],
-  "intro": "Connect account intelligence and analysis to a practical strategy and a forward looking customer or partner business review with proposed owners, actions, and measures.",
-  "coaching": "Strengthening the recommendation, testing the evidence, and turning an account update into a strategic discussion.",
-  "note": "Reviews focus on customer and partner priorities and growth. Sole source support remains a separate activity and is not an assumed outcome of the review.",
-  "videos": [
-   {
-    "id": "w4-v1",
-    "title": "Using your agent for account planning and review preparation",
-    "minutes": 8,
-    "about": "Turning the Week 3 prototype into a planning partner.",
-    "youtubeId": null
-   },
-   {
-    "id": "w4-v2",
-    "title": "Scenario tables with Copilot in Excel",
-    "minutes": 7,
-    "about": "Baseline and two changes, with one calculation checked by hand.",
-    "youtubeId": null
-   }
-  ]
+  "intro": "A forward looking customer or partner business review developed with the account agent, with clear priorities, evidence, scenarios, and proposed next actions.",
+  "coaching": "Strengthen the recommendation and move from an account update to a strategic discussion.",
+  "note": "Review scope: focus on customer and partner outcomes and future growth. Sole source support remains a separate process and is not an assumed outcome of a business review.",
+  "videos": []
  }
 ];
 const ACTS = [
@@ -783,30 +716,11 @@ const ACTS = [
   "date": "2026-11-09",
   "dow": "MON",
   "fri": false,
-  "time": "19 min",
   "emoji": "🥊",
   "title": "The Challenger",
-  "hook": "Ask AI to attack the claim before a customer does.",
-  "mission": "Take a claim about retaining an agency account, supporting a mission, enabling university research, or winning with a partner. Ask AI to act as a skeptical stakeholder and identify its three weakest points. Revise the most important claim using only evidence available.",
-  "steps": [
-   "Write one claim you make often in two or three sentences. Keep it specific: a retention argument, a mission outcome, a research enablement story, or a partner win theme. (3 min)",
-   "Give AI a role: a skeptical program leader, a contracting officer, a CIO or a partner executive. Ask for the three weakest points and tell it not to soften them. (5 min)",
-   "Pick the point that matters most. Ask what evidence would settle it, and whether you actually have that evidence. (4 min)",
-   "Rewrite the claim using only evidence you can point to today. Label anything that is still an assumption. (5 min)",
-   "Post your share: the weakest claim, your revision, and the evidence you still need. (2 min)"
-  ],
-  "prompt": "Act as a skeptical {stakeholder} who has heard many vendor claims. Here is a claim I make about my account: \"{claim}\".\nIdentify its three weakest points. For each: say why it is weak, what evidence would make it credible, and what question you would ask me in a meeting. Do not soften the critique and do not offer compliments.",
-  "byPath": null,
-  "lenses": {
-   "fed": "Use a claim about why the agency should keep or expand its footprint ahead of a recompete. Play the contracting officer or program manager.",
-   "def": "Use a mission support claim built only from permitted public context. Play a technical evaluator who wants evidence, not adjectives.",
-   "sled": "Use a claim about enabling university research or a state service. Play a CIO weighing an on premises alternative.",
-   "partner": "Use a joint win theme with a prime or delivery partner. Play the partner executive who asks what Equinix adds to their deal."
-  },
-  "submission": "The weakest claim, your revision, and the evidence still needed.",
-  "tip": "If AI invented a weakness that no real stakeholder would raise, say so in your share. Spotting invented pushback is part of the skill.",
+  "mission": "Take a value claim about retaining an agency account, supporting a mission, enabling university research, or winning with a partner. Ask AI to act as a skeptical stakeholder and identify three weak points. Revise the most consequential claim using available evidence.",
   "skill": "Adversarial prompting and human judgment.",
-  "note": null
+  "share": "The weak claim, your revision, and the evidence still needed."
  },
  {
   "id": "w1-tue",
@@ -814,30 +728,11 @@ const ACTS = [
   "date": "2026-11-10",
   "dow": "TUE",
   "fri": false,
-  "time": "20 min",
   "emoji": "🎯",
   "title": "The Translator",
-  "hook": "One message. Three readers. Profile them before you write.",
-  "mission": "Use one message with three audiences: a customer program or business leader, a technical stakeholder, and a partner lead. Ask AI to profile their likely priorities before rewriting. Label inferred priorities and check that all three versions preserve the same facts.",
-  "steps": [
-   "Take yesterday’s revised claim or a short update you need to send this week. One paragraph is enough. (3 min)",
-   "Ask AI to profile three readers: a program or business leader, a technical stakeholder, and a partner lead. For each, ask what they care about, what they worry about, and how they measure success. Mark which priorities are inferred. (5 min)",
-   "Ask for three rewrites, each driven by its profile. Require that every version keep the same facts, figures and caveats. (6 min)",
-   "Read the three side by side. Check nothing was added or dropped. Pick the two that contrast most. (4 min)",
-   "Post your share: the two versions and the one difference that matters. (2 min)"
-  ],
-  "prompt": "I need to send this message to three readers: a {leader role}, a {technical role} and a {partner role}.\nMessage: \"{message}\"\nFirst, profile each reader: their top three priorities, their main concern, and how they judge success. Mark each priority as stated (I told you) or inferred (your assumption).\nThen rewrite the message once for each reader. Keep every fact, number and caveat identical across the three versions. Finish with a table of the facts, showing they appear in all three.",
-  "byPath": null,
-  "lenses": {
-   "fed": "Readers: an agency program director, the agency network architect, and the prime contractor’s capture lead.",
-   "def": "Readers: a mission owner, a systems integrator engineer, and a delivery partner program manager. Use public context only.",
-   "sled": "Readers: a university research office leader, a campus network manager, and a regional partner account manager.",
-   "partner": "Readers: the partner’s practice leader, the partner’s solution architect, and the end customer’s program lead."
-  },
-  "submission": "Two contrasting versions and the difference that matters.",
-  "tip": "If a version reads better because it dropped a caveat, it is not a translation. Put the caveat back.",
+  "mission": "Use one message with a customer leader, technical stakeholder, and partner lead. Have AI profile their likely priorities before rewriting. Label inferred priorities, preserve the same facts, and choose a relevant question for each audience.",
   "skill": "Audience profiling and context setting.",
-  "note": null
+  "share": "Two contrasting messages and the difference that matters."
  },
  {
   "id": "w1-wed",
@@ -845,30 +740,11 @@ const ACTS = [
   "date": "2026-11-11",
   "dow": "WED",
   "fri": false,
-  "time": "18 min",
   "emoji": "💡",
   "title": "Make the Complex Simple",
-  "hook": "Generate analogies, then ask where each one breaks.",
-  "mission": "Explain interconnection or another relevant technical concept to a nontechnical stakeholder. Generate short analogies, ask AI where each breaks down, and refine the strongest one against a supplied definition or approved reference.",
-  "steps": [
-   "Pick the concept you explain most often: interconnection, a private connection to a cloud, a neutral facility, or latency between sites. (2 min)",
-   "Ask AI for five short analogies aimed at a nontechnical leader, each in two sentences. (4 min)",
-   "Ask AI to critique its own list: for each analogy, what would someone get wrong if they took it literally? (5 min)",
-   "Choose the one that survives. Refine it against the approved definition in the source pack, and write the limitation it must carry. (5 min)",
-   "Post your share: the explanation and the limitation it must preserve. (2 min)"
-  ],
-  "prompt": "Explain {concept} to a {nontechnical role} who has ten seconds of attention.\nStep 1: give five analogies, two sentences each.\nStep 2: for each analogy, say what someone would misunderstand if they took it literally, and which fact about {concept} it hides.\nStep 3: recommend the one that survives best, and state the one limitation I must say out loud when I use it.\nApproved definition to stay true to: \"{definition}\"",
-  "byPath": null,
-  "lenses": {
-   "fed": "Explain interconnection to an agency program director who thinks in terms of mission uptime and budget cycles.",
-   "def": "Explain a neutral, multi carrier facility to a mission owner, without reference to any specific program or requirement.",
-   "sled": "Explain a private connection to a cloud provider to a provost or state agency director weighing an on premises alternative.",
-   "partner": "Explain where Equinix fits in the partner’s solution to the partner’s own sales team, so they can repeat it."
-  },
-  "submission": "Your explanation and the limitation it must preserve.",
-  "tip": "Simplification is only accurate if it survives the approved definition. If you cannot find the definition, note that as the evidence still needed.",
+  "mission": "Explain interconnection or another relevant technical concept to a nontechnical stakeholder. Generate short analogies, ask AI where each breaks down, and refine the best explanation against an approved reference.",
   "skill": "Self critique and accurate simplification.",
-  "note": "Veterans Day. If your office observes it, do this exercise in another short slot this week."
+  "share": "The clear explanation and the limitation it must preserve."
  },
  {
   "id": "w1-thu",
@@ -876,30 +752,11 @@ const ACTS = [
   "date": "2026-11-12",
   "dow": "THU",
   "fri": false,
-  "time": "20 min",
   "emoji": "🔍",
   "title": "Reverse Engineer the Prompt",
-  "hook": "Work backwards from a strong brief to a prompt you can reuse.",
-  "mission": "Start with a strong fictional account preparation brief. Ask AI to infer a reusable prompt covering audience, evidence, unknowns, tone, and next action. Test it on a different agency, institution, or partner scenario and correct what fails.",
-  "steps": [
-   "Open the sample account preparation brief from the source pack. Read it once as a seller: what makes it good? (3 min)",
-   "Ask AI to write the complete prompt that would produce this brief: audience, evidence required, unknowns to list, tone, and the next action it must end with. (5 min)",
-   "Run that prompt on a different scenario from your cohort context. Compare the result with the original brief. (6 min)",
-   "Fix what failed: a missing instruction, a vague audience, an assumption about data you did not have. Keep the prompt to one screen. (4 min)",
-   "Post your share: the reusable prompt and the one improvement testing gave you. (2 min)"
-  ],
-  "prompt": "Here is an account preparation brief I consider strong:\n\"{paste the sample brief}\"\nWrite the complete prompt that would produce a brief of this quality for a different account. The prompt must specify: the audience, the evidence it may use and how to cite it, the unknowns it must list rather than guess, the tone, and the next action it must end with. Keep the prompt under 200 words so I can reuse it.",
-  "byPath": null,
-  "lenses": {
-   "fed": "Test the prompt on a different civilian agency with a recompete 18 months out.",
-   "def": "Test it on a fictional defense program described only with public context, and check it refuses to invent sensitive detail.",
-   "sled": "Test it on a university with a new research computing grant, or a state agency consolidating sites.",
-   "partner": "Test it on a joint account where the partner leads and Equinix is a component, and see whether the prompt still names the partner’s interests."
-  },
-  "submission": "Your reusable prompt and one improvement from testing.",
-  "tip": "A prompt that works on only one scenario is a template, not a tool. If the second run invented facts, add an instruction that unknowns must be listed, not filled.",
-  "skill": "Prompt design and transfer testing.",
-  "note": null
+  "mission": "Start with a strong account preparation example. Ask AI to infer a reusable prompt specifying the audience, evidence, unknowns, tone, and next action. Test it on a different agency, institution, or partner scenario and improve it.",
+  "skill": "Prompt design and testing.",
+  "share": "Your reusable prompt and one improvement from the test."
  },
  {
   "id": "w1-fri",
@@ -907,30 +764,11 @@ const ACTS = [
   "date": "2026-11-13",
   "dow": "FRI",
   "fri": true,
-  "time": "20 min",
   "emoji": "🎛️",
   "title": "The Situation Room",
-  "hook": "Price pressure, missing information, a partner out of step. Decide anyway.",
-  "mission": "Work through a scenario with price pressure, incomplete customer information, and unaligned partner engagement. Challenge the assumptions, compare stakeholder perspectives, and produce a three sentence brief with two coordinated next actions.",
-  "steps": [
-   "Read the Situation Room scenario for your cohort context in the source pack. List the three things you do not know. (3 min)",
-   "Challenge: ask AI which assumptions in the scenario are weakest and which one would change the decision if wrong. (5 min)",
-   "Translate: ask for the situation as seen by the customer, the partner, and your own leadership. Note where they conflict. (4 min)",
-   "Decide: write a three sentence brief and two coordinated next actions, one for the customer and one for the partner. Use your Thursday prompt if it fits. (5 min)",
-   "Post your share: the brief, the next actions, and what changed your thinking. (3 min)"
-  ],
-  "prompt": "Scenario: {paste the scenario}.\nUnknowns I have: {list}.\n1. List the assumptions in this scenario, ranked by how much the decision changes if each is wrong.\n2. Describe the situation from three perspectives: the customer leader, the partner lead, and my sales leadership. Where do they conflict?\n3. Draft a three sentence brief for my manager and two coordinated next actions, one toward the customer and one toward the partner. Each action must name an owner and a date. State what you assumed.",
-  "byPath": null,
-  "lenses": {
-   "fed": "The scenario centers on a budget continuing resolution, a prime partner slow to engage, and a program office asking for a price concession.",
-   "def": "A delivery partner has changed roles mid pursuit, requirements are only partly visible, and the evaluator is cost focused. Public context only.",
-   "sled": "A university faces a grant timing change, a regional partner is pitching a competing design, and the CIO is asking why not stay on campus.",
-   "partner": "Your partner is pursuing a parallel deal with another provider, the end customer is quiet, and your leadership wants a forecast call this week."
-  },
-  "submission": "Your brief, next actions, and what changed your thinking.",
-  "tip": "Two actions that both point at the customer are not coordinated. One of them should move the partner.",
-  "skill": "Combining prompting techniques to support a decision.",
-  "note": null
+  "mission": "Apply the week’s techniques to a situation involving price pressure, incomplete customer information, and unaligned partner engagement. Challenge assumptions, compare perspectives, and create a three sentence brief with two coordinated next actions.",
+  "skill": "Combining AI techniques to support a decision.",
+  "share": "Your brief, next actions, and what changed your thinking."
  },
  {
   "id": "w2-mon",
@@ -938,30 +776,11 @@ const ACTS = [
   "date": "2026-11-16",
   "dow": "MON",
   "fri": false,
-  "time": "19 min",
-  "emoji": "🔎",
-  "title": "The Customer Priority Profiler",
-  "hook": "Separate what the customer said from what you hope they meant.",
-  "mission": "Use a small source pack to identify an agency’s mission and modernization priorities, a state or local service objective, or a university’s research and connectivity needs. Separate stated plans from inferred opportunities. Partner sellers examine the end customer alongside the partner’s target market.",
-  "steps": [
-   "Open the Week 2 source pack for your cohort context: a strategic plan extract, a budget or funding note, a news item, and a partner page. (3 min)",
-   "Ask AI to extract the customer’s priorities, each with the source and its date. Require it to mark every item as stated or inferred. (6 min)",
-   "Challenge one inferred item: what would need to be true for it to be a real opportunity? (4 min)",
-   "Choose the three priorities that matter most for your account and write one question the sources cannot answer. (4 min)",
-   "Post your share: three priorities with sources and dates, and your unanswered question. (2 min)"
-  ],
-  "prompt": "Using only the sources I provide, list this {customer type}’s mission and modernization priorities.\nSources: {paste or attach the source pack}.\nFor each priority: quote or closely paraphrase the supporting line, name the source and its date, and mark it STATED (the source says it) or INFERRED (you are connecting dots). Do not add priorities that are not supported. Finish with three questions the sources cannot answer.",
-  "byPath": null,
-  "lenses": {
-   "fed": "Focus on the agency strategic plan and IT modernization priorities, with the recompete window noted if the sources show it.",
-   "def": "Use public mission statements and published modernization goals only. Anything sensitive stays out of the exercise.",
-   "sled": "Look for research funding signals, campus network or data center plans, and state service objectives such as consolidation or resilience.",
-   "partner": "Profile the end customer and the partner’s stated target market side by side, and mark where they overlap."
-  },
-  "submission": "Three priorities, their sources and dates, and one unanswered question.",
-  "tip": "If a priority has no date, it is not evidence yet. Find the date or move it to the unanswered questions.",
-  "skill": "Source grounded synthesis.",
-  "note": null
+  "emoji": "🎯",
+  "title": "Choose the Account and Research Questions",
+  "mission": "Select one real agency, institution, or partner supported customer account. Define three questions about its priorities, challenges, and future plans. Find an initial authoritative source and create the source register. Keep the scope to one account and one useful sales conversation.",
+  "skill": "Research planning and focused inquiry.",
+  "share": "The account, three research questions, and the first source."
  },
  {
   "id": "w2-tue",
@@ -969,30 +788,11 @@ const ACTS = [
   "date": "2026-11-17",
   "dow": "TUE",
   "fri": false,
-  "time": "19 min",
-  "emoji": "🗺️",
-  "title": "The Partner and Stakeholder Map",
-  "hook": "Map who matters, then treat every motive as a question to validate.",
-  "mission": "Map the customer, prime or delivery partner, technical influencers, and Equinix account and partner roles. Use evidence to identify capabilities and relationships. Treat partner motivations and gaps as questions to validate, then propose one coordinated discovery action.",
-  "steps": [
-   "List the roles you know from the source pack: customer leaders, prime or delivery partner, technical influencers, and the Equinix account and partner team. (3 min)",
-   "Ask AI to build a simple map: who influences whom, which capability each party brings, and what evidence supports each link. (5 min)",
-   "Ask it to list the partner’s likely motivations and gaps as questions, not statements. (4 min)",
-   "Pick the assumption that most affects the deal and write one coordinated discovery action to validate it with the partner. (5 min)",
-   "Post your share: the map in text or a quick sketch, and the assumption you will validate. (2 min)"
-  ],
-  "prompt": "Build a stakeholder and partner map for this account from the evidence below.\nParties: {customer roles}, {partner and role}, {technical influencers}, {Equinix roles}.\nEvidence: {paste}.\nFor each party: their capability, their likely interest, and the evidence that supports it (or \"no evidence\"). Draw the relationships as a simple list of \"A influences B because...\". Then write the partner’s motivations and gaps as questions I should validate, and propose one discovery action the partner and I can take together.",
-  "byPath": null,
-  "lenses": {
-   "fed": "Include the prime contractor and the agency program office. Ask what the prime gains from Equinix being in the solution.",
-   "def": "Map the systems integrator and delivery partner roles from public information. Treat mission ownership as unknown unless published.",
-   "sled": "Include the university research office, central IT, procurement, and the regional partner. Ask where procurement rules shape the path.",
-   "partner": "Map your partner’s own stakeholders too: who in the partner decides to lead with Equinix, and what they measure."
-  },
-  "submission": "A simple map and one assumption to validate with the partner.",
-  "tip": "A motive written as a fact is an assumption in disguise. Every motive on your map should end with a question mark until the partner confirms it.",
-  "skill": "Relationship mapping and gap detection.",
-  "note": null
+  "emoji": "🗂️",
+  "title": "Build the Customer Source Pack",
+  "mission": "Collect a small set of relevant documents or permitted excerpts. Cover customer plans, technical or service needs, funding or procurement signals, and partner involvement where evidence exists. Record origin, publication date, access date, and relevance. Aim for three to five useful sources across the week.",
+  "skill": "Source selection and organizing evidence.",
+  "share": "The source register and a representative finding."
  },
  {
   "id": "w2-wed",
@@ -1000,30 +800,11 @@ const ACTS = [
   "date": "2026-11-18",
   "dow": "WED",
   "fri": false,
-  "time": "19 min",
-  "emoji": "⚖️",
-  "title": "The Value Case Under Pressure",
-  "hook": "Make AI argue for the alternative, including staying on premises.",
-  "mission": "Connect one customer priority to a potential Equinix contribution using approved capability information. Ask AI to make the strongest case for an alternative, including remaining on premises where relevant. Identify what would support or weaken the proposed fit.",
-  "steps": [
-   "Take one priority from Monday. Write a one sentence value hypothesis: because the customer needs X, an Equinix contribution Y could help, using approved capability language. (3 min)",
-   "Ask AI to make the strongest possible case for the alternative: another provider, a different design, or remaining on premises. (5 min)",
-   "Ask what evidence would support the Equinix fit and what evidence would weaken it. Keep the two lists honest. (5 min)",
-   "Decide what you believe today and what you need to find out. Rewrite the hypothesis if the alternative won a point. (4 min)",
-   "Post your share: the hypothesis, the strongest alternative, and the evidence you need. (2 min)"
-  ],
-  "prompt": "Customer priority: {priority with source}.\nMy value hypothesis: \"{because the customer needs X, Equinix contribution Y could help}\". Approved capability information: {paste}.\nMake the strongest case for the alternative: {another provider, a different architecture, or staying on premises}. Be specific about cost, risk, control and timing. Then list evidence that would support my hypothesis and evidence that would weaken it. End by telling me which single piece of evidence I should go and get first.",
-  "byPath": null,
-  "lenses": {
-   "fed": "The alternative is often the incumbent arrangement continuing through the recompete. Argue for it properly.",
-   "def": "Argue for a government owned facility or an existing contract vehicle, using public considerations only.",
-   "sled": "Argue for keeping research computing on campus, including grant rules and local staff. This is the case the CIO will make.",
-   "partner": "Argue for the partner delivering the solution without Equinix, so you learn what Equinix must add to earn its place."
-  },
-  "submission": "A value hypothesis, the strongest alternative, and evidence needed.",
-  "tip": "If the alternative’s case is weak, you probably wrote the prompt to lose. Ask again and tell AI to win.",
-  "skill": "Counter analysis and evidence based comparison.",
-  "note": null
+  "emoji": "🗺️",
+  "title": "Find the Customer and Partner Story",
+  "mission": "Ask AI to connect findings across the pack: customer priorities, stakeholder interests, partner contributions, and possible relevance to Equinix. Use approved capability references for product claims. Separate what sources state from your opportunity hypothesis.",
+  "skill": "Synthesis and relationship mapping.",
+  "share": "Three findings, their sources, and one opportunity hypothesis."
  },
  {
   "id": "w2-thu",
@@ -1031,30 +812,11 @@ const ACTS = [
   "date": "2026-11-19",
   "dow": "THU",
   "fri": false,
-  "time": "18 min",
-  "emoji": "📡",
-  "title": "From Signal to Conversation",
-  "hook": "One dated signal, one message, three questions worth asking.",
-  "mission": "Choose a dated signal from the source pack, such as a planning update, funding announcement, market research notice, or partner initiative. Assess its relevance and uncertainty. Draft a short outreach message and three discovery questions for the appropriate customer or partner contact.",
-  "steps": [
-   "Choose one dated signal from the source pack: a planning update, a funding announcement, a market research notice, or a partner initiative. (3 min)",
-   "Ask AI to assess the signal: how relevant to your account, how certain, what it could also mean, and what would confirm it. (4 min)",
-   "Ask for a short outreach message to the right contact, under 120 words, that references the signal and asks rather than sells. (5 min)",
-   "Ask for three discovery questions, then cut any that the sources already answer. Rewrite the message in your own voice. (4 min)",
-   "Post your share: the signal, its source, and the conversation it should open. (2 min)"
-  ],
-  "prompt": "Signal: \"{signal}\" ({source}, {date}).\nAccount context: {two lines}.\n1. Assess the signal: relevance to my account (high, medium, low and why), how certain it is, two other things it could mean, and what would confirm it.\n2. Draft an outreach message of under 120 words to {contact role}. Reference the signal, show I understand their situation, and ask for a conversation. No product claims.\n3. Give me three discovery questions that the sources cannot already answer.",
-  "byPath": null,
-  "lenses": {
-   "fed": "Signals: a budget justification line, a market research notice, a modernization milestone, or a prime partner announcement.",
-   "def": "Signals from public sources only: a published strategy, a public contract announcement, or a partner press release.",
-   "sled": "Signals: a research grant award, a campus master plan update, a state resilience initiative, or a regional partner program.",
-   "partner": "Signals from the partner itself: a new practice, a certification, a hiring pattern, or a joint announcement with a customer."
-  },
-  "submission": "The signal, its source, and the conversation it should open.",
-  "tip": "If the message could have been sent without the signal, it is not tailored. The signal should be the reason for the note.",
-  "skill": "Interpreting signals and tailoring outreach.",
-  "note": null
+  "emoji": "⚖️",
+  "title": "Challenge the Intelligence",
+  "mission": "Ask AI to argue against the emerging account story. Find missing, contradictory, or stale information. Check the most important claims against the originals, refine the pack, and turn unresolved gaps into discovery questions.",
+  "skill": "Counter analysis and source verification.",
+  "share": "A corrected or qualified claim and the remaining questions."
  },
  {
   "id": "w2-fri",
@@ -1062,30 +824,11 @@ const ACTS = [
   "date": "2026-11-20",
   "dow": "FRI",
   "fri": true,
-  "time": "20 min",
-  "emoji": "🗂️",
-  "title": "The Customer and Partner Intelligence Brief",
-  "hook": "The week on one page, challenged by an account leader.",
-  "mission": "Bring the week’s work into one page: priorities, stakeholders, value hypothesis, alternatives, unknowns, and next actions. Ask AI what an account or partner leader would challenge. Check the most consequential claim against its source and refine the brief.",
-  "steps": [
-   "Gather the week: priorities, the map, the value hypothesis and alternative, the signal, and your open questions. (4 min)",
-   "Ask AI to assemble a one page brief with these headings: priorities, stakeholders, value hypothesis, alternatives, unknowns, next actions. Every claim keeps its source. (5 min)",
-   "Ask what an account leader or partner leader would challenge first, and why. (4 min)",
-   "Take the most consequential claim back to its source. Correct or qualify it. Refine the brief. (5 min)",
-   "Post your share: the brief and the claim you corrected or qualified. Save the brief and source list for Week 3. (2 min)"
-  ],
-  "prompt": "Assemble a one page customer and partner intelligence brief from my week’s notes below. Headings: Priorities, Stakeholders and partner, Value hypothesis, Strongest alternative, Unknowns, Next actions (owner and date).\nNotes: {paste}.\nKeep every source and date attached to its claim. Mark inferred items. Then, as an account leader reading this for the first time, tell me the three things you would challenge and which claim, if wrong, would change the plan the most.",
-  "byPath": null,
-  "lenses": {
-   "fed": "Write for the account leader preparing a recompete strategy. Lead with the window and the relationship health.",
-   "def": "Write for a leader who will check every public source. Keep the brief free of anything you could not cite publicly.",
-   "sled": "Write for a leader comparing several institutions. Make the funding signal and the on premises alternative explicit.",
-   "partner": "Write it as a joint brief the partner could read. Separate the partner’s interests from the customer’s, and name the shared next action."
-  },
-  "submission": "Your brief and one claim you corrected or qualified.",
-  "tip": "The most consequential claim is rarely the most interesting one. Check the claim your next actions depend on.",
-  "skill": "Synthesis, source checking, and concise briefing.",
-  "note": null
+  "emoji": "📄",
+  "title": "Create the Account Brief",
+  "mission": "Produce a one page brief covering priorities, stakeholders and partners, potential value, alternatives, unknowns, and next questions. Finalize the source pack with a contents list and five questions that will later test the agent.",
+  "skill": "Concise briefing and preparation for agent testing.",
+  "share": "The one page brief and the pack contents list."
  },
  {
   "id": "w3-mon",
@@ -1093,34 +836,22 @@ const ACTS = [
   "date": "2026-11-30",
   "dow": "MON",
   "fri": false,
-  "time": "19 min",
   "emoji": "✏️",
-  "title": "Design the Account Workflow",
-  "hook": "Pick one recurring task. Decide what the tool does and what stays with you.",
-  "mission": "Pick one recurring task exposed by Week 2. Sketch its inputs, steps, output, and human review point. Define what the solution should do and what it should leave to the seller. Choose the build path that fits the task and available approved tools.",
-  "steps": [
-   "Reread your Week 2 brief. Pick one task you repeat: a pre meeting briefing, a stakeholder update, a milestone check, a joint plan refresh. (4 min)",
-   "Sketch the workflow: inputs, steps, output, and the point where a human reviews before anything goes out. Hand drawn is fine. (5 min)",
-   "Ask AI to tighten the sketch into instructions, and to say what the tool should refuse to do or leave to you. (4 min)",
-   "Choose the build path: agent, app or dashboard. Write one success criterion you can test on Wednesday. (4 min)",
-   "Post your share: the sketch and the success criterion. (2 min)"
-  ],
-  "prompt": "I want to build a small {agent / app / dashboard} for this recurring task: {task}.\nInputs I have: {list}. Output I need: {describe}. Human review point: {where}.\nTurn this into a clear specification: purpose in one sentence, inputs, steps, output format, what the tool must not do, and what stays with me as the seller. Then write one success criterion I can test with sample data, phrased as \"given X, the tool produces Y\".",
-  "byPath": {
-   "agent": "An agent that answers recurring questions and produces a briefing in a fixed structure from the approved source pack. The human review point is before any briefing is shared.",
-   "app": "A small app that walks you through discovery inputs for a meeting and produces a preparation sheet. The review point is the sheet itself.",
-   "dashboard": "A dashboard of account priorities, milestones, owners and actions from sample data. The review point is the weekly check of what changed."
-  },
-  "lenses": {
-   "fed": "Good tasks: a recompete milestone tracker, a monthly agency update brief, or a prime partner coordination checklist.",
-   "def": "Good tasks: a public context briefing before technical discovery, or a delivery partner role tracker. Keep sensitive data out of the prototype.",
-   "sled": "Good tasks: a grant and funding signal digest, a campus stakeholder update, or an institution comparison sheet.",
-   "partner": "Good tasks: a joint account plan refresh, a partner capability brief, or a weekly co sell action list."
-  },
-  "submission": "A small workflow sketch and one testable success criterion.",
-  "tip": "If the sketch has no human review point, add one before you build. The tool supports your judgment; it does not replace it.",
-  "skill": "Turning a business need into clear instructions.",
-  "note": null
+  "title": "Understand and Design Your Agent",
+  "mission": "Define the agent’s purpose, users, three account tasks, and preferred response format. Identify which pack files support those tasks. Draft instructions for evidence, assumptions, missing information, and customer and partner perspectives.",
+  "skill": "Scoping an agent and defining useful behavior.",
+  "share": "A short agent design and draft instructions.",
+  "watch": {
+   "label": "Watch A, 0:00 to 2:15",
+   "note": "Purpose and knowledge context.",
+   "clips": [
+    {
+     "v": "A",
+     "start": 0,
+     "end": 135
+    }
+   ]
+  }
  },
  {
   "id": "w3-tue",
@@ -1128,34 +859,27 @@ const ACTS = [
   "date": "2026-12-01",
   "dow": "TUE",
   "fri": false,
-  "time": "20 min",
   "emoji": "🛠️",
-  "title": "Build the First Useful Version",
-  "hook": "One function working beats five functions planned.",
-  "mission": "Adapt a supplied starter to your scenario. Configure an agent with a briefing structure and approved source pack; create an app that organizes discovery inputs; or populate a dashboard with sample account milestones and actions. Complete one useful function before adding more.",
-  "steps": [
-   "Open the starter template for your path and watch the matching build video if you have not yet. (3 min)",
-   "Adapt the starter to your scenario. Agent: paste the briefing structure as instructions and attach the source pack. App: set up the discovery inputs. Dashboard: load the sample milestones and actions. (8 min)",
-   "Run the core function once with sample data. Fix the first thing that breaks. Resist adding a second function. (5 min)",
-   "Capture a screenshot or example output. (2 min)",
-   "Post your share: the screenshot or output showing the core function. (2 min)"
-  ],
-  "prompt": "Here is my specification from yesterday: {paste}.\nHelp me adapt the {agent / app / dashboard} starter to it. Give me, in order: the exact instructions or configuration to enter, the sample data to use for a first run, and the single core function to test first. Keep it to what I can finish in fifteen minutes; list anything else under \"later\".",
-  "byPath": {
-   "agent": "Enter the briefing structure as the agent’s instructions, attach the approved source pack as knowledge, and ask it for one briefing. Check it cites the pack.",
-   "app": "Build the input form for one meeting type and generate one preparation sheet from sample answers.",
-   "dashboard": "Load the sample account dataset, build one view of milestones by owner and date, and check one total by hand."
-  },
-  "lenses": {
-   "fed": "Sample data: the fictional civilian agency scenario and its source pack.",
-   "def": "Sample data: the fictional defense scenario with public context only. No real program data in the prototype.",
-   "sled": "Sample data: the fictional university or state agency scenario and its funding signals.",
-   "partner": "Sample data: the fictional joint account with the partner’s roles and the shared milestones."
-  },
-  "submission": "A screenshot or example output showing the core function.",
-  "tip": "If the output looks right but you cannot say where a fact came from, the core function is not done yet.",
-  "skill": "Building through instructions, configuration, or AI assisted generation.",
-  "note": null
+  "title": "Build Your Account Agent",
+  "mission": "Create the agent, review its name and instructions, add the Customer Source Pack through the approved knowledge setup, and add three starter prompts. Confirm the sources are ready, then ask one known answer question.",
+  "skill": "Configuration and grounding in selected sources.",
+  "share": "The agent setup and its first checked response.",
+  "watch": {
+   "label": "Watch A, 2:15 to 4:13 and 4:53 to 6:37",
+   "note": "Creation and knowledge setup.",
+   "clips": [
+    {
+     "v": "A",
+     "start": 135,
+     "end": 253
+    },
+    {
+     "v": "A",
+     "start": 293,
+     "end": 397
+    }
+   ]
+  }
  },
  {
   "id": "w3-wed",
@@ -1163,34 +887,27 @@ const ACTS = [
   "date": "2026-12-02",
   "dow": "WED",
   "fri": false,
-  "time": "20 min",
-  "emoji": "🕵️",
-  "title": "The Account Data Detective",
-  "hook": "Feed it a stale date, a conflict and a missing owner. See what it does.",
-  "mission": "Test the solution with a small synthetic update pack containing a stale date, a conflicting statement, and a missing owner. Agent users test answers and source handling; app users test inputs and logic; dashboard users test calculations, labels, and missing values. Correct one meaningful error.",
-  "steps": [
-   "Open the synthetic update pack. It contains a stale date, a statement that conflicts with the source pack, and an item with no owner. (3 min)",
-   "Run each case through your tool. Record what it did with each: flagged it, ignored it, or made something up. (6 min)",
-   "Pick the most meaningful failure and correct it: an instruction, a validation rule, a label, a formula. (6 min)",
-   "Retest the same case and one case that previously passed. (3 min)",
-   "Post your share: the failed case, the correction, and the retest result. (2 min)"
-  ],
-  "prompt": "I am testing my {agent / app / dashboard} with three bad inputs: a stale date ({example}), a statement that conflicts with my source ({example}), and an item with no owner.\nFor each, tell me what a well built tool should do, how to check whether mine did it, and the smallest change that would fix the failure. Then write a short test log format I can reuse: case, expected, actual, fix, retest.",
-  "byPath": {
-   "agent": "Ask the agent a question the stale item answers. Does it mention the date? Ask about the conflicting statement. Does it surface both sources or pick one silently?",
-   "app": "Enter the missing owner and the stale date. Does the app accept them quietly, or ask?",
-   "dashboard": "Load the update pack. Do totals change correctly, are labels still right, and how is the missing owner shown?"
-  },
-  "lenses": {
-   "fed": "The stale date is a recompete milestone that moved. The conflict is two budget figures from different documents.",
-   "def": "The conflict is between two public sources about a program timeline. The tool should show both, not choose.",
-   "sled": "The stale date is a grant deadline that passed. The missing owner is on the campus network milestone.",
-   "partner": "The conflict is the partner’s stated role versus the customer’s description of it. The missing owner is a shared action."
-  },
-  "submission": "One failed case, the correction, and the retest result.",
-  "tip": "A tool that filled the missing owner with a plausible name failed the test. Flagging is the right behavior.",
-  "skill": "Structured testing, data checks, and iteration.",
-  "note": null
+  "emoji": "🧪",
+  "title": "Test What It Knows",
+  "mission": "Run the five questions prepared in Week 2. Check source references, accuracy, synthesis, and treatment of missing information. Record a pass or issue for each response and identify the highest priority fix.",
+  "skill": "Evaluation against expected evidence and behavior.",
+  "share": "The test record and the most important issue.",
+  "watch": {
+   "label": "Watch B, 12:10 to 13:22, and A, 6:37 to 7:03",
+   "note": "Test and preview the agent.",
+   "clips": [
+    {
+     "v": "B",
+     "start": 730,
+     "end": 802
+    },
+    {
+     "v": "A",
+     "start": 397,
+     "end": 423
+    }
+   ]
+  }
  },
  {
   "id": "w3-thu",
@@ -1198,34 +915,22 @@ const ACTS = [
   "date": "2026-12-03",
   "dow": "THU",
   "fri": false,
-  "time": "19 min",
   "emoji": "🔄",
-  "title": "Keep the Account Current",
-  "hook": "Change one fact upstream. Does the output follow?",
-  "mission": "Introduce a new customer priority or partner action. Refresh the source, input, or dataset and check whether the output changes correctly. Add a last updated date, maintenance owner, and human review step. Define how obsolete information will be removed or flagged.",
-  "steps": [
-   "Write one new fact: a new customer priority or a new partner action, dated today. (3 min)",
-   "Add it to the source pack, input set or dataset. Run the tool again and compare before and after. Did the output change where it should, and only there? (5 min)",
-   "Add a last updated date, a maintenance owner, and a human review step to the tool or its instructions. (5 min)",
-   "Write the update instructions in five lines, including how obsolete items get flagged or removed. (4 min)",
-   "Post your share: before and after, and the update instructions. (2 min)"
-  ],
-  "prompt": "My {agent / app / dashboard} uses this source or dataset: {describe}. I am adding this new fact: \"{fact}\" dated {date}.\n1. Tell me how to refresh the source so the tool picks it up, and what in the output should change and what should not.\n2. Write a maintenance block I can add: last updated, owner, review step, and the rule for flagging or removing obsolete items.\n3. Write update instructions in five lines a colleague could follow.",
-  "byPath": {
-   "agent": "Replace or add a document in the knowledge source. Ask the same question as before and compare the answers and citations.",
-   "app": "Add the new input field or option. Check that old preparation sheets still read correctly.",
-   "dashboard": "Append the new milestone or action. Check the view, the totals and the label for the new owner."
-  },
-  "lenses": {
-   "fed": "New fact: the agency published an updated modernization milestone, or the prime partner named a new capture lead.",
-   "def": "New fact: a public announcement about a program phase. Treat it as a scenario fact in the prototype.",
-   "sled": "New fact: a new grant award, or the state agency added a resilience objective.",
-   "partner": "New fact: the partner committed to a joint workshop with a date and an owner."
-  },
-  "submission": "A before and after example plus the update instructions.",
-  "tip": "If the output changed somewhere unrelated, the tool is leaning on the new fact too hard. Note it as a known limit.",
-  "skill": "Managing context and maintaining reliable outputs.",
-  "note": null
+  "title": "Improve and Maintain Your Agent",
+  "mission": "Fix instructions or source content, then rerun the failed test. Add a verified account update or correct an existing source. Refresh or replace the knowledge as needed and confirm the agent uses the revision. Record the update owner and next review date.",
+  "skill": "Iterative refinement and knowledge maintenance.",
+  "share": "The correction, retest result, and update routine.",
+  "watch": {
+   "label": "Watch B, 15:42 to 16:54",
+   "note": "Edit an existing agent. Apply the update routine in the activity.",
+   "clips": [
+    {
+     "v": "B",
+     "start": 942,
+     "end": 1014
+    }
+   ]
+  }
  },
  {
   "id": "w3-fri",
@@ -1233,34 +938,22 @@ const ACTS = [
   "date": "2026-12-04",
   "dow": "FRI",
   "fri": true,
-  "time": "20 min",
-  "emoji": "📦",
-  "title": "Make It Usable by a Colleague",
-  "hook": "Hand it over. Watch where they get stuck. Fix that one thing.",
-  "mission": "Package the prototype with a short purpose statement, inputs, instructions, and known limits. Have a peer try a sample task, or follow a supplied user test if a peer is unavailable. Fix one usability issue and share a suitable demonstration in the approved environment.",
-  "steps": [
-   "Write the one page package: purpose in one sentence, inputs, how to use it, known limits, owner and last updated. (4 min)",
-   "Ask a peer to try one sample task without your help, or follow the supplied user test script. Note where they hesitate. (6 min)",
-   "Fix the one usability issue that caused the most hesitation. (5 min)",
-   "Record or write a short demonstration in the approved environment: what it does, in under two minutes. (3 min)",
-   "Post your share: the demonstration and the improvement you made. (2 min)"
-  ],
-  "prompt": "Write the handover page for my {agent / app / dashboard}: purpose in one sentence, inputs, step by step use, known limits, owner, last updated.\nSpecification: {paste}. Test log: {paste}.\nThen write a five minute user test script for a colleague who has never seen it: three tasks, what a good result looks like, and two questions to ask them afterwards.",
-  "byPath": {
-   "agent": "Share the agent in the approved environment. Watch whether the colleague knows what to ask it and whether they trust the citations.",
-   "app": "Give the colleague the link and one meeting to prepare for. Watch where the form confuses them.",
-   "dashboard": "Give the colleague the dashboard and ask them to find what changed this week. Watch which label they misread."
-  },
-  "lenses": {
-   "fed": "Test it with a colleague from another agency account. Their questions will show what you assumed about yours.",
-   "def": "Test it with the public context scenario only, and check the known limits say so plainly.",
-   "sled": "Test it with a colleague covering a different state or institution type.",
-   "partner": "Test it with a colleague who manages a different partner, or with the partner lens from a direct seller."
-  },
-  "submission": "A short demonstration and the improvement made after testing.",
-  "tip": "Known limits are part of the product. A package without them is a demo, not a handover.",
-  "skill": "Usability testing and practical handover.",
-  "note": null
+  "emoji": "🚀",
+  "title": "Put Your Agent to Work",
+  "mission": "Use the agent to prepare a customer or partner conversation: priorities, questions, and next actions. Demonstrate the result. If sharing is enabled and appropriate, test with an intended colleague and confirm their knowledge access.",
+  "skill": "Applied use, handover, and feedback.",
+  "share": "A short demonstration, useful prompts, and remaining limitations.",
+  "watch": {
+   "label": "Watch A, 7:03 to 8:22",
+   "note": "Sharing and the user experience.",
+   "clips": [
+    {
+     "v": "A",
+     "start": 423,
+     "end": 502
+    }
+   ]
+  }
  },
  {
   "id": "w4-mon",
@@ -1268,30 +961,11 @@ const ACTS = [
   "date": "2026-12-07",
   "dow": "MON",
   "fri": false,
-  "time": "20 min",
   "emoji": "🧭",
   "title": "Establish the Account Truth",
-  "hook": "What does the evidence support, what changed, and what are you still assuming?",
-  "mission": "Review the Week 2 brief and Week 3 output. Ask AI to identify what the evidence supports, what has changed, and where assumptions remain. Choose the three facts or gaps that most affect the account’s future. Verify the most consequential point.",
-  "steps": [
-   "Put the Week 2 brief and your Week 3 tool’s latest output side by side. (4 min)",
-   "Ask AI to sort every claim into three columns: supported by evidence, changed since Week 2, still an assumption. (5 min)",
-   "Choose the three facts or gaps that most affect the account’s future. Say why each matters. (5 min)",
-   "Verify the most consequential point against its source or by asking your tool for the citation. (4 min)",
-   "Post your share: three strategic findings, each with its evidence or its gap. (2 min)"
-  ],
-  "prompt": "Here is my Week 2 intelligence brief: {paste}. Here is my current account output: {paste}.\nSort every claim into: SUPPORTED (name the evidence), CHANGED (what changed and when), ASSUMPTION (what we are assuming and the risk if wrong). Then recommend the three facts or gaps that most affect the account’s next twelve months, and tell me which one to verify first and how.",
-  "byPath": null,
-  "lenses": {
-   "fed": "The consequential point is often the recompete timeline or the relationship health with the program office.",
-   "def": "Audit only public context. Where the truth is unknowable from permitted sources, record it as a gap, not a guess.",
-   "sled": "The consequential point is often funding timing or the strength of the on premises alternative.",
-   "partner": "Audit the partner’s commitments as carefully as the customer’s facts. A changed partner role is a strategic finding."
-  },
-  "submission": "Three strategic findings and the evidence or gap behind each.",
-  "tip": "A finding with no evidence and no named gap is an opinion. Either find the source or call it a gap.",
+  "mission": "Use the agent to review customer priorities, developments, relationship gaps, and unanswered questions. Ask it to distinguish evidence from inference and identify what matters most for the next conversation. Verify the most consequential finding against the source pack.",
   "skill": "Evidence auditing and prioritization.",
-  "note": null
+  "share": "Three strategic findings and the evidence or gap behind each."
  },
  {
   "id": "w4-tue",
@@ -1299,30 +973,11 @@ const ACTS = [
   "date": "2026-12-08",
   "dow": "TUE",
   "fri": false,
-  "time": "20 min",
   "emoji": "📈",
-  "title": "Design the Account Growth Plan",
-  "hook": "One retention priority, one growth hypothesis, one relationship action.",
-  "mission": "Draft a concise plan around one retention priority, one growth hypothesis, and one relationship action, where relevant. Include customer outcomes, partner contribution, milestones, proposed owners, and measures. Ask AI where the plan could stall and revise one weak step.",
-  "steps": [
-   "From Monday’s findings, choose one retention priority, one growth hypothesis and one relationship action. (3 min)",
-   "Ask AI to draft the plan: for each item, the customer outcome, the partner contribution, milestones, a proposed owner and a measure. (6 min)",
-   "Ask where the plan could stall: procurement, funding, partner capacity, a missing sponsor. Pick the most likely stall. (4 min)",
-   "Revise the weak step so the stall is addressed. Keep the plan to one page. (5 min)",
-   "Post your share: the plan and the risk you addressed. (2 min)"
-  ],
-  "prompt": "Draft a one page account growth plan from these three items: retention priority \"{A}\", growth hypothesis \"{B}\", relationship action \"{C}\". Evidence: {paste Monday’s findings}.\nFor each item give: customer outcome, partner contribution, milestones with dates, proposed owner, and a measure of success. Then name the three places this plan is most likely to stall and why. Rewrite the single weakest step so the most likely stall is addressed.",
-  "byPath": null,
-  "lenses": {
-   "fed": "Retention centers on the recompete; growth on a modernization priority; the relationship action on the program office or the prime.",
-   "def": "Keep the plan at the level of public mission goals and partner roles. The relationship action may be with the delivery partner.",
-   "sled": "Growth may be a research computing or resilience initiative; the relationship action may involve procurement or the research office.",
-   "partner": "Write a joint plan. The partner’s contribution and owner appear on every line, and the measure is shared."
-  },
-  "submission": "Your account or joint partner plan and the risk you addressed.",
-  "tip": "If every owner is you, the plan has no partner in it. Share the load or name the gap.",
-  "skill": "Strategy design and testing execution risks.",
-  "note": null
+  "title": "Develop the Account Strategy",
+  "mission": "Work with the agent to develop retention, growth, and relationship priorities where relevant. Include customer outcomes, partner contribution, proposed owners, milestones, and success measures. Challenge one assumption that could cause the plan to stall.",
+  "skill": "Strategy formulation and testing execution risks.",
+  "share": "A concise account or joint partner plan and one risk addressed."
  },
  {
   "id": "w4-wed",
@@ -1330,30 +985,11 @@ const ACTS = [
   "date": "2026-12-09",
   "dow": "WED",
   "fri": false,
-  "time": "19 min",
   "emoji": "📊",
   "title": "Explore the Scenarios",
-  "hook": "A baseline and two changes. Check one number by hand.",
-  "mission": "Using a small supplied synthetic dataset, compare a baseline with two changes, such as delayed funding, increased connectivity demand, or a changed partner role. Check one calculation manually. Use a simple table, chart, or Week 3 tool to show how the assumptions affect the plan.",
-  "steps": [
-   "Open the synthetic scenario dataset. Note the baseline: the plan as it stands. (3 min)",
-   "Define two changes relevant to your account: delayed funding, higher connectivity demand, a changed partner role. Ask AI to project each against the baseline. (5 min)",
-   "Check one calculation by hand or in a spreadsheet. If it disagrees, trust the hand check and ask AI why. (4 min)",
-   "Show the comparison as a simple table or chart, or through your Week 3 tool. Label every projection as a scenario. (5 min)",
-   "Post your share: the comparison, the assumptions, and one planning implication. (2 min)"
-  ],
-  "prompt": "Dataset: {paste or attach the synthetic dataset}. Baseline: {describe}.\nScenario 1: {change, for example funding delayed two quarters}. Scenario 2: {change}.\nProject both against the baseline for the next four quarters. Show a table with the assumptions stated above each column. Show me the formula behind the {metric} figure so I can check it by hand. Label every projection \"scenario\", not forecast. Finish with one implication for my plan.",
-  "byPath": null,
-  "lenses": {
-   "fed": "Changes: a continuing resolution delays funding; the recompete moves earlier; the prime changes its teaming.",
-   "def": "Changes: a program phase shifts; a delivery partner role changes. Use only the synthetic dataset.",
-   "sled": "Changes: a grant arrives late; research demand doubles; the campus keeps part of the workload on premises.",
-   "partner": "Changes: the partner wins or loses an adjacent deal; the partner’s delivery capacity shifts; the customer changes the route to market."
-  },
-  "submission": "The comparison, assumptions, and one planning implication.",
-  "tip": "A scenario is not a forecast. If the word forecast appears in your table, change it.",
-  "skill": "Scenario analysis, data projections, and sensitivity to assumptions.",
-  "note": null
+  "mission": "Ask the agent how delayed funding, changing connectivity demand, or a different partner role would affect the strategy. Compare a baseline and two changes. Label all hypothetical inputs. If using numbers or projections, verify calculations in an approved spreadsheet and retain the assumptions.",
+  "skill": "Scenario reasoning and sensitivity to assumptions.",
+  "share": "A comparison table and one implication for the account plan."
  },
  {
   "id": "w4-thu",
@@ -1361,30 +997,11 @@ const ACTS = [
   "date": "2026-12-10",
   "dow": "THU",
   "fri": false,
-  "time": "20 min",
   "emoji": "🎤",
-  "title": "Enter the Customer and Partner Room",
-  "hook": "Three voices in the room, every hard question allowed.",
-  "mission": "Rehearse the strategy with AI playing a customer leader, technical stakeholder, and partner executive. Invite hard questions on value, delivery, cost, evidence, and responsibilities. Improve the weakest answer and make the proposed next decision explicit.",
-  "steps": [
-   "Give AI your plan and scenarios. Set up three voices: a customer leader, a technical stakeholder, a partner executive. (3 min)",
-   "Ask each voice for its two hardest questions on value, delivery, cost, evidence and responsibilities. Answer them out loud or in writing, briefly. (6 min)",
-   "Ask AI which of your answers was weakest and why. Do not argue; improve it. (4 min)",
-   "Rewrite the weakest answer. Then write the single decision you will ask for at the end of the review. (5 min)",
-   "Post your share: the hardest question and your improved answer. (2 min)"
-  ],
-  "prompt": "Plan: {paste}. Scenarios: {paste}.\nPlay three people in a business review: a {customer leader role}, a {technical role}, and a {partner executive role}. Each asks me their two hardest questions about value, delivery, cost, evidence and who is responsible for what. Ask one at a time and wait for my answer. After six questions, tell me which answer was weakest and why, and suggest how to make the next decision I am asking for explicit.",
-  "byPath": null,
-  "lenses": {
-   "fed": "Voices: an agency program director, the agency network architect, the prime’s capture lead. Expect a question about the recompete and about cost.",
-   "def": "Voices: a mission owner, an integrator engineer, a delivery partner lead. Expect a question about evidence you cannot share.",
-   "sled": "Voices: a provost or agency director, the campus network manager, a regional partner executive. Expect the on premises question.",
-   "partner": "Voices: the partner’s practice leader, their architect, and the end customer’s program lead. Expect a question about who owns the relationship."
-  },
-  "submission": "The hardest question and your improved answer.",
-  "tip": "If the improved answer is longer than the first one, it is probably not better. Make it clearer, not fuller.",
-  "skill": "Role play, executive communication, and revision.",
-  "note": null
+  "title": "Rehearse the Business Review",
+  "mission": "Ask the same agent to play a customer leader, technical stakeholder, and partner executive. Invite difficult questions on value, delivery, cost, evidence, and responsibilities. Improve the weakest response and sharpen the decision or commitment to seek.",
+  "skill": "Role play, challenge, and executive communication.",
+  "share": "The hardest question and your improved answer."
  },
  {
   "id": "w4-fri",
@@ -1392,170 +1009,14 @@ const ACTS = [
   "date": "2026-12-11",
   "dow": "FRI",
   "fri": true,
-  "time": "20 min",
   "emoji": "🏁",
-  "title": "The Forward Looking Business Review",
-  "hook": "What changed, why it matters, what next, and the decisions you need.",
-  "mission": "Assemble a concise review from the week’s work: what changed, why it matters, future priorities, scenario implications, and proposed next actions. Choose a customer QBR or partner business review for your role. End with the decisions and commitments to seek in the real conversation.",
-  "steps": [
-   "Choose the format for your role: a customer quarterly business review or a partner business review. Open the review template. (3 min)",
-   "Ask AI to assemble the review from the week: what changed, why it matters, future priorities, scenario implications, proposed next actions with owners. (6 min)",
-   "Write the closing slide yourself: the decisions and commitments you will seek in the real conversation. (4 min)",
-   "Read it as the customer or partner would. Cut anything that is a status update rather than a decision aid. Check the most important number once more. (5 min)",
-   "Post your share: the review and the decisions it is designed to support. (2 min)"
-  ],
-  "prompt": "Assemble a {customer QBR / partner business review} from my week: findings {paste}, plan {paste}, scenarios {paste}, rehearsal notes {paste}.\nStructure: what changed since last review, why it matters to the customer and partner, future priorities, scenario implications (labelled as scenarios), proposed next actions with owners and dates. Keep each section to five lines. Leave the final section, \"Decisions and commitments we seek\", for me to write, but suggest two candidates. Then tell me which slide a skeptical leader would stop on.",
-  "byPath": null,
-  "lenses": {
-   "fed": "A customer QBR for the agency program office, with the prime’s role explicit. The decision may be about recompete preparation steps.",
-   "def": "A review built on public context and the partner’s role, with evidence gaps stated plainly as items to discuss.",
-   "sled": "A customer QBR for the institution or agency, with the on premises alternative addressed and the funding timeline explicit.",
-   "partner": "A partner business review: joint priorities, shared actions, and the commitments you ask of each other."
-  },
-  "submission": "Your review and the decisions it is designed to support.",
-  "tip": "A review that ends without a decision to ask for is an update. End on the ask.",
-  "skill": "Combining evidence, strategy, and a clear business narrative.",
-  "note": null
+  "title": "Build the Forward Looking Business Review",
+  "mission": "Use the agent and the week’s work to assemble a concise customer QBR or partner business review. Cover what changed, why it matters, future priorities, scenario implications, and proposed actions. Format the reviewed content in a short document or existing review template.",
+  "skill": "Synthesis and a clear business recommendation.",
+  "share": "The review and the decisions it is designed to support."
  }
 ];
-const PATHS = [
- {
-  "id": "agent",
-  "name": "Agent",
-  "what": "A Copilot agent for recurring briefings and questions, grounded on an approved source pack."
- },
- {
-  "id": "app",
-  "name": "App",
-  "what": "A small app that guides a preparation workflow and organizes discovery inputs."
- },
- {
-  "id": "dashboard",
-  "name": "Dashboard",
-  "what": "A dashboard of account priorities, milestones, owners and actions."
- }
-];
-const MATERIALS = [
- {
-  "type": "Scenario",
-  "name": "Fictional scenario for each cohort context",
-  "meta": "Four short scenarios, one per cohort context",
-  "state": "In preparation",
-  "weeks": [
-   1,
-   2,
-   3,
-   4
-  ]
- },
- {
-  "type": "Sources",
-  "name": "Short source pack",
-  "meta": "Plan extract, funding note, news item, partner page, approved definitions",
-  "state": "In preparation",
-  "weeks": [
-   1,
-   2
-  ]
- },
- {
-  "type": "Sample brief",
-  "name": "Sample account preparation brief",
-  "meta": "For Reverse Engineer the Prompt",
-  "state": "In preparation",
-  "weeks": [
-   1
-  ]
- },
- {
-  "type": "Dataset",
-  "name": "Synthetic account dataset",
-  "meta": "Milestones, owners, actions",
-  "state": "In preparation",
-  "weeks": [
-   3,
-   4
-  ]
- },
- {
-  "type": "Starters",
-  "name": "Starter templates for the three build paths",
-  "meta": "Agent instructions, app skeleton, dashboard workbook",
-  "state": "In preparation",
-  "weeks": [
-   3
-  ]
- },
- {
-  "type": "Test pack",
-  "name": "Synthetic update pack",
-  "meta": "A stale date, a conflicting statement, a missing owner",
-  "state": "In preparation",
-  "weeks": [
-   3
-  ]
- },
- {
-  "type": "Templates",
-  "name": "Account plan and review template",
-  "meta": "Compact plan and QBR or partner review layout",
-  "state": "In preparation",
-  "weeks": [
-   4
-  ]
- },
- {
-  "type": "Access",
-  "name": "Tool access confirmed before the build week",
-  "meta": "Copilot agents and approved environments",
-  "state": "In preparation",
-  "weeks": [
-   3
-  ]
- }
-];
-const DATES = [
- {
-  "date": "2026-11-09",
-  "label": "Program starts",
-  "detail": "Week 1, Rethink AI. Day 1: The Challenger."
- },
- {
-  "date": "2026-11-11",
-  "label": "Veterans Day",
-  "detail": "Where observed, move the exercise to another slot in the week."
- },
- {
-  "date": "2026-11-13",
-  "label": "Week 1 closes",
-  "detail": "The Situation Room. Coaching this week: when AI pushback is useful."
- },
- {
-  "date": "2026-11-20",
-  "label": "Week 2 closes",
-  "detail": "The Intelligence Brief. Save the brief and sources for Week 3."
- },
- {
-  "date": "2026-11-23",
-  "label": "Thanksgiving break",
-  "detail": "November 23 to 27. No scheduled activities or coaching."
- },
- {
-  "date": "2026-11-30",
-  "label": "Program resumes",
-  "detail": "Week 3, Create Your AI Solution. Choose your build path."
- },
- {
-  "date": "2026-12-04",
-  "label": "Week 3 closes",
-  "detail": "Make It Usable by a Colleague. Demonstrations shared."
- },
- {
-  "date": "2026-12-11",
-  "label": "Program closes",
-  "detail": "The Forward Looking Business Review."
- }
-];
+const PACK = ["Account context", "Source register", "Source material (three to five sources)", "Findings and partner context", "Gaps and contradictions", "One page account brief", "Five agent test questions"];
 /* Set to the cohort's Viva Engage group embed URL when the community exists. */
 const ENGAGE_EMBED = null;
 const ENGAGE_URL = 'https://engage.cloud.microsoft/';
@@ -1570,7 +1031,6 @@ const TODAY = (() => {
 
 /* ══ STATE (remembered in this browser) ══ */
 const store = { get(k, f) { try { const v = localStorage.getItem(k); return v === null ? f : JSON.parse(v); } catch (e) { return f; } }, set(k, v) { try { localStorage.setItem(k, JSON.stringify(v)); } catch (e) {} } };
-let lens = store.get('ps-lens', null); if (!AUD.some(a => a.id === lens)) lens = null;
 const done = new Set(store.get('ps-done', []));
 const activeDay = { 1: 0, 2: 0, 3: 0, 4: 0 };
 
@@ -1591,10 +1051,10 @@ function renderTodayPill() {
   const next = ACTS.find(a => a.date > TODAY);
   const inBreak = TODAY >= '2026-11-23' && TODAY <= '2026-11-27';
   let tag, text, go, target;
-  if (todayAct) { tag = `Today · Day ${dayNum(todayAct)} of 20`; text = `<b>${esc(todayAct.title)}</b> · ${esc(todayAct.hook)}`; go = 'Open today ↗'; target = todayAct; }
+  if (todayAct) { tag = `Today · Day ${dayNum(todayAct)} of 20`; text = `<b>${esc(todayAct.title)}</b> · ${esc(todayAct.skill)}`; go = 'Open today ↗'; target = todayAct; }
   else if (inBreak && next) { tag = 'Thanksgiving week'; text = `No activities this week. Back <b>${esc(fmtLong(next.date))}</b> with ${esc(next.title)}.`; go = 'Preview Week 3 ↗'; target = next; }
-  else if (TODAY < ACTS[0].date) { const d = daysBetween(TODAY, ACTS[0].date); tag = `Starts in ${d} day${d === 1 ? '' : 's'}`; text = `Day 1 is <b>${esc(ACTS[0].title)}</b> · ${esc(ACTS[0].hook)}`; go = 'Preview Day 1 ↗'; target = ACTS[0]; }
-  else if (next) { tag = `Next · ${esc(fmtShort(next.date))}`; text = `<b>${esc(next.title)}</b> · ${esc(next.hook)}`; go = 'Preview ↗'; target = next; }
+  else if (TODAY < ACTS[0].date) { const d = daysBetween(TODAY, ACTS[0].date); tag = `Starts in ${d} day${d === 1 ? '' : 's'}`; text = `Day 1 is <b>${esc(ACTS[0].title)}</b> · ${esc(ACTS[0].skill)}`; go = 'Preview Day 1 ↗'; target = ACTS[0]; }
+  else if (next) { tag = `Next · ${esc(fmtShort(next.date))}`; text = `<b>${esc(next.title)}</b> · ${esc(next.skill)}`; go = 'Preview ↗'; target = next; }
   else { tag = 'Program complete'; text = `Twenty activities done. The guides stay here for reuse.`; go = 'Browse ↗'; target = ACTS[ACTS.length - 1]; }
   el.innerHTML = `<span class="tp-tag"><span class="eyebrow-dot"></span>${tag}</span><span>${text}</span><span class="tp-go">${go}</span>`;
   el.onclick = (e) => { e.preventDefault(); openActivity(target.id); };
@@ -1616,9 +1076,12 @@ function tickers() {
 
 
 /* ══ WEEK TABS + PANELS ══ */
-function lensHtml(a) {
-  if (lens) { const au = AUD.find(x => x.id === lens); return `<div class="sec lens"><h4>Your lens · ${esc(au.short)}</h4><p class="lens-text">${esc(a.lenses[lens])}</p></div>`; }
-  return `<div class="sec lens"><h4>Your lens · pick a context above</h4><p class="lens-text">${AUD.map(x => `<b>${esc(x.short)}:</b> ${esc(a.lenses[x.id])}`).join('<br>')}</p></div>`;
+const ytAt = (v, t) => `https://www.youtube.com/watch?v=${v.youtubeId}&t=${t}s`;
+const mmss = t => `${Math.floor(t / 60)}:${String(t % 60).padStart(2, '0')}`;
+function watchHtml(a, w) {
+  if (!a.watch) return '';
+  const clips = a.watch.clips.map(c => { const v = w.videos.find(x => x.key === c.v); const text = `${c.v} · ${mmss(c.start)} to ${mmss(c.end)}`; return v && v.youtubeId ? `<a class="clip" href="${ytAt(v, c.start)}" target="_blank" rel="noopener">▶ ${text}</a>` : `<span class="clip pending">▶ ${text} · link coming</span>`; }).join('');
+  return `<div class="sec watch-sec"><h4>Watch first <span class="n">${esc(a.watch.note)}</span></h4><div class="clips">${clips}</div></div>`;
 }
 function cardHtml(a, w, idx) {
   const accent = accentHex(w.accent);
@@ -1627,8 +1090,6 @@ function cardHtml(a, w, idx) {
   const today = a.date === TODAY;
   const chip = `${a.dow} · ${w.days[idx]}${today ? '<span class="today-tag">· TODAY</span>' : ''}`;
   const badge = a.fri ? '<span class="req-mand">Week synthesis</span>' : `<span class="req-opt">Day ${dayNum(a)} of 20</span>`;
-  const paths = a.byPath ? `<div class="sec"><h4>By build path</h4><ul class="j-list">${PATHS.map(p => `<li><b>${esc(p.name)}:</b> ${esc(a.byPath[p.id])}</li>`).join('')}</ul></div>` : '';
-  const steps = a.steps.map(s => { const m = s.match(/^(.*) \((\d+) min\)$/); return `<li>${esc(m ? m[1] : s)}${m ? `<em>${m[2]} min</em>` : ''}</li>`; }).join('');
   const isDone = done.has(a.id);
   return `<article class="xcard${a.fri ? ' fri' : ''}${today ? ' today' : ''}" id="card-${a.id}" data-active="${idx === activeDay[w.num] ? 'true' : 'false'}" data-week="${w.num}" data-idx="${idx}" style="--i:${idx}" tabindex="0" role="button" aria-expanded="${idx === activeDay[w.num]}" aria-label="${esc(a.title)}, ${esc(fmtLong(a.date))}">
     <div class="abar" style="background:${bar}"></div>
@@ -1639,9 +1100,8 @@ function cardHtml(a, w, idx) {
     </div>
     <div class="x-open">
       <div class="x-head">
-        <div class="x-top"><span class="day-chip" style="${chipStyle}">${a.fri ? '🔴 ' : ''}${chip}</span>${badge}<span class="x-time">${a.time}</span></div>
-        <div class="x-title-row"><span class="x-emoji">${a.emoji}</span><div><div class="x-title">${esc(a.title)}</div><div class="x-hook">${esc(a.hook)}</div></div></div>
-        <div class="x-skill"><b>AI skill</b>${esc(a.skill.replace(/\.$/, ''))}</div>
+        <div class="x-top"><span class="day-chip" style="${chipStyle}">${a.fri ? '🔴 ' : ''}${chip}</span>${badge}<span class="x-time">15–20 min</span></div>
+        <div class="x-title-row"><span class="x-emoji">${a.emoji}</span><div><div class="x-title">${esc(a.title)}</div></div></div>
         <div class="x-actions">
           <button type="button" class="xbtn${isDone ? ' on' : ''}" data-done="${a.id}" onclick="event.stopPropagation();toggleDone('${a.id}', this)">${isDone ? '✓ Done' : 'Mark done'}</button>
           <button type="button" class="xbtn" onclick="event.stopPropagation();copyLink('${a.id}', this)">Link</button>
@@ -1649,29 +1109,26 @@ function cardHtml(a, w, idx) {
       </div>
       <div class="x-body" onclick="event.stopPropagation()">
         <div class="x-col">
-          <div class="sec"><h4>Mission</h4><p>${esc(a.mission)}</p>${a.note ? `<p style="margin-top:6px;color:var(--muted)">${esc(a.note)}</p>` : ''}</div>
-          <div class="sec"><h4>Steps <span class="n">${a.time}</span></h4><ol class="s-list">${steps}</ol></div>
-          ${paths}
+          <div class="sec"><h4>Mission</h4><p class="mission">${esc(a.mission)}</p></div>
         </div>
         <div class="x-col">
-          <div class="sec"><h4>Starter prompt</h4><pre class="prompt">${mark(a.prompt)}</pre><button type="button" class="copy-btn" data-copy="${a.id}" onclick="copyPrompt(this)">Copy prompt</button></div>
-          ${lensHtml(a)}
-          <div class="sec"><h4>Your share</h4><p>${esc(a.submission)} Post in the channel.</p></div>
-          <div class="sec tip"><h4>💡 Check before you post</h4><p>${esc(a.tip)}</p></div>
+          ${watchHtml(a, w)}
+          <div class="sec"><h4>AI skill</h4><p>${esc(a.skill)}</p></div>
+          <div class="sec tip"><h4>Keep and share</h4><p>${esc(a.share)} Post in the channel.</p></div>
         </div>
       </div>
     </div>
   </article>`;
 }
-function videoHtml(v, w) {
-  const inner = `<div class="v-play">▶</div><div><div class="v-title">${esc(v.title)}</div><div class="v-about">${esc(v.about)}</div><div class="v-meta">${v.minutes} min · ${v.youtubeId ? 'YouTube ↗' : `<span class="pend">Link coming before Week ${w.num}</span>`}</div></div>`;
+function videoHtml(v) {
+  const inner = `<div class="v-play">▶</div><div><div class="v-title">${esc(v.key)} · ${esc(v.title)}</div><div class="v-about">${esc(v.about)}</div><div class="v-meta">${esc(v.by)} · ${v.youtubeId ? 'YouTube ↗' : '<span class="pend">Link coming</span>'}</div></div>`;
   return v.youtubeId ? `<a class="vcard spot" href="https://www.youtube.com/watch?v=${esc(v.youtubeId)}" target="_blank" rel="noopener">${inner}</a>` : `<div class="vcard spot pending">${inner}</div>`;
 }
 function gridColumns(w) { return [0,1,2,3,4].map(i => i === activeDay[w] ? '6fr' : '1fr').join(' '); }
 function weekPanel(w, i) {
   const acts = ACTS.filter(a => a.week === w.num);
-  const paths = w.num === 3 ? `<div class="paths">${PATHS.map(p => `<div class="path spot"><b>${esc(p.name)}</b><p>${esc(p.what)}</p></div>`).join('')}</div>` : '';
-  const brk = w.num === 3 ? `<div class="break-band">🦃 <span><b>Thanksgiving week, Nov 23–27:</b> no activities or coaching. Bring your Week 2 brief and source list back on Monday, November 30.</span></div>` : '';
+  const paths = w.num === 3 ? `<div class="pack"><div><b>Build environment:</b> ${esc(w.build)}</div><div class="pack-row"><span class="pack-label">Build on the pack</span>${PACK.map(x => `<span class="tl-chip">${esc(x)}</span>`).join('')}</div></div>` : '';
+  const brk = w.num === 3 ? `<div class="break-band">🦃 <span><b>Thanksgiving pause, Nov 23–27:</b> no scheduled activities or coaching. Keep the pack in its approved location, ready for the Monday, November 30 restart.</span></div>` : '';
   return `<section class="panel${i===0?' active':''}" id="panel-${w.num}">
     <div class="week-head">
       <div class="week-ghost">W${w.num}</div>
@@ -1686,7 +1143,7 @@ function weekPanel(w, i) {
       <span class="x-hint">← → keys move between days</span>
       <button type="button" class="navbtn" onclick="stepDay(${w.num},1)" id="next-${w.num}">Next day →</button>
     </div>
-    <div class="watch"><h3>Watch this week · Copilot agents</h3><div class="watch-grid">${w.videos.map(v => videoHtml(v, w)).join('')}</div></div>
+    ${w.videos.length ? `<div class="watch"><h3>Short videos for Week 3 · chapters are assigned on each day</h3><div class="watch-grid two">${w.videos.map(videoHtml).join('')}</div></div>` : ''}
     <div class="guard" style="margin-top:14px"><b>Coaching focus:</b> ${esc(w.coaching)}${w.note ? ` &nbsp;·&nbsp; <b>Note:</b> ${esc(w.note)}` : ''}</div>
   </section>`;
 }
@@ -1714,9 +1171,6 @@ function renderTabs() {
 function renderPanels() {
   document.getElementById('panels').innerHTML = WEEKS.map(weekPanel).join('') + channelPanel();
   bindSpotlights();
-}
-function renderLensBar() {
-  document.getElementById('lens-bar').innerHTML = '<span class="lb-label">Your context</span>' + AUD.map(a => `<button class="ltab${lens === a.id ? ' on' : ''}" onclick="setLens('${a.id}')">${esc(a.short)}</button>`).join('');
 }
 
 /* ══ DAY SELECTION (expanding cards) ══ */
@@ -1755,11 +1209,6 @@ function openActivity(id) {
 }
 
 /* ══ CONTEXT, DONE, COPY ══ */
-function setLens(id) {
-  lens = lens === id ? null : id; store.set('ps-lens', lens);
-  renderLensBar();
-  ACTS.forEach(a => { const old = document.querySelector(`#card-${a.id} .sec.lens`); if (old) old.outerHTML = lensHtml(a); });
-}
 function toggleDone(id, btn) {
   if (done.has(id)) done.delete(id); else done.add(id);
   store.set('ps-done', [...done]);
@@ -1777,7 +1226,6 @@ async function copyText(text, btn, label) {
   try { await navigator.clipboard.writeText(text); const t = btn.textContent; btn.classList.add('copied'); btn.textContent = label; setTimeout(() => { btn.classList.remove('copied'); btn.textContent = t; }, 1600); }
   catch (e) { btn.textContent = 'Select and copy'; }
 }
-function copyPrompt(btn) { const a = ACTS.find(x => x.id === btn.dataset.copy); copyText(a.prompt, btn, 'Copied').then(() => { btn.classList.add('done'); setTimeout(() => btn.classList.remove('done'), 1600); }); }
 function copyLink(id, btn) { copyText(`${location.href.split('#')[0]}#/day/${id}`, btn, 'Copied'); }
 
 /* ══ WEEK SWITCH (from the Channel Sales page) ══ */
@@ -1807,7 +1255,7 @@ function bindSpotlights() {
 }
 
 /* ══ BOOT ══ */
-renderTodayPill(); tickers(); renderLensBar(); renderTabs(); renderPanels();
+renderTodayPill(); tickers(); renderTabs(); renderPanels();
 (function () {
   const todayAct = ACTS.find(a => a.date === TODAY);
   const cur = WEEKS.find(w => TODAY >= w.dates_iso[0] && TODAY <= w.dates_iso[4]) || WEEKS.find(w => TODAY < w.dates_iso[0]);
