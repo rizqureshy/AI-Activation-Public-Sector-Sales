@@ -27,7 +27,9 @@ Day cards carry their day number rather than an icon.
   tutorials, and each day's video chapter. Chapters and tutorials play inside
   the page (YouTube's no-cookie embed), a chapter from its start to its end time.
 - **Audio briefs.** A one minute "how the program works" brief in the program
-  band, and a short spoken brief on every day card: what to do, in an easy
+  band, a thirty second "what this week is about" brief in each week header
+  (what you'll learn to do and the Monday to Friday flow), and a short spoken
+  brief on every day card: what to do, in an easy
   going voice, with one example. Generated with ElevenLabs (voice: Kristen,
   model eleven_v4); the files are in `audio/`, the scripts in
   `audio/scripts.json`. One brief plays at a time; the button shows progress

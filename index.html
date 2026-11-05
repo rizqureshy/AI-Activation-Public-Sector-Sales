@@ -154,6 +154,8 @@ h1.hero-title span { font-weight:600; background:linear-gradient(90deg, #ffd3d5 
 
 .week-head { display:flex; align-items:center; gap:18px; margin-bottom:16px; flex-wrap:wrap; }
 .week-ghost { font-size:48px; font-weight:700; letter-spacing:-.04em; line-height:1; flex-shrink:0; font-variant-numeric:tabular-nums; background:linear-gradient(180deg, var(--blue-2), var(--navy)); -webkit-background-clip:text; background-clip:text; -webkit-text-fill-color:transparent; }
+.week-brief { flex-basis:100%; margin-top:2px; }
+.brief-btn--week { margin-top:4px; }
 .week-head { padding:18px 22px; border-radius:12px; background:linear-gradient(100deg, rgba(31,78,156,.10), rgba(233,28,36,.06) 70%, transparent); border:1px solid rgba(31,78,156,.12); }
 .week-meta h2 { font-size:clamp(20px,2.4vw,26px); font-weight:700; letter-spacing:-.02em; line-height:1.15; }
 .week-dates { font-size:11px; font-weight:600; letter-spacing:1.2px; text-transform:uppercase; color:var(--muted); margin-top:4px; }
@@ -406,6 +408,7 @@ footer b { color:var(--text-2); font-weight:600; }
 const WEEKS = [
  {
   "num": 1,
+  "brief_secs": 30.9,
   "name": "Rethink AI",
   "short": "Rethink AI",
   "dates": "Nov 9–13",
@@ -432,6 +435,7 @@ const WEEKS = [
  },
  {
   "num": 2,
+  "brief_secs": 31.6,
   "name": "Customer and Partner Intelligence",
   "short": "Customer and Partner Intelligence",
   "dates": "Nov 16–20",
@@ -458,6 +462,7 @@ const WEEKS = [
  },
  {
   "num": 3,
+  "brief_secs": 30.7,
   "name": "Create Your AI Agent",
   "short": "Create Your AI Agent",
   "dates": "Nov 30–Dec 4",
@@ -500,6 +505,7 @@ const WEEKS = [
  },
  {
   "num": 4,
+  "brief_secs": 31.9,
   "name": "Account Strategy and Business Reviews",
   "short": "Account Strategy and Business Reviews",
   "dates": "Dec 7–11",
@@ -1001,6 +1007,10 @@ function weekPanel(w, i) {
       <div class="week-ghost">${String(w.num).padStart(2, '0')}</div>
       <div class="week-meta"><h2>${esc(w.name)}</h2><div class="week-dates">${esc(w.dates)} · ${esc(w.check)}</div></div>
       <p class="week-intro">${esc(w.intro)}</p>
+      <div class="week-brief">
+        <button type="button" class="brief-btn brief-btn--week" id="brief-week${w.num}" onclick="toggleBrief('week${w.num}', this)"><span class="bb-ic"></span><span class="bb-text"><b>Listen: what this week is about</b><span class="bb-sub">What you will learn, Monday to Friday</span></span><span class="bb-time">${w.brief_secs ? mmss(Math.round(w.brief_secs)) : ''}</span></button>
+        <audio id="audio-week${w.num}" preload="none" src="audio/week${w.num}.mp3"></audio>
+      </div>
     </div>
     ${brk}${paths}
     <div class="wk-progress" id="wkp-${w.num}" aria-hidden="true">${acts.map((a, j) => `<span class="${a.date === TODAY ? 'today' : a.date < TODAY ? 'past' : ''}"></span>`).join('')}</div>
@@ -1096,6 +1106,7 @@ function toggleBrief(id, btn) {
 function syncBrief(audio) {
   const btn = document.getElementById(audio.id.replace('audio-', 'brief-')) || (audio.id === 'audio-welcome' ? document.getElementById('welcome-brief') : null);
   if (!btn) return;
+  if (!btn) return;
   btn.classList.toggle('playing', !audio.paused && !audio.ended);
   const p = audio.duration ? (audio.currentTime / audio.duration) * 100 : 0;
   btn.style.setProperty('--p', p + '%');
@@ -1115,6 +1126,7 @@ function setWeek(n) {
   const current = document.querySelector('.panel.active');
   if (switching || current === next) return;
   currentWeek = n;
+  document.querySelectorAll('.week-brief audio').forEach(au => { if (!au.paused) { au.pause(); au.currentTime = 0; syncBrief(au); } });
   document.querySelectorAll('.wtab').forEach(b => b.classList.remove('on'));
   document.getElementById('wtab-' + n).classList.add('on');
   const reduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
