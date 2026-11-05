@@ -20,8 +20,8 @@ Degrades gracefully without WebGL2.
   previous/next buttons, or ← → keys. Mark a day done; the spine, the dots and
   the week tab keep count. Every day has a link (`#/day/<id>`). Week 3 shows
   the build environment, the Customer Source Pack components, the two assigned
-  tutorials, and each day's video chapter as a link that opens at the right
-  time.
+  tutorials, and each day's video chapter. Chapters and tutorials play inside
+  the page (YouTube's no-cookie embed), a chapter from its start to its end time.
 - **Submission Channel** tab for Viva Engage.
 
 The page is deliberately lean: the hero, then the weeks and the daily

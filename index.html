@@ -356,7 +356,8 @@ footer b { color:var(--text); }
 
 /* ── EXPANDING DAY CARDS ── one day open wide, the other four as slim spines */
 .xgrid {
-  display:grid; grid-template-columns:repeat(5,1fr); gap:10px; height:470px;
+  display:grid; grid-template-columns:repeat(5,1fr); gap:10px; height:380px;
+  transition:grid-template-columns .55s cubic-bezier(.22,.9,.3,1), height .4s cubic-bezier(.22,.9,.3,1);
   transition:grid-template-columns .55s cubic-bezier(.22,.9,.3,1);
 }
 .xcard {
@@ -386,8 +387,8 @@ footer b { color:var(--text); }
 .x-spine .day-chip { font-size:9.5px; }
 .x-spine .x-vert {
   writing-mode:vertical-rl; transform:rotate(180deg);
-  font-size:14px; font-weight:700; letter-spacing:-.01em; line-height:1.2; color:var(--text);
-  max-height:250px; overflow:hidden; margin:12px 0;
+  font-size:13.5px; font-weight:700; letter-spacing:-.01em; line-height:1.2; color:var(--text);
+  max-height:190px; overflow:hidden; margin:12px 0;
 }
 .x-spine .x-emoji { font-size:28px; line-height:1; }
 .x-spine .x-daynum { font-size:9.5px; font-weight:600; letter-spacing:1.2px; text-transform:uppercase; color:var(--muted); }
@@ -469,6 +470,18 @@ a.clip:hover { background:rgba(255,255,255,.16); }
 .pack-label { font-size:9.5px; font-weight:600; letter-spacing:1.5px; text-transform:uppercase; color:var(--muted); margin-right:4px; }
 .tl-chip { font-size:11px; color:var(--text); background:var(--tint); border:1px solid var(--border); border-radius:100px; padding:5px 11px; }
 .watch-grid.two { grid-template-columns:repeat(2,1fr); }
+.xgrid.playing { height:640px; }
+.player { position:relative; grid-column:1 / -1; aspect-ratio:16 / 9; width:100%; border-radius:12px; overflow:hidden; background:#000; border:1px solid var(--border2); margin-bottom:14px; }
+.player iframe { position:absolute; inset:0; width:100%; height:100%; border:0; }
+.player-close { position:absolute; top:8px; right:8px; z-index:2; width:30px; height:30px; border-radius:50%; border:1px solid rgba(255,255,255,.35); background:rgba(0,0,0,.6); color:#fff; font-size:13px; cursor:pointer; display:grid; place-items:center; }
+.player-close:hover { background:rgba(0,0,0,.85); }
+.player-cap { position:absolute; left:10px; bottom:8px; z-index:2; font-size:10px; font-weight:600; letter-spacing:1px; text-transform:uppercase; color:rgba(255,255,255,.85); background:rgba(0,0,0,.55); border-radius:100px; padding:4px 10px; pointer-events:none; }
+.watch .player { margin:12px 0 0; max-width:960px; }
+.vcard { cursor:pointer; font-family:var(--sans); text-align:left; width:100%; }
+button.vcard:hover { border-color:var(--border2); transform:translateY(-2px); }
+.vcard.playing { border-color:var(--accent); }
+.clip { cursor:pointer; font-family:var(--sans); }
+.clip.on { background:#f5f5f7; color:#0b0b0d; border-color:#f5f5f7; }
 /* day navigation under the grid */
 .x-nav { display:flex; align-items:center; gap:10px; margin-top:14px; }
 .x-nav .dots { display:flex; gap:6px; margin:0 auto; }
@@ -482,7 +495,8 @@ a.clip:hover { background:rgba(255,255,255,.16); }
 
 @media (max-width:1120px) {
   .x-body { grid-template-columns:1fr; }
-  .xgrid { height:560px; }
+  .xgrid { height:470px; }
+  .xgrid.playing { height:760px; }
 }
 @media (max-width:900px) {
   .xgrid { display:flex; flex-direction:column; height:auto; gap:10px; }
@@ -1080,7 +1094,7 @@ const ytAt = (v, t) => `https://www.youtube.com/watch?v=${v.youtubeId}&t=${t}s`;
 const mmss = t => `${Math.floor(t / 60)}:${String(t % 60).padStart(2, '0')}`;
 function watchHtml(a, w) {
   if (!a.watch) return '';
-  const clips = a.watch.clips.map(c => { const v = w.videos.find(x => x.key === c.v); const text = `${c.v} · ${mmss(c.start)} to ${mmss(c.end)}`; return v && v.youtubeId ? `<a class="clip" href="${ytAt(v, c.start)}" target="_blank" rel="noopener">▶ ${text}</a>` : `<span class="clip pending">▶ ${text} · link coming</span>`; }).join('');
+  const clips = a.watch.clips.map(c => { const v = w.videos.find(x => x.key === c.v); const text = `${c.v} · ${mmss(c.start)} to ${mmss(c.end)}`; return v && v.youtubeId ? `<button type="button" class="clip" onclick="playClip('${a.id}','${c.v}',${c.start},${c.end},this)">▶ ${text}</button>` : `<span class="clip pending">▶ ${text} · link coming</span>`; }).join('');
   return `<div class="sec watch-sec"><h4>Watch first <span class="n">${esc(a.watch.note)}</span></h4><div class="clips">${clips}</div></div>`;
 }
 function cardHtml(a, w, idx) {
@@ -1120,9 +1134,37 @@ function cardHtml(a, w, idx) {
     </div>
   </article>`;
 }
-function videoHtml(v) {
-  const inner = `<div class="v-play">▶</div><div><div class="v-title">${esc(v.key)} · ${esc(v.title)}</div><div class="v-about">${esc(v.about)}</div><div class="v-meta">${esc(v.by)} · ${v.youtubeId ? 'YouTube ↗' : '<span class="pend">Link coming</span>'}</div></div>`;
-  return v.youtubeId ? `<a class="vcard spot" href="https://www.youtube.com/watch?v=${esc(v.youtubeId)}" target="_blank" rel="noopener">${inner}</a>` : `<div class="vcard spot pending">${inner}</div>`;
+function videoHtml(v, w) {
+  const inner = `<div class="v-play">▶</div><div><div class="v-title">${esc(v.key)} · ${esc(v.title)}</div><div class="v-about">${esc(v.about)}</div><div class="v-meta">${esc(v.by)} · ${v.youtubeId ? 'Play here' : '<span class="pend">Link coming</span>'}</div></div>`;
+  return v.youtubeId ? `<button type="button" class="vcard spot" id="vcard-${w.num}-${v.key}" onclick="playVideo(${w.num},'${v.key}')">${inner}</button>` : `<div class="vcard spot pending">${inner}</div>`;
+}
+const embedUrl = (id, start, end) => `https://www.youtube-nocookie.com/embed/${id}?autoplay=1&rel=0&modestbranding=1&playsinline=1${start ? `&start=${start}` : ''}${end ? `&end=${end}` : ''}`;
+function playerHtml(v, start, end, cap) {
+  return `<div class="player"><iframe src="${embedUrl(v.youtubeId, start, end)}" title="${esc(v.title)}" allow="autoplay; encrypted-media; picture-in-picture" allowfullscreen></iframe><span class="player-cap">${esc(cap)}</span><button type="button" class="player-close" aria-label="Close video" onclick="closePlayer(this)">✕</button></div>`;
+}
+/* play an assigned chapter inside the open day card, from its start to its end time */
+function playClip(actId, key, start, end, btn) {
+  const a = ACTS.find(x => x.id === actId); const w = WEEKS.find(x => x.num === a.week); const v = w.videos.find(x => x.key === key);
+  const body = document.querySelector(`#card-${actId} .x-body`);
+  body.querySelectorAll('.player').forEach(p => p.remove());
+  body.insertAdjacentHTML('afterbegin', playerHtml(v, start, end, `${key} · ${mmss(start)} to ${mmss(end)}`));
+  body.querySelectorAll('.clip').forEach(c => c.classList.toggle('on', c === btn));
+  document.getElementById('xgrid-' + a.week).classList.add('playing');
+  body.scrollTop = 0;
+}
+/* play a full tutorial under the Week 3 video row */
+function playVideo(wn, key) {
+  const w = WEEKS.find(x => x.num === wn); const v = w.videos.find(x => x.key === key);
+  const watch = document.querySelector(`#panel-${wn} .watch`);
+  watch.querySelectorAll('.player').forEach(p => p.remove());
+  watch.querySelectorAll('.vcard').forEach(c => c.classList.toggle('playing', c.id === `vcard-${wn}-${key}`));
+  watch.insertAdjacentHTML('beforeend', playerHtml(v, 0, 0, `${key} · full video`));
+}
+function closePlayer(btn) {
+  const player = btn.closest('.player'); const grid = player.closest('.xgrid'); const watch = player.closest('.watch');
+  player.remove();
+  if (grid && !grid.querySelector('.player')) { grid.classList.remove('playing'); grid.querySelectorAll('.clip.on').forEach(c => c.classList.remove('on')); }
+  if (watch) watch.querySelectorAll('.vcard.playing').forEach(c => c.classList.remove('playing'));
 }
 function gridColumns(w) { return [0,1,2,3,4].map(i => i === activeDay[w] ? '6fr' : '1fr').join(' '); }
 function weekPanel(w, i) {
@@ -1143,7 +1185,7 @@ function weekPanel(w, i) {
       <span class="x-hint">← → keys move between days</span>
       <button type="button" class="navbtn" onclick="stepDay(${w.num},1)" id="next-${w.num}">Next day →</button>
     </div>
-    ${w.videos.length ? `<div class="watch"><h3>Short videos for Week 3 · chapters are assigned on each day</h3><div class="watch-grid two">${w.videos.map(videoHtml).join('')}</div></div>` : ''}
+    ${w.videos.length ? `<div class="watch"><h3>Short videos for Week 3 · chapters are assigned on each day</h3><div class="watch-grid two">${w.videos.map(v => videoHtml(v, w)).join('')}</div></div>` : ''}
     <div class="guard" style="margin-top:14px"><b>Coaching focus:</b> ${esc(w.coaching)}${w.note ? ` &nbsp;·&nbsp; <b>Note:</b> ${esc(w.note)}` : ''}</div>
   </section>`;
 }
@@ -1179,6 +1221,7 @@ function setDay(w, idx) {
   const grid = document.getElementById('xgrid-' + w);
   if (!grid) return;
   grid.style.gridTemplateColumns = gridColumns(w);
+  grid.querySelectorAll('.player').forEach(p => p.remove()); grid.classList.remove('playing'); grid.querySelectorAll('.clip.on').forEach(c => c.classList.remove('on'));
   [...grid.children].forEach((c, j) => { c.dataset.active = String(j === activeDay[w]); c.setAttribute('aria-expanded', String(j === activeDay[w])); if (j === activeDay[w]) { const b = c.querySelector('.x-body'); if (b) b.scrollTop = 0; } });
   document.querySelectorAll(`#dots-${w} .dot`).forEach((d, j) => d.classList.toggle('on', j === activeDay[w]));
   document.getElementById('prev-' + w).disabled = activeDay[w] === 0;
