@@ -408,7 +408,7 @@ footer b { color:var(--text-2); font-weight:600; }
 const WEEKS = [
  {
   "num": 1,
-  "brief_secs": 30.9,
+  "brief_secs": 26.8,
   "name": "Rethink AI",
   "short": "Rethink AI",
   "dates": "Nov 9–13",
@@ -435,7 +435,7 @@ const WEEKS = [
  },
  {
   "num": 2,
-  "brief_secs": 31.6,
+  "brief_secs": 28.3,
   "name": "Customer and Partner Intelligence",
   "short": "Customer and Partner Intelligence",
   "dates": "Nov 16–20",
@@ -462,7 +462,7 @@ const WEEKS = [
  },
  {
   "num": 3,
-  "brief_secs": 30.7,
+  "brief_secs": 29.7,
   "name": "Create Your AI Agent",
   "short": "Create Your AI Agent",
   "dates": "Nov 30–Dec 4",
@@ -505,7 +505,7 @@ const WEEKS = [
  },
  {
   "num": 4,
-  "brief_secs": 31.9,
+  "brief_secs": 30.4,
   "name": "Account Strategy and Business Reviews",
   "short": "Account Strategy and Business Reviews",
   "dates": "Dec 7–11",
@@ -1008,7 +1008,7 @@ function weekPanel(w, i) {
       <div class="week-meta"><h2>${esc(w.name)}</h2><div class="week-dates">${esc(w.dates)} · ${esc(w.check)}</div></div>
       <p class="week-intro">${esc(w.intro)}</p>
       <div class="week-brief">
-        <button type="button" class="brief-btn brief-btn--week" id="brief-week${w.num}" onclick="toggleBrief('week${w.num}', this)"><span class="bb-ic"></span><span class="bb-text"><b>Listen: what this week is about</b><span class="bb-sub">What you will learn, Monday to Friday</span></span><span class="bb-time">${w.brief_secs ? mmss(Math.round(w.brief_secs)) : ''}</span></button>
+        <button type="button" class="brief-btn brief-btn--week" id="brief-week${w.num}" onclick="toggleBrief('week${w.num}', this)"><span class="bb-ic"></span><span class="bb-text"><b>Listen: this week's focus</b><span class="bb-sub">What you will learn, from your coach</span></span><span class="bb-time">${w.brief_secs ? mmss(Math.round(w.brief_secs)) : ''}</span></button>
         <audio id="audio-week${w.num}" preload="none" src="audio/week${w.num}.mp3"></audio>
       </div>
     </div>
