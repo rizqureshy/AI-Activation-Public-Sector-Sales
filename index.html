@@ -142,7 +142,7 @@ h1.hero-title span { font-weight:600; background:linear-gradient(90deg, #ffd3d5 
 .tl-chip { font-size:12px; color:var(--text); background:var(--surface-2); border:1px solid var(--line); border-radius:100px; padding:5px 11px; }
 
 /* ── EXPANDING DAY CARDS ── */
-.xgrid { display:grid; grid-template-columns:repeat(5,1fr); gap:10px; height:420px; transition:grid-template-columns .5s cubic-bezier(.22,.9,.3,1), height .35s cubic-bezier(.22,.9,.3,1); }
+.xgrid { display:grid; grid-template-columns:repeat(5,1fr); gap:10px; height:470px; transition:grid-template-columns .5s cubic-bezier(.22,.9,.3,1), height .35s cubic-bezier(.22,.9,.3,1); }
 .xgrid.playing { height:640px; }
 .xcard { position:relative; min-width:0; min-height:0; overflow:hidden; border-radius:var(--r); border:1px solid var(--line); background:var(--surface); cursor:pointer; box-shadow:var(--shadow); transition:border-color .2s, box-shadow .2s, transform .2s; }
 .xcard:hover { border-color:var(--line-2); }
@@ -150,13 +150,18 @@ h1.hero-title span { font-weight:600; background:linear-gradient(90deg, #ffd3d5 
 .xcard[data-active="true"] { cursor:default; border-color:var(--line-2); box-shadow:0 10px 30px rgba(17,20,24,.10); }
 .xcard.today[data-active="true"] { border-color:var(--red); box-shadow:0 10px 30px rgba(17,20,24,.10), 0 0 0 4px rgba(233,28,36,.10); }
 .xcard .abar { position:absolute; top:0; left:0; right:0; height:3px; z-index:2; }
-.x-spine { position:absolute; inset:0; background:linear-gradient(180deg, #ffffff 0%, #f6f8fc 100%); display:flex; flex-direction:column; align-items:center; justify-content:space-between; padding:18px 12px 16px; text-align:center; transition:opacity .2s; }
+.x-spine { position:absolute; inset:0; background:linear-gradient(180deg, #ffffff 0%, #f3f6fb 100%); display:flex; flex-direction:column; align-items:center; justify-content:space-between; padding:18px 12px 16px; text-align:center; transition:opacity .2s; }
 .xcard[data-active="true"] .x-spine { opacity:0; pointer-events:none; }
 .x-spine .x-vert { writing-mode:vertical-rl; transform:rotate(180deg); font-size:13.5px; font-weight:600; letter-spacing:-.01em; line-height:1.25; color:var(--text); max-height:190px; overflow:hidden; margin:12px 0; }
 .x-num { font-size:22px; font-weight:700; letter-spacing:-.03em; line-height:1; font-variant-numeric:tabular-nums; background:linear-gradient(180deg, var(--blue), var(--navy)); -webkit-background-clip:text; background-clip:text; -webkit-text-fill-color:transparent; }
 .xcard.today .x-spine .x-num { background:linear-gradient(180deg, #ff5a60, var(--red-dk)); -webkit-background-clip:text; background-clip:text; }
-.x-spine .x-daynum { font-size:10px; font-weight:600; letter-spacing:1.2px; text-transform:uppercase; color:var(--muted); margin-top:6px; }
-.x-spine .x-done { width:22px; height:22px; border-radius:50%; display:grid; place-items:center; font-size:11px; background:var(--ok); color:#fff; margin:8px auto 0; }
+.x-spine .x-daynum { font-size:10px; font-weight:600; letter-spacing:1.2px; text-transform:uppercase; color:var(--muted); margin-top:8px; }
+.x-foot { display:flex; flex-direction:column; align-items:center; }
+.x-badge { width:40px; height:40px; border-radius:50%; display:grid; place-items:center; font-size:15px; font-weight:700; letter-spacing:-.02em; color:#fff; background:linear-gradient(135deg, var(--blue-2), var(--navy)); box-shadow:0 6px 14px rgba(31,78,156,.28), inset 0 1px 0 rgba(255,255,255,.25); font-variant-numeric:tabular-nums; }
+.xcard.today .x-badge { background:linear-gradient(135deg, #ff5a60, var(--red-dk)); box-shadow:0 6px 14px rgba(233,28,36,.3), inset 0 1px 0 rgba(255,255,255,.25); }
+.x-badge.done { background:linear-gradient(135deg, #2fa36b, var(--ok)); box-shadow:0 6px 14px rgba(29,127,79,.3); }
+.xcard[data-active="false"]::after { content:""; position:absolute; inset:0; background:linear-gradient(160deg, rgba(31,78,156,.08), transparent 55%); opacity:0; transition:opacity .25s; pointer-events:none; }
+.xcard[data-active="false"]:hover::after { opacity:1; }
 .day-chip { font-size:10px; font-weight:600; letter-spacing:1.2px; text-transform:uppercase; padding:4px 10px; border-radius:100px; border:1px solid var(--line-2); color:var(--text-2); background:var(--surface); }
 .xcard.today .day-chip { border-color:var(--red); color:var(--red); }
 .day-chip .today-tag { margin-left:6px; }
@@ -165,20 +170,39 @@ h1.hero-title span { font-weight:600; background:linear-gradient(90deg, #ffd3d5 
 
 .x-open { position:absolute; inset:0; display:grid; grid-template-rows:auto 1fr; opacity:0; transition:opacity .25s .15s; pointer-events:none; }
 .xcard[data-active="true"] .x-open { opacity:1; pointer-events:auto; }
-.x-head { padding:20px 24px 16px; border-bottom:1px solid var(--line); position:relative; background:linear-gradient(135deg, #ffffff 0%, #f3f6fb 100%); }
-.xcard.today .x-head { background:linear-gradient(135deg, #ffffff 0%, #fff1f1 100%); }
+.x-head { padding:22px 24px 18px; border-bottom:1px solid var(--line); position:relative; overflow:hidden; background:linear-gradient(120deg, #ffffff 0%, #eef3fb 70%, #e6eefb 100%); }
+.xcard.today .x-head { background:linear-gradient(120deg, #ffffff 0%, #fdeeee 70%, #fbe3e4 100%); }
+.xcard.fri .x-head { background:linear-gradient(120deg, #ffffff 0%, #e9eef7 60%, #dde6f4 100%); }
+.x-mark { position:absolute; right:-4px; bottom:-34px; font-size:140px; font-weight:800; letter-spacing:-.06em; line-height:1; pointer-events:none; font-variant-numeric:tabular-nums; background:linear-gradient(180deg, rgba(31,78,156,.16), rgba(31,78,156,.02)); -webkit-background-clip:text; background-clip:text; -webkit-text-fill-color:transparent; }
+.xcard.today .x-mark { background:linear-gradient(180deg, rgba(233,28,36,.18), rgba(233,28,36,.02)); -webkit-background-clip:text; background-clip:text; }
+.x-head > *:not(.x-mark) { position:relative; }
+.x-head > .x-actions { position:absolute; }
 .x-top { display:flex; align-items:center; gap:8px; flex-wrap:wrap; margin-bottom:12px; padding-right:190px; }
 .x-time { font-size:11px; font-weight:500; color:var(--muted); margin-left:4px; }
-.x-title-row { display:flex; align-items:center; gap:14px; }
-.x-title-row .x-num { font-size:30px; }
+.x-title-row { display:flex; align-items:center; gap:14px; max-width:78%; }
 .xcard.today .x-title-row .x-num { background:linear-gradient(180deg, #ff5a60, var(--red-dk)); -webkit-background-clip:text; background-clip:text; }
-.x-title { font-size:clamp(20px,2.1vw,25px); font-weight:700; letter-spacing:-.02em; line-height:1.15; color:var(--text); }
+.x-title { font-size:clamp(22px,2.3vw,28px); font-weight:700; letter-spacing:-.025em; line-height:1.12; color:var(--text); }
 .x-actions { position:absolute; right:22px; top:20px; display:flex; gap:8px; }
 .xbtn { appearance:none; background:var(--surface); border:1px solid var(--line-2); font-size:11px; font-weight:600; letter-spacing:.6px; text-transform:uppercase; color:var(--text); padding:7px 13px; border-radius:100px; cursor:pointer; transition:all .16s; white-space:nowrap; }
 .xbtn:hover { background:var(--surface-2); border-color:var(--text-2); }
 .xbtn.on { background:var(--ok); border-color:var(--ok); color:#fff; }
 .xbtn.copied { background:var(--navy); border-color:var(--navy); color:#fff; }
-.x-body { overflow-y:auto; padding:18px 24px 22px; display:grid; grid-template-columns:1.15fr 1fr; gap:0 28px; background:var(--surface); scrollbar-width:thin; scrollbar-color:var(--line-2) transparent; }
+.x-body { overflow-y:auto; padding:20px 24px 22px; display:grid; grid-template-columns:1.15fr 1fr; gap:0 28px; background:var(--surface); scrollbar-width:thin; scrollbar-color:var(--line-2) transparent; }
+.mission-sec { padding-left:16px; border-left:3px solid transparent; border-image:linear-gradient(180deg, var(--blue-2), var(--navy)) 1; }
+.xcard.today .mission-sec { border-image:linear-gradient(180deg, #ff5a60, var(--red-dk)) 1; }
+.skill-tag { display:inline-flex; align-items:center; gap:8px; font-size:12.5px; font-weight:600; color:var(--navy); background:linear-gradient(135deg, #eef3fb, #e3ebf8); border:1px solid rgba(31,78,156,.18); border-radius:100px; padding:7px 13px; line-height:1.3; }
+.skill-tag svg { color:var(--blue-2); flex-shrink:0; }
+.share-card { position:relative; border-radius:10px; padding:14px 16px 12px; background:linear-gradient(135deg, #fff, #f6f8fc); border:1px solid transparent; background-clip:padding-box; }
+.share-card::before { content:""; position:absolute; inset:-1px; border-radius:11px; padding:1px; background:linear-gradient(135deg, var(--red), var(--blue-2)); -webkit-mask:linear-gradient(#000 0 0) content-box, linear-gradient(#000 0 0); mask:linear-gradient(#000 0 0) content-box, linear-gradient(#000 0 0); -webkit-mask-composite:xor; mask-composite:exclude; pointer-events:none; }
+.share-head { display:flex; align-items:center; gap:8px; font-size:10px; font-weight:600; letter-spacing:1.5px; text-transform:uppercase; color:var(--text-2); margin-bottom:6px; }
+.share-ic { width:20px; height:20px; border-radius:6px; display:grid; place-items:center; background:linear-gradient(135deg, #ff5a60, var(--red-dk)); color:#fff; }
+.share-card p { font-size:13.5px; color:var(--text); line-height:1.55; font-weight:500; }
+.share-foot { display:block; margin-top:8px; font-size:11px; color:var(--muted); }
+.wk-progress { display:grid; grid-template-columns:repeat(5,1fr); gap:6px; margin:0 0 10px; }
+.wk-progress span { height:4px; border-radius:100px; background:var(--line-2); }
+.wk-progress span.past { background:linear-gradient(90deg, #b9c6dd, #c9d3e6); }
+.wk-progress span.today { background:linear-gradient(90deg, #ff5a60, var(--red-dk)); }
+.wk-progress span.done { background:linear-gradient(90deg, #2fa36b, var(--ok)); }
 .x-col { min-width:0; }
 .sec { margin-bottom:16px; }
 .sec h4 { font-size:10px; font-weight:600; letter-spacing:1.5px; text-transform:uppercase; color:var(--muted); margin-bottom:6px; display:flex; align-items:baseline; gap:8px; flex-wrap:wrap; }
@@ -241,7 +265,7 @@ footer .wrap { display:flex; justify-content:space-between; gap:16px; flex-wrap:
 footer b { color:var(--text-2); font-weight:600; }
 
 /* ══ RESPONSIVE ══ */
-@media (max-width:1120px) { .x-body { grid-template-columns:1fr; } .xgrid { height:470px; } .xgrid.playing { height:760px; } }
+@media (max-width:1120px) { .x-body { grid-template-columns:1fr; } .xgrid { height:560px; } .xgrid.playing { height:760px; } }
 @media (max-width:900px) {
   .hero-grid { grid-template-columns:1fr; gap:28px; }
   .top-nav { display:none; }
@@ -249,14 +273,16 @@ footer b { color:var(--text-2); font-weight:600; }
   .xgrid.playing { height:auto; }
   .x-spine { position:static; flex-direction:row; justify-content:flex-start; gap:12px; padding:14px 16px; text-align:left; }
   .x-spine .x-vert { writing-mode:horizontal-tb; transform:none; margin:0; max-height:none; font-size:14px; }
-  .x-spine > div { display:flex; align-items:baseline; gap:8px; margin-left:auto; }
+  .x-foot { flex-direction:row; align-items:center; gap:10px; margin-left:auto; }
+  .x-badge { width:32px; height:32px; font-size:12.5px; }
   .x-spine .x-daynum { margin:0; }
-  .x-spine .x-done { margin:0; }
+  .x-mark { font-size:110px; }
+  .x-title-row { max-width:100%; }
   .xcard[data-active="true"] .x-spine { display:none; }
   .x-open { position:static; display:none; opacity:1; pointer-events:auto; }
   .xcard[data-active="true"] .x-open { display:grid; }
   .x-body { overflow:visible; }
-  .x-actions { position:static; margin-top:12px; }
+  .x-head > .x-actions { position:static; margin-top:12px; }
   .x-top { padding-right:0; }
   .x-nav .x-hint { display:none; }
   .today-pill { flex-wrap:wrap; border-radius:var(--r); padding:14px 16px; gap:8px; }
@@ -852,12 +878,13 @@ function cardHtml(a, w, idx) {
     <div class="x-spine">
       <span class="day-chip">${a.dow}</span>
       <span class="x-vert">${esc(a.title)}</span>
-      <div><span class="x-num">${String(dayNum(a)).padStart(2, '0')}</span><div class="x-daynum">${w.days[idx]}</div>${isDone ? '<div class="x-done">✓</div>' : ''}</div>
+      <div class="x-foot"><span class="x-badge${isDone ? ' done' : ''}">${isDone ? '✓' : String(dayNum(a)).padStart(2, '0')}</span><div class="x-daynum">${w.days[idx]}</div></div>
     </div>
     <div class="x-open">
       <div class="x-head">
         <div class="x-top"><span class="day-chip">${chip}</span>${badge}<span class="x-time">15–20 min</span></div>
-        <div class="x-title-row"><span class="x-num">${String(dayNum(a)).padStart(2, '0')}</span><div class="x-title">${esc(a.title)}</div></div>
+        <span class="x-mark" aria-hidden="true">${String(dayNum(a)).padStart(2, '0')}</span>
+        <div class="x-title-row"><div class="x-title">${esc(a.title)}</div></div>
         <div class="x-actions">
           <button type="button" class="xbtn${isDone ? ' on' : ''}" data-done="${a.id}" onclick="event.stopPropagation();toggleDone('${a.id}', this)">${isDone ? '✓ Done' : 'Mark done'}</button>
           <button type="button" class="xbtn" onclick="event.stopPropagation();copyLink('${a.id}', this)">Link</button>
@@ -865,12 +892,12 @@ function cardHtml(a, w, idx) {
       </div>
       <div class="x-body" onclick="event.stopPropagation()">
         <div class="x-col">
-          <div class="sec"><h4>Mission</h4><p class="mission">${esc(a.mission)}</p></div>
+          <div class="sec mission-sec"><h4>Mission</h4><p class="mission">${esc(a.mission)}</p></div>
         </div>
         <div class="x-col">
           ${watchHtml(a, w)}
-          <div class="sec"><h4>AI skill</h4><p>${esc(a.skill)}</p></div>
-          <div class="sec tip"><h4>Keep and share</h4><p>${esc(a.share)} Post in the channel.</p></div>
+          <div class="sec"><h4>AI skill</h4><span class="skill-tag"><svg width="12" height="12" viewBox="0 0 12 12" aria-hidden="true"><path d="M6 1l1.4 3.1L11 4.6 8.5 7l.6 3.5L6 8.8 2.9 10.5 3.5 7 1 4.6l3.6-.5z" fill="currentColor"/></svg>${esc(a.skill.replace(/\.$/, ''))}</span></div>
+          <div class="share-card"><div class="share-head"><span class="share-ic"><svg width="12" height="12" viewBox="0 0 12 12" aria-hidden="true"><path d="M2 2h8v6H5l-3 2.5z" fill="none" stroke="currentColor" stroke-width="1.3" stroke-linejoin="round"/></svg></span>Keep and share</div><p>${esc(a.share)}</p><span class="share-foot">Post in the Viva Engage channel</span></div>
         </div>
       </div>
     </div>
@@ -920,6 +947,7 @@ function weekPanel(w, i) {
       <p class="week-intro">${esc(w.intro)}</p>
     </div>
     ${brk}${paths}
+    <div class="wk-progress" id="wkp-${w.num}" aria-hidden="true">${acts.map((a, j) => `<span class="${done.has(a.id) ? 'done' : ''}${a.date === TODAY ? ' today' : ''}${a.date < TODAY && !done.has(a.id) ? ' past' : ''}"></span>`).join('')}</div>
     <div class="xgrid" id="xgrid-${w.num}" style="grid-template-columns:${gridColumns(w.num)}">${acts.map((a, j) => cardHtml(a, w, j)).join('')}</div>
     <div class="x-nav">
       <button type="button" class="navbtn" onclick="stepDay(${w.num},-1)" id="prev-${w.num}">← Previous day</button>
@@ -1000,11 +1028,11 @@ function toggleDone(id, btn) {
   const a = ACTS.find(x => x.id === id);
   const on = done.has(id);
   btn.classList.toggle('on', on); btn.textContent = on ? '✓ Done' : 'Mark done';
-  const spine = document.querySelector(`#card-${id} .x-spine > div`);
-  const mark = spine.querySelector('.x-done');
-  if (on && !mark) spine.insertAdjacentHTML('beforeend', '<div class="x-done">✓</div>'); else if (!on && mark) mark.remove();
+  const badge = document.querySelector(`#card-${id} .x-badge`);
+  badge.classList.toggle('done', on); badge.textContent = on ? '✓' : String(dayNum(a)).padStart(2, '0');
   const idx = ACTS.filter(x => x.week === a.week).indexOf(a);
   document.querySelectorAll(`#dots-${a.week} .dot`)[idx].classList.toggle('done', on);
+  const seg = document.querySelectorAll(`#wkp-${a.week} span`)[idx]; seg.classList.toggle('done', on); if (on) seg.classList.remove('past');
   renderTabs(); document.getElementById('wtab-' + a.week).classList.add('on'); document.querySelectorAll('.wtab').forEach(b => { if (b.id !== 'wtab-' + currentWeek) b.classList.remove('on'); });
 }
 async function copyText(text, btn, label) {
