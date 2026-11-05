@@ -3,16 +3,18 @@
 The standalone participant site for the Public Sector Sales **AI Activation Program**
 (Nov 9 – Dec 11, 2026 · Thanksgiving week off · GTM Enablement).
 
-One page plus a vendored `three.min.js` that powers the live WebGL
-ink-cloud background — the same build as the Channel Sales Marathon site —
-slow-drifting, domain-warped noise clouds on a black canvas; on every week
-tab change the clouds take on that week's accent color, then settle back.
-Degrades gracefully without WebGL2.
+One page, no build step, no dependencies beyond the Inter font. A clean,
+purpose built design: a navy program band at the top with the live today
+pill and the at-a-glance facts, then a light working surface for the weekly
+activities. One accent, the Equinix logo red, marks today and the data rule;
+navy marks the Friday synthesis and the selected week; green marks done.
+Day cards carry their day number rather than an icon.
 
 ## What's on the page
 
-- **Hero** with a live **today pill** (today's activity, a countdown before
-  Nov 9, the break notice in Thanksgiving week) and number tickers.
+- **Program band** with the title, a live **today pill** (today's activity, a
+  countdown before Nov 9, the pause notice in Thanksgiving week) and the
+  at-a-glance facts with number tickers.
 - **Weekly activities** — one tab per week. Each week is a row of five
   **expanding day cards**: the open day takes most of the width and shows the
   activity as the program brief states it (mission, AI skill, keep and share);
@@ -24,11 +26,11 @@ Degrades gracefully without WebGL2.
   the page (YouTube's no-cookie embed), a chapter from its start to its end time.
 - **Submission Channel** tab for Viva Engage.
 
-The page is deliberately lean: the hero, then the weeks and the daily
-activities, with the activity text taken from the full program brief
-(November 2026) and nothing added to it. The interaction patterns (expanding
-cards, spotlight, number ticker) are adapted from 21st.dev references and
-re-implemented in plain CSS and JavaScript — no framework, no build step.
+The page is deliberately lean: the program band, then the weeks and the
+daily activities, with the activity text taken from the full program brief
+(November 2026) and nothing added to it. The expanding day cards and the
+number tickers are adapted from 21st.dev references and re-implemented in
+plain CSS and JavaScript.
 
 **Today:** the page opens on the current week with today's card open; add
 `?date=YYYY-MM-DD` to preview any day, for example `index.html?date=2026-11-30`.
@@ -50,5 +52,6 @@ All content is in the `DATA` block at the top of the page script in `index.html`
 ## Publish
 
 GitHub Pages → Settings → Pages → deploy from the default branch, root.
-Or copy `index.html` and `three.min.js` anywhere — the page is self-contained
-apart from the Inter font from Google Fonts.
+Or copy `index.html` and the `brand/` folder anywhere — the page is
+self-contained apart from the Inter font from Google Fonts and the YouTube
+players.
