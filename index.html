@@ -30,8 +30,6 @@
   --text:    #111418;
   --text-2:  #4a5059;
   --muted:   #7a818c;
-  --ok:      #1d7f4f;
-  --ok-bg:   #e8f5ee;
   --on-navy: rgba(255,255,255,.78);
   --sans: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
   --r: 10px; --r-sm: 6px;
@@ -110,11 +108,9 @@ h1.hero-title span { font-weight:600; background:linear-gradient(90deg, #ffd3d5 
 .tabbar::-webkit-scrollbar { display:none; }
 .wtab { appearance:none; background:var(--surface); border:1px solid var(--line); font-size:13px; font-weight:500; color:var(--text); padding:9px 16px; border-radius:100px; cursor:pointer; transition:all .18s; white-space:nowrap; display:flex; align-items:center; gap:8px; }
 .wtab .wt-num { font-size:10px; letter-spacing:1px; text-transform:uppercase; font-weight:600; color:var(--muted); }
-.wtab .wt-done { font-size:10px; font-weight:700; color:var(--ok); background:var(--ok-bg); border-radius:100px; padding:2px 7px; }
 .wtab:hover { border-color:var(--line-2); }
 .wtab.on { background:linear-gradient(135deg, var(--navy-2), var(--blue)); border-color:transparent; color:#fff; box-shadow:0 6px 16px rgba(31,78,156,.25); }
 .wtab.on .wt-num { color:rgba(255,255,255,.6); }
-.wtab.on .wt-done { background:rgba(255,255,255,.15); color:#fff; }
 
 .panel { display:none; padding:26px 0 8px; }
 .panel.active { display:block; animation:fadeUp .35s cubic-bezier(.22,.9,.3,1) both; }
@@ -159,7 +155,6 @@ h1.hero-title span { font-weight:600; background:linear-gradient(90deg, #ffd3d5 
 .x-foot { display:flex; flex-direction:column; align-items:center; }
 .x-badge { width:40px; height:40px; border-radius:50%; display:grid; place-items:center; font-size:15px; font-weight:700; letter-spacing:-.02em; color:#fff; background:linear-gradient(135deg, var(--blue-2), var(--navy)); box-shadow:0 6px 14px rgba(31,78,156,.28), inset 0 1px 0 rgba(255,255,255,.25); font-variant-numeric:tabular-nums; }
 .xcard.today .x-badge { background:linear-gradient(135deg, #ff5a60, var(--red-dk)); box-shadow:0 6px 14px rgba(233,28,36,.3), inset 0 1px 0 rgba(255,255,255,.25); }
-.x-badge.done { background:linear-gradient(135deg, #2fa36b, var(--ok)); box-shadow:0 6px 14px rgba(29,127,79,.3); }
 .xcard[data-active="false"]::after { content:""; position:absolute; inset:0; background:linear-gradient(160deg, rgba(31,78,156,.08), transparent 55%); opacity:0; transition:opacity .25s; pointer-events:none; }
 .xcard[data-active="false"]:hover::after { opacity:1; }
 .day-chip { font-size:10px; font-weight:600; letter-spacing:1.2px; text-transform:uppercase; padding:4px 10px; border-radius:100px; border:1px solid var(--line-2); color:var(--text-2); background:var(--surface); }
@@ -185,7 +180,6 @@ h1.hero-title span { font-weight:600; background:linear-gradient(90deg, #ffd3d5 
 .x-actions { position:absolute; right:22px; top:20px; display:flex; gap:8px; }
 .xbtn { appearance:none; background:var(--surface); border:1px solid var(--line-2); font-size:11px; font-weight:600; letter-spacing:.6px; text-transform:uppercase; color:var(--text); padding:7px 13px; border-radius:100px; cursor:pointer; transition:all .16s; white-space:nowrap; }
 .xbtn:hover { background:var(--surface-2); border-color:var(--text-2); }
-.xbtn.on { background:var(--ok); border-color:var(--ok); color:#fff; }
 .xbtn.copied { background:var(--navy); border-color:var(--navy); color:#fff; }
 .x-body { overflow-y:auto; padding:20px 24px 22px; display:grid; grid-template-columns:1.15fr 1fr; gap:0 28px; background:var(--surface); scrollbar-width:thin; scrollbar-color:var(--line-2) transparent; }
 .mission-sec { padding-left:16px; border-left:3px solid transparent; border-image:linear-gradient(180deg, var(--blue-2), var(--navy)) 1; }
@@ -202,7 +196,6 @@ h1.hero-title span { font-weight:600; background:linear-gradient(90deg, #ffd3d5 
 .wk-progress span { height:4px; border-radius:100px; background:var(--line-2); }
 .wk-progress span.past { background:linear-gradient(90deg, #b9c6dd, #c9d3e6); }
 .wk-progress span.today { background:linear-gradient(90deg, #ff5a60, var(--red-dk)); }
-.wk-progress span.done { background:linear-gradient(90deg, #2fa36b, var(--ok)); }
 .x-col { min-width:0; }
 .sec { margin-bottom:16px; }
 .sec h4 { font-size:10px; font-weight:600; letter-spacing:1.5px; text-transform:uppercase; color:var(--muted); margin-bottom:6px; display:flex; align-items:baseline; gap:8px; flex-wrap:wrap; }
@@ -226,7 +219,6 @@ h1.hero-title span { font-weight:600; background:linear-gradient(90deg, #ffd3d5 
 .x-nav .dots { display:flex; gap:6px; margin:0 auto; }
 .x-nav .dot { width:28px; height:5px; border-radius:100px; background:var(--line-2); border:0; cursor:pointer; padding:0; transition:background .2s, width .2s; }
 .x-nav .dot.on { background:linear-gradient(90deg, var(--blue-2), var(--navy)); width:40px; }
-.x-nav .dot.done { background:var(--ok); }
 .x-nav .navbtn { appearance:none; background:var(--surface); border:1px solid var(--line-2); color:var(--text); font-size:12px; font-weight:600; padding:8px 14px; border-radius:100px; cursor:pointer; transition:all .16s; }
 .x-nav .navbtn:hover { border-color:var(--text-2); }
 .x-nav .navbtn:disabled { opacity:.35; cursor:default; }
@@ -813,7 +805,6 @@ const TODAY = (() => {
 
 /* ══ STATE (remembered in this browser) ══ */
 const store = { get(k, f) { try { const v = localStorage.getItem(k); return v === null ? f : JSON.parse(v); } catch (e) { return f; } }, set(k, v) { try { localStorage.setItem(k, JSON.stringify(v)); } catch (e) {} } };
-const done = new Set(store.get('ps-done', []));
 const activeDay = { 1: 0, 2: 0, 3: 0, 4: 0 };
 
 /* ══ HELPERS ══ */
@@ -872,13 +863,12 @@ function cardHtml(a, w, idx) {
   const chip = `${a.dow} · ${w.days[idx]}${today ? '<span class="today-tag">· TODAY</span>' : ''}`;
   const badge = a.fri ? '<span class="req-mand">Week synthesis</span>' : `<span class="req-opt">Day ${dayNum(a)} of 20</span>`;
   const chip0 = chip;
-  const isDone = done.has(a.id);
   return `<article class="xcard${a.fri ? ' fri' : ''}${today ? ' today' : ''}" id="card-${a.id}" data-active="${idx === activeDay[w.num] ? 'true' : 'false'}" data-week="${w.num}" data-idx="${idx}" style="--i:${idx}" tabindex="0" role="button" aria-expanded="${idx === activeDay[w.num]}" aria-label="${esc(a.title)}, ${esc(fmtLong(a.date))}">
     <div class="abar" style="background:${bar}"></div>
     <div class="x-spine">
       <span class="day-chip">${a.dow}</span>
       <span class="x-vert">${esc(a.title)}</span>
-      <div class="x-foot"><span class="x-badge${isDone ? ' done' : ''}">${isDone ? '✓' : String(dayNum(a)).padStart(2, '0')}</span><div class="x-daynum">${w.days[idx]}</div></div>
+      <div class="x-foot"><span class="x-badge">${String(dayNum(a)).padStart(2, '0')}</span><div class="x-daynum">${w.days[idx]}</div></div>
     </div>
     <div class="x-open">
       <div class="x-head">
@@ -886,7 +876,6 @@ function cardHtml(a, w, idx) {
         <span class="x-mark" aria-hidden="true">${String(dayNum(a)).padStart(2, '0')}</span>
         <div class="x-title-row"><div class="x-title">${esc(a.title)}</div></div>
         <div class="x-actions">
-          <button type="button" class="xbtn${isDone ? ' on' : ''}" data-done="${a.id}" onclick="event.stopPropagation();toggleDone('${a.id}', this)">${isDone ? '✓ Done' : 'Mark done'}</button>
           <button type="button" class="xbtn" onclick="event.stopPropagation();copyLink('${a.id}', this)">Link</button>
         </div>
       </div>
@@ -947,11 +936,11 @@ function weekPanel(w, i) {
       <p class="week-intro">${esc(w.intro)}</p>
     </div>
     ${brk}${paths}
-    <div class="wk-progress" id="wkp-${w.num}" aria-hidden="true">${acts.map((a, j) => `<span class="${done.has(a.id) ? 'done' : ''}${a.date === TODAY ? ' today' : ''}${a.date < TODAY && !done.has(a.id) ? ' past' : ''}"></span>`).join('')}</div>
+    <div class="wk-progress" id="wkp-${w.num}" aria-hidden="true">${acts.map((a, j) => `<span class="${a.date === TODAY ? 'today' : a.date < TODAY ? 'past' : ''}"></span>`).join('')}</div>
     <div class="xgrid" id="xgrid-${w.num}" style="grid-template-columns:${gridColumns(w.num)}">${acts.map((a, j) => cardHtml(a, w, j)).join('')}</div>
     <div class="x-nav">
       <button type="button" class="navbtn" onclick="stepDay(${w.num},-1)" id="prev-${w.num}">← Previous day</button>
-      <div class="dots" id="dots-${w.num}">${acts.map((a, j) => `<button type="button" class="dot${j === activeDay[w.num] ? ' on' : ''}${done.has(a.id) ? ' done' : ''}" aria-label="${esc(a.title)}" onclick="setDay(${w.num},${j})"></button>`).join('')}</div>
+      <div class="dots" id="dots-${w.num}">${acts.map((a, j) => `<button type="button" class="dot${j === activeDay[w.num] ? ' on' : ''}" aria-label="${esc(a.title)}" onclick="setDay(${w.num},${j})"></button>`).join('')}</div>
       <span class="x-hint">← → keys move between days</span>
       <button type="button" class="navbtn" onclick="stepDay(${w.num},1)" id="next-${w.num}">Next day →</button>
     </div>
@@ -976,8 +965,7 @@ function channelPanel() {
 }
 function renderTabs() {
   document.getElementById('tabbar').innerHTML = WEEKS.map((w,i) => {
-    const n = ACTS.filter(a => a.week === w.num && done.has(a.id)).length;
-    return `<button class="wtab${i===0?' on':''}" id="wtab-${w.num}" onclick="setWeek(${w.num})"><span class="wt-num">Week ${w.num}</span>${esc(w.short)}${n ? `<span class="wt-done">${n}/5</span>` : ''}</button>`;
+    return `<button class="wtab${i===0?' on':''}" id="wtab-${w.num}" onclick="setWeek(${w.num})"><span class="wt-num">Week ${w.num}</span>${esc(w.short)}</button>`;
   }).join('') + `<button class="wtab" id="wtab-channel" onclick="setWeek('channel')"><span class="wt-num">Share</span>Submission Channel</button>`;
 }
 function renderPanels() {
@@ -1022,19 +1010,6 @@ function openActivity(id) {
 }
 
 /* ══ CONTEXT, DONE, COPY ══ */
-function toggleDone(id, btn) {
-  if (done.has(id)) done.delete(id); else done.add(id);
-  store.set('ps-done', [...done]);
-  const a = ACTS.find(x => x.id === id);
-  const on = done.has(id);
-  btn.classList.toggle('on', on); btn.textContent = on ? '✓ Done' : 'Mark done';
-  const badge = document.querySelector(`#card-${id} .x-badge`);
-  badge.classList.toggle('done', on); badge.textContent = on ? '✓' : String(dayNum(a)).padStart(2, '0');
-  const idx = ACTS.filter(x => x.week === a.week).indexOf(a);
-  document.querySelectorAll(`#dots-${a.week} .dot`)[idx].classList.toggle('done', on);
-  const seg = document.querySelectorAll(`#wkp-${a.week} span`)[idx]; seg.classList.toggle('done', on); if (on) seg.classList.remove('past');
-  renderTabs(); document.getElementById('wtab-' + a.week).classList.add('on'); document.querySelectorAll('.wtab').forEach(b => { if (b.id !== 'wtab-' + currentWeek) b.classList.remove('on'); });
-}
 async function copyText(text, btn, label) {
   try { await navigator.clipboard.writeText(text); const t = btn.textContent; btn.classList.add('copied'); btn.textContent = label; setTimeout(() => { btn.classList.remove('copied'); btn.textContent = t; }, 1600); }
   catch (e) { btn.textContent = 'Select and copy'; }

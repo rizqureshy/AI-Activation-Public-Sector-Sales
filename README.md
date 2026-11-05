@@ -9,7 +9,7 @@ mesh gradients (deep blue with a warm red glow and fine grain, all CSS, no
 image files), with the live today pill and the at-a-glance facts, then a
 light working surface for the weekly activities with gradient washes on the
 week headers and the open day. One accent, the Equinix logo red, marks today and the data rule;
-navy marks the Friday synthesis and the selected week; green marks done.
+navy marks the Friday synthesis and the selected week.
 Day cards carry their day number rather than an icon.
 
 ## What's on the page
@@ -21,8 +21,7 @@ Day cards carry their day number rather than an icon.
   **expanding day cards**: the open day takes most of the width and shows the
   activity as the program brief states it (mission, AI skill, keep and share);
   the other four collapse to slim spines. Click a spine, use the dots, the
-  previous/next buttons, or ← → keys. Mark a day done; the spine, the dots and
-  the week tab keep count. Every day has a link (`#/day/<id>`). Week 3 shows
+  previous/next buttons, or ← → keys. Every day has a link (`#/day/<id>`). Week 3 shows
   the build environment, the Customer Source Pack components, the two assigned
   tutorials, and each day's video chapter. Chapters and tutorials play inside
   the page (YouTube's no-cookie embed), a chapter from its start to its end time.
