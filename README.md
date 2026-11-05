@@ -4,9 +4,11 @@ The standalone participant site for the Public Sector Sales **AI Activation Prog
 (Nov 9 – Dec 11, 2026 · Thanksgiving week off · GTM Enablement).
 
 One page, no build step, no dependencies beyond the Inter font. A clean,
-purpose built design: a navy program band at the top with the live today
-pill and the at-a-glance facts, then a light working surface for the weekly
-activities. One accent, the Equinix logo red, marks today and the data rule;
+purpose built design: a navy program band at the top, built from layered
+mesh gradients (deep blue with a warm red glow and fine grain, all CSS, no
+image files), with the live today pill and the at-a-glance facts, then a
+light working surface for the weekly activities with gradient washes on the
+week headers and the open day. One accent, the Equinix logo red, marks today and the data rule;
 navy marks the Friday synthesis and the selected week; green marks done.
 Day cards carry their day number rather than an icon.
 
